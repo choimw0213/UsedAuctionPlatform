@@ -14,6 +14,4 @@ public class UserVO {
 	private String profileImg;
 	private String userType;
 	private int reportCount;
-	
-	
 }
