@@ -17,6 +17,10 @@ public class UserVO {
 	
 	public UserVO() {}
 	
+	public UserVO(String nickName, String UserType){
+		this(null, null, null, nickName, null, null, null, 0, 0, 0, null, UserType, 0);
+	}
+	
 	public UserVO(String user_id, String password, String name, String nickName, String phoneNumber, String email,
 			String address, int point, double rate, int rateCount, String profileImg, String userType,
 			int reportCount) {
