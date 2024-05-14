@@ -1,7 +1,5 @@
 package domain.user;
 
-import com.oopsw.model.GetterSetter;
-
 public class UserVO {
 	private String user_id;
 	private String password;
@@ -36,86 +34,111 @@ public class UserVO {
 		setUserType(userType);
 		setReportCount(reportCount);
 	}
-	
+
 	public String getUser_id() {
 		return user_id;
 	}
+
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getNickName() {
 		return nickName;
 	}
+
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public int getPoint() {
 		return point;
 	}
+
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
 	public double getRate() {
 		return rate;
 	}
+
 	public void setRate(double rate) {
 		this.rate = rate;
 	}
+
 	public int getRateCount() {
 		return rateCount;
 	}
+
 	public void setRateCount(int rateCount) {
 		this.rateCount = rateCount;
 	}
+
 	public String getProfileImg() {
 		return profileImg;
 	}
+
 	public void setProfileImg(String profileImg) {
 		this.profileImg = profileImg;
 	}
+
 	public String getUserType() {
 		return userType;
 	}
+
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+
 	public int getReportCount() {
 		return reportCount;
 	}
+
 	public void setReportCount(int reportCount) {
 		this.reportCount = reportCount;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -137,7 +160,7 @@ public class UserVO {
 		result = prime * result + ((user_id == null) ? 0 : user_id.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -146,7 +169,7 @@ public class UserVO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GetterSetter other = (GetterSetter) obj;
+		UserVO other = (UserVO) obj;
 		if (address == null) {
 			if (other.address != null)
 				return false;
@@ -202,12 +225,12 @@ public class UserVO {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "GetterSetter [user_id=" + user_id + ", password=" + password + ", name=" + name + ", nickName="
-				+ nickName + ", phoneNumber=" + phoneNumber + ", email=" + email + ", address=" + address + ", point="
-				+ point + ", rate=" + rate + ", rateCount=" + rateCount + ", profileImg=" + profileImg + ", userType="
+		return "UserVO [user_id=" + user_id + ", password=" + password + ", name=" + name + ", nickName=" + nickName
+				+ ", phoneNumber=" + phoneNumber + ", email=" + email + ", address=" + address + ", point=" + point
+				+ ", rate=" + rate + ", rateCount=" + rateCount + ", profileImg=" + profileImg + ", userType="
 				+ userType + ", reportCount=" + reportCount + "]";
 	}
 }
