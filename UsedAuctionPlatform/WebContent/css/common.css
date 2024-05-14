@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+body{
+	display: flex;
+ 	align-items: center;
+ 	min-height: 100vh;
+ 	margin: 0;
+ 	color: #22333B;
+ 	font-size: 12px;
+}
+
+#project_container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width:320px; 
+	height:568px; 
+	border:2px solid black;
+	border-radius:20px;
+}
