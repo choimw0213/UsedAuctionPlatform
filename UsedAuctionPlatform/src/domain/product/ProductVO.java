@@ -9,19 +9,20 @@ public class ProductVO {
 	private String category;
 	private String address;
 	private LocalDateTime startDate;
-	private int endDate;
+	private LocalDateTime endDate;
+	private int endDateNum;
 	private int price;
 	private int startPrice;
 	private String content;
 	private String state;
 	
 	
-	public ProductVO(int productSeq, String userId, String title, String category, String address,
-			LocalDateTime startDate, int endDate, int price, int startPrice, String content, String state) {
+	public ProductVO(int productSeq, String userId, String title, String category, String address, LocalDateTime endDate,
+			LocalDateTime startDate, int endDateNum, int price, int startPrice, String content, String state) {
 		setAddress(address);
 		setCategory(category);
 		setContent(content);
-		setEndDate(endDate);
+		setEndDateNum(endDateNum);
 		setPrice(startPrice);
 		setProductSeq(productSeq);
 		setStartDate(startDate);
@@ -29,73 +30,130 @@ public class ProductVO {
 		setState(state);
 		setTitle(title);
 		setUserId(userId);
+		setEndDate(endDate);
 	}
+
+
 	public int getProductSeq() {
 		return productSeq;
 	}
+
+
 	public void setProductSeq(int productSeq) {
 		this.productSeq = productSeq;
 	}
+
+
 	public String getUserId() {
 		return userId;
 	}
+
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+
 	public String getTitle() {
 		return title;
 	}
+
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+
 	public String getCategory() {
 		return category;
 	}
+
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+
 	public String getAddress() {
 		return address;
 	}
+
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+
 	public LocalDateTime getStartDate() {
 		return startDate;
 	}
+
+
 	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
-	public int getEndDate() {
+
+
+	public LocalDateTime getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(int endDate) {
+
+
+	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
+
+
+	public int getEndDateNum() {
+		return endDateNum;
+	}
+
+
+	public void setEndDateNum(int endDateNum) {
+		this.endDateNum = endDateNum;
+	}
+
+
 	public int getPrice() {
 		return price;
 	}
+
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+
 	public int getStartPrice() {
 		return startPrice;
 	}
+
+
 	public void setStartPrice(int startPrice) {
 		this.startPrice = startPrice;
 	}
+
+
 	public String getContent() {
 		return content;
 	}
+
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+
 	public String getState() {
 		return state;
 	}
+
+
 	public void setState(String state) {
 		this.state = state;
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,7 +161,8 @@ public class ProductVO {
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
-		result = prime * result + endDate;
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+		result = prime * result + endDateNum;
 		result = prime * result + price;
 		result = prime * result + productSeq;
 		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
@@ -113,6 +172,8 @@ public class ProductVO {
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -137,7 +198,12 @@ public class ProductVO {
 				return false;
 		} else if (!content.equals(other.content))
 			return false;
-		if (endDate != other.endDate)
+		if (endDate == null) {
+			if (other.endDate != null)
+				return false;
+		} else if (!endDate.equals(other.endDate))
+			return false;
+		if (endDateNum != other.endDateNum)
 			return false;
 		if (price != other.price)
 			return false;
@@ -167,13 +233,16 @@ public class ProductVO {
 			return false;
 		return true;
 	}
+
+
 	@Override
 	public String toString() {
 		return "ProductVO [productSeq=" + productSeq + ", userId=" + userId + ", title=" + title + ", category="
-				+ category + ", address=" + address + ", startDate=" + startDate + ", endDate=" + endDate + ", price="
-				+ price + ", startPrice=" + startPrice + ", content=" + content + ", state=" + state + "]";
+				+ category + ", address=" + address + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", endDateNum=" + endDateNum + ", price=" + price + ", startPrice=" + startPrice + ", content="
+				+ content + ", state=" + state + "]";
 	}
-
+	
 	
 			
 }
