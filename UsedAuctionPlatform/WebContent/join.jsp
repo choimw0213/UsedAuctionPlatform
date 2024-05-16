@@ -14,35 +14,35 @@
 <div id = "project_container">
 <div class = "container">
 <div class = "joinH1">
-    <h1 style="font-size:2em; font-weight:bold;">회원가입</h1>
+    <h1 class="fontJoinH1">회원가입</h1>
 </div>
 <div id = "addInfo">
 <div class = "addUserId">
-    아이디ㅤ<input type = "text" name = "userId" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+    ㅤㅤㅤ아이디<input type = "text" name = "userId" class="inputTxt"><br>
 </div>
 
 <div class = "addPassword">
-    비밀번호ㅤ<input type = "password" name = "password" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+    ㅤㅤㅤ비밀번호<input type = "password" name = "password" class="inputTxt"><br>
 </div>
 
-<div class = "cheakPassword">
-	비밀번호 확인 <input type = "password" name = "chaekPassword" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+<div class = "checkPassword">
+	비밀번호 확인 <input type = "password" name = "checkPassword" class="inputTxt"><br>
 </div>
 
 <div class = "addName">
-	이름 <input type = "text" name = "name" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+ㅤ이름 <input type = "text" name = "name" class="inputTxt"><br>
 </div>
 
 <div class = "addNickname">
-	닉네임 <input type = "text" name = "nickname" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+	ㅤ닉네임 <input type = "text" name = "nickname" class="inputTxt"><br>
 </div>
 
 <div class = "addPhoneNumber">
-	전화번호 <input type = "text" name = "phoneNumber" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+	ㅤㅤ전화번호 <input type = "text" name = "phoneNumber" class="inputTxt"><br>
 </div>
 
 <div class = "addEmail">
-	이메일 <input type = "text" name = "email" style="background-color:#D9D9D9; border:none; border-radius:10px;"><br>
+	ㅤ이메일 <input type = "text" name = "email" class="inputTxt"><br>
 </div>
 
 
@@ -50,7 +50,7 @@
 	<div class = "addressH6">
 		<h6>주소</h6>
 	</div>	
-	<select class="form-select" aria-label="Default select example" id="select-box" data-live-search="true" >
+	<select class="form-select" aria-label="Default select example" id="select-box">
    		<option selected class="selectItems">금천구</option>
     	<option value="1" class="selectItems">XX구</option>
     	<option value="2" class="selectItems">AA구</option>

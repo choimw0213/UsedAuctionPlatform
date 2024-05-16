@@ -1,0 +1,50 @@
+img{
+	width:60px;
+	height:60px;
+}
+
+
+.pointTxt{
+	text-align: center;
+	transform: translateX(40%);
+}
+
+.pointFont{
+	font-size:2em;
+}
+
+
+
+.nicknameP{
+	transform: translateY(40%);
+}
+
+.rateP{
+	transform: translateY(-20%);
+}
+
+
+.btn{
+	background-color:#FFB966;
+	border:none;
+}
+
+#myActButton{
+	transform: translateX(40%);
+}
+
+.cBeB{
+	display:flex;
+	flex-wrap:nowrap;
+}
+
+.chargeButton{
+	transform: translateX(-50%);
+
+}
+
+
+.exchangeButton{
+	transform: translateX(40%);
+	
+}

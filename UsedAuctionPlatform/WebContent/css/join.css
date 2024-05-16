@@ -91,6 +91,14 @@ input:focus {
     font-size:1.75em;
 }
 
+.inputTxt{
+	background-color:#D9D9D9; border:none; border-radius:10px;
+}
+
+
+.fontJoinH1{
+	font-size:2em; font-weight:bold;
+}
 
 .joinbt{
     color:#FFFFFF;
