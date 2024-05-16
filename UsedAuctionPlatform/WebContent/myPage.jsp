@@ -20,19 +20,14 @@
 
 
 
-	
-
-
-
-
   <!-- The Modal -->
-  <div class="modal fade" id="myModal">
+  <div class="modal fade" id="myModalCharge">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">포인트 충전하기</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -43,7 +38,40 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary">확인</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+	
+
+
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModalExchange">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">포인트 환전하기</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <input class="form-control form-control-lg" type="number">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary">확인</button>
         </div>
         
       </div>
@@ -71,10 +99,10 @@
 						<p class="pointFont">10,000P</p>
 						<div class="cBeB">
 							<div class="chargeButton">
-								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">충전</button>	
+								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModalCharge">충전</button>	
 							</div>
 							<div class="exchangeButton">
-								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">환전</button>	
+								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModalExchange">환전</button>	
 							</div>
 						</div>
 					</th>
