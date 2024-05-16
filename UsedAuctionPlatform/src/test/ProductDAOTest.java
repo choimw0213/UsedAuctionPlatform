@@ -11,8 +11,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import domain.product.ProductDAO;
-import domain.product.ProductVO;
+import dao.ProductDAO;
+import vo.ProductVO;
 
 public class ProductDAOTest {
 
