@@ -27,7 +27,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">포인트 충전하기</h4>
+          <h4 class="modal-title">얼마를 충전하시겠습니까?</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -59,7 +59,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">포인트 환전하기</h4>
+          <h4 class="modal-title">얼마를 환전하시겠습니까?</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -70,8 +70,8 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">확인</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalBtn">닫기</button>
+        <button type="button" class="btn btn-primary" id="modalBtn">확인</button>
         </div>
         
       </div>
