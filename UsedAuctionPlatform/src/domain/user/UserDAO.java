@@ -4,36 +4,34 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserDAO {
 	private Connection conn;
-	
+
 	public UserDAO(Connection conn){
 		this.conn = conn;
 	}
-	
+
 	public UserVO login(String id, String pw){
 		UserVO VO = null;
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(UserQuery.LOGIN);
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.LOGIN);){
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()){
-				VO = new UserVO(rs.getString(1), rs.getString(2));
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					VO = new UserVO(rs.getString(1), rs.getString(2));
+				}
 			}
-			rs.close();
-			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return VO;
 	}
-	
+
 	public boolean addUser(String id, String pw, String name, String nickname, String phoneNumber, String email, String address){
 		boolean result = false;
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(UserQuery.ADD_USER);
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.ADD_USER);){
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
 			pstmt.setString(3, name);
@@ -44,87 +42,235 @@ public class UserDAO {
 			if(pstmt.executeUpdate() >= 1){
 				result = true;
 			}
-			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return result;
 	}
-	
+
 	public boolean idCheck(String id){
 		boolean result = false;
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(UserQuery.ID_CHECK);
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.ID_CHECK);) {
 			pstmt.setString(1, id);
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()){
-				result = true;
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					result = true;
+				}
 			}
-			rs.close();
-			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+
 	public boolean nickCheck(String nickName){
 		boolean result = false;
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(UserQuery.NICK_CHECK);
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.NICK_CHECK);) {
 			pstmt.setString(1, nickName);
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()){
-				result = true;
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					result = true;
+				}
 			}
-			rs.close();
-			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-//	public boolean findId(String name, String email, String phoneNumber){
-//		boolean result = false;
-//		PreparedStatement pstmt = 
-//		return result;
-//	}
-//	
-//	boolean findPw(Strind id, String name, String email){
-//		
-//	}
-//	
-//	boolean setPw(String id, String pw){
-//		
-//	}
-//	
-//	boolean setRate(int productSeq, double rate){
-//		
-//	}
-//	
-//	UserVO getUser(String id){
-//		
-//	}
-//	
-//	boolean setPoint(String id, int point){
-//		
-//	}
-//	
-//	boolean setUser(Strind pw, String name, String nickname, String phoneNumber, String email, String address){
-//		
-//	}
-//	
-//	boolean setUserType(String id){
-//		
-//	}
-//	
-//	ArrayList<UserVO> getUserList(){
-//		
-//	}
-//	
-//	ArrayList<UserVO> getUserList(String id){
-//		
-//	}
+
+	public boolean findId(String name, String email, String phoneNumber){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.FIND_ID);){
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			pstmt.setString(3, phoneNumber);
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean findPw(String id, String name, String email){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.FIND_PW);){
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, email);
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setPw(String id, String pw){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_PW);){
+			pstmt.setString(1, pw);
+			pstmt.setString(2, id);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setRateCount(int productSeq){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_RATE_COUNT);){
+			pstmt.setInt(1, productSeq);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setRate(int productSeq, double rate){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_RATE);){
+			pstmt.setDouble(1, rate);
+			pstmt.setInt(2, productSeq);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setProductState(int productSeq){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_PRODUCT_STATE);){
+			pstmt.setInt(1, productSeq);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+	public UserVO getUser(String id){
+		UserVO vo = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.GET_USER);){
+			pstmt.setString(1, id);
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()){
+					vo = new UserVO();
+					vo.setNickName(rs.getString(1));
+					vo.setPoint(rs.getInt(2));
+					vo.setProfileImg(rs.getString(3));
+					vo.setRate(rs.getInt(4));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+
+	public boolean setPoint(String id, int point){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_POINT);){
+			pstmt.setInt(1, point);
+			pstmt.setString(2, id);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setUser(String id, String pw, String nickname, String phoneNumber, String email, String address){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_USER);){
+			pstmt.setString(1, pw);
+			pstmt.setString(2, nickname);
+			pstmt.setString(3, phoneNumber);
+			pstmt.setString(4, email);
+			pstmt.setString(5, address);
+			pstmt.setString(6, id);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean setUserType(String id){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.SET_USER_TYPE);){
+			pstmt.setString(1, id);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public ArrayList<UserVO> getUserList(){
+		ArrayList<UserVO> userList = null;
+		UserVO vo = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.GET_USER_LIST);){
+			try(ResultSet rs = pstmt.executeQuery();){
+				userList = new ArrayList<UserVO>();
+				while(rs.next()){
+					vo = new UserVO();
+					vo.setUser_id(rs.getString(1));
+					vo.setPhoneNumber(rs.getString(2));
+					vo.setReportCount(rs.getInt(3));
+					vo.setRate(rs.getDouble(4));
+					userList.add(vo);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return userList;
+	}
+
+	public ArrayList<UserVO> getUserList(String id){
+		ArrayList<UserVO> userList = null;
+		UserVO vo = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.GET_USER_LIST_BY_ID);){
+			pstmt.setString(1, id);
+			try(ResultSet rs = pstmt.executeQuery();){
+				userList = new ArrayList<UserVO>();
+				while(rs.next()){
+					vo = new UserVO();
+					vo.setUser_id(rs.getString(1));
+					vo.setPhoneNumber(rs.getString(2));
+					vo.setReportCount(rs.getInt(3));
+					vo.setRate(rs.getDouble(4));
+					userList.add(vo);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return userList;
+	}
 }
