@@ -30,4 +30,4 @@ public interface UserQuery {
 			+ "from users where user_type = 'U'";
 	String GET_USER_LIST_BY_ID = "select user_id, phone_number, report_count, rate "
 			+ "from users where user_type = 'U' and user_id like '%'||?||'%'";
-	}
+}
