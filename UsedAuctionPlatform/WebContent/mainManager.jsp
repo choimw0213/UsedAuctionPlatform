@@ -24,6 +24,7 @@
 					<th class="col-md-3">
 						<img src="images/icon/icon.png" class="img rounded-circle border">
 					</th>
+					
 					<th class="usersInfo mt-0 mb-0">
 						<p class="userIdP mt-0 mb-0" name="userId">user1234</p>
 						<p class="phoneNumberP mt-0 mb-0" name="phoneNumber">010-5678-5678</p>
@@ -33,22 +34,29 @@
 						</div>
 					</th>
 					<th class="lineUp"></th>
+				</tr>	
 						<!-- js코드 짜서 container-fulid를 누르면 신고 목록이 나오게 할 예정ㅇㅇ (아직 미완) -->
-				<tr class="table-borderless">
-                <div class="d-flex justify-content-center" id="reportedList">
-                    <img src="images/icon/home.png" class="img-fluid" />
-                    <div class="ms-1">
-                    <div class="card-text d-flex">
-                        <h6>Product1 Title</h6>
-                        <span class="badge badge-s">경매중</span>
-                    </div>
-                    <p>Product1 Description</p>
-                    </div>
-                </div>
+				<tr class="reportedList table">
+                <th>
+                    <img src="images/product/product1/product1-img1.jpg" class="img" style="padding:45px 45px;"/>
+                </th>  
+                <th>
+                   <h6 class="titleH6 mt-0 mb-0">나이키 에어맥스 미사용</h6>
+                   <p class="categoryP mt-0">category</p>
+                   <p class="startPriceP mt-0 mb-0">입찰가 10,000P</p>
+                   <p class="priceP mt-0">즉구가 10,000P</p>
+                   <p class="addressP mt-0 mb-0">서울특별시 금천구</p>
+                   <p class="endTimeP mt-0 mb-0">2024년 04월 12일 20:00 마감</p>
+                </th>   
+                <th>
+                   <span class="badge badge-s mt-0 mb-5" id="stateSpan">경매중</span>
+                   <p class="bidCountP mt-5">입찰 7건</p>
+                </th>   
+                
               	
 				</tr>
-					<th class="lineUp"></th>
-				</tr>	
+					
+					
 			
 			</thead>
 		</table>

@@ -17,10 +17,17 @@ p{
 	transform: translateY(-20%);
 }
 
-#reportedList{
+.reportedList{
 	
+	display:grid;
+	grid-template-columns:40px 200px 60px;
+	grid-template-rows:20px 20px 20px;
+
 }
 
+#stateSpan{
+	background-color:#FFB966;
+}
 
 .table-borderless{
 	display:grid;
@@ -59,16 +66,6 @@ p{
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .container-fulid{
   height:450px;	
   overflow-y: scroll;
@@ -90,6 +87,35 @@ p{
 	grid-area:3/3/4/4;
 	transform: translateX(100%);
 	color:#FF0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.titleH6{
+	font-size:8px;
+}
+.categoryP{
+	font-size:5px;
+}
+.startPriceP{
+	font-size:6px;
+}
+.priceP{
+	font-size:6px;
 }
 
 
