@@ -6,7 +6,8 @@
 	<nav class="navbar mt-auto sticky-bottom w-100 rounded-bottom-4">
 	<div class="d-flex w-100 justify-content-center">
 		<div id="nav123" class="w-100">
-			<a class="navbar-brand" href="#"> <img src="images/menu/home.png" />
+			<a class="navbar-brand" href="#"> 
+			<img src="images/menu/home.png" />
 			</a> <a class="navbar-brand" href="#"> <img
 				src="images/menu/chat.png" />
 			</a> <a class="navbar-brand" href="#"> <img

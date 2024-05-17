@@ -1,89 +1,82 @@
 @CHARSET "UTF-8";
 
 .list-group {
-    overflow-y: scroll;
-    scrollbar-width: none;
-  }
-
-  #scroll::-webkit-scrollbar{
-    display: none;
-  }
-  
-  .img-fluid {
-    width: 95px;
-    height: 95px;
-  }
-  
-  .card-text > h6 {
-    margin: 0px;
-  }
-  
-  .badge-s {
-    background-color: #FFB966;
-  }
-  
-  .card-text > .badge-t {
-    background-color: #E07F39;
-  }
-  
-  .card-text > .badge-e {
-    background-color: #AAAAAA;
-  }
-  
-  .product-info {
-    margin: 0px;
-    font-size: 11px;
-  }
-
-  .dropdown-menu {
-    height: 120px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-  }
-  
-  .dropdown-item {
-    width: 100px;
-  }
-  
-  .input-field {
-      border: none;
-      outline: none;
-      border-bottom: 1px solid #AAAAAA;;
-  }
-  
-  .navbar-nav > img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .text-group {
-    display: inline-flex;
-  }
-
-  .text-group-point > p {
-    font-size: 10px;
-  }
-
- 
- 
-.card-text > h6 {
-  margin: 0px;
+	overflow-y: scroll;
+	scrollbar-width: none;
 }
 
-.card-text > .badge-s {
-  background-color: #FFB966;
+#scroll::-webkit-scrollbar {
+	display: none;
 }
 
-.card-text > .badge-t {
-  background-color: #E07F39;
+.img-fluid {
+	width: 96px;
+	height: 96px;
 }
 
-.card-text > .badge-e {
-  background-color: #AAAAAA;
+.card-text>h6 {
+	margin: 0px;
+}
+
+.badge-s {
+	background-color: #FFB966;
+}
+
+.card-text>.badge-t {
+	background-color: #E07F39;
+}
+
+.card-text>.badge-e {
+	background-color: #AAAAAA;
 }
 
 .product-info {
-  margin: 0px;
-  font-size: 8px;
-  color: gray;
+	margin: 0px;
+	font-size: 11px;
+}
+
+.dropdown-menu {
+	height: 120px;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.dropdown-item {
+	width: 100px;
+}
+
+.input-field {
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #AAAAAA;;
+}
+
+.text-group {
+	display: inline-flex;
+}
+
+.text-group-point>p {
+	font-size: 10px;
+}
+
+.card-text>h6 {
+	margin: 0px;
+}
+
+.card-text>.badge-s {
+	background-color: #FFB966;
+}
+
+.card-text>.badge-t {
+	background-color: #E07F39;
+}
+
+.card-text>.badge-e {
+	background-color: #AAAAAA;
+}
+
+.product-info {
+	margin: 0px;
+	font-size: 8px;
+	color: gray;
 }

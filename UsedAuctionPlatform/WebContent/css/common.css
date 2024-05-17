@@ -102,12 +102,14 @@ body{
 }
 
 .navbar-brand > img {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
 	background-color: #FFB966;
 }
 
 nav{
+	padding : 0;
+	height : 50px;
 	text-align: center;
 	line-height: px;
 	background-color:#FFB966;

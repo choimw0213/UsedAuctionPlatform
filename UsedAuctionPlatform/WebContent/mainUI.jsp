@@ -65,7 +65,7 @@
 
 		<!-- 메인내용 -->
 		<div class="row w-100 g-2">
-			<div class="btn-group justify-content-between p-1">
+			<div class="btn-group justify-content-between g-0 ps-2 pe-2">
 				<div class="dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle"
 						type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
