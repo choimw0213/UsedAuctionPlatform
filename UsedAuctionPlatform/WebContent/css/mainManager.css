@@ -126,15 +126,28 @@ p{
 
 .titleH6{
 	font-size:8px;
+	
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .categoryP{
 	font-size:5px;
 }
 .startPriceP{
 	font-size:6px;
+	
+		white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .priceP{
 	font-size:6px;
+	
+	
+		white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .addressP{
 	font-size:6px;
@@ -145,6 +158,11 @@ p{
 .bidCountP{
 	font-size:8px;
 	transform:translateY(50%);
+	
+	
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 #productImg{
 	width:90px;

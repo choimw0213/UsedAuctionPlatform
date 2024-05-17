@@ -87,10 +87,10 @@
                     <img src="images/product/product1/product1-img1.jpg" class="img" id="productImg">
                 </th>  
                 <th id="rta1">
-                   <h6 class="titleH6 mt-0 mb-0">나이키 에어맥스 미사용</h6>
+                   <h6 class="titleH6 mt-0 mb-0">나이키 에어맥스 미사용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</h6>
                    <p class="categoryP mt-0">category</p>
                    <p class="startPriceP mt-0 mb-0">입찰가 10,000P</p>
-                   <p class="priceP mt-0">즉구가 10,000P</p>
+                   <p class="priceP mt-0">즉구가 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000P</p>
                    <p class="addressP mt-0 mb-0">서울특별시 금천구</p>
                    <p class="endTimeP mt-0 mb-0">2024년 04월 12일 20:00 마감</p>
                 </th>   
