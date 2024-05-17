@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-index.jsp
+
+<%
+	String userId = (String)request.getParameter("userId");
+	if(userId == null){
+	    response.sendRedirect("login.jsp");		
+	}
+%>
+
 </body>
 </html>

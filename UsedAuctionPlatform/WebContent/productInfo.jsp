@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/productInfo.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -20,65 +20,56 @@
 		</div>
 		<div id="container">
 
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-
-				<ul class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
-					<li data-target="#myCarousel" data-slide-to="4"></li>
-					<li data-target="#myCarousel" data-slide-to="5"></li>
-					<li data-target="#myCarousel" data-slide-to="6"></li>
-					<li data-target="#myCarousel" data-slide-to="7"></li>
-					<li data-target="#myCarousel" data-slide-to="8"></li>
-				</ul>
-
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="./images/product/product1/product1-img1.jpg" alt="Image 1">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img2.png" alt="Image 2">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img3.jpg" alt="Image 3">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img4.png" alt="Image 4">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img5.png" alt="Image 5">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img6.jpg" alt="Image 6">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img7.png" alt="Image 7">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img8.png" alt="Image 8">
-					</div>
-
-					<div class="carousel-item">
-						<img src="./images/product/product1/product1-img9.png" alt="Image 9">
-					</div>
-				</div>
-
-				<a class="carousel-control-prev" href="#myCarousel"
-					data-slide="prev"> <span class="carousel-control-prev-icon"></span>
-				</a> <a class="carousel-control-next" href="#myCarousel"
-					data-slide="next"> <span class="carousel-control-next-icon"></span>
-				</a>
-
-			</div>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/product/product1/product1-img1.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img2.png" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img3.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img4.png" class="d-block w-100" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img5.png" class="d-block w-100" alt="Image 5">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img6.jpg" class="d-block w-100" alt="Image 6">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img7.png" class="d-block w-100" alt="Image 7">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img8.png" class="d-block w-100" alt="Image 8">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/product/product1/product1-img9.png" class="d-block w-100" alt="Image 9">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
 			<div id="nickname">
 				<div id="nickname_img_container">
@@ -165,7 +156,6 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
