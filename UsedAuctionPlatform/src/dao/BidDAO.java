@@ -75,7 +75,7 @@ public class BidDAO {
 		return result;
 	}
 	
-	public boolean setPrdocutState(int productSeq){
+	public boolean setProductState(int productSeq){
 		boolean result = false;
 		try(PreparedStatement pstmt = conn.prepareStatement(BidQuery.SET_PRODUCT_STATE);){
 			pstmt.setInt(1, productSeq);

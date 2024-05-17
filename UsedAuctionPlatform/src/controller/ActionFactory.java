@@ -6,10 +6,11 @@ public class ActionFactory {
 	static Action getAction(String cmd){
 		Action action = null;
 		switch (cmd) {
-			case "indexPage" :
+			case "loginAction" :
 				action = null;
 				break;
-			case "" :
+			case "joinAction" :
+				action = null;
 				break;
 		}
 		
