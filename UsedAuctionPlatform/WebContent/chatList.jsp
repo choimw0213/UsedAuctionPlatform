@@ -117,6 +117,7 @@
       </ul>
 
     </div>
+    		<jsp:include page="/navbar_chat.jsp"></jsp:include>
   </div>
 
 </body>

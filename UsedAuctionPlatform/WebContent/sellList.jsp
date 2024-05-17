@@ -54,6 +54,7 @@
         <hr class="my-1">
       </ul>
     </div>
+    		<jsp:include page="/navbar_sell.jsp"></jsp:include>
   </div>
 
 </body>

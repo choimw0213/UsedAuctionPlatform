@@ -127,6 +127,7 @@
         <hr class="my-1">
       </ul>
     </div>
+    		<jsp:include page="/navbar_home.jsp"></jsp:include>
   </div>
 
 </body>

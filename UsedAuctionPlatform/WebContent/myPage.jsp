@@ -119,6 +119,7 @@
 			</thead>
 		</table>
 	</div>	
+			<jsp:include page="/navbar_my.jsp"></jsp:include>
 </div>
 
 </body>

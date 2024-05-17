@@ -7,7 +7,7 @@
 	<div class="d-flex w-100 justify-content-center">
 		<div id="nav123" class="w-100">
 			<a href="#"> 
-				<img src="images/menu/home" /><br>
+				<img src="images/menu/home.png" /><br>
 				홈
 			</a> 
 			<a href="#">

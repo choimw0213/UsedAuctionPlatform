@@ -26,7 +26,7 @@
 <body>
 <div id = "project_container">
 	<div id = top>
-		<img src="./images/arrow.png">
+		<img src="./images/icon/arrow.png">
 		<h1>상품등록</h1>
 	</div>
 	<div id="container">
@@ -94,9 +94,7 @@
 		<input type="submit" value="등록">
 	</form>
 	</div>
-	<div id="nav_bar">
-	
-	</div>
+		<jsp:include page="/navbar_home.jsp"></jsp:include>
 </div>
 <script>
 	$("input[type=file]").on("change", function(){
