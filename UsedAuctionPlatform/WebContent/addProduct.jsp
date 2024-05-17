@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,6 +6,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/addProduct.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous" 
+/>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous">
+</script>
+
+<link rel='stylesheet'
+	href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -15,7 +28,6 @@
 	<div id = top>
 		<img src="./images/arrow.png">
 		<h1>상품등록</h1>
-		<img id="option" src="./images/option.png">
 	</div>
 	<div id="container">
 		<form>
@@ -23,7 +35,7 @@
 			<div class="img_container">
 				<label for="input_file">
 					<img id="camera" src="./images/icon/camera.png">
-					<span>04/10</span>
+					<span>0/5</span>
 				</label>
 				<input type="file" id="input_file" accept="image/*">
 			</div>
@@ -36,7 +48,21 @@
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">카테고리</label></td>
-				<td><input placeholder="카테고리 입력" required></td>
+				<td><div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item active" href="#">전체</a> <a
+							class="dropdown-item" href="#">디지털 기기</a> <a
+							class="dropdown-item" href="#">가구/인테리어</a> <a
+							class="dropdown-item" href="#">유아동</a> <a class="dropdown-item"
+							href="#">의류</a> <a class="dropdown-item" href="#">잡화</a> <a
+							class="dropdown-item" href="#">생활가전</a> <a class="dropdown-item"
+							href="#">주방용품</a> <a class="dropdown-item" href="#">스포츠/레저</a> <a
+							class="dropdown-item" href="#">취미/게임/음반</a> <a
+							class="dropdown-item" href="#">뷰티/미용</a> <a class="dropdown-item"
+							href="#">생활용품</a> <a class="dropdown-item" href="#">도서</a> <a
+							class="dropdown-item" href="#">반려동물용품</a> <a
+							class="dropdown-item" href="#">티켓/교환권</a> <a
+							class="dropdown-item" href="#">식품</a>
+					</div></td>
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">주소</label></td>
@@ -65,7 +91,7 @@
 				<td><textarea></textarea></td>
 			</tr>
 		</table>
-		<input type="submit" value="회원가입">
+		<input type="submit" value="등록">
 	</form>
 	</div>
 	<div id="nav_bar">
@@ -83,7 +109,6 @@
 		
 		let container = document.getElementById("img_list_container");
 		container.appendChild(newImage);
-		
 	})
 </script>
 </body>
