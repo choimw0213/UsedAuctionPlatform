@@ -62,6 +62,7 @@
 			</div>
 		</div>
 
+
 		<!-- 메인내용 -->
 		<div class="row w-100 g-2">
 			<div class="btn-group justify-content-between p-1">
