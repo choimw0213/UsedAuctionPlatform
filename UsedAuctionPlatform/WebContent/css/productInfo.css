@@ -243,17 +243,43 @@
 }
 
 #report_modal{
-	display: none;
 	flex-wrap: wrap;
-	justify-content: center;
-	width: 270px;
 	height: 325px;
-	background-color: #FFB966;
-	border-radius: 5px;
-	border: none;
+}
+
+#report_modal_container{
+	
 }
 
 #report_modal_top{
+	display: flex;
+	justify-content: center;
 	font-size: 24px;
 	color: #F5F5F5;
+}
+
+#report_modal textarea{
+	width: 240px;
+	height: 230px;
+	resize: none;
+}
+
+#report_modal_button_container{
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+#report_modal_button_container div{
+	width: 70px;
+	height: 30px;
+	background-color: #FFD9AC;
+	display: flex;
+	justify-content : center;
+	align-items : center;
+	border-radius: 5px;
+	font-weight: 600;
+	cursor: pointer;
 }

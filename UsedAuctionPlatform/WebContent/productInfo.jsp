@@ -80,10 +80,14 @@
 			신고하기
 		</div>
 	</div>
-	<div id="report_modal">
-		<div id="report_modal_top">신고사유</div>
-		<div>
-			<input placeholder="내용을 입력해주세요.">
+	<div class="modal" id="report_modal">
+		<div id="report_modal_container">
+			<div id="report_modal_top">신고사유</div>
+			<textarea></textarea>
+			<div id="report_modal_button_container">
+				<div id="report_close">취소</div>
+				<div>접수</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -107,8 +111,8 @@
 		$("#report_modal")[0].style.display="flex";
 		$("#report_modal")[0].style.position="absolute";
 	});
-	$("#container").click(function(){
-		$("#option_modal")[0].style.display="none";
+	$("#report_close").click(function(){
+		$("#report_modal")[0].style.display="none";
 	});
 </script>
 </body>
