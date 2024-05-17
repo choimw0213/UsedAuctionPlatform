@@ -10,8 +10,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import domain.bid.BidDAO;
-import domain.user.UserDAO;
+import dao.BidDAO;
+import dao.UserDAO;
 
 
 public class BidDAOTest {

@@ -1,4 +1,4 @@
-package domain.product;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import dto.ProductBoxDTO;
+import query.ProductQuery;
 import vo.ProductVO;
 
 public class ProductDAO {
@@ -163,14 +164,21 @@ public class ProductDAO {
 	}
 	
 	// 구매 전체 내역 조회
-	public ArrayList<Integer> getBuyingHistory(String id){
-		ArrayList<Integer> list = new ArrayList<>();	
-
+	public ArrayList<ProductBoxDTO> getBuyingHistory(String id){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
+		DateTimeFormatter formmatter = null;
+		
 		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_BUYING_HISTORY)){
 			pstmt.setString(1, id);	
-			try(ResultSet rs = pstmt.executeQuery()){		
+			try(ResultSet rs = pstmt.executeQuery()){
+				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
 				while(rs.next()){
-					list.add(rs.getInt(1));
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
+							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), rs.getInt("count(bid_price)-1"),
+							rs.getInt("max(bid_price)"));
+					list.add(dto);
 				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}
@@ -180,14 +188,6 @@ public class ProductDAO {
 	
 	// 구매 확정
 	public boolean setProductState(int productSeq){
-		
-		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.SET_PRODUCT_STATE)){
-			pstmt.setInt(1, productSeq);	
-			
-			return pstmt.executeUpdate() == 1;
-			
-		} catch (SQLException e) {e.printStackTrace();}
-		
 		return false;
 	}
 	

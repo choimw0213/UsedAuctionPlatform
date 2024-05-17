@@ -11,8 +11,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import domain.user.UserDAO;
-import domain.user.UserVO;
+import dao.UserDAO;
+import vo.UserVO;
 
 public class UserDAOTest {
 	private static Connection conn;

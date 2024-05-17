@@ -24,6 +24,29 @@ img{
 }
 
 
+.modal-header{
+	background-color:#FFB966;
+}
+
+.modal-body{
+	background-color:#FFB966;
+}
+
+.modal-title{
+	background-color:#FFB966;
+	color:#FFFFFF;
+}
+
+.modal-footer{
+	background-color:#FFB966;
+}
+
+#modalBtn{
+	background-color:#FFD9AC !important;
+	color:#000000;
+}
+
+
 .btn{
 	background-color:#FFB966;
 	border:none;
