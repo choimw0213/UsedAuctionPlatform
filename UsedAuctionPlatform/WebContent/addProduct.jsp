@@ -48,7 +48,12 @@
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">카테고리</label></td>
-				<td><div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<td>
+					<div class="dropdown">
+					<button class="btn btn-secondary btn-sm dropdown-toggle"
+						type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+						aria-expanded="false">전체</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active" href="#">전체</a> <a
 							class="dropdown-item" href="#">디지털 기기</a> <a
 							class="dropdown-item" href="#">가구/인테리어</a> <a
@@ -62,11 +67,39 @@
 							class="dropdown-item" href="#">반려동물용품</a> <a
 							class="dropdown-item" href="#">티켓/교환권</a> <a
 							class="dropdown-item" href="#">식품</a>
-					</div></td>
+					</div>
+				</div>
+				</td>
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">주소</label></td>
-				<td><input placeholder="주소 입력" required></td>
+				<td>
+					<div class="dropdown">
+						<button class="btn btn-sm dropdown-toggle" type="button"
+							id="dropdownMenuButton" data-bs-toggle="dropdown"
+							aria-expanded="false">금천구</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">전체</a> <a class="dropdown-item"
+								href="#">강남구</a> <a class="dropdown-item" href="#">강동구</a> <a
+								class="dropdown-item" href="#">강북구</a> <a class="dropdown-item"
+								href="#">강서구</a> <a class="dropdown-item" href="#">관악구</a> <a
+								class="dropdown-item" href="#">광진구</a> <a class="dropdown-item"
+								href="#">구로구</a> <a class="dropdown-item active" href="#">금천구</a>
+							<a class="dropdown-item" href="#">노원구</a> <a class="dropdown-item"
+								href="#">도봉구</a> <a class="dropdown-item" href="#">동대문구</a> <a
+								class="dropdown-item" href="#">동작구</a> <a class="dropdown-item"
+								href="#">마포구</a> <a class="dropdown-item" href="#">서대문구</a> <a
+								class="dropdown-item" href="#">서초구</a> <a class="dropdown-item"
+								href="#">성동구</a> <a class="dropdown-item" href="#">성북구</a> <a
+								class="dropdown-item" href="#">송파구</a> <a class="dropdown-item"
+								href="#">양천구</a> <a class="dropdown-item" href="#">영등포구</a> <a
+								class="dropdown-item" href="#">용산구</a> <a class="dropdown-item"
+								href="#">은평구</a> <a class="dropdown-item" href="#">종로구</a> <a
+								class="dropdown-item" href="#">중구</a> <a class="dropdown-item"
+								href="#">중랑구</a>
+						</div>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">경매 기간</label></td>
@@ -94,7 +127,9 @@
 		<input type="submit" value="등록">
 	</form>
 	</div>
-		<jsp:include page="/navbar_home.jsp"></jsp:include>
+	<div id="nav_bar">
+	
+	</div>
 </div>
 <script>
 	$("input[type=file]").on("change", function(){
