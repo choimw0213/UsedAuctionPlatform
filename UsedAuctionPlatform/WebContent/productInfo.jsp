@@ -127,6 +127,7 @@
 				</div>
 			</div>
 		</div>
+		<jsp:include page="/navbar.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
 	$("#bid_button").click(function(){

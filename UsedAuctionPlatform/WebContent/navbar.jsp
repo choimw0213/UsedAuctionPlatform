@@ -6,16 +6,25 @@
 	<nav class="navbar mt-auto sticky-bottom w-100 rounded-bottom-4">
 	<div class="d-flex w-100 justify-content-center">
 		<div id="nav123" class="w-100">
-			<a class="navbar-brand" href="#"> 
-			<img src="images/menu/home.png" />
-			</a> <a class="navbar-brand" href="#"> <img
-				src="images/menu/chat.png" />
-			</a> <a class="navbar-brand" href="#"> <img
-				src="images/menu/sellList.png" />
-			</a> <a class="navbar-brand" href="#"> <img
-				src="images/menu/buyList.png" />
-			</a> <a class="navbar-brand" href="#"> <img
-				src="images/menu/mypage.png" />
+			<a href="#"> 
+				<img src="images/menu/home.png" /><br>
+				홈
+			</a> 
+			<a href="#">
+				<img src="images/menu/chat.png" /><br>
+				채팅
+			</a> 
+			<a href="#">
+				<img src="images/menu/sellList.png" /><br>
+				판매내역
+			</a> 
+			<a href="#"> 
+				<img src="images/menu/buyList.png" /><br>
+				구매내역
+			</a> 
+			<a href="#"> 
+				<img src="images/menu/mypage.png" /><br>
+				나
 			</a>
 		</div>
 	</div>

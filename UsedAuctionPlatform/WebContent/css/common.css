@@ -101,7 +101,7 @@ body{
 	border-bottom: 1px solid #AAAAAA;;
 }
 
-.navbar-brand > img {
+#nav123 img {
     width: 24px;
     height: 24px;
 	background-color: #FFB966;
@@ -119,6 +119,12 @@ nav{
 #nav123 {
 	display: flex;
 	justify-content: space-around;
+}
+
+#nav123 a{
+	font-size: 8px;
+	text-decoration: none;
+	color: white;
 }
 
 .d-flex a{
