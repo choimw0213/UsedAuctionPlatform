@@ -64,7 +64,7 @@ private static Connection conn;
 	@Test
 	public void setProductStateTest() throws Exception{
 		conn.setAutoCommit(false);
-		assertTrue(new BidDAO(conn).setPrdocutState(2));
+		assertTrue(new BidDAO(conn).setProductState(2));
 		conn.rollback();
 		conn.setAutoCommit(true);
 	}

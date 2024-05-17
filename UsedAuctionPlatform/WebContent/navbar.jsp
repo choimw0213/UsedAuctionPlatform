@@ -6,15 +6,15 @@
 	<nav class="navbar mt-auto sticky-bottom w-100 rounded-bottom-4">
 	<div class="d-flex w-100 justify-content-center">
 		<div id="nav123" class="w-100">
-			<a class="navbar-brand" href="#"> <img src="images/icon/home.png" />
+			<a class="navbar-brand" href="#"> <img src="images/menu/home.png" />
 			</a> <a class="navbar-brand" href="#"> <img
-				src="images/icon/chat.png" />
+				src="images/menu/chat.png" />
 			</a> <a class="navbar-brand" href="#"> <img
-				src="images/icon/sellList.png" />
+				src="images/menu/sellList.png" />
 			</a> <a class="navbar-brand" href="#"> <img
-				src="images/icon/buyList.png" />
+				src="images/menu/buyList.png" />
 			</a> <a class="navbar-brand" href="#"> <img
-				src="images/icon/mypage.png" />
+				src="images/menu/mypage.png" />
 			</a>
 		</div>
 	</div>
