@@ -1,15 +1,53 @@
+#previous {
+  width: 23px;
+  height: 23px;
+  transform:translateY(200%);
+  
+}
+
+#top{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: inherit;
+	height: 40px;
+}
+#top h1{
+	margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+#top > img{
+	width: 23px;
+	height: 23px;
+	cursor: pointer;
+}
+
+
+
+#top-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 
 .container {
     display : grid;
-    grid-template-rows: 2.5fr 0.5fr 0.5fr 0.5fr 3fr;
-
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr 2fr;
+	height:578px;
 }
+
+#previous{
+	grid-area:1/1/2/2;
+		
+}
+
 
 .findIdH1 {
     grid-area : 1/1/2/2;
     display : flex;
     justify-content : center;
-    margin-top: 80%;
+    margin-top: 40%;
 }
 
 

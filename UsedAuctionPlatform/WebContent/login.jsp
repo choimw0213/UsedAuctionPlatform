@@ -35,9 +35,9 @@
             </div>
     
             <div class="container text-center mt-3">
-                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">아이디 찾기</a>
-                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-2">비밀번호 찾기</a>
-                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">회원가입</a>
+                <a href="findID.jsp" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">아이디 찾기</a>
+                <a href="findPW.jsp" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-2">비밀번호 찾기</a>
+                <a href="join.jsp" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">회원가입</a>
             </div>
             <div class="d-grid ps-5 pe-5 container text-center mt-3">
                 <button type="submit" class="btn btn-primary btn-lg">
