@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id="project_container">
-        <form>
+        <form action="controller?cmd=loginAction" method="post">
             <div class="row align-items-center">
                 <p class="fs-1 text-center">로그인</p>
                 <div class="row g-2 justify-content-center">
@@ -22,13 +22,13 @@
                         <label class="col-form-label">아이디</label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control-sm">
+                        <input name="userId" type="text" class="form-control-sm">
                     </div>
                     <div class="col-3 text-end">
                         <label for="inputPassword6" class="col-form-label">비밀번호</label>
                     </div>  
                     <div class="col-8">
-                        <input type="password" id="inputPassword6" class="form-control-sm""
+                        <input name="userPw" type="password" id="inputPassword6" class="form-control-sm""
                             aria-describedby="passwordHelpInline">
                     </div>
                 </div>

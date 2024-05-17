@@ -13,6 +13,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+<style type="text/css">
+#sendBtn {
+  border: 0px;
+}
+
+#sendBtn > img {
+  width: 30px;
+  height: 30px;
+}
+</style>
 </head>
 
 <body>
@@ -68,14 +80,36 @@
     </div>
 
     <div class="chat-input">
-      <input placeholder="채팅하기">
-      <a href="#">
-        <img src="images/icon/send.png">
-      </a>
-
+      <input id="chatContent" placeholder="채팅하기">
+      <button id="sendBtn">
+      	<img src="images/icon/send.png">
+      </button>
     </div>
 
   </div>
+
+<script>
+
+var sendBtn = document.querySelector('#sendBtn');
+sendBtn.addEventListener('click', function() {
+	var chatContent = document.querySelector('#chatContent').value;
+	//alert(chatContent);
+    $.ajax({
+        type: "POST",
+        url: "controller?cmd=addChatAction",
+        data: { chatContent: chatContent },
+        success: function(response) {
+            alert("채팅 메시지가 전송에 성공했습니다.");
+            document.querySelector('#chatContent').value = "";
+        },
+        error: function(xhr, status, error) {
+            alert("채팅 메시지 전송에 실패했습니다.");
+            document.querySelector('#chatContent').value = "";
+        }
+    });
+});
+
+</script>
 
 </body>
 </html>
