@@ -215,7 +215,7 @@
 			<i class="fi fi-rr-plus-small"></i>
 		</button>
 
-		<jsp:include page="/navbar.jsp"></jsp:include>
+		<jsp:include page="/navbar_home.jsp"></jsp:include>
 
 	</div>
 </body>
