@@ -36,10 +36,6 @@ private static Connection conn;
 	public void addProductTest() throws Exception{
 		conn.setAutoCommit(false);
 
-		/*
-		 * int productSeq, String userId, String title, String category, String address, LocalDateTime endDate,
-			LocalDateTime startDate, int endDateNum, int price, int startPrice, String content, String state
-		 */
 		ProductVO vo = new ProductVO(1, "user001", "의류 팔아요", "의류", "금천구", null, null,3, 3000, 1000, "의류 팖", "S");
 		assertTrue(new ProductDAO(conn).addProduct(vo));	
 		
@@ -69,6 +65,16 @@ private static Connection conn;
 
 	@Test
 	public void getProductList() {
-		assertNotNull(new ProductDAO(conn).getSellCompleteHistory("user001"));
+		assertNotNull(new ProductDAO(conn).getBuyingHistory("user003"));
+	}
+	
+	@Test
+	public void setProductState() throws SQLException{	// 거래종료 상태
+		conn.setAutoCommit(false);
+		
+		assertTrue(new ProductDAO(conn).setProductState(10));
+		
+		conn.rollback();
+		conn.setAutoCommit(true);
 	}
 }

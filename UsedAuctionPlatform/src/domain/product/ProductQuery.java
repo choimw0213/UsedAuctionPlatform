@@ -77,6 +77,11 @@ public interface ProductQuery {
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_BUYING_HISTORY = "";
+	String GET_LIST_BUYING_HISTORY = "select b.product_seq "
+			+ "from bid b, product p "
+			+ "where b.product_seq = p.product_seq AND (state = 'E' or state = 'T') AND b.user_id = ? "
+			+ "group by b.product_seq";
+	
+	String SET_PRODUCT_STATE = "update product set state = 'E' where product_seq = ?";
 			
 }
