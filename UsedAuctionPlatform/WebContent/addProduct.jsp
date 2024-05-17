@@ -83,6 +83,7 @@
 		
 		let container = document.getElementById("img_list_container");
 		container.appendChild(newImage);
+		
 	})
 </script>
 </body>
