@@ -22,7 +22,7 @@
  			
 				<tr class="table-borderless">
 					<th class="col-md-3">
-						<img src="images/icon.png" class="img-fluid rounded-circle border">
+						<img src="images/icon/icon.png" class="img rounded-circle border">
 					</th>
 					<th class="usersInfo mt-0 mb-0">
 						<p class="userIdP mt-0 mb-0" name="userId">user1234</p>
@@ -31,27 +31,22 @@
 						<p class="rateP mt-0 mb-0" name="rate">★4.4</p>
 						<p class="reportCountP mt-0 mb-0" name="reportCount">신고 1건</p>
 						</div>
-						
-						<!-- js코드 짜서 container-fulid를 누르면 신고 목록이 나오게 할 예정ㅇㅇ (아직 미완) -->
-						<div class="reportList mt-3">
-					    	<th>
-								<img src="images/icon.png" class="img-fluid" style="width:95px; height:95px;">
-							</th> 
-							<th>
-								<p class="reportedTitle">옷 팔아요</p>
-								<p class="reportedCategory">의료</p>
-								<p class="reportedStartPrice">입찰가:6000P</p>
-								<p class="reportedPrice">즉구가:10000P</p>
-								<p class="reportedAddress">서울특별시 금천구</p>
-								<p class="reportedSort">2024년 05월 16일 17:46 마감</p>
-								<div class="samePlace">
-								<span class="productState">거래 완료</span>
-								<p class="bidCount">입찰 7건</p>
-								</div>
-							</th>
-						</div>
-						
 					</th>
+					<th class="lineUp"></th>
+						<!-- js코드 짜서 container-fulid를 누르면 신고 목록이 나오게 할 예정ㅇㅇ (아직 미완) -->
+				<tr class="table-borderless">
+                <div class="d-flex justify-content-center" id="reportedList">
+                    <img src="images/icon/home.png" class="img-fluid" />
+                    <div class="ms-1">
+                    <div class="card-text d-flex">
+                        <h6>Product1 Title</h6>
+                        <span class="badge badge-s">경매중</span>
+                    </div>
+                    <p>Product1 Description</p>
+                    </div>
+                </div>
+              	
+				</tr>
 					<th class="lineUp"></th>
 				</tr>	
 			
