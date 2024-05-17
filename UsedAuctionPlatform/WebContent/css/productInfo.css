@@ -139,7 +139,6 @@
 	height: 50px;
 	border-radius: 5px;
 	text-align: center;
-	padding-top: 10px;
 	cursor: pointer;
 }
 
@@ -169,7 +168,7 @@
 	border-radius: 0 0 17px 17px;
 }
 
-.modal{
+.modal_default{
 	display: none;
 	justify-content: center;
 	width: 270px;

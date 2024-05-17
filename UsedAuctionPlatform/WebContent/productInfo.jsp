@@ -32,7 +32,6 @@
 					<li data-target="#myCarousel" data-slide-to="6"></li>
 					<li data-target="#myCarousel" data-slide-to="7"></li>
 					<li data-target="#myCarousel" data-slide-to="8"></li>
-					<li data-target="#myCarousel" data-slide-to="9"></li>
 				</ul>
 
 				<div class="carousel-inner">
@@ -111,7 +110,7 @@
 			</div>
 		</div>
 		<div id="nav_bar"></div>
-		<div class="modal" id="bid_modal">
+		<div class="modal_default" id="bid_modal">
 			<div id="bid_modal_container">
 				<div id="bid_modal_top">얼마를 입찰 하시겠습니까?</div>
 				<div id="bid_modal_input_container">
@@ -123,11 +122,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal" id="option_modal">
+		<div class="modal_default" id="option_modal">
 			<div class="option_button">1:1 채팅</div>
 			<div class="option_button" id="report_button">신고하기</div>
 		</div>
-		<div class="modal" id="report_modal">
+		<div class="modal_default" id="report_modal">
 			<div id="report_modal_container">
 				<div id="report_modal_top">신고사유</div>
 				<textarea></textarea>
