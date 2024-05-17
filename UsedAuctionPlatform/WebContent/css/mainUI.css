@@ -80,3 +80,12 @@
 	font-size: 8px;
 	color: gray;
 }
+
+.active{
+	background-color: #FFB966;
+}
+
+#regionBtn{
+	width : 71px;
+	text-align : right;
+}
