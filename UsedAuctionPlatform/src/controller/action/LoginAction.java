@@ -26,7 +26,8 @@ public class LoginAction implements Action {
 		//loginService.login();
 		
 		
-		return null;
+		//return null;
+		return "mainUI.jsp";
 	}
 
 }
