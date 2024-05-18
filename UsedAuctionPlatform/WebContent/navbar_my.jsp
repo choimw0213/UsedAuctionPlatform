@@ -23,7 +23,7 @@
 				구매내역
 			</a> 
 			<a href="myPage.jsp"> 
-				<img src="images/menu/mypage active.png" /><br>
+				<img src="images/menu/myPage active.png" /><br>
 				나
 			</a>
 		</div>
