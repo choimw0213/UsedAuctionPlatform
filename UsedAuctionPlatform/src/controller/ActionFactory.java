@@ -4,7 +4,9 @@ import controller.action.AddChatAction;
 import controller.action.AddProductAction;
 import controller.action.LoginAction;
 import controller.action.SetRateAction;
+import controller.page.AddProductUI;
 import controller.page.MainUI;
+import controller.page.NotiUI;
 
 public class ActionFactory {
 	ActionFactory(){}
@@ -27,8 +29,14 @@ public class ActionFactory {
 			case "addChatAction" :
 				action = new AddChatAction();
 				break;
+			case "addProductUI" :
+				action = new AddProductUI();
+				break;
 			case "addProductAction" :
 				action = new AddProductAction();
+				break;
+			case "notiUI" :
+				action = new NotiUI();
 				break;
 		}
 		
