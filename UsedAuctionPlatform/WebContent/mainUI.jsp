@@ -1,3 +1,4 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -9,20 +10,10 @@
 <title>Document</title>
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/mainUI.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous" />
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
-
-<link rel='stylesheet'
-	href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -31,27 +22,33 @@
 		<div class="row d-flex sticky-top pt-2" id="top1">
 			<div class="d-flex justify-content-between p-2 ">
 				<div class="dropdown" id="region">
-					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-						id="region">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a>
-						<a class="dropdown-item" href="#">강동구</a> <a class="dropdown-item"
-							href="#">강북구</a> <a class="dropdown-item" href="#">강서구</a> <a
-							class="dropdown-item" href="#">관악구</a> <a class="dropdown-item"
-							href="#">광진구</a> <a class="dropdown-item" href="#">구로구</a> <a
-							class="dropdown-item" href="#">금천구</a> <a class="dropdown-item"
-							href="#">노원구</a> <a class="dropdown-item" href="#">도봉구</a> <a
-							class="dropdown-item" href="#">동대문구</a> <a class="dropdown-item"
-							href="#">동작구</a> <a class="dropdown-item" href="#">마포구</a> <a
-							class="dropdown-item" href="#">서대문구</a> <a class="dropdown-item"
-							href="#">서초구</a> <a class="dropdown-item" href="#">성동구</a> <a
-							class="dropdown-item" href="#">성북구</a> <a class="dropdown-item"
-							href="#">송파구</a> <a class="dropdown-item" href="#">양천구</a> <a
-							class="dropdown-item" href="#">영등포구</a> <a class="dropdown-item"
-							href="#">용산구</a> <a class="dropdown-item" href="#">은평구</a> <a
-							class="dropdown-item" href="#">종로구</a> <a class="dropdown-item"
-							href="#">중구</a> <a class="dropdown-item" href="#">중랑구</a>
+					<button class="btn btn-sm dropdown-toggle" type="button" id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="region">
+						<a class="dropdown-item" href="#">강남구</a>
+						<a class="dropdown-item" href="#">강동구</a> 
+						<a class="dropdown-item" href="#">강북구</a> 
+						<a class="dropdown-item" href="#">강서구</a> 
+						<a class="dropdown-item" href="#">관악구</a> 
+						<a class="dropdown-item" href="#">광진구</a> 
+						<a class="dropdown-item" href="#">구로구</a> 
+						<a class="dropdown-item" href="#">금천구</a> 
+						<a class="dropdown-item" href="#">노원구</a> 
+						<a class="dropdown-item" href="#">도봉구</a> 
+						<a class="dropdown-item" href="#">동대문구</a> 
+						<a class="dropdown-item" href="#">동작구</a> 
+						<a class="dropdown-item" href="#">마포구</a> 
+						<a class="dropdown-item" href="#">서대문구</a> 
+						<a class="dropdown-item" href="#">서초구</a> 
+						<a class="dropdown-item" href="#">성동구</a> 
+						<a class="dropdown-item" href="#">성북구</a> 
+						<a class="dropdown-item" href="#">송파구</a> 
+						<a class="dropdown-item" href="#">양천구</a> 
+						<a class="dropdown-item" href="#">영등포구</a> 
+						<a class="dropdown-item" href="#">용산구</a> 
+						<a class="dropdown-item" href="#">은평구</a> 
+						<a class="dropdown-item" href="#">종로구</a> 
+						<a class="dropdown-item" href="#">중구</a> 
+						<a class="dropdown-item" href="#">중랑구</a>
 					</div>
 				</div>
 				<input class="input-field" value="" />
@@ -90,8 +87,7 @@
 
 				<div class="dropdown" id="hopelist">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="hopelistBtn" data-bs-toggle="dropdown"
-						aria-expanded="false">등록순</button>
+						id="hopelistBtn" data-bs-toggle="dropdown" aria-expanded="false">등록순</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">등록순</a>
 						<a class="dropdown-item" href="#">입찰건순</a> <a
@@ -100,13 +96,20 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 리스트  -->
+		<!-- 나중에 비동기로 Action에 넣을것임 
+		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
+			id="scroll">
+		</div>
+		-->
+
 		<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
 
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -138,7 +141,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -170,7 +174,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -202,7 +207,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -248,27 +254,10 @@
 
 	<script>
 		$(document).ready(function() {
-			$("#region div > a").on('click', function() {
-				console.log($(this).text());
-				$("#regionBtn").text($(this).text());
-				$("#region div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
 			
-			$("#category div > a").on('click', function() {
-				console.log($(this).text());
-				$("#categoryBtn").text($(this).text());
-				$("#category div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
+			dropboxList();
 			
-			$("#hopelist div > a").on('click', function() {
-				console.log($(this).text());
-				$("#hopelistBtn").text($(this).text());
-				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
-
+			// url 이동
 			$("#noti").on('click', function() {
 				location.href = "notiUI.jsp";
 			})
@@ -281,6 +270,72 @@
 				location.href = "productInfo.jsp"
 			})
 		});
+		
+		dropboxList = function(){	
+			// 카테고리
+			$("#region div > a").on('click', function() {
+				$("#regionBtn").text($(this).text());		
+			})							
+			$("#category div > a").on('click', function() {
+				$("#categoryBtn").text($(this).text());
+			})						
+			$("#hopelist div > a").on('click', function() {
+				$("#hopelistBtn").text($(this).text());
+			})
+			
+			//마우스 눌렀을 경우
+			$("#region div > a").on('mousedown', function(){
+				$("#region div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			$("#category div > a").on('mousedown', function(){
+				$("#category div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			$("#hopelist div > a").on('mousedown', function(){
+				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3")
+			})
+		}
+		
+		regionList = function(region){
+			$.ajax({
+				url : "controller?cmd=mainUI&region="+region,
+				type : "POST",
+				data : {},
+				success : function(response) {
+					$("#scroll").html(response);
+				}
+			});		
+		}	
+		
+		cardClick = function(){
+			$(".card").on("click", function() {
+				location.href = "controller?cmd=productInfo&seq="+this.dataset.productSeq;
+			})
+		}
+
+		
+	</script>
+	
+	<script>
+		// 사용자의 주소 값에 따라 메인 첫화면 주소를 설정하도록 하는 자바스크립트 코드
+		
+		var userAddress = "${sessionScope.user != null ? sessionScope.user.address : ''}"; // 로그인 여부 확인
+		var userDistrict = userAddress.split(' ').pop();
+		
+	    $(document).ready(function() {
+	        $("#region > .dropdown-item").each(function() {
+	            if ($(this).text() === userDistrict) {
+	                $(this).addClass("active bg-warning rounded-3");
+	                $("#regionBtn").text(userDistrict);
+	            }
+	        });
+	        
+            $('#regionBtn').on('click', function () {
+            	$('#region .dropdown-menu').scrollTop($('#region .dropdown-item.active').position().top);
+            });
+	    });
 	</script>
 </body>
 </html>

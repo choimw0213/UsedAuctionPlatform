@@ -14,7 +14,7 @@
 <body>
 	<div id="project_container">
 		<div id=top>
-			<img src="./images/icon/arrow.png">
+			<img src="./images/icon/arrow.png" onclick="history.back()">
 			<h1>상품정보</h1>
 			<img id="option" src="./images/icon/option.png">
 		</div>

@@ -33,7 +33,7 @@ a{
   <div id="project_container">
 
     <div id="top">
-      <img src="images/icon/arrow.png" id="previous" onclick="history.back()">
+      <div id="previous"></div>
       <h6 id="top-head">채팅</h6>
       <a href="chat.jsp">
       <img src="images/icon/headset.png">

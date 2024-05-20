@@ -1,7 +1,7 @@
 package vo;
 
 public class UserVO {
-	private String user_id;
+	private String userId;
 	private String password;
 	private String name;
 	private String nickName;
@@ -20,31 +20,32 @@ public class UserVO {
 	public UserVO(String nickName, String UserType){
 		this(null, null, null, nickName, null, null, null, 0, 0, 0, null, UserType, 0);
 	}
-	
-	public UserVO(String user_id, String password, String name, String nickName, String phoneNumber, String email,
+
+	public UserVO(String userId, String password, String name, String nickName, String phoneNumber, String email,
 			String address, int point, double rate, int rateCount, String profileImg, String userType,
 			int reportCount) {
-		setUser_id(user_id);
-		setPassword(password);
-		setName(name);
-		setNickName(nickName);
-		setPhoneNumber(phoneNumber);
-		setEmail(email);
-		setAddress(address);
-		setPoint(point);
-		setRate(rateCount);
-		setRateCount(rateCount);
-		setProfileImg(profileImg);
-		setUserType(userType);
-		setReportCount(reportCount);
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.name = name;
+		this.nickName = nickName;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.address = address;
+		this.point = point;
+		this.rate = rate;
+		this.rateCount = rateCount;
+		this.profileImg = profileImg;
+		this.userType = userType;
+		this.reportCount = reportCount;
 	}
 
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
@@ -160,8 +161,8 @@ public class UserVO {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + rateCount;
 		result = prime * result + reportCount;
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		result = prime * result + ((userType == null) ? 0 : userType.hashCode());
-		result = prime * result + ((user_id == null) ? 0 : user_id.hashCode());
 		return result;
 	}
 
@@ -217,24 +218,25 @@ public class UserVO {
 			return false;
 		if (reportCount != other.reportCount)
 			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
 		if (userType == null) {
 			if (other.userType != null)
 				return false;
 		} else if (!userType.equals(other.userType))
-			return false;
-		if (user_id == null) {
-			if (other.user_id != null)
-				return false;
-		} else if (!user_id.equals(other.user_id))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "UserVO [user_id=" + user_id + ", password=" + password + ", name=" + name + ", nickName=" + nickName
+		return "UserVO [userId=" + userId + ", password=" + password + ", name=" + name + ", nickName=" + nickName
 				+ ", phoneNumber=" + phoneNumber + ", email=" + email + ", address=" + address + ", point=" + point
 				+ ", rate=" + rate + ", rateCount=" + rateCount + ", profileImg=" + profileImg + ", userType="
 				+ userType + ", reportCount=" + reportCount + "]";
 	}
+
 }

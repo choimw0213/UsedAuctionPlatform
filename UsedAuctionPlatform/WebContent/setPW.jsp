@@ -13,6 +13,135 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/setPW.css">
 <title>Insert title here</title>
+<style>
+.passwordH6{
+	font-size:15px;
+}
+
+
+.img{
+  width: 23px;
+  height: 23px;
+
+}
+
+
+
+#top{
+	grid-area: 1/1/2/2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: inherit;
+	height: 40px;
+    position: absolute;
+	transform:translateY(-650%);
+	display:flex;
+	flex-wrap: wrap-reverse;
+
+}
+#top h1{
+	margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+#top > img{
+	width: 23px;
+	height: 23px;
+	cursor: pointer; 
+}
+
+
+
+#top-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.container {
+	
+
+}
+
+.setPWH1 {
+    grid-area : 1/1/2/2;
+    display : flex;
+    justify-content : center;
+    margin-top: -30%;
+}
+
+
+
+
+.setPW{
+    grid-area : 2/1/3/2;
+    display : flex;
+    justify-content : center;
+    transform: translateX(10px);
+    margin-top:20px;
+}
+
+
+.checkPassword{
+    grid-area : 3/1/4/2;
+    display : flex;
+    justify-content : center;
+	white-space:nowrap;
+    transform: translateY(8px);
+
+}
+
+input:focus {outline: none;}
+
+
+.setPWBtn{
+    grid-area : 4/1/5/2;
+    display:flex;
+    justify-content : center;
+    
+    padding:1em 3em;
+    font-size:1.75em;
+}
+
+.container{
+	transform: translateX(-8px);
+	
+}
+
+
+
+
+
+.fontFindPasswordH1{
+	font-size:2em; font-weight:bold;
+}
+
+.inputNewPW{
+	background-color:#D9D9D9; 
+	border:none; 
+	border-radius:3px; 
+	width:200px; 
+	height:35px;
+}
+.inputNewPWCheck{
+	background-color:#D9D9D9; 
+	border:none; 
+	border-radius:3px; 
+	width:200px; 
+	height:35px;
+}
+
+.lgbt{
+    color:#FFFFFF;
+    background-color:#FFB966;
+    border:none;
+    border-radius:5px;
+    padding:0.8em 2.5em;
+}
+
+
+</style>
 </head>
 <body>
 	<div id="project_container">
@@ -27,11 +156,11 @@
 			</div>
 
 			<div class="setPW">
-				새 비밀번호<input type="password" name="password" class="inputTxt"><br>
+				<h6 class="passwordH6">새 비밀번호</h6><input type="password" name="password" class="inputNewPW"><br>
 			</div>
 
 			<div class="checkPassword">
-				비밀번호 확인 <input type="password" name="checkPassword" class="inputTxt mt-2"><br>
+				<h6 class="passwordH6">비밀번호 확인 </h6><input type="password" name="checkPassword" class="inputNewPWCheck"><br>
 			</div>
 
 			<div class="setPWBtn">

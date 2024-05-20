@@ -93,7 +93,7 @@
 }
 
 .addPassword{
-	transform: translateX(-8px);
+	transform: translateX(-5px);
 }
 
 .cheakPassword{
@@ -101,11 +101,11 @@
 }
 
 .addName{
-	transform: translateX(17px);
+	transform: translateX(20px);
 }
 
 .addNickname{
-	transform: translateX(10px);
+	transform: translateX(13px);
 }
 
 .addPhoneNumber{
@@ -113,7 +113,7 @@
 }
 
 .addEmail{
-	transform: translateX(10px);
+	transform: translateX(13px);
 }
 
 
@@ -134,13 +134,13 @@
 	
 }
 
-.addAddress select{
+#select-box {
 	display:flex;
 	align-self:flex-end;
 	background-color:#D9D9D9;
 	font-size:10px;
-	border-radius:10px;
-
+	border-radius:3px;
+	transform:translateX(-3px);
 
 	padding:2px 20px;
 }
@@ -165,7 +165,7 @@ input:focus {
 }
 
 .inputTxt{
-	background-color:#D9D9D9; border:none; border-radius:10px;
+	background-color:#D9D9D9; border:none; border-radius:3px;
 }
 
 
@@ -229,11 +229,11 @@ input:focus {
 						<p>주</p>
 						<p>소</p>
 					</div>
-					<select class="form-select mt-0" aria-label="Default select example"
+					<select class="form-select mt-0 border-0 rounded" aria-label="Default select example"
 						id="select-box">
 						<option selected class="selectItems">서울특별시</option>
 					</select>
-					<select class="form-select mt-0" aria-label="Default select example"
+					<select class="form-select mt-0 border-0 rounded" aria-label="Default select example"
 						id="select-box">
 						<option selected class="selectItems">금천구</option>
 						<option value="1" class="selectItems">XX구</option>

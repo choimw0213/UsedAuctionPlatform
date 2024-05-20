@@ -13,6 +13,169 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/join.css">
 <title>Insert title here</title>
+<style>
+
+.img{
+  width: 23px;
+  height: 23px;
+  
+}
+
+
+
+#top{
+	grid-area: 1/1/2/2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: inherit;
+	height: 40px;
+    position: absolute;
+	transform:translateY(-650%);
+	display:flex;
+	flex-wrap: wrap-reverse;
+	
+}
+#top h1{
+	margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+#top > img{
+	width: 23px;
+	height: 23px;
+	cursor: pointer; 
+}
+
+
+
+#top-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.container {
+    display : grid;
+    grid-template-rows: 0.5fr 3fr 1fr;
+
+}
+
+.joinH1 {
+    grid-area : 1/1/2/2;
+    display : flex;
+    justify-content : center;
+    margin-top: 10%;
+}
+
+#addInfo{
+	grid-area:2/1/3/2;
+	display:flex;
+	flex-wrap:wrap;
+	
+	grid-row-gap: 10px;
+	margin-top: 20px;
+}
+
+#addInfo div{
+	display:flex;
+	margin:20px auto;
+	justify-content:center;
+	margin:5px auto;
+}
+
+.addUserId{
+	transform: translateX(1px);
+}
+
+.addPassword{
+	transform: translateX(-4px);
+}
+
+.cheakPassword{
+	transform: translateX(-10px);
+}
+
+.addName{
+	transform: translateX(20px);
+}
+
+.addNickname{
+	transform: translateX(14px);
+}
+
+.addPhoneNumber{
+	transform: translateX(2px);
+}
+
+.addEmail{
+	transform: translateX(15px);
+}
+
+.addressH6{
+	position:absolute;
+	top:-5px;
+	transform: translateX(-54px);
+}
+
+.addAddress{
+	border:none;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-wrap:nowrap;
+	/* justify-content:space-between; */
+	transform: translateX(7px);
+	
+}
+
+.addAddress select{
+	display:flex;
+	align-self:flex-end;
+	background-color:#D9D9D9;
+	font-size:10px;
+	border-radius:3px;
+	transform: translate(43px);
+
+	padding:2px 20px;
+}
+
+input:focus {
+	outline: none;	
+}
+
+
+
+
+.joinBtn{
+    grid-area : 3/1/4/2;
+    display:flex;
+    justify-content : center;
+    transform: translateY(-10px);
+    padding:1em 3em;
+    font-size:1.75em;
+}
+
+.inputTxt{
+	background-color:#D9D9D9; border:none; border-radius:3px;
+}
+
+
+.fontJoinH1{
+	font-size:2em; font-weight:bold;
+}
+
+.joinbt{
+    color:#FFFFFF;
+    background-color:#FFB966;
+    border:none;
+    border-radius:5px;
+    padding:0.5em 1.5em;
+}
+
+
+
+</style>
 </head>
 <body>
 	<div id="project_container">
@@ -62,11 +225,11 @@
 						<p>주</p>
 						<p>소</p>
 					</div>
-					<select class="form-select mt-0" aria-label="Default select example"
+					<select class="form-select mt-0 border-0" aria-label="Default select example"
 						id="select-box">
 						<option selected class="selectItems">서울특별시</option>
 					</select>
-					<select class="form-select mt-0" aria-label="Default select example"
+					<select class="form-select mt-0 border-0" aria-label="Default select example"
 						id="select-box">
 						<option selected class="selectItems">금천구</option>
 						<option value="1" class="selectItems">XX구</option>
