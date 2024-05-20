@@ -1,4 +1,4 @@
-package controller.action;
+package controller.page;
 
 import java.io.IOException;
 
@@ -7,21 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import controller.Action;
 import controller.URLModel;
-import service.LoginService;
 
-public class LoginAction implements Action {
+public class MainUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-
-		String userId = request.getParameter("userId");
-		String userPw = request.getParameter("userPw");
-		
-		System.out.println(userId + " " + userPw);
-		
-		//loginService.login();
-		
-//		return null;
+		// TODO Auto-generated method stub
 		return new URLModel("mainUI.jsp", true);
 	}
 

@@ -1,4 +1,4 @@
-package controller.action;
+package controller.page;
 
 import java.io.IOException;
 
@@ -8,15 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import controller.Action;
 import controller.URLModel;
 
-public class AddChatAction implements Action {
+public class FindPWUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		
-		String chatContent = request.getParameter("chatContent");
-		System.out.println(chatContent);
-		
-		return null;
+		// TODO Auto-generated method stub
+		return new URLModel("findPW.jsp", true);
 	}
 
 }

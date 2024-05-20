@@ -15,7 +15,11 @@ public class FrontController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String cmd = request.getParameter("cmd");
 		Action a = ActionFactory.getAction(cmd);
-		String url = a.execute(request);
-		request.getRequestDispatcher("/"+url).forward(request, response);
+		URLModel url = a.execute(request);
+		if(url.isFlag())
+			response.sendRedirect(url.getPage());
+		else
+			request.getRequestDispatcher("/"+url.getPage()).forward(request, response);
+		
 	}
 }
