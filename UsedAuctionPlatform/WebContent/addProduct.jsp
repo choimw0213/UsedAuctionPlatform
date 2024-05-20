@@ -157,12 +157,8 @@
 <script>
 	$("input[type=file]").on("change", function(){
 		let container = document.getElementById("img_list_container");
-		let form = document.querySelector("form");
-		let formData = new FormData(form);
-		console.log(this.files.length);
 		for(var i=0; i<this.files.length; i++){
 			let newImage = document.createElement("img");
-			
 			newImage.src = URL.createObjectURL(this.files[i]);
 			newImage.style.width = "50px";
 			newImage.style.height = "50px";

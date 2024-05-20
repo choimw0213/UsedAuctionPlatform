@@ -4,6 +4,7 @@ import controller.action.AddChatAction;
 import controller.action.AddProductAction;
 import controller.action.LoginAction;
 import controller.action.SetRateAction;
+import controller.page.MainUI;
 
 public class ActionFactory {
 	ActionFactory(){}
@@ -16,6 +17,9 @@ public class ActionFactory {
 				break;
 			case "joinAction" :
 				action = null;
+				break;
+			case "mainUI" :
+				action = new MainUI();
 				break;
 			case "setRateAction" :
 				action = new SetRateAction();
