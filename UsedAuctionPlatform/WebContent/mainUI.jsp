@@ -100,109 +100,14 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<!-- 리스트  -->
 		<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
 
-			<div class="card border-0">
-				<div class="row align-content-center w-100 ps-0 pe-0">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요 운동화 운동화 운동화</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0 mt-2 p-1">
-			<div class="card border-0">
-				<div class="row align-content-center w-100 ps-0 pe-0">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요 운동화 운동화 운동화</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0 mt-2 p-1">
-			<div class="card border-0">
-				<div class="row align-content-center w-100 ps-0 pe-0">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요 운동화 운동화 운동화</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0 mt-2 p-1">
-			<div class="card border-0">
-				<div class="row align-content-center w-100 ps-0 pe-0">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
 						<img src="images/product/product1/product1-img1.jpg"
@@ -215,7 +120,7 @@
 									<span class="badge badge-s">경매중</span>
 								</div>
 							</div>
-							<div class="d-flex text-group">
+							<div class="d-flex text-group pt-1">
 								<p class="product-info">생활용품</p>
 								<p class="product-info ms-2 me-2">|</p>
 								<p class="product-info">서울특별시 금천구</p>
@@ -232,7 +137,103 @@
 					</div>
 				</div>
 			</div>
-			<hr class="m-0 mt-2 p-1">
+			<hr class="m-0">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+				<div class="row align-content-center w-100">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>운동화 경매가 10,000원부터~~</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
+							</div>
+							<div class="d-flex text-group pt-1">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr class="m-0">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+				<div class="row align-content-center w-100">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
+							</div>
+							<div class="d-flex text-group pt-1">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr class="m-0">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+				<div class="row align-content-center w-100">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
+							</div>
+							<div class="d-flex text-group pt-1">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr class="m-0">
 
 		</div>
 
