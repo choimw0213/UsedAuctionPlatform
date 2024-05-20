@@ -27,7 +27,7 @@
 		<div class="row d-flex sticky-top pt-2" id="top1">
 			<div class="d-flex align-items-center justify-content-between p-2 ">
 				<div class="m-0" id="pre">
-					<img src="images/icon/arrow.png" id="previous">
+					<img src="images/icon/arrow.png" id="previous" onclick="history.back()">
 				</div>
 
 				<h6 class="m-0" id="top-head">알림</h6>

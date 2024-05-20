@@ -3,6 +3,7 @@
 #previous {
 	width: 23px;
 	height: 23px;
+	transform:translateX(-500%);
 }
 
 #top-head {
