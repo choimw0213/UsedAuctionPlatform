@@ -1,7 +1,7 @@
 package query;
 
 public interface UserQuery {
-	String LOGIN = "select nickname, user_type from users where user_id = ? and password = ?";
+	String LOGIN = "select user_id, password, name, nickname, phone_number, email, address, point, rate, rate_count, profile_img, user_type, report_count from users where user_id = ? and password = ?";
 	String ADD_USER = "insert into users "
 			+ "(user_id, password, name, nickname, phone_number, email, address, point, profile_img, "
 			+ "rate, rate_count, user_type, report_count) "
