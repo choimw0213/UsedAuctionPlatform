@@ -1,15 +1,59 @@
+.img {
+  width: 23px;
+  height: 23px;
+  
+}
+
+
+
+
+
+
+#top{
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: inherit;
+	height: 40px;
+    position: absolute;
+	transform:translateY(-350%);
+	display:flex;
+	flex-wrap: wrap-reverse;
+	
+}
+#top h1{
+	margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+#top > img{
+	width: 23px;
+	height: 23px;
+	cursor: pointer; 
+}
+
+
+
+#top-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 
 .container {
     display : grid;
-    grid-template-rows: 2.5fr 0.5fr 0.5fr 0.5fr 3fr;
-
+    grid-template-rows: 200px 40px 40px 40px 60px 198px;
+	display:flex;
+	align-items:space-between;
 }
 
 .findPasswordH1 {
     grid-area : 1/1/2/2;
     display : flex;
     justify-content : center;
-    margin-top: 80%;
+    top:-100px;
+    margin-top: 50%;
 }
 
 
@@ -50,13 +94,17 @@ input:focus {outline: none;}
     display:flex;
     justify-content : center;
     
-    padding:1em 3em;
-    font-size:1.75em;
+
+   
 }
 
 .container{
 	transform: translateX(-8px);
 	
+}
+
+.fontFindPasswordH1{
+	font-size: 2em; font-weight: bold;
 }
 
 
@@ -65,6 +113,7 @@ input:focus {outline: none;}
     background-color:#FFB966;
     border:none;
     border-radius:5px;
-    padding:0.5em 1.5em;
+    font-size:1.75em;
+    padding:90px 30px;
 }
 

@@ -16,14 +16,17 @@
 </head>
 <body>
 	<div id="project_container">
-		<div id="top">
-			
-			<img class="img-fulid" src="images/icon/arrow.png" id="previous" onclick="history.back()">
-			
-		</div>
-		<br>
+	<br><br><br>
+			  <div id="top">
+				<img class="img" src="images/icon/arrow.png" onclick="history.back()">
+		  	  </div>		
+
 		<div class="container">
+
+		
+		
 			<div class="findIdH1">
+		
 				<h1 class="fontFindIdH1">아 이 디 찾 기</h1>
 			</div>
 

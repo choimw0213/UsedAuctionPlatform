@@ -1,16 +1,24 @@
-#previous {
+
+.img{
   width: 23px;
   height: 23px;
-  transform:translateY(200%);
   
 }
 
+
+
 #top{
+	grid-area: 1/1/2/2;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: inherit;
 	height: 40px;
+    position: absolute;
+	transform:translateY(100%);
+	display:flex;
+	flex-wrap: wrap-reverse;
+	
 }
 #top h1{
 	margin-left: 5px;
@@ -20,7 +28,7 @@
 #top > img{
 	width: 23px;
 	height: 23px;
-	/* cursor: pointer; */
+	cursor: pointer; 
 }
 
 
@@ -37,20 +45,24 @@
 	height:578px;
 }
 
-#previous{
-	grid-area:1/1/2/2;
-		
-}
+
 
 
 .findIdH1 {
     grid-area : 1/1/2/2;
-    display : flex;
-    justify-content : center;
-    margin-top: 40%;
+    display:flex;
+    align-content: space-between;
+
+    
 }
 
 
+
+.fontFindIdH1{
+	display : flex;
+    justify-content : center;
+    margin-top: 30%;
+}
 
 
 .addName{

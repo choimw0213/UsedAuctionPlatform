@@ -5,80 +5,100 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/myPage.css">
+    <!-- <link rel="stylesheet" href="css/myPage.css"> -->
 <title>Insert title here</title>
+<style>
+#imgIcon{
+	width:60px;
+	height:60px;
+}
+
+
+.pointTxt{
+	text-align: center;
+	transform: translateX(40%);
+}
+
+.pointFont{
+	font-size:2em;
+}
+
+
+
+.nicknameP{
+	transform: translateY(40%);
+}
+
+.rateP{
+	transform: translateY(-20%);
+}
+
+
+.modal-header{
+	background-color:#FFB966;
+}
+
+.modal-body{
+	background-color:#FFB966;
+}
+
+.modal-title{
+	background-color:#FFB966;
+	color:#FFFFFF;
+}
+
+.modal-footer{
+	background-color:#FFB966;
+}
+
+#modalBtn{
+	background-color:#FFD9AC !important;
+	color:#000000;
+}
+
+a {
+	text-decoration: none;
+	color:#FFFFFF;
+	
+}
+
+
+
+.btn{
+	background-color:#FFB966;
+	border:none;
+
+}
+
+#myActButton{
+	z-index:10;
+	transform: translateX(40%);
+}
+
+
+
+
+.cBeB{
+	display:flex;
+	flex-wrap:nowrap;
+}
+
+.chargeButton{
+	transform: translateX(-50%);
+
+}
+
+
+.exchangeButton{
+	transform: translateX(40%);
+	
+}
+</style>
 </head>
 <body>
-
-
-
-
-
-
-  <!-- The Modal -->
-  <div class="modal fade" id="myModalCharge">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">얼마를 충전하시겠습니까?</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input class="form-control form-control-lg" type="number">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">확인</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-
-
-	
-
-
-
-
-  <!-- The Modal -->
-  <div class="modal fade" id="myModalExchange">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">얼마를 환전하시겠습니까?</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input class="form-control form-control-lg" type="number">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalBtn">닫기</button>
-        <button type="button" class="btn btn-primary" id="modalBtn">확인</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-
-
 
 
 <div id="project_container">
@@ -87,7 +107,7 @@
 			<thead>
 				<tr class="table-borderless">
 					<th class="col-md-3">
-						<img src="images/icon.png" class="img-fluid rounded-circle border">
+						<img src="images/icon/icon.png" class="img-fluid rounded-circle border" id="imgIcon">
 					</th>
 					<th class="maPageInfo">
 						<p class="nicknameP">nickname1234</p>
@@ -99,10 +119,16 @@
 						<p class="pointFont">10,000P</p>
 						<div class="cBeB">
 							<div class="chargeButton">
-								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModalCharge">충전</button>	
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chargeModal">
+충전
+</button>
 							</div>
 							<div class="exchangeButton">
-								<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModalExchange">환전</button>	
+		
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exchangeModal">
+환전
+</button>
 							</div>
 						</div>
 					</th>
@@ -110,14 +136,60 @@
 				</tr>	
 				<tr>
 					<th id="myActButton" class="border-0">
-						<button type="button" class="btn btn-primary btn-block">회원정보수정</button>
-						<button type="button" class="btn btn-primary btn-block">로그아웃</button>
-						<button type="button" class="btn btn-primary btn-block">회원탈퇴</button>
+						<br><button type="button" class="btn btn-primary" ><a href="setMyInfo.jsp">회원정보수정</a></button><br><br>
+						<button type="button" class="btn btn-primary" ><a href="login.jsp">ㅤ로그아웃ㅤ</a></button><br><br>
+						<button type="button" class="btn btn-primary">ㅤ회원탈퇴ㅤ</button>
 					</th>
 			
 				</tr>		
 			</thead>
 		</table>
+		
+		
+		<!-- Modal -->
+<div class="modal fade" id="chargeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">얼마를 충전하시겠습니까?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <input class="form-control form-control-lg" type="number">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="modalBtn" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" id="modalBtn">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		<!-- Modal -->
+<div class="modal fade" id="exchangeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">얼마를 환전하시겠습니까?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <input class="form-control form-control-lg" type="number">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="modalBtn" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" id="modalBtn">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		
+		
 	</div>	
 			<jsp:include page="/navbar_my.jsp"></jsp:include>
 </div>

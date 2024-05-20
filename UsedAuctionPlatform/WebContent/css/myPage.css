@@ -50,11 +50,16 @@ img{
 .btn{
 	background-color:#FFB966;
 	border:none;
+
 }
 
 #myActButton{
+	
 	transform: translateX(40%);
 }
+
+
+
 
 .cBeB{
 	display:flex;

@@ -1,3 +1,52 @@
+
+.img{
+  width: 23px;
+  height: 23px;
+  
+}
+
+
+
+#top{
+	grid-area: 1/1/2/2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: inherit;
+	height: 40px;
+    position: absolute;
+	transform:translateY(-650%);
+	display:flex;
+	flex-wrap: wrap-reverse;
+	
+}
+#top h1{
+	margin-left: 5px;
+	font-size: 20px;
+	font-weight: 600;
+}
+#top > img{
+	width: 23px;
+	height: 23px;
+	cursor: pointer; 
+}
+
+
+
+#top-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
 .container {
     display : grid;
     grid-template-rows: 0.5fr 3fr 1fr;
