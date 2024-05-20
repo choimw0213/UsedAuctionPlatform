@@ -8,12 +8,7 @@
 </head>
 <body>
 
-<%
-	String userId = (String)request.getParameter("userId");
-	if(userId == null){
-	    response.sendRedirect("login.jsp");		
-	}
-%>
+<% response.sendRedirect("login.jsp"); %>
 
 </body>
 </html>
