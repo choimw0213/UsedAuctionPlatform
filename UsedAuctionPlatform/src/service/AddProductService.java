@@ -22,13 +22,17 @@ public class AddProductService {
 		}
 	}
 	
-	public boolean addProduct(String fileName, String title, String category, String region, String bid_date,
+	public boolean addProduct(String user_id, String fileName, String title, String category, String region, String bid_date,
 			String price, String bid_price, String content){
 		boolean result = false;
 		try {
 			ProductDAO dao = new ProductDAO(dataSource.getConnection());
-			//ProductVO vo = new ProductVO();
-			//result = dao.addProduct(vo);
+			ProductVO vo = new ProductVO(0, user_id, title, category, region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(bid_price), content, "s");
+			result = dao.addProduct(vo);
+			
+//			if(result){
+//				result = dao.addProductImage(productSeq, fileName);
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
