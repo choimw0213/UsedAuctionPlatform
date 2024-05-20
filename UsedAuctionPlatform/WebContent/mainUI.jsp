@@ -251,6 +251,26 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 
 	</div>
+		
+	<script>
+		// 사용자의 주소 값에 따라 메인 첫화면 주소를 설정하도록 하는 자바스크립트 코드
+		
+		var userAddress = "${sessionScope.user != null ? sessionScope.user.address : ''}"; // 로그인 여부 확인
+		var userDistrict = userAddress.split(' ').pop();
+		
+	    $(document).ready(function() {
+	        $("#region > .dropdown-item").each(function() {
+	            if ($(this).text() === userDistrict) {
+	                $(this).addClass("active bg-warning rounded-3");
+	                $("#regionBtn").text(userDistrict);
+	            }
+	        });
+	        
+            $('#regionBtn').on('click', function () {
+            	$('#region .dropdown-menu').scrollTop($('#region .dropdown-item.active').position().top);
+            });
+	    });
+	</script>
 
 	<script>
 		$(document).ready(function() {
@@ -272,7 +292,7 @@
 		});
 		
 		dropboxList = function(){	
-			// 카테고리
+			// 드롭다운 text 변경
 			$("#region div > a").on('click', function() {
 				$("#regionBtn").text($(this).text());		
 			})							
@@ -283,7 +303,7 @@
 				$("#hopelistBtn").text($(this).text());
 			})
 			
-			//마우스 눌렀을 경우
+			//마우스 눌렀을 경우 active 변화
 			$("#region div > a").on('mousedown', function(){
 				$("#region div > a").removeClass("active bg-warning rounded-3");
 				$(this).addClass("active bg-warning rounded-3");
@@ -298,7 +318,7 @@
 			})
 		}
 		
-		regionList = function(region){
+		regionList = function(region){	// 지역별 리스트
 			$.ajax({
 				url : "controller?cmd=mainUI&region="+region,
 				type : "POST",
@@ -332,28 +352,7 @@
 				location.href = "controller?cmd=productInfo&seq="+this.dataset.productSeq;
 			})
 		}
-
-		
-	</script>
 	
-	<script>
-		// 사용자의 주소 값에 따라 메인 첫화면 주소를 설정하도록 하는 자바스크립트 코드
-		
-		var userAddress = "${sessionScope.user != null ? sessionScope.user.address : ''}"; // 로그인 여부 확인
-		var userDistrict = userAddress.split(' ').pop();
-		
-	    $(document).ready(function() {
-	        $("#region > .dropdown-item").each(function() {
-	            if ($(this).text() === userDistrict) {
-	                $(this).addClass("active bg-warning rounded-3");
-	                $("#regionBtn").text(userDistrict);
-	            }
-	        });
-	        
-            $('#regionBtn').on('click', function () {
-            	$('#region .dropdown-menu').scrollTop($('#region .dropdown-item.active').position().top);
-            });
-	    });
 	</script>
 </body>
 </html>

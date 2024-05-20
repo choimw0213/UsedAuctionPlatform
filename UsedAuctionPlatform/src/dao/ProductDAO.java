@@ -195,20 +195,22 @@ public class ProductDAO {
 	/* 메인 리스트 */
 	
 	// 등록순 목록 조회(default)
-	public ArrayList<ProductBoxDTO> getList(){
+	public ArrayList<ProductBoxDTO> getList(String address){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
-		try (Statement stmt = conn.createStatement()){
-			try(ResultSet rs = stmt.executeQuery(ProductQuery.GET_LIST)){
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_CATEGORY)){
+			pstmt.setString(1, address);
+			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
 				while(rs.next()){
 					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
-							rs.getInt("count(bid_price)-1"),rs.getInt("max(bid_price)"));
+							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
 					list.add(dto);
-				}	
+				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}
 		
