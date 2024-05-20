@@ -20,7 +20,7 @@
   <div id="project_container">
 
     <div id="top">
-      <img src="images/icon/arrow.png" id="previous">
+      <img src="images/icon/arrow.png" id="previous" onclick="history.back()">
       <h6 id="top-head">nickname1234님과의 채팅</h6>
       <div></div>
     </div>

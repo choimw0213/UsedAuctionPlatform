@@ -22,6 +22,11 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+a{
+	text-decoration: none;
+	color:#000000;
+}
 </style>
 <body>
 
@@ -30,7 +35,9 @@
     <div id="top">
       <img src="images/icon/arrow.png" id="previous" onclick="history.back()">
       <h6 id="top-head">채팅</h6>
+      <a href="chat.jsp">
       <img src="images/icon/headset.png">
+      </a>
     </div>
 
     <div class="container">
@@ -38,6 +45,7 @@
       <ul class="list-group w-100">
         <hr class="my-1">
         <li class="list-group-item border-0 p-0">
+        <a href="chat.jsp">
           <div class="d-flex">
             <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
             <div class="ms-1">
@@ -52,9 +60,11 @@
               </div>
             </div>
           </div>
+         </a> 
         </li>
         <hr class="my-1">
         <li class="list-group-item border-0 p-0">
+        <a href="chat.jsp">
           <div class="d-flex">
             <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
             <div class="ms-1">
@@ -69,9 +79,11 @@
               </div>
             </div>
           </div>
+         </a> 
         </li>
         <hr class="my-1">
         <li class="list-group-item border-0 p-0">
+        <a href="chat.jsp">
           <div class="d-flex">
             <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
             <div class="ms-1">
@@ -86,9 +98,11 @@
               </div>
             </div>
           </div>
+          </a>
         </li>
         <hr class="my-1">
         <li class="list-group-item border-0 p-0">
+        <a href="chat.jsp">
           <div class="d-flex">
             <img src="images/product/product2/product2-img1.jpg" class="img-fluid">
             <div class="ms-1">
@@ -103,9 +117,11 @@
               </div>
             </div>
           </div>
+          </a>
         </li>
         <hr class="my-1">
         <li class="list-group-item border-0 p-0">
+        <a href="chat.jsp">
           <div class="d-flex">
             <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
             <div class="ms-1">
@@ -120,6 +136,7 @@
               </div>
             </div>
           </div>
+          </a>
         </li>
         <hr class="my-1">
       </ul>
