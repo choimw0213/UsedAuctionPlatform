@@ -2,8 +2,8 @@ input {
 	background-color: #D9D9D9;
 	border: none;
 	border-radius: 10px;
-	width: 200px;
-	height: 25px;
+	width: 10em;
+	height: 2em;
 }
 
 .loginH1 {
@@ -82,9 +82,4 @@ input:focus {
 	border: none;
 	border-radius: 5px;
 	padding: 0.5em 1.5em;
-}
-
-#inputId, #pw {
-	width: 12em;
-	height: 2em;
 }
