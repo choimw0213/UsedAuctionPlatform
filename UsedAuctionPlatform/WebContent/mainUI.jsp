@@ -32,35 +32,33 @@
 			<div class="d-flex justify-content-between p-2 ">
 				<div class="dropdown" id="region">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="regionBtn" id="dropdownMenuButton" data-bs-toggle="dropdown"
-						aria-expanded="false">금천구</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">전체</a> <a class="dropdown-item"
-							href="#">강남구</a> <a class="dropdown-item" href="#">강동구</a> <a
-							class="dropdown-item" href="#">강북구</a> <a class="dropdown-item"
-							href="#">강서구</a> <a class="dropdown-item" href="#">관악구</a> <a
-							class="dropdown-item" href="#">광진구</a> <a class="dropdown-item"
-							href="#">구로구</a> <a
-							class="dropdown-item active bg-warning rounded-3" href="#">금천구</a>
-						<a class="dropdown-item" href="#">노원구</a> <a class="dropdown-item"
-							href="#">도봉구</a> <a class="dropdown-item" href="#">동대문구</a> <a
-							class="dropdown-item" href="#">동작구</a> <a class="dropdown-item"
-							href="#">마포구</a> <a class="dropdown-item" href="#">서대문구</a> <a
-							class="dropdown-item" href="#">서초구</a> <a class="dropdown-item"
-							href="#">성동구</a> <a class="dropdown-item" href="#">성북구</a> <a
-							class="dropdown-item" href="#">송파구</a> <a class="dropdown-item"
-							href="#">양천구</a> <a class="dropdown-item" href="#">영등포구</a> <a
-							class="dropdown-item" href="#">용산구</a> <a class="dropdown-item"
-							href="#">은평구</a> <a class="dropdown-item" href="#">종로구</a> <a
-							class="dropdown-item" href="#">중구</a> <a class="dropdown-item"
-							href="#">중랑구</a>
+						id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+						id="region">
+						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a>
+						<a class="dropdown-item" href="#">강동구</a> <a class="dropdown-item"
+							href="#">강북구</a> <a class="dropdown-item" href="#">강서구</a> <a
+							class="dropdown-item" href="#">관악구</a> <a class="dropdown-item"
+							href="#">광진구</a> <a class="dropdown-item" href="#">구로구</a> <a
+							class="dropdown-item" href="#">금천구</a> <a class="dropdown-item"
+							href="#">노원구</a> <a class="dropdown-item" href="#">도봉구</a> <a
+							class="dropdown-item" href="#">동대문구</a> <a class="dropdown-item"
+							href="#">동작구</a> <a class="dropdown-item" href="#">마포구</a> <a
+							class="dropdown-item" href="#">서대문구</a> <a class="dropdown-item"
+							href="#">서초구</a> <a class="dropdown-item" href="#">성동구</a> <a
+							class="dropdown-item" href="#">성북구</a> <a class="dropdown-item"
+							href="#">송파구</a> <a class="dropdown-item" href="#">양천구</a> <a
+							class="dropdown-item" href="#">영등포구</a> <a class="dropdown-item"
+							href="#">용산구</a> <a class="dropdown-item" href="#">은평구</a> <a
+							class="dropdown-item" href="#">종로구</a> <a class="dropdown-item"
+							href="#">중구</a> <a class="dropdown-item" href="#">중랑구</a>
 					</div>
 				</div>
 				<input class="input-field" value="" />
 				<button class="input-button border-0 bg-body">
 					<i class="fi fi-rr-search"></i>
 				</button>
-				<button class="input-button border-0 bg-body">
+				<button class="input-button border-0 bg-body" id="noti">
 					<i class="fi fi-rr-bell"></i>
 				</button>
 			</div>
@@ -69,11 +67,10 @@
 
 		<!-- 메인내용 -->
 		<div class="row w-100 g-2">
-			<div class="btn-group justify-content-between g-0 ps-2 pe-2">
+			<div class="btn-group justify-content-between g-0 p-2 pb-0">
 				<div class="dropdown" id="category">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-bs-toggle="dropdown"
-						aria-expanded="false">전체</button>
+						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">전체</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">전체</a>
 						<a class="dropdown-item" href="#">디지털 기기</a> <a
@@ -93,7 +90,7 @@
 
 				<div class="dropdown" id="hopelist">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-bs-toggle="dropdown"
+						id="hopelistBtn" data-bs-toggle="dropdown"
 						aria-expanded="false">등록순</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">등록순</a>
@@ -107,129 +104,139 @@
 		<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
-			<div class="row align-content-center w-100 ps-0 pe-0">
-				<div
-					class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-					<img src="images/product/product1/product1-img1.jpg"
-						class="img-fluid h-75" />
-					<div class="ms-2 w-100">
-						<div
-							class="card-text d-flex align-items-start justify-content-between">
-							<h6>신발팔아요 운동화 운동화 운동화</h6>
-							<div class="d-flex justify-content-end ms-1">
-								<span class="badge badge-s">경매중</span>
+
+			<div class="card border-0">
+				<div class="row align-content-center w-100 ps-0 pe-0">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요 운동화 운동화 운동화</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
 							</div>
-						</div>
-						<div class="d-flex text-group">
-							<p class="product-info">생활용품</p>
-							<p class="product-info ms-2 me-2">|</p>
-							<p class="product-info">서울특별시 금천구</p>
-						</div>
-						<div class="text-group-point pt-1 pb-1">
-							<p class="m-0 text-danger">입찰가 10,000P</p>
-							<p class="m-0">즉구가 50,000P</p>
-						</div>
-						<div class="d-flex justify-content-between text-group">
-							<p class="product-info">2024년 5월 12일 24:00 마감</p>
-							<p class="product-info me-2">입찰 5건</p>
+							<div class="d-flex text-group">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr class="m-0 mt-2 p-1">
-			<div class="row align-content-center w-100 ps-0 pe-0">
-				<div
-					class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-					<img src="images/product/product1/product1-img1.jpg"
-						class="img-fluid h-75" />
-					<div class="ms-2 w-100">
-						<div
-							class="card-text d-flex align-items-start justify-content-between">
-							<h6>신발팔아요 운동화 운동화 운동화</h6>
-							<div class="d-flex justify-content-end ms-1">
-								<span class="badge badge-s">경매중</span>
+			<div class="card border-0">
+				<div class="row align-content-center w-100 ps-0 pe-0">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요 운동화 운동화 운동화</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
 							</div>
-						</div>
-						<div class="d-flex text-group">
-							<p class="product-info">생활용품</p>
-							<p class="product-info ms-2 me-2">|</p>
-							<p class="product-info">서울특별시 금천구</p>
-						</div>
-						<div class="text-group-point pt-1 pb-1">
-							<p class="m-0 text-danger">입찰가 10,000P</p>
-							<p class="m-0">즉구가 50,000P</p>
-						</div>
-						<div class="d-flex justify-content-between text-group">
-							<p class="product-info">2024년 5월 12일 24:00 마감</p>
-							<p class="product-info me-2">입찰 5건</p>
+							<div class="d-flex text-group">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr class="m-0 mt-2 p-1">
-			<div class="row align-content-center w-100 ps-0 pe-0">
-				<div
-					class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-					<img src="images/product/product1/product1-img1.jpg"
-						class="img-fluid h-75" />
-					<div class="ms-2 w-100">
-						<div
-							class="card-text d-flex align-items-start justify-content-between">
-							<h6>신발팔아요 운동화 운동화 운동화</h6>
-							<div class="d-flex justify-content-end ms-1">
-								<span class="badge badge-s">경매중</span>
+			<div class="card border-0">
+				<div class="row align-content-center w-100 ps-0 pe-0">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요 운동화 운동화 운동화</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
 							</div>
-						</div>
-						<div class="d-flex text-group">
-							<p class="product-info">생활용품</p>
-							<p class="product-info ms-2 me-2">|</p>
-							<p class="product-info">서울특별시 금천구</p>
-						</div>
-						<div class="text-group-point pt-1 pb-1">
-							<p class="m-0 text-danger">입찰가 10,000P</p>
-							<p class="m-0">즉구가 50,000P</p>
-						</div>
-						<div class="d-flex justify-content-between text-group">
-							<p class="product-info">2024년 5월 12일 24:00 마감</p>
-							<p class="product-info me-2">입찰 5건</p>
+							<div class="d-flex text-group">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr class="m-0 mt-2 p-1">
-			<div class="row align-content-center w-100 ps-0 pe-0">
-				<div
-					class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-					<img src="images/product/product1/product1-img1.jpg"
-						class="img-fluid h-75" />
-					<div class="ms-2 w-100">
-						<div
-							class="card-text d-flex align-items-start justify-content-between">
-							<h6>신발팔아요 운동화 운동화 운동화</h6>
-							<div class="d-flex justify-content-end ms-1">
-								<span class="badge badge-s">경매중</span>
+			<div class="card border-0">
+				<div class="row align-content-center w-100 ps-0 pe-0">
+					<div
+						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
+						<img src="images/product/product1/product1-img1.jpg"
+							class="img-fluid h-75" />
+						<div class="ms-2 w-100">
+							<div
+								class="card-text d-flex align-items-start justify-content-between">
+								<h6>신발팔아요</h6>
+								<div class="d-flex justify-content-end ms-1">
+									<span class="badge badge-s">경매중</span>
+								</div>
 							</div>
-						</div>
-						<div class="d-flex text-group">
-							<p class="product-info">생활용품</p>
-							<p class="product-info ms-2 me-2">|</p>
-							<p class="product-info">서울특별시 금천구</p>
-						</div>
-						<div class="text-group-point pt-1 pb-1">
-							<p class="m-0 text-danger">입찰가 10,000P</p>
-							<p class="m-0">즉구가 50,000P</p>
-						</div>
-						<div class="d-flex justify-content-between text-group">
-							<p class="product-info">2024년 5월 12일 24:00 마감</p>
-							<p class="product-info me-2">입찰 5건</p>
+							<div class="d-flex text-group">
+								<p class="product-info">생활용품</p>
+								<p class="product-info ms-2 me-2">|</p>
+								<p class="product-info">서울특별시 금천구</p>
+							</div>
+							<div class="text-group-point pt-1 pb-1">
+								<p class="m-0 text-danger">입찰가 10,000P</p>
+								<p class="m-0">즉구가 50,000P</p>
+							</div>
+							<div class="d-flex justify-content-between text-group">
+								<p class="product-info">2024년 5월 12일 24:00 마감</p>
+								<p class="product-info me-2">입찰 5건</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr class="m-0 mt-2 p-1">
+
 		</div>
 
-		<button class="btn btn-primary floating-btn border-0"
+		<button class="btn btn-primary floating-btn border-0" id="addProduct"
 			style="background-color: #ffb966; position: relative; bottom: 10px; left: 130px; border-radius: 50%">
 			<i class="fi fi-rr-plus-small"></i>
 		</button>
@@ -239,10 +246,40 @@
 	</div>
 
 	<script>
-		$("#region div > a").on('click', function() {
-			console.log($(this).text());
-			$("#regionBtn").text($(this).text());
-		})
+		$(document).ready(function() {
+			$("#region div > a").on('click', function() {
+				console.log($(this).text());
+				$("#regionBtn").text($(this).text());
+				$("#region div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			
+			$("#category div > a").on('click', function() {
+				console.log($(this).text());
+				$("#categoryBtn").text($(this).text());
+				$("#category div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			
+			$("#hopelist div > a").on('click', function() {
+				console.log($(this).text());
+				$("#hopelistBtn").text($(this).text());
+				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+
+			$("#noti").on('click', function() {
+				location.href = "notiUI.jsp";
+			})
+
+			$("#addProduct").on('click', function() {
+				location.href = "addProduct.jsp";
+			})
+
+			$(".card").on('click', function() {
+				location.href = "productInfo.jsp"
+			})
+		});
 	</script>
 </body>
 </html>
