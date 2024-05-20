@@ -149,7 +149,7 @@
 			$("#img-count").text(document.getElementById("img_list_container").getElementsByTagName("img").length - 1);
 		}
 	})
-	$("#region div > a").on('click', function() {
+	$("#region div > a").on("click", function() {
 		console.log($(this).text());
 		$("#regionBtn").text($(this).text());
 		$("#region_value").val($(this).text());
@@ -157,12 +157,16 @@
 		$(this).addClass("active bg-warning rounded-3");
 	})
 			
-	$("#category div > a").on('click', function() {
+	$("#category div > a").on("click", function() {
 		console.log($(this).text());
 		$("#categoryBtn").text($(this).text());
 		$("#category_value").val($(this).text());
 		$("#category div > a").removeClass("active bg-warning rounded-3");
 		$(this).addClass("active bg-warning rounded-3");
+	})
+	
+	$("#top img").on("click", function(){
+		history.back();
 	})
 </script>
 </body>
