@@ -90,8 +90,7 @@
 
 				<div class="dropdown" id="hopelist">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="hopelistBtn" data-bs-toggle="dropdown"
-						aria-expanded="false">등록순</button>
+						id="hopelistBtn" data-bs-toggle="dropdown" aria-expanded="false">등록순</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">등록순</a>
 						<a class="dropdown-item" href="#">입찰건순</a> <a
@@ -100,13 +99,20 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 리스트  -->
+		<!-- 나중에 비동기로 Action에 넣을것임 
+		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
+			id="scroll">
+		</div>
+		-->
+
 		<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
 
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -138,7 +144,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -170,7 +177,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -202,7 +210,8 @@
 				</div>
 			</div>
 			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2">
+			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				data-productSeq=2>
 				<div class="row align-content-center w-100">
 					<div
 						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -248,27 +257,10 @@
 
 	<script>
 		$(document).ready(function() {
-			$("#region div > a").on('click', function() {
-				console.log($(this).text());
-				$("#regionBtn").text($(this).text());
-				$("#region div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
 			
-			$("#category div > a").on('click', function() {
-				console.log($(this).text());
-				$("#categoryBtn").text($(this).text());
-				$("#category div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
+			dropboxList();
 			
-			$("#hopelist div > a").on('click', function() {
-				console.log($(this).text());
-				$("#hopelistBtn").text($(this).text());
-				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
-			})
-
+			// url 이동
 			$("#noti").on('click', function() {
 				location.href = "notiUI.jsp";
 			})
@@ -281,6 +273,52 @@
 				location.href = "productInfo.jsp"
 			})
 		});
+		
+		dropboxList = function(){	
+			// 카테고리
+			$("#region div > a").on('click', function() {
+				$("#regionBtn").text($(this).text());		
+			})							
+			$("#category div > a").on('click', function() {
+				$("#categoryBtn").text($(this).text());
+			})						
+			$("#hopelist div > a").on('click', function() {
+				$("#hopelistBtn").text($(this).text());
+			})
+			
+			//마우스 눌렀을 경우
+			$("#region div > a").on('mousedown', function(){
+				$("#region div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			$("#category div > a").on('mousedown', function(){
+				$("#category div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3");
+			})
+			$("#hopelist div > a").on('mousedown', function(){
+				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
+				$(this).addClass("active bg-warning rounded-3")
+			})
+		}
+		
+		regionList = function(region){
+			$.ajax({
+				url : "controller?cmd=mainUI&region="+region,
+				type : "POST",
+				data : {},
+				success : function(response) {
+					$("#scroll").html(response);
+				}
+			});		
+		}	
+		
+		cardClick = function(){
+			$(".card").on("click", function() {
+				location.href = "controller?cmd=productInfo&seq="+this.dataset.productSeq;
+			})
+		}
+
+		
 	</script>
 </body>
 </html>
