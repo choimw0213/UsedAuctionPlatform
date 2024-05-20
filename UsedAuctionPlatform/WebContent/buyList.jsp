@@ -74,7 +74,7 @@
 	<div id="project_container">
 
 		<div id="top">
-			<img src="images/icon/arrow.png" id="previous" onclick="history.back()">
+			<div id="previous"></div>
 			<h6 id="top-head">구매내역</h6>
 			<div></div>
 		</div>
