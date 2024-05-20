@@ -1,6 +1,7 @@
 package controller;
 
 import controller.action.AddChatAction;
+import controller.action.AddProductAction;
 import controller.action.LoginAction;
 import controller.action.SetRateAction;
 
@@ -21,6 +22,9 @@ public class ActionFactory {
 				break;
 			case "addChatAction" :
 				action = new AddChatAction();
+				break;
+			case "addProductAction" :
+				action = new AddProductAction();
 				break;
 		}
 		
