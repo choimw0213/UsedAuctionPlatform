@@ -67,8 +67,7 @@
     grid-area : 1/1/2/2;
     display : flex;
     justify-content : center;
-    top:-100px;
-    margin-top: 10%;
+    margin-top: -20%;
 }
 
 
@@ -78,7 +77,7 @@
     grid-area : 2/1/3/2;
     display : flex;
     justify-content : center;
-    transform: translateX(-1px);
+    transform: translateX(-5px);
     margin-top:20px;
 }
 
@@ -150,18 +149,18 @@ input:focus {outline: none;}
 			</div>
 
 			<div class="addUserId">
-				아이디ㅤ <input type="text" name="userId"
-					style="background-color: #D9D9D9; border: none; border-radius: 10px; width: 200px; height: 25px;"><br>
+				<h6>아이디ㅤ </h6><input type="text" name="userId"
+					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
 			</div>
 
 			<div class="addName">
-				이름ㅤ <input type="text" name="name"
-					style="background-color: #D9D9D9; border: none; border-radius: 10px; width: 200px; height: 25px;"><br>
+				<h6>이름ㅤ </h6><input type="text" name="name"
+					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
 			</div>
 
 			<div class="addEmail">
-				이메일ㅤ<input type="text" name="email"
-					style="background-color: #D9D9D9; border: none; border-radius: 10px; width: 200px; height: 25px;"><br>
+				<h6>이메일ㅤ</h6><input type="text" name="email"
+					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
 			</div>
 
 

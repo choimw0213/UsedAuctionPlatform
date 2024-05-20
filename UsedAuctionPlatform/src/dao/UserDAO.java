@@ -17,19 +17,21 @@ public class UserDAO {
 	}
 
 	public UserVO login(String id, String pw){
-		UserVO VO = null;
+		UserVO vo = null;
 		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.LOGIN);){
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
 			try(ResultSet rs = pstmt.executeQuery();){
 				if(rs.next()){
-					VO = new UserVO(rs.getString(1), rs.getString(2));
+					vo = new UserVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)
+							, rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8)
+							, rs.getDouble(9), rs.getInt(10), rs.getString(11), rs.getString(12), rs.getInt(13));
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return VO;
+		return vo;
 	}
 
 	public boolean addUser(String id, String pw, String name, String nickname, String phoneNumber, String email, String address){
@@ -242,7 +244,7 @@ public class UserDAO {
 				userList = new ArrayList<UserVO>();
 				while(rs.next()){
 					vo = new UserVO();
-					vo.setUser_id(rs.getString(1));
+					vo.setUserId(rs.getString(1));
 					vo.setPhoneNumber(rs.getString(2));
 					vo.setReportCount(rs.getInt(3));
 					vo.setRate(rs.getDouble(4));
@@ -264,7 +266,7 @@ public class UserDAO {
 				userList = new ArrayList<UserVO>();
 				while(rs.next()){
 					vo = new UserVO();
-					vo.setUser_id(rs.getString(1));
+					vo.setUserId(rs.getString(1));
 					vo.setPhoneNumber(rs.getString(2));
 					vo.setReportCount(rs.getInt(3));
 					vo.setRate(rs.getDouble(4));

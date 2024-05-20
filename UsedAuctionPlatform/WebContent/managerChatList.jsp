@@ -35,8 +35,8 @@ a {
 				<tr class="table-borderless" >
 					<th class="col-md-3">
 					<a href="managerChat.jsp">
-		  				<img src="images/reddot.png" class="img rounded-circle" id="isRead">
-						<img src="images/icon.png" class="img rounded-circle border">
+		  				<img src="images/icon/reddot.png" class="img rounded-circle" id="isRead">
+						<img src="images/icon/icon.png" class="img rounded-circle border">
 					</a>	
 					</th>
 					<th class="usersChat mt-0 mb-0">

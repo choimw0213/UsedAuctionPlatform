@@ -16,7 +16,7 @@ public class AddChatAction implements Action {
 		String chatContent = request.getParameter("chatContent");
 		System.out.println(chatContent);
 		
-		return null;
+		return new URLModel("chat.jsp");
 	}
 
 }
