@@ -55,7 +55,7 @@
 					</div>
 				</div>
 				<input class="input-field" value="" />
-				<button class="input-button border-0 bg-body">
+				<button class="input-button border-0 bg-body" id="searchBtn">
 					<i class="fi fi-rr-search"></i>
 				</button>
 				<button class="input-button border-0 bg-body" id="noti">
@@ -310,7 +310,25 @@
 					$("#scroll").html(response);
 				}
 			});		
-		}	
+		}
+		
+		searchBtn = function(){	// 책 검색
+			$("#searchBtn").on("click", function(){
+				
+				$.ajax({
+					url : "controller?cmd=searchAction",
+					type : "POST",
+					data : {
+						search : $("#search").val()
+					},
+					success : function(response) {
+						$("#searchDiv").html(response);
+						cardClick();
+					}
+				});
+			})
+
+		}
 		
 		cardClick = function(){
 			$(".card").on("click", function() {

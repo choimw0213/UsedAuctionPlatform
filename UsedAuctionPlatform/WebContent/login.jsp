@@ -17,7 +17,7 @@
         <form action="controller?cmd=loginAction" method="post">
             <div class="row align-items-center">
                 <p class="fs-1 text-center">로그인</p>
-                <div class="row g-2 justify-content-center">
+                <div class="row g-2 justify-content-center ps-4 pe-4">
                     <div class="col-3 text-end">
                         <label class="col-form-label">아이디</label>
                     </div>
