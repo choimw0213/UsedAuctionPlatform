@@ -92,6 +92,11 @@ a {
 }
 
 
+button{
+	white-space:nowrap;
+	
+}
+
 .exchangeButton{
 	transform: translateX(40%);
 	
