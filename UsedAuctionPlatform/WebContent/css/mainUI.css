@@ -16,6 +16,11 @@
 
 .card-text>h6 {
 	margin: 0px;
+	width: 155px;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .badge-s {
@@ -81,11 +86,11 @@
 	color: gray;
 }
 
-.active{
+.active {
 	background-color: #FFB966;
 }
 
-#regionBtn{
-	width : 71px;
-	text-align : right;
+#regionBtn {
+	width: 71px;
+	text-align: right;
 }

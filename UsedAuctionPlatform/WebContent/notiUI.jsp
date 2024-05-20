@@ -27,13 +27,14 @@
 		<div class="row d-flex sticky-top pt-2" id="top1">
 			<div class="d-flex align-items-center justify-content-between p-2 ">
 				<div class="m-0" id="pre">
-					<img src="images/icon/arrow.png" id="previous" onclick="history.back()">
+					<img src="images/icon/arrow.png" id="previous" class="ms-2"
+						onclick="history.back()">
 				</div>
-
-				<h6 class="m-0" id="top-head">알림</h6>
+				<div>
+					<h6 class="m-0 pe-4" id="top-head">알림</h6>
+				</div>
 			</div>
 		</div>
-
 		<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
@@ -221,9 +222,7 @@
 	</div>
 	<script>
 		$(document).ready(function() {
-			$("#pre").on('click', function(){
-				history.back();
-			})
+			
 		});
 	</script>
 </body>
