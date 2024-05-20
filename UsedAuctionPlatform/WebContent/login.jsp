@@ -28,8 +28,7 @@
                         <label for="inputPassword6" class="col-form-label">비밀번호</label>
                     </div>  
                     <div class="col-8">
-                        <input name="userPw" type="password" id="inputPassword6" class="form-control-sm"
-                            aria-describedby="passwordHelpInline">
+                        <input name="userPw" type="password" id="inputPassword6" class="form-control-sm" aria-describedby="passwordHelpInline">
                     </div>
                 </div>
             </div>

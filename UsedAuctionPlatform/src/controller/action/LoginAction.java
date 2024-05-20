@@ -17,17 +17,11 @@ public class LoginAction implements Action {
 	
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
-		
-		//System.out.println(userId + " " + userPw);
-		//System.out.println(loginService.login(userId, userPw));
-		
+
 		UserVO vo = loginService.login(userId, userPw);
-		
 		if(vo == null){
-			//System.out.println("아이디, 비밀번호가 틀렸습니다.");
 			return new URLModel("login.jsp", true);
 		} else {
 			HttpSession session = request.getSession();
