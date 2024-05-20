@@ -138,6 +138,7 @@
 	<jsp:include page="/navbar_home.jsp"></jsp:include>
 </div>
 <script>
+
 	$("input[type=file]").on("change", function(){
 		let container = document.getElementById("img_list_container");
 		for(var i=0; i<this.files.length; i++){
@@ -161,6 +162,15 @@
 		console.log($(this).text());
 		$("#categoryBtn").text($(this).text());
 		$("#category_value").val($(this).text());
+		$("#category div > a").removeClass("active bg-warning rounded-3");
+		$(this).addClass("active bg-warning rounded-3");
+	})
+	
+	$("#region div > a").on('mousedown', function(){
+		$("#region div > a").removeClass("active bg-warning rounded-3");
+		$(this).addClass("active bg-warning rounded-3");
+	})
+	$("#category div > a").on('mousedown', function(){
 		$("#category div > a").removeClass("active bg-warning rounded-3");
 		$(this).addClass("active bg-warning rounded-3");
 	})
