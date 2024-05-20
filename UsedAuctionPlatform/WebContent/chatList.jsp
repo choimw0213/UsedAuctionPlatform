@@ -14,13 +14,21 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </head>
-
+<style>
+.chatP{
+	width:240px;
+	height:18px;
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+</style>
 <body>
 
   <div id="project_container">
 
     <div id="top">
-      <img src="images/icon/arrow.png" id="previous">
+      <img src="images/icon/arrow.png" id="previous" onclick="history.back()">
       <h6 id="top-head">채팅</h6>
       <img src="images/icon/headset.png">
     </div>
@@ -39,7 +47,7 @@
                     <span class="badge badge-s">판매품</span>
                     <p>nickname1234</p>
                   </div>
-                  <p>제주도 사는데, 배송이 어느정도 ...</p>
+                  <p class="chatP">제주도 사는데, 배송이 어느정도 ...</p>
                 </div>
               </div>
             </div>
@@ -56,7 +64,7 @@
                     <span class="badge badge-s">판매품</span>
                     <p>닉네임마바사아</p>
                   </div>
-                  <p>이렇게 싸게 팔면 남는게 있나요?</p>
+                  <p class="chatP">이렇게 싸게 팔면 남는게 있나요?</p>
                 </div>
               </div>
             </div>
@@ -73,7 +81,7 @@
                     <span class="badge badge-s">판매품</span>
                     <p>닉네임가나다라</p>
                   </div>
-                  <p>너무 비싸네요 안 삽니다</p>
+                  <p class="chatP">너무 비싸네요 안 삽니다너무 비싸네요 안 삽니다너무 비싸네요 안 삽니다너무 비싸네요 안 삽니다너무 비싸네요 안 삽니다</p>
                 </div>
               </div>
             </div>
@@ -90,7 +98,7 @@
                     <span class="badge bg-info">구매품</span>
                     <p>홍길동</p>
                   </div>
-                  <p>와 신발이 정말 이쁘네요</p>
+                  <p class="chatP">와 신발이 정말 이쁘네요</p>
                 </div>
               </div>
             </div>
@@ -107,7 +115,7 @@
                     <span class="badge badge-s">판매품</span>
                     <p>nickname5678</p>
                   </div>
-                  <p>대박나세요~</p>
+                  <p class="chatP">대박나세요~</p>
                 </div>
               </div>
             </div>
