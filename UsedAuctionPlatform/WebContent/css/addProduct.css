@@ -33,6 +33,7 @@
 #img_list_container{
 	display: flex;
 	align-items: flex-end;
+	flex-wrap: nowrap;
 	height: 60px;
 	gap: 5px;
 	overflow-x: scroll;

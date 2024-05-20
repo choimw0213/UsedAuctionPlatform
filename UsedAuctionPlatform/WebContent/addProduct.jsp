@@ -20,23 +20,6 @@
 <link rel="stylesheet" href="css/addProduct.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-#img_list_container{
-	display: flex;
-	align-items: flex-end;
-	flex-wrap: nowrap;
-	height: 60px;
-	gap: 5px;
-	overflow-x: scroll;
-}
-#img_list_container::-webkit-scrollbar {
-  display: none;
-}
-.img_container{
-	width: 50px;
-	height: 50px;
-}
-</style>
 </head>
 <body>
 <div id = "project_container">
