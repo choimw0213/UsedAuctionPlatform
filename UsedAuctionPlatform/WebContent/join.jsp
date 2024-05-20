@@ -35,56 +35,56 @@
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">아이디</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userId" type="text" id="inputId"
 							class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label for="inputPassword6" class="col-form-label">비밀번호</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userPw" type="password" id="pw"
 							class="form-control-sm" aria-describedby="passwordHelpInline">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label for="inputPassword6" class="col-form-label">비밀번호 확인</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userPw" type="password" class="form-control-sm"
 							aria-describedby="passwordHelpInline">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이름</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userId" type="text" id="inputId"
 							class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">닉네임</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userId" type="text" id="inputId"
 							class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">전화번호</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userId" type="text" id="inputId"
 							class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이메일</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<input name="userId" type="text" id="inputId"
 							class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
-						<label class="col-form-label">주소</label>
+						<label class="col-form-label pt-1 mb-4">주소</label>
 					</div>
-					<div class="col-7">
+					<div class="col-7 ms-1">
 						<select class="form-select form-select-sm mb-2"
 							aria-label=".form-select-sm example">
 							<option selected>서울특별시</option>
@@ -97,7 +97,7 @@
 						</select>
 					</div>
 
-					<div class="d-grid ps-5 pe-5 text-center mt-3">
+					<div class="d-grid ps-5 pe-5 text-center mt-4 mb-3">
 						<button type="submit" class="btn btn-primary btn-lg">
 							<div class="text-center m">JOIN</div>
 						</button>
