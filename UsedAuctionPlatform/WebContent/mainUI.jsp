@@ -279,11 +279,11 @@
 			
 			// url 이동
 			$("#noti").on('click', function() {
-				location.href = "notiUI.jsp";
+				location.href = "controller?cmd=notiUI";
 			})
 
 			$("#addProduct").on('click', function() {
-				location.href = "addProduct.jsp";
+				location.href = "controller?cmd=addProductUI";
 			})
 
 			$(".card").on('click', function() {
