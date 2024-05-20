@@ -162,6 +162,7 @@
 		console.log(this.files.length);
 		for(var i=0; i<this.files.length; i++){
 			let newImage = document.createElement("img");
+			
 			newImage.src = URL.createObjectURL(this.files[i]);
 			newImage.style.width = "50px";
 			newImage.style.height = "50px";
