@@ -13,13 +13,16 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </head>
-
+<style>
+#top{
+	justify-content: center;
+}
+</style>
 <body>
 
   <div id="project_container">
 
     <div id="top">
-      <div id="previous"></div>
       <h6 id="top-head">판매내역</h6>
       <div></div>
     </div>
