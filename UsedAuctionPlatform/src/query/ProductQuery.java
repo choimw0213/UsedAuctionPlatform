@@ -22,14 +22,14 @@ public interface ProductQuery {
 	String GET_LIST = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address='?' "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ?"
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
 	String GET_LIST_CATEGORY = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and category= ? "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and category= ? and address like ? "
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
