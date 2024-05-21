@@ -49,10 +49,10 @@
 				<td>
 					<div class="dropdown" id="category">
 					<button class="btn btn-sm dropdown-toggle" type="button"
-						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">전체</button>
+						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">카테고리</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">전체</a>
-						<a class="dropdown-item" href="#">디지털 기기</a> 
+						<a class="dropdown-item active bg-warning rounded-3" href="#">카테고리</a>
+						<a class="dropdown-item" href="#">디지털기기</a> 
 						<a class="dropdown-item" href="#">가구/인테리어</a> 
 						<a class="dropdown-item" href="#">유아동</a> 
 						<a class="dropdown-item" href="#">의류</a> 
@@ -66,8 +66,8 @@
 						<a class="dropdown-item" href="#">도서</a> 
 						<a class="dropdown-item" href="#">반려동물용품</a> 
 						<a class="dropdown-item" href="#">티켓/교환권</a> 
-						<a class="dropdown-item" href="#">식품</a>
-						<input name="category" id="category_value">
+						<a class="dropdown-item" href="#">식품</a> 
+						<input name="category" id="category_value" type="hidden" required>
 					</div>
 				</div>
 				</td>
@@ -104,7 +104,7 @@
 						<a class="dropdown-item" href="#">종로구</a> 
 						<a class="dropdown-item" href="#">중구</a> 
 						<a class="dropdown-item" href="#">중랑구</a>
-						<input name="region" id="region_value">
+						<input name="region" id="region_value" type="hidden" required>
 					</div>
 				</div>
 				</td>
@@ -113,9 +113,15 @@
 				<td align="right"><label class="res-label">경매 기간</label></td>
 				<td>
 					<label id="sell_date_label" for="sell_date">
-						<input id="3" type="radio" name="sell_date" value="3" checked>3일
-						<input id="5" type="radio" name="sell_date" value="5">5일
-						<input id="7" type="radio" name="sell_date" value="7">7일
+						<div class="date">
+							<input id="3" type="radio" name="sell_date" value="3" checked>3일
+						</div>
+						<div class="date">
+							<input id="5" type="radio" name="sell_date" value="5">5일
+						</div>
+						<div class="date">
+							<input id="7" type="radio" name="sell_date" value="7">7일
+						</div>
 					</label>
 				</td>
 			</tr>
@@ -129,7 +135,7 @@
 			</tr>
 			<tr>
 				<td valign="top" align="right"><label class="res-label">내용</label></td>
-				<td><textarea name="content"></textarea></td>
+				<td><textarea name="content" placeholder="내용 입력" required></textarea></td>
 			</tr>
 		</table>
 		<input type="submit" value="등록">
@@ -178,6 +184,15 @@
 	$("#top img").on("click", function(){
 		history.back();
 	})
+	
+/* 	$("input[name=bid_price]").on("change", function(){
+		console.log(this.value);
+		console.log($("input[name=price]").val())
+		if(this.value >= $("input[name=price]").val()){
+			alert("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
+			this.value = null;
+		}
+	}) */
 </script>
 </body>
 </html>
