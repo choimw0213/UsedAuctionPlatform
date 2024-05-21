@@ -23,7 +23,7 @@ public class ProductVO {
 		setCategory(category);
 		setContent(content);
 		setEndDateNum(endDateNum);
-		setPrice(startPrice);
+		setPrice(price);
 		setProductSeq(productSeq);
 		setStartDate(startDate);
 		setStartPrice(startPrice);
