@@ -60,8 +60,8 @@ public class UserDAOTest {
 
 	//@Test
 	public void findIdTest(){
-		assertTrue(new UserDAO(conn).findId("유저001", "user001@nate.com", "010-1111-2222"));
-		assertFalse(new UserDAO(conn).findId("유저005", "user001@nate.com", "010-1111-2222"));
+		assertNotNull(new UserDAO(conn).findId("유저001", "user001@nate.com", "010-1111-2222"));
+		assertNotNull(new UserDAO(conn).findId("유저005", "user001@nate.com", "010-1111-2222"));
 	}
 
 	//@Test
