@@ -10,7 +10,7 @@
 				<img src="images/menu/home.png" /><br>
 				홈
 			</a> 
-			<a href="chatList.jsp">
+			<a href="controller?cmd=chatList">
 				<img src="images/menu/chat active.png" /><br>
 				채팅
 			</a> 
