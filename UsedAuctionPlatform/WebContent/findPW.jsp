@@ -148,6 +148,7 @@ input:focus {outline: none;}
 				<h1 style="font-size: 2em; font-weight: bold;">비 밀 번 호 찾 기</h1>
 			</div>
 
+
 			<div class="addUserId">
 				<h6>아이디ㅤ </h6><input type="text" name="userId"
 					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
