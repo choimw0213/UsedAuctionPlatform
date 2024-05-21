@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,23 +14,33 @@ import dto.ProductBoxDTO;
 
 public class ProductListService {
 	private DataSource dataSource;
+	private Connection conn;
 	
 	public ProductListService(){
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
-		} catch (NamingException e) {
+			conn = dataSource.getConnection();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public ArrayList<ProductBoxDTO> getList(String address){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();
-		
 		try {
-			list = new ProductDAO(dataSource.getConnection()).getList(address);
-		} catch (SQLException e) {
+			list = new ProductDAO(conn).getList(address);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		return list;
