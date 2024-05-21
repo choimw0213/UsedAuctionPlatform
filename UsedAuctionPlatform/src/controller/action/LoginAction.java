@@ -25,7 +25,7 @@ public class LoginAction implements Action {
 		if(vo == null){
 			return new URLModel("login.jsp", true);
 		}
-		
+
 		if(vo.getUserType().equals("U")){
 			session.setAttribute("userId", vo.getUserId());
 			session.setAttribute("nickName", vo.getNickName());
