@@ -15,6 +15,7 @@ import controller.page.AddProductUI;
 import controller.page.ChatListUI;
 import controller.page.FindIDUI;
 import controller.page.JoinUI;
+import controller.page.LoginUI;
 import controller.page.MainManagerUI;
 import controller.page.MainUI;
 import controller.page.NotiUI;
@@ -28,6 +29,9 @@ public class ActionFactory {
 	static Action getAction(String cmd){
 		Action action = null;
 		switch (cmd) {
+			case "loginUI" :
+			action = new LoginUI();
+			break;
 			case "loginAction" :
 				action = new LoginAction();
 				break;

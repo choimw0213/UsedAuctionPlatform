@@ -13,7 +13,7 @@ public class LoginUI implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return new URLModel("login.jsp", true);
+		return new URLModel("login.jsp", false);
 	}
 
 }

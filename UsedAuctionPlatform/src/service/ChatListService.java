@@ -27,7 +27,6 @@ public class ChatListService {
 	}
 
 	public ArrayList<ChatVO> getChatList(String userId){
-		System.out.println(userId);
 		ArrayList<ChatVO> chatList = new ArrayList<ChatVO>();
 		
 		try (Connection conn = dataSource.getConnection();){
