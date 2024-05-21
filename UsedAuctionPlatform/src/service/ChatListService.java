@@ -1,19 +1,21 @@
 package service;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import dao.UserDAO;
-import vo.UserVO;
+import vo.ChatVO;
 
-public class LoginService {
+public class ChatListService {
+	
 	private DataSource dataSource;
 
-	public LoginService(){
+	public ChatListService(){
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
@@ -23,18 +25,19 @@ public class LoginService {
 		}
 	}
 
-	public UserVO login(String userId, String userPw) {
-		UserVO vo = null;
+	public ArrayList<ChatVO> getChatList(String userId){
+		
+		ArrayList<ChatVO> chatList = new ArrayList<ChatVO>();
 		
 		try {
-			UserDAO dao = new UserDAO(dataSource.getConnection());
-			vo = dao.login(userId, userPw);
+			Connection conn = dataSource.getConnection();
+			//chatList = new ChatDAO(conn).getChatList(userId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return vo;
+		return chatList;
 	}
 
 }
