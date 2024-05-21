@@ -14,13 +14,11 @@ import vo.ProductVO;
 
 public class AddProductService {
 	private DataSource dataSource;
-	private Connection conn;
-	
+
 	public AddProductService(){
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
-			conn = dataSource.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,12 +26,14 @@ public class AddProductService {
 
 	public boolean addProduct(String user_id, String fileName, String title, String category, String region, String bid_date,
 			String price, String bid_price, String content){
+		Connection conn = null;
 		//		if(category.equals("카테고리") || category == null){
 		//			return false;
 		//		}
 		boolean result = false;
 		int productSeq = 0;
 		try {
+			conn = dataSource.getConnection();
 			ProductDAO pDAO = new ProductDAO(conn);
 			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(bid_price), content, "s");
 
