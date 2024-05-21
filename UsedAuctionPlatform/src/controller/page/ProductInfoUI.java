@@ -12,8 +12,10 @@ public class ProductInfoUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return new URLModel("productInfo.jsp", true);
+		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
+		System.out.println(productSeq);
+		
+		
+		return new URLModel("productInfo.jsp");
 	}
-
 }
