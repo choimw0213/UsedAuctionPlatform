@@ -18,23 +18,23 @@ public class AddProductAction implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		String directory = "C:/Users/KOSTA/git/UsedAuctionPlatform/UsedAuctionPlatform/WebContent/images/uploaded";
+		String directory = "C:/Users/KOSTA/git/UsedAuctionPlatform/UsedAuctionPlatform/WebContent/WEB-INF/uploaded";
 		int sizeLimit = 100*1024*1024;		//100MB �젣�븳
-		
+		System.out.println(request.getContentType());
 		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 		
 		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("id");
+		String user_id = (String) session.getAttribute("userId");
 		String fileName = multi.getOriginalFileName("file");
 		String title = multi.getParameter("title");
 		String category = multi.getParameter("category");
 		String region = multi.getParameter("region");
 		String bid_date = multi.getParameter("sell_date");
 		String price = multi.getParameter("price");
-		String bid_price = multi.getParameter("bid_Price");
+		String bid_price = multi.getParameter("bid_price");
 		String content = multi.getParameter("content");
 		
-		String page = "addProductAction";
+		String page = "addProductUI";
 		
 		boolean result = false;
 		
