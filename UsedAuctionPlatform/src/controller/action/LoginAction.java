@@ -25,16 +25,20 @@ public class LoginAction implements Action {
 		if(vo == null){
 			return new URLModel("login.jsp", true);
 		}
-
+		
+		String[] address = vo.getAddress().split(" ");
+//		System.out.println(address[0]);
+//		System.out.println(address[1]);
+		
 		if(vo.getUserType().equals("U")){
 			session.setAttribute("userId", vo.getUserId());
 			session.setAttribute("nickName", vo.getNickName());
-			session.setAttribute("address", vo.getAddress());
+			session.setAttribute("address", address[1]);
 			return new URLModel("controller?cmd=mainUI", true);			
 		} else if(vo.getUserType().equals("M")){
 			session.setAttribute("userId", vo.getUserId());
 			session.setAttribute("nickName", vo.getNickName());
-			session.setAttribute("address", vo.getAddress());
+			session.setAttribute("address", address[1]);
 			return new URLModel("controller?cmd=mainManagerUI", true);
 		} else if(vo.getUserType().equals("D")){
 			return new URLModel("login.jsp", true);
