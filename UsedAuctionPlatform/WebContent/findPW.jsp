@@ -149,6 +149,7 @@ input:focus {outline: none;}
 			</div>
 
 
+
 			<div class="addUserId">
 				<h6>아이디ㅤ </h6><input type="text" name="userId"
 					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
