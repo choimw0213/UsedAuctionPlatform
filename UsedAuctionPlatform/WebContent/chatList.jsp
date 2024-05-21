@@ -25,6 +25,9 @@ a{
 	color:#000000;
 }
 </style>
+
+<%= request.getAttribute("chatList") %>
+
 <body>
 
   <div id="project_container">
