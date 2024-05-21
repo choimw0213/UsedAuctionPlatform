@@ -10,6 +10,7 @@ import controller.page.ChatListUI;
 import controller.page.MainManagerUI;
 import controller.page.MainUI;
 import controller.page.NotiUI;
+import controller.page.ProductInfoUI;
 
 public class ActionFactory {
 	ActionFactory(){}
@@ -49,6 +50,9 @@ public class ActionFactory {
 				break;
 			case "sortAction":
 				action = new SortAction();
+				break;
+			case "productInfoUI":
+				action = new ProductInfoUI();
 				break;
 		}
 		

@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -24,17 +25,24 @@ public class LoginService {
 	}
 
 	public UserVO login(String userId, String userPw) {
+		Connection conn = null;
 		UserVO vo = null;
 		
 		try {
-			UserDAO dao = new UserDAO(dataSource.getConnection());
+			conn = dataSource.getConnection();
+			UserDAO dao = new UserDAO(conn);
 			vo = dao.login(userId, userPw);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		
 		return vo;
 	}
-
 }
