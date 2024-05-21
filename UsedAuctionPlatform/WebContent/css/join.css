@@ -11,7 +11,9 @@ img {
 	height: 23px;
 }
 
-
+#previous{
+	cursor: pointer;
+}
 #top {
 	grid-area: 1/1/2/2;
 	display: flex;
