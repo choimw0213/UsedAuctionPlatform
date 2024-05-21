@@ -17,11 +17,7 @@ public class SortAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		
 		String region = request.getParameter("region");
-		System.out.println(region);
-		ArrayList<ProductBoxDTO> list= new ProductListService().getList(region);
-
 		request.setAttribute("list", new ProductListService().getList(region));
-		
 		
 		return new URLModel("asynchronous_productList.jsp", false);
 	}

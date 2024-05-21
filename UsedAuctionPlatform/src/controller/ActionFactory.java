@@ -4,6 +4,7 @@ import controller.action.AddChatAction;
 import controller.action.AddProductAction;
 import controller.action.LoginAction;
 import controller.action.SetRateAction;
+import controller.action.SortAction;
 import controller.page.AddProductUI;
 import controller.page.MainUI;
 import controller.page.NotiUI;
@@ -37,6 +38,9 @@ public class ActionFactory {
 				break;
 			case "notiUI" :
 				action = new NotiUI();
+				break;
+			case "sortAction":
+				action = new SortAction();
 				break;
 		}
 		

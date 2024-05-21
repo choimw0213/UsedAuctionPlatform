@@ -21,10 +21,10 @@ public class LoginAction implements Action {
 		HttpSession session = request.getSession();
 		
 		int result = loginService.login(userId, userPw);
-		
+				
 		if(result == 1){
-			session.setAttribute("userId", userId);
-			return new URLModel("mainUI.jsp", true);
+			session.setAttribute("userId", userId);	
+			return new URLModel("controller?cmd=mainUI", true);
 		} else if(result == 2){
 			session.setAttribute("userId", userId);
 			return new URLModel("mainManager.jsp", true);
