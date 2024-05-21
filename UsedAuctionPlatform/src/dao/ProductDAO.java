@@ -96,9 +96,9 @@ public class ProductDAO {
 	}
 	
 	// 상품 등록
-	public boolean addProduct(ProductVO vo){
-		
-		try (PreparedStatement pstmt = conn.prepareStatement(ProductQuery.ADD_PRODUCT)){
+	public int addProduct(ProductVO vo){
+		int productSeq = 0;
+		try (PreparedStatement pstmt = conn.prepareStatement(ProductQuery.ADD_PRODUCT, new String[]{"PRODUCT_SEQ"})){
 			pstmt.setString(1, vo.getUserId());
 			pstmt.setString(2, vo.getTitle());
 			pstmt.setString(3, vo.getCategory());
@@ -108,11 +108,17 @@ public class ProductDAO {
 			pstmt.setInt(7, vo.getStartPrice());
 			pstmt.setString(8, vo.getContent());
 			
-			return pstmt.executeUpdate() == 1;
+			if(pstmt.executeUpdate() == 1){
+				try(ResultSet rs = pstmt.getGeneratedKeys()){
+					if(rs.next()){
+						productSeq = rs.getInt(1);
+					}
+				}
+			}
 			
 		} catch (SQLException e) {e.printStackTrace();}
 		
-		return false;
+		return productSeq;
 	}
 	
 	/* 구매&판매 내역*/
