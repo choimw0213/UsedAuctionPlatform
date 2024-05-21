@@ -20,7 +20,6 @@ public class ProductListService {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
-			conn = dataSource.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -29,6 +28,7 @@ public class ProductListService {
 	public ArrayList<ProductBoxDTO> getList(String address){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();
 		try {
+			conn = dataSource.getConnection();
 			list = new ProductDAO(conn).getList(address);
 			
 		} catch (Exception e) {
@@ -42,7 +42,26 @@ public class ProductListService {
 				}
 			}
 		}
-		
+		return list;
+	}
+	
+	public ArrayList<ProductBoxDTO> getListByCategory(String address, String category){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();
+		try {
+			conn = dataSource.getConnection();
+			list = new ProductDAO(conn).getListByCategory(category, address);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		return list;
 	}
 }

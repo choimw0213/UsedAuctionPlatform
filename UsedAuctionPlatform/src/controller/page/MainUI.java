@@ -18,8 +18,9 @@ public class MainUI implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		
 		String id = (String)request.getSession().getAttribute("userId");
-		request.setAttribute("region", "금천구");
-		request.setAttribute("list", new ProductListService().getList("금천구"));
+		String address = (String)request.getSession().getAttribute("address");
+		
+		request.setAttribute("list", new ProductListService().getList(address));
 		
 		return new URLModel("mainUI.jsp");
 	}
