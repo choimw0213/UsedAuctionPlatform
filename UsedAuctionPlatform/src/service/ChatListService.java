@@ -9,6 +9,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import dao.ChatDAO;
 import vo.ChatVO;
 
 public class ChatListService {
@@ -26,12 +27,11 @@ public class ChatListService {
 	}
 
 	public ArrayList<ChatVO> getChatList(String userId){
-		
+		System.out.println(userId);
 		ArrayList<ChatVO> chatList = new ArrayList<ChatVO>();
 		
-		try {
-			Connection conn = dataSource.getConnection();
-			//chatList = new ChatDAO(conn).getChatList(userId);
+		try (Connection conn = dataSource.getConnection();){
+			chatList = new ChatDAO(conn).getChatList(userId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

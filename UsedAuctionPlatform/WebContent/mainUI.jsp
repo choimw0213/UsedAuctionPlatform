@@ -104,7 +104,7 @@
 			id="scroll">
 			<c:forEach items='${list}' var='p'>
 				<div class="card d-flex align-items-center border-0 p-2"
-					data-productSeq="${p.getProductSeq()}">
+					data-productseq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -166,7 +166,7 @@
 			location.href = "controller?cmd=addProductUI";
 		})
 		$(".card").on('click', function() {
-			location.href = "controller?cmd=productInfo&seq="+ this.dataset.productSeq;
+			location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
 		})
 		
 		$(document).ready(function() {
