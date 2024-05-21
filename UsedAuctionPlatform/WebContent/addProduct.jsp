@@ -189,14 +189,14 @@
 	})
 	
 	$("#category_value")
-/* 	$("input[name=bid_price]").on("change", function(){
-		console.log(this.value);
-		console.log($("input[name=price]").val())
-		if(this.value >= $("input[name=price]").val()){
+		$("input[name=bid_price]").on("change", function(){
+		var price = Number($("input[name=price]").val());
+		var bid_price = Number($(this).val());
+		if(bid_price >= price){
 			alert("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
 			this.value = null;
 		}
-	}) */
+	}) 
 </script>
 </body>
 </html>
