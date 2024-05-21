@@ -20,7 +20,7 @@ public class AddProductAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		String directory = "C:/Users/KOSTA/git/UsedAuctionPlatform/UsedAuctionPlatform/WebContent/WEB-INF/uploaded";
 		int sizeLimit = 100*1024*1024;		//100MB �젣�븳
-		System.out.println(request.getContentType());
+
 		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 		
 		HttpSession session = request.getSession();
