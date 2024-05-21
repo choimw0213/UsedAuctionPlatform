@@ -24,7 +24,7 @@ public class LoginService {
 	}
 
 	public UserVO login(String userId, String userPw) {
-		UserVO vo = new UserVO();
+		UserVO vo = null;
 		
 		try {
 			UserDAO dao = new UserDAO(dataSource.getConnection());
