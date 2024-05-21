@@ -144,7 +144,10 @@
 	<jsp:include page="/navbar_home.jsp"></jsp:include>
 </div>
 <script>
-
+	$(document).ready(function(){
+		$("#regionBtn").text("${address}");
+		$("#region_value").val("${address}");
+	})
 	$("input[type=file]").on("change", function(){
 		let container = document.getElementById("img_list_container");
 		for(var i=0; i<this.files.length; i++){
@@ -185,6 +188,7 @@
 		history.back();
 	})
 	
+	$("#category_value")
 /* 	$("input[name=bid_price]").on("change", function(){
 		console.log(this.value);
 		console.log($("input[name=price]").val())
