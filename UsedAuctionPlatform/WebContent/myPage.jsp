@@ -141,9 +141,9 @@ button{
 				</tr>	
 				<tr>
 					<th id="myActButton" class="border-0">
-						<br><button type="button" class="btn btn-primary" ><a href="setMyInfo.jsp">회원정보수정</a></button><br><br>
-						<button type="button" class="btn btn-primary" ><a href="login.jsp">ㅤ로그아웃ㅤ</a></button><br><br>
-						<button type="button" class="btn btn-primary">ㅤ회원탈퇴ㅤ</button>
+						<br><button type="button" class="btn btn-primary" ><a href="controller?cmd=setMyInfoUI">회원정보수정</a></button><br><br>
+						<button type="button" class="btn btn-primary" ><a href="controller?cmd=logoutAction">ㅤ로그아웃ㅤ</a></button><br><br>
+						<button type="button" class="btn btn-primary"><a href="controller?cmd=deleteMyInfoAction">ㅤ회원탈퇴ㅤ</a></button>
 					</th>
 			
 				</tr>		

@@ -134,12 +134,12 @@
 	
 }
 
-#select-box {
+.addAddress select{
 	display:flex;
 	align-self:flex-end;
 	background-color:#D9D9D9;
 	font-size:10px;
-	border-radius:3px;
+	border-radius:0px;
 	transform:translateX(-3px);
 
 	padding:2px 20px;
@@ -191,6 +191,7 @@ input:focus {
 			  <div id="top">
 				<img class="img" src="images/icon/arrow.png" onclick="history.back()">
 		  	  </div>	
+		 <form action="controller?cmd=setMyInfoAction" method="post"> 	  
 		<div class="container">
 			<div class="setMyInfoH1">
 				<h1 class="fontJoinH1">회 원 정 보 수 정</h1>
@@ -198,17 +199,17 @@ input:focus {
 			<div id="addInfo">
 
 				<div class="addPassword">
-					ㅤㅤㅤ비밀번호<input type="password" name="password" class="inputTxt"><br>
+					ㅤㅤㅤ비밀번호<input type="password" name="password" class="inputTxt" id="password"><br>
 				</div>
 
 				<div class="checkPassword">
-					비밀번호 확인 <input type="password" name="checkPassword"
-						class="inputTxt"><br>
+					비밀번호 확인 <input type="password" 
+						class="inputTxt" id="checkPassword"><br>
 				</div>
 
-				<div class="addName">
+<!-- 				<div class="addName">
 					ㅤ이름 <input type="text" name="name" class="inputTxt"><br>
-				</div>
+				</div> -->
 
 				<div class="addNickname">
 					ㅤ닉네임 <input type="text" name="nickname" class="inputTxt"><br>
@@ -229,12 +230,12 @@ input:focus {
 						<p>주</p>
 						<p>소</p>
 					</div>
-					<select class="form-select mt-0 border-0 rounded" aria-label="Default select example"
-						id="select-box">
+					<select class="form-select mt-0 border-0" aria-label="Default select example"
+						id="select-box" name="cityAddress">
 						<option selected class="selectItems">서울특별시</option>
 					</select>
-					<select class="form-select mt-0 border-0 rounded" aria-label="Default select example"
-						id="select-box">
+					<select class="form-select mt-0 border-0" aria-label="Default select example"
+						id="select-box" name="districtAddress">
 						<option selected class="selectItems">금천구</option>
 						<option value="1" class="selectItems">XX구</option>
 						<option value="2" class="selectItems">AA구</option>
@@ -248,12 +249,27 @@ input:focus {
 
 
 			<div class="setMyInfoBtn mb-0">
-				<form action="controller?cmd=loginAction">
-					<input type="submit" value="수정" class="smibt">
-				</form>
+				
+					<input type="submit" value="수정" class="smibt" onclick="return passwordTest()">
+				
 			</div>
 		</div>
+		</form>
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
+<script type="text/javascript">
+function passwordTest(){
+
+	var p1 = document.getElementById('password').value;
+		var p2 = document.getElementById('checkPassword').value;
+		if (p1 != p2) {
+			alert("비밀번호가 일치 하지 않습니다");
+			return false;
+		} else {
+
+			return true;
+		}
+	}
+</script>	
 </body>
 </html>

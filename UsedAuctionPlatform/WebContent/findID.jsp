@@ -11,8 +11,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/findID.css">
-<title>Insert title here</title>
+<!-- <link rel="stylesheet" href="css/findID.css">
+ --><title>Insert title here</title>
 <style>
 
 .img{
@@ -167,25 +167,27 @@ input:focus {outline: none;}
 		
 				<h1 class="fontFindIdH1">아 이 디 찾 기</h1>
 			</div>
-
+<form action="controller?cmd=findIDAction" method="post">
 			<div class="addName">
 				<h6>이름ㅤ </h6><input type="text" name="name" class="inputTxt"><br>
 			</div>
 
 			<div class="addEmail">
-				<h6>이메일ㅤ</h6> <input type="text" name="email" class="inputTxt"><br>
+				<h6>이메일ㅤ</h6> <input type="text" name="email" class="inputTxt"><br><br>
 			</div>
 
-			<div class="addPhoneNumber">
+			<div class="addPhoneNumber mt-4">
 				<h6>전화번호ㅤ</h6><input type="text" name="phoneNumber" class="inputTxt"><br>
 			</div>
 
 
 			<div class="findIdBtn">
-				<form action="#">
+				<div>
 					<input type="submit" value="O K" class="lgbt">
-				</form>
+				</div>
+	
 			</div>
+		</form>	
 		</div>
 	</div>
 <script type="text/javascript">

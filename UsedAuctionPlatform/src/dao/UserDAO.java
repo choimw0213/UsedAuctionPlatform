@@ -68,10 +68,10 @@ public class UserDAO {
 		return result;
 	}
 
-	public boolean nickCheck(String nickName){
+	public boolean nickCheck(String nickname){
 		boolean result = false;
 		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.NICK_CHECK);) {
-			pstmt.setString(1, nickName);
+			pstmt.setString(1, nickname);
 			try(ResultSet rs = pstmt.executeQuery();){
 				if(rs.next()){
 					result = true;
@@ -83,7 +83,7 @@ public class UserDAO {
 		return result;
 	}
 
-	public boolean findId(String name, String email, String phoneNumber){
+/*	public boolean findId(String name, String email, String phoneNumber){
 		boolean result = false;
 		try(PreparedStatement pstmt = conn.prepareStatement(UserQuery.FIND_ID);){
 			pstmt.setString(1, name);
@@ -98,7 +98,32 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}*/
+
+	public String findId(String name, String email, String phoneNumber){
+		String userId = null;
+		String sql = UserQuery.FIND_ID;
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			pstmt.setString(3, phoneNumber);
+
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				userId = rs.getString(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return userId;
 	}
+
+	
+	
+	
+	
 
 	public boolean findPw(String id, String name, String email){
 		boolean result = false;
