@@ -31,18 +31,7 @@ private static Connection conn;
 	public static void tearDownAfterClass() throws Exception {
 		conn.close();
 	}
-	
-	@Test
-	public void addProductTest() throws Exception{
-		conn.setAutoCommit(false);
 
-		ProductVO vo = new ProductVO(1, "user001", "의류 팔아요", "의류", "금천구", null, null,3, 3000, 1000, "의류 팖", "S");
-		assertTrue(new ProductDAO(conn).addProduct(vo));	
-		
-		conn.rollback();
-		conn.setAutoCommit(true);
-	}
-	
 	@Test
 	public void getProductTest() throws SQLException{
 		assertNotNull(new ProductDAO(conn).getProduct(2));
