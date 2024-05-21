@@ -104,7 +104,7 @@
 			id="scroll">
 			<c:forEach items='${list}' var='p'>
 				<div class="card d-flex align-items-center border-0 p-2"
-					data-productSeq=2>
+					data-productSeq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -149,25 +149,30 @@
 	</div>
 
 	<script>
-		var userAddress = "${region}";
-		console.log(userAddress);
+		var userAddress = "${address}";
 		$("#regionBtn").text(userAddress);
-	
+		$("#region div > a").removeClass("active bg-warning rounded-3");
+		$("#region div > a").each(function(){
+			if(userAddress === $(this).text()){
+				$(this).addClass("active bg-warning rounded-3");
+			}
+		})
+		
+		// url 이동
+		$("#noti").on('click', function() {
+			location.href = "controller?cmd=notiUI";
+		})
+		$("#addProduct").on('click', function() {
+			location.href = "controller?cmd=addProductUI";
+		})
+		$(".card").on('click', function() {
+			location.href = "productInfo.jsp"
+		})
+		
 		$(document).ready(function() {
-			// 비동기
 			dropboxList();
-
-			// url 이동
-			$("#noti").on('click', function() {
-				location.href = "controller?cmd=notiUI";
-			})
-			$("#addProduct").on('click', function() {
-				location.href = "controller?cmd=addProductUI";
-			})
-			$(".card").on('click', function() {
-				location.href = "productInfo.jsp"
-			})
 		});
+	
 
 		dropboxList = function() {
 			// 드롭다운 text 변경
