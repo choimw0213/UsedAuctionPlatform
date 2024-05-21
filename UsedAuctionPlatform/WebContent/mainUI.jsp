@@ -166,7 +166,7 @@
 			location.href = "controller?cmd=addProductUI";
 		})
 		$(".card").on('click', function() {
-			location.href = "productInfo.jsp"
+			location.href = "controller?cmd=productInfo&seq="+ this.dataset.productSeq;
 		})
 		
 		$(document).ready(function() {
@@ -230,13 +230,6 @@
 				});
 			})
 		};
-	
-		cardClick = function() { // 상품 선택
-			$(".card").on("click",function() {
-				location.href = "controller?cmd=productInfo&seq="+ this.dataset.productSeq;
-			});
-		};
-		
 		
 	</script>
 </body>
