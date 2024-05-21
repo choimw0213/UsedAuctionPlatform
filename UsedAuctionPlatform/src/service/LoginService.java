@@ -23,20 +23,18 @@ public class LoginService {
 		}
 	}
 
-	public int login(String userId, String userPw) {
+	public UserVO login(String userId, String userPw) {
+		UserVO vo = null;
+		
 		try {
 			UserDAO dao = new UserDAO(dataSource.getConnection());
-			UserVO vo = dao.login(userId, userPw);
-			if(vo != null) {
-				if(vo.getUserType().equals("U")) return 1;
-				else if(vo.getUserType().equals("M")) return 2;
-				else if(vo.getUserType().equals("D")) return 3;
-			}
+			vo = dao.login(userId, userPw);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return -1;
+		
+		return vo;
 	}
 
 }
