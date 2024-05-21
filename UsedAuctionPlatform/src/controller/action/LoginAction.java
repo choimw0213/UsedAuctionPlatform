@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import controller.Action;
 import controller.URLModel;
 import service.LoginService;
-import vo.UserVO;
 
 public class LoginAction implements Action {
 	
@@ -19,25 +18,19 @@ public class LoginAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
-
-		UserVO vo = loginService.login(userId, userPw);
-		if(vo == null){
-			return new URLModel("login.jsp", true);
-		} else {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", vo);
-		}
+		HttpSession session = request.getSession();
 		
-		if(vo.getUserType().equals("U")){
-			return new URLModel("mainUI.jsp", true);			
-		} else if(vo.getUserType().equals("D")) {
-			return new URLModel("login.jsp", true);
-		} else if (vo.getUserType().equals("M")) {
+		int result = loginService.login(userId, userPw);
+		
+		if(result == 1){
+			session.setAttribute("userId", userId);
+			return new URLModel("mainUI.jsp", true);
+		} else if(result == 2){
+			session.setAttribute("userId", userId);
 			return new URLModel("mainManager.jsp", true);
-		} else {
-			return new URLModel("login.jsp", true);
 		}
 		
+		return new URLModel("login.jsp", true);
 	}
 
 }
