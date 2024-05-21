@@ -8,56 +8,58 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Document</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+<link rel='stylesheet'
+	href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/mainUI.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
 	<div id="project_container" class="d-flex">
 		<!-- 상단바 -->
-		<div class="row d-flex sticky-top pt-2" id="top1">
-			<div class="d-flex justify-content-between p-2 ">
+		<div class="row d-flex sticky-top pt-2 w-100" id="top1">
+			<div class="d-flex align-items-center justify-content-between p-2 ">
 				<div class="dropdown" id="region">
-					<button class="btn btn-sm dropdown-toggle" type="button" id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="region">
-						<a class="dropdown-item" href="#">강남구</a>
-						<a class="dropdown-item" href="#">강동구</a> 
-						<a class="dropdown-item" href="#">강북구</a> 
-						<a class="dropdown-item" href="#">강서구</a> 
-						<a class="dropdown-item" href="#">관악구</a> 
-						<a class="dropdown-item" href="#">광진구</a> 
-						<a class="dropdown-item" href="#">구로구</a> 
-						<a class="dropdown-item" href="#">금천구</a> 
-						<a class="dropdown-item" href="#">노원구</a> 
-						<a class="dropdown-item" href="#">도봉구</a> 
-						<a class="dropdown-item" href="#">동대문구</a> 
-						<a class="dropdown-item" href="#">동작구</a> 
-						<a class="dropdown-item" href="#">마포구</a> 
-						<a class="dropdown-item" href="#">서대문구</a> 
-						<a class="dropdown-item" href="#">서초구</a> 
-						<a class="dropdown-item" href="#">성동구</a> 
-						<a class="dropdown-item" href="#">성북구</a> 
-						<a class="dropdown-item" href="#">송파구</a> 
-						<a class="dropdown-item" href="#">양천구</a> 
-						<a class="dropdown-item" href="#">영등포구</a> 
-						<a class="dropdown-item" href="#">용산구</a> 
-						<a class="dropdown-item" href="#">은평구</a> 
-						<a class="dropdown-item" href="#">종로구</a> 
-						<a class="dropdown-item" href="#">중구</a> 
-						<a class="dropdown-item" href="#">중랑구</a>
+					<button class="btn btn-sm dropdown-toggle" type="button"
+						id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+						id="region">
+						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a> <a class="dropdown-item"
+							href="#">강동구</a> <a class="dropdown-item" href="#">강북구</a> <a
+							class="dropdown-item" href="#">강서구</a> <a class="dropdown-item"
+							href="#">관악구</a> <a class="dropdown-item" href="#">광진구</a> <a
+							class="dropdown-item" href="#">구로구</a> <a class="dropdown-item"
+							href="#">금천구</a> <a class="dropdown-item" href="#">노원구</a> <a
+							class="dropdown-item" href="#">도봉구</a> <a class="dropdown-item"
+							href="#">동대문구</a> <a class="dropdown-item" href="#">동작구</a> <a
+							class="dropdown-item" href="#">마포구</a> <a class="dropdown-item"
+							href="#">서대문구</a> <a class="dropdown-item" href="#">서초구</a> <a
+							class="dropdown-item" href="#">성동구</a> <a class="dropdown-item"
+							href="#">성북구</a> <a class="dropdown-item" href="#">송파구</a> <a
+							class="dropdown-item" href="#">양천구</a> <a class="dropdown-item"
+							href="#">영등포구</a> <a class="dropdown-item" href="#">용산구</a> <a
+							class="dropdown-item" href="#">은평구</a> <a class="dropdown-item"
+							href="#">종로구</a> <a class="dropdown-item" href="#">중구</a> <a
+							class="dropdown-item" href="#">중랑구</a>
 					</div>
 				</div>
+
 				<input class="input-field" value="" />
-				<button class="input-button border-0 bg-body" id="searchBtn">
-					<i class="fi fi-rr-search"></i>
-				</button>
-				<button class="input-button border-0 bg-body" id="noti">
-					<i class="fi fi-rr-bell"></i>
-				</button>
+				<div class="me-2">
+					<button class="input-button border-0 bg-body" id="searchBtn">
+						<i class="fi fi-rr-search"></i>
+					</button>
+					<button class="input-button border-0 bg-body" id="noti">
+						<i class="fi fi-rr-bell"></i>
+					</button>
+				</div>
 			</div>
 		</div>
 
@@ -97,150 +99,8 @@
 			</div>
 		</div>
 
-		<!-- 리스트  -->
-		<!-- 나중에 비동기로 Action에 넣을것임 
 		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
-		</div>
-		-->
-
-		<div
-			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
-			id="scroll">
-
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
-				data-productSeq=2>
-				<div class="row align-content-center w-100">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group pt-1">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
-				data-productSeq=2>
-				<div class="row align-content-center w-100">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>운동화 경매가 10,000원부터~~</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group pt-1">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
-				data-productSeq=2>
-				<div class="row align-content-center w-100">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group pt-1">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0">
-			<div class="card d-flex align-items-center border-0 ps-2 pe-2"
-				data-productSeq=2>
-				<div class="row align-content-center w-100">
-					<div
-						class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid h-75" />
-						<div class="ms-2 w-100">
-							<div
-								class="card-text d-flex align-items-start justify-content-between">
-								<h6>신발팔아요</h6>
-								<div class="d-flex justify-content-end ms-1">
-									<span class="badge badge-s">경매중</span>
-								</div>
-							</div>
-							<div class="d-flex text-group pt-1">
-								<p class="product-info">생활용품</p>
-								<p class="product-info ms-2 me-2">|</p>
-								<p class="product-info">서울특별시 금천구</p>
-							</div>
-							<div class="text-group-point pt-1 pb-1">
-								<p class="m-0 text-danger">입찰가 10,000P</p>
-								<p class="m-0">즉구가 50,000P</p>
-							</div>
-							<div class="d-flex justify-content-between text-group">
-								<p class="product-info">2024년 5월 12일 24:00 마감</p>
-								<p class="product-info me-2">입찰 5건</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr class="m-0">
-
 		</div>
 
 		<button class="btn btn-primary floating-btn border-0" id="addProduct"
@@ -251,87 +111,67 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 
 	</div>
-		
-	<script>
-		// 사용자의 주소 값에 따라 메인 첫화면 주소를 설정하도록 하는 자바스크립트 코드
-		
-		var userAddress = "${sessionScope.user != null ? sessionScope.user.address : ''}"; // 로그인 여부 확인
-		var userDistrict = userAddress.split(' ').pop();
-		
-	    $(document).ready(function() {
-	        $("#region > .dropdown-item").each(function() {
-	            if ($(this).text() === userDistrict) {
-	                $(this).addClass("active bg-warning rounded-3");
-	                $("#regionBtn").text(userDistrict);
-	            }
-	        });
-	        
-            $('#regionBtn').on('click', function () {
-            	$('#region .dropdown-menu').scrollTop($('#region .dropdown-item.active').position().top);
-            });
-	    });
-	</script>
 
-	<script>
+	<script>		
 		$(document).ready(function() {
-			
+			// 비동기
 			dropboxList();
-			
+
 			// url 이동
 			$("#noti").on('click', function() {
 				location.href = "controller?cmd=notiUI";
 			})
-
 			$("#addProduct").on('click', function() {
 				location.href = "controller?cmd=addProductUI";
 			})
-
 			$(".card").on('click', function() {
 				location.href = "productInfo.jsp"
 			})
 		});
-		
-		dropboxList = function(){	
+
+		dropboxList = function() {
 			// 드롭다운 text 변경
 			$("#region div > a").on('click', function() {
-				$("#regionBtn").text($(this).text());		
-			})							
+				$("#regionBtn").text($(this).text());
+				regionList($(this).text()); // 비동기작동
+			})
 			$("#category div > a").on('click', function() {
 				$("#categoryBtn").text($(this).text());
-			})						
+			})
 			$("#hopelist div > a").on('click', function() {
 				$("#hopelistBtn").text($(this).text());
 			})
-			
+
 			//마우스 눌렀을 경우 active 변화
-			$("#region div > a").on('mousedown', function(){
+			$("#region div > a").on('mousedown',function() {
 				$("#region div > a").removeClass("active bg-warning rounded-3");
 				$(this).addClass("active bg-warning rounded-3");
 			})
-			$("#category div > a").on('mousedown', function(){
+			$("#category div > a").on('mousedown',function() {
 				$("#category div > a").removeClass("active bg-warning rounded-3");
 				$(this).addClass("active bg-warning rounded-3");
 			})
-			$("#hopelist div > a").on('mousedown', function(){
+			$("#hopelist div > a").on('mousedown',function() {
 				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
 				$(this).addClass("active bg-warning rounded-3")
 			})
 		}
 		
-		regionList = function(region){	// 지역별 리스트
+		regionList = function(reg) { // 지역별 리스트
 			$.ajax({
-				url : "controller?cmd=mainUI&region="+region,
+				url : "controller?cmd=sortAction",
 				type : "POST",
-				data : {},
+				data : {
+					region : reg
+				},
 				success : function(response) {
 					$("#scroll").html(response);
 				}
-			});		
+			});
 		}
-		
-		searchBtn = function(){	// 책 검색
-			$("#searchBtn").on("click", function(){
-				
+	
+		searchBtn = function() { // 상품검색
+			$("#searchBtn").on("click", function() {
 				$.ajax({
 					url : "controller?cmd=searchAction",
 					type : "POST",
@@ -344,15 +184,15 @@
 					}
 				});
 			})
-
-		}
-		
-		cardClick = function(){
-			$(".card").on("click", function() {
-				location.href = "controller?cmd=productInfo&seq="+this.dataset.productSeq;
-			})
-		}
+		};
 	
+		cardClick = function() { // 상품 선택
+			$(".card").on("click",function() {
+				location.href = "controller?cmd=productInfo&seq="+ this.dataset.productSeq;
+			});
+		};
+		
+		
 	</script>
 </body>
 </html>

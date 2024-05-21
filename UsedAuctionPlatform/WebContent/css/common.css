@@ -64,11 +64,6 @@ body{
     scrollbar-width: none;
 }
 
-.img-fluid {
-    width: 95px;
-    height: 95px;
-}
-
 .card-text > h6 {
     margin: 0px;
 }

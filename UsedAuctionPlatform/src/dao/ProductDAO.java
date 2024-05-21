@@ -205,8 +205,8 @@ public class ProductDAO {
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
-		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_CATEGORY)){
-			pstmt.setString(1, address);
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST)){
+			pstmt.setString(1, "%"+address+"%");
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
@@ -222,15 +222,15 @@ public class ProductDAO {
 		
 		return list;
 	}
-	
 	// 카테고리별 목록 조회
-	public ArrayList<ProductBoxDTO> getListByCategory(String category){
+	public ArrayList<ProductBoxDTO> getListByCategory(String category, String address){
 		
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_CATEGORY)){
-			pstmt.setString(1, category);	
+			pstmt.setString(1, category);
+			pstmt.setString(2, "%"+address+"%");
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
