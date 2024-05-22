@@ -7,13 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 
 import controller.Action;
 import controller.URLModel;
+import service.ProductSellListService;
 
 public class SellListUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return new URLModel("sellList.jsp", true);
+		
+		String userId = (String)request.getSession().getAttribute("userId");
+
+		request.setAttribute("sellList", new ProductSellListService().getSellingList(userId));
+		//request.setAttribute("sellList", new ProductSellListService().getSellCompleteList(userId));
+		
+		return new URLModel("sellList.jsp", false);
 	}
 
 }

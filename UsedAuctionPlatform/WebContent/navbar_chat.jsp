@@ -14,7 +14,7 @@
 				<img src="images/menu/chat active.png" /><br>
 				채팅
 			</a> 
-			<a href="sellList.jsp">
+			<a href="controller?cmd=sellListUI">
 				<img src="images/menu/sellList.png" /><br>
 				판매내역
 			</a> 

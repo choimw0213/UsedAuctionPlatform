@@ -7,6 +7,7 @@ import controller.action.FindIDAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.SellListAction;
 import controller.action.SetMyInfoAction;
 import controller.action.SetPWAction;
 import controller.action.SetRateAction;
@@ -20,6 +21,7 @@ import controller.page.MainManagerUI;
 import controller.page.MainUI;
 import controller.page.NotiUI;
 import controller.page.ProductInfoUI;
+import controller.page.SellListUI;
 import controller.page.SetMyInfoUI;
 import controller.page.SetPWUI;
 
@@ -30,8 +32,8 @@ public class ActionFactory {
 		Action action = null;
 		switch (cmd) {
 			case "loginUI" :
-			action = new LoginUI();
-			break;
+				action = new LoginUI();
+				break;
 			case "loginAction" :
 				action = new LoginAction();
 				break;
@@ -94,6 +96,12 @@ public class ActionFactory {
 				break;
 			case "setPWAction" :
 				action = new SetPWAction();
+				break;
+			case "sellListUI" :
+				action = new SellListUI();
+				break;				
+			case "sellListAction" :
+				action = new SellListAction();
 				break;				
 		}
 		

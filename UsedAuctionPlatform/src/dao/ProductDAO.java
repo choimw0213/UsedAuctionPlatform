@@ -128,7 +128,7 @@ public class ProductDAO {
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
-		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_SALLING_HISTORY)){
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_SELLING_HISTORY)){
 			pstmt.setString(1, id);	
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
