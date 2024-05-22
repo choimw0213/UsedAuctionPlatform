@@ -4,16 +4,26 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
+import service.ProductService;
 
 public class BidAction implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		HttpSession session = request.getSession();
+		
+		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
+		int bidPrice = Integer.parseInt(request.getParameter("bidPrice"));
+		String userId = (String) session.getAttribute("userId");
+		
+		boolean result = new ProductService().addBid(productSeq, userId, bidPrice);
+		
+		String page = "productInfoUI&productSeq=" + productSeq;
+		
+		return new URLModel("controller?cmd=" + page);
 	}
-
 }

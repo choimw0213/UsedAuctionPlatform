@@ -52,6 +52,7 @@ public class BidDAO {
 			pstmt.setInt(3, productSeq);
 			pstmt.setString(4, id);
 			if(pstmt.executeUpdate() >= 1){
+				System.out.println(productSeq+id+price);
 				result = true;
 			}
 		} catch (SQLException e) {

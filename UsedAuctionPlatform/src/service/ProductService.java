@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import dao.BidDAO;
 import dao.ProductDAO;
+import dao.UserDAO;
 import dto.ProductBoxDTO;
 import vo.ProductVO;
 
@@ -89,5 +90,39 @@ public class ProductService {
 			}
 		}
 		return dto;
+	}
+	
+	public boolean addBid(int productSeq, String id, int price){
+		Connection conn = null;
+		boolean result = false;
+		try {
+			conn = dataSource.getConnection();
+			BidDAO dao = new BidDAO(conn);
+			conn.setAutoCommit(false);
+			result = dao.addBid(productSeq, id, price);
+			if(result){
+				result = dao.pointDeduction(productSeq, id, price);
+			}
+			conn.commit();
+		} catch (SQLException e) {
+			if(conn != null){
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.setAutoCommit(true);
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
 	}
 }

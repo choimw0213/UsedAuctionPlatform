@@ -105,7 +105,8 @@
 			<div id="bid_modal_container">
 				<div id="bid_modal_top">얼마를 입찰 하시겠습니까?</div>
 				<div id="bid_modal_input_container">
-					<input name="bid_price" placeholder="0P" value="">
+					<input name="bid_price" placeholder="0P">
+					<span>내 포인트: ${point}</span>
 				</div>
 				<div id="bid_modal_button_container">
 					<div id="add_bid">확인</div>
@@ -131,9 +132,33 @@
 	</div>
 	<script type="text/javascript">
 	$("#add_bid").click(function(){
-		location.href = "controller?cmd=BidAction&bidPrice=" + Number($("bid_price").val());
+		var bidPrice = Number($("input[name=bid_price]").val());
+		var bidMax = ${productInfo.getBidMax()};
+		var myPoint = ${point};
+		var price = ${productInfo.getPrice()};
+		if(bidPrice <= bidMax){
+			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
+			return;
+		}
+		if(myPoint <= bidPrice){
+			alert("포인트가 부족합니다!");
+			return;
+		}
+		if(bidPrice >= price){
+			alert("즉시구매를 이용해주세요!");
+			return;
+		}
+		location.href = "controller?cmd=bidAction&productSeq=${productSeq}&bidPrice=" + bidPrice;
 	})
 	$("#bid_button").click(function(){
+		var sellerId = "${productInfo.getNickName()}";
+		var myId = "${nickName}";
+		console.log(sellerId);
+		console.log(myId);
+		if(sellerId == myId){
+			alert("본인 물품에는 입찰 할 수 없습니다!");
+			return;
+		}
 		$("#bid_modal")[0].style.display="flex";
 		$("#bid_modal")[0].style.position="absolute";
 	});
