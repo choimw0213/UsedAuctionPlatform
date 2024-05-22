@@ -81,3 +81,4 @@ public interface ProductQuery {
 	String GET_LIST_BUYING_HISTORY = "";
 			
 }
+
