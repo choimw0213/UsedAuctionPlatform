@@ -104,6 +104,7 @@ public class ProductService {
 				result = dao.pointDeduction(productSeq, id, price);
 			}
 			conn.commit();
+			
 		} catch (SQLException e) {
 			if(conn != null){
 				try {
