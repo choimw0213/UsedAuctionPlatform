@@ -20,6 +20,7 @@ import controller.action.SetPWAction;
 import controller.action.SetRateAction;
 import controller.action.SortAction;
 import controller.page.AddProductUI;
+import controller.page.BuyListUI;
 import controller.page.ChatListUI;
 import controller.page.FindIDUI;
 import controller.page.FindPWUI;
@@ -121,6 +122,9 @@ public class ActionFactory {
 			case "sellListAction" :
 				action = new SellListAction();
 				break;
+			case "buyListUI" :
+				action = new BuyListUI();
+				break;				
 			case "bidAction":
 				action = new BidAction();
 				break;

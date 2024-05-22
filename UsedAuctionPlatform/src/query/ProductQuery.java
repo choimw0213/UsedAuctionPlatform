@@ -78,7 +78,24 @@ public interface ProductQuery {
 			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_BUYING_HISTORY = "";
-			
+	String GET_LIST_BUYING_HISTORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+			+ "from product p, product_img i, bid b "
+			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) "
+			+ "and (state = 'T' or state = 'E') "
+			+ "and b.product_seq in ("
+			+ "SELECT b1.product_seq "
+			+ "FROM BID b1 "
+			+ "JOIN ("
+			+ "SELECT product_seq, MAX(bid_seq) AS max_bid_seq "
+			+ "FROM BID "
+			+ "GROUP BY product_seq) b2 "
+			+ "ON b1.product_seq = b2.product_seq AND b1.bid_seq = b2.max_bid_seq "
+			+ "WHERE b1.user_id = ?) "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "order by start_date desc";
+
 }
+
+
 

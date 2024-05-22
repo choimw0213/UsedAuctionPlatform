@@ -13,7 +13,7 @@ public class BuyListUI implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return new URLModel("buyList.jsp", true);
+		return new URLModel("buyList.jsp", false);
 	}
 
 }

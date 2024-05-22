@@ -6,7 +6,7 @@
 	<nav class="navbar mt-auto sticky-bottom w-100 rounded-bottom-4">
 	<div class="d-flex w-100 justify-content-center">
 		<div id="nav123" class="w-100">
-			<a href="mainUI.jsp"> 
+			<a href="controller?cmd=mainUI"> 
 				<img src="images/menu/home.png" /><br>
 				홈
 			</a> 
@@ -18,7 +18,7 @@
 				<img src="images/menu/sellList.png" /><br>
 				판매내역
 			</a> 
-			<a href="buyList.jsp"> 
+			<a href="controller?cmd=buyListUI"> 
 				<img src="images/menu/buyList active.png" /><br>
 				구매내역
 			</a> 
