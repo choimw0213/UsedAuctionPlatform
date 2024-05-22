@@ -8,11 +8,12 @@ public interface ProductQuery {
 	String GET_PRODUCT = "select user_id, title, category, address, end_date, price, start_price, content, state, start_date "
 			+ "from product where product_seq = ?";
 
-	String GET_PRODUCTBOX = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, max(bid_price) "
-			+ "from product p, product_img i, bid b "
+	String GET_PRODUCTBOX = "select img_seq, p.product_seq, nickname, title, category, start_price, price, p.address, end_date, state, count(bid_price)-1, max(bid_price) "
+			+ "from product p, product_img i, bid b, users u "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and p.product_seq = ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date;";
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and p.product_seq = ? and "
+			+ "u.user_id = p.user_id "
+			+ "group by img_seq, p.product_seq, nickname, title, category, start_price, price, p.address, end_date, state, start_date";
 	
 	String GET_IMAGE = "select product_img from product_img where product_seq = ?";
 
