@@ -94,7 +94,7 @@
 			<hr>
 			<div id="button">
 				<div id="bid_button">입찰</div>
-				<div>즉시 구매</div>
+				<div id="buy_button">즉시 구매</div>
 			</div>
 			<hr>
 			<div id="content">
@@ -110,6 +110,19 @@
 				</div>
 				<div id="bid_modal_button_container">
 					<div id="add_bid">확인</div>
+					<div id="close">취소</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal_default" id="buy_modal">
+			<div id="buy_modal_container">
+				<div id="buy_modal_top">얼마를 입찰 하시겠습니까?</div>
+				<div id="buy_modal_input_container">
+					<input name="buy_price" placeholder="0P">
+					<span>내 포인트: ${point}</span>
+				</div>
+				<div id="buy_modal_button_container">
+					<div id="buy">확인</div>
 					<div id="close">취소</div>
 				</div>
 			</div>
@@ -162,6 +175,9 @@
 		$("#bid_modal")[0].style.display="flex";
 		$("#bid_modal")[0].style.position="absolute";
 	});
+	$("#buy_button").click(function(){
+		
+	})
 	$("#close").click(function(){
 		$("#bid_modal")[0].style.display="none";
 	});
