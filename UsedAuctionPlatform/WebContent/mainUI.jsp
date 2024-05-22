@@ -73,7 +73,7 @@
 						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">전체</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">전체</a>
-						<a class="dropdown-item" href="#">디지털기기</a> <a
+						<a class="dropdown-item" href="#">디지털 기기</a> <a
 							class="dropdown-item" href="#">가구/인테리어</a> <a
 							class="dropdown-item" href="#">유아동</a> <a class="dropdown-item"
 							href="#">의류</a> <a class="dropdown-item" href="#">잡화</a> <a
@@ -165,9 +165,7 @@
 		$("#addProduct").on('click', function() {
 			location.href = "controller?cmd=addProductUI";
 		})
-		$(".card").on('click', function() {
-			location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
-		})
+
 		
 		$(document).ready(function() {
 			dropboxList();
@@ -212,11 +210,12 @@
 				},
 				success : function(response) {
 					$("#scroll").html(response);
+					cardClick();
 				}
 			});
 		}
 		
-		categoryList = function(reg, cg){
+		categoryList = function(reg, cg){	// 카테고리별
 			$.ajax({
 				url : "controller?cmd=categoryAction",
 				type : "POST",
@@ -226,8 +225,13 @@
 				},
 				success : function(response) {
 					$("#scroll").html(response);
+					cardClick();
 				}
 			});
+		}
+		
+		hopeList = function(){		// 등록순, 마감임박순, 
+			
 		}
 	
 		searchBtn = function() { // 상품검색
@@ -245,6 +249,12 @@
 				});
 			})
 		};
+		
+		cardClick = function(){
+			$(".card").on('click', function() {
+				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+			})
+		}
 		
 	</script>
 </body>
