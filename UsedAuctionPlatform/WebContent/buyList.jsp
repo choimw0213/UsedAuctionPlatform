@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="dto.ProductBoxDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% String userId = (String)session.getAttribute("userId"); %>
+<% if(userId == null) response.sendRedirect("controller?cmd=loginUI"); %>
+<% ArrayList<ProductBoxDTO> buyList = (ArrayList<ProductBoxDTO>)request.getAttribute("buyList"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,32 +14,23 @@
 <title>Document</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/buyList.css">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <style type="text/css">
 .modal-title {
 	color: white;
 }
-
 .modal-header, .modal-footer {
 	border: none;
 }
-
 .modal-header, .modal-body, .modal-footer {
 	padding: 5px;
 }
-
 .modal-content {
 	background-color: #FFB966;
 	width: 270px;
 	height: 155px;
 }
-
 .modal-footer>button {
 	background-color: #FFD9AC;
 	border-color: #FFD9AC;
@@ -42,37 +38,34 @@
 	font-weight: 600;
 	margin-right: 10px;
 }
-
 .btn:hover {
 	background-color: #AAAAAA;
 	border-color: #AAAAAA;
 }
-
 .btn:active {
 	background-color: #AAAAAA !important;
 	border-color: #AAAAAA !important;
 }
-
 #starContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-
 .star {
 	width: 50px;
 	height: 50px;
 	background-size: cover;
 	display: inline-block;
 }
+#item-title-group {
+	width: 100%;
+}
 </style>
-
 </head>
 
 <body>
 
 	<div id="project_container">
-
 		<div id="top">
 			<h6 id="top-head">구매내역</h6>
 			<div></div>
@@ -82,25 +75,7 @@
 
 			<ul class="list-group w-100">
 				<hr class="my-1">
-				<li class="list-group-item border-0 p-0">
-					<div class="d-flex">
-						<img src="images/product/product1/product1-img1.jpg"
-							class="img-fluid">
-						<div class="ms-1">
-							<div class="card-text d-flex">
-								<div id="item-title-group">
-									<h6>Product1 Title</h6>
-									<p>Category</p>
-									<p>서울특별시 금천구 | 종료일 2024-05-12</p>
-									<span class="badge badge-s">입찰가</span> <span>10,000P</span> <span
-										class="badge badge-s">즉구가</span> <span>20,000P</span> <span>입찰
-										7건</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<hr class="my-1">
+				
 				<li class="list-group-item border-0 p-0">
 					<div class="d-flex">
 						<img src="images/product/product2/product2-img1.jpg"
@@ -116,13 +91,14 @@
 									<div>
 										<button id="buyComplete" class="btn btn-primary rounded-pill"
 											data-bs-toggle="modal" data-bs-target="#exampleModal">구매확정</button>
-									</div>
+							 		</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</li>
 				<hr class="my-1">
+				
 				<li class="list-group-item border-0 p-0">
 					<div class="d-flex">
 						<img src="images/product/product3/product3-img1.png"
@@ -136,7 +112,7 @@
 									<span class="badge badge-e">거래완료</span> <span>10,000P</span> <span>입찰
 										7건</span>
 									<div>
-										<button id="buyEnd" class="btn btn-primary rounded-pill">구매확정완료</button>
+										<button id="buyEnd" class="btn btn-primary rounded-pill" disabled>구매확정완료</button>
 									</div>
 								</div>
 							</div>
@@ -144,6 +120,41 @@
 					</div>
 				</li>
 				<hr class="my-1">
+				
+				<% if(buyList != null){ %>
+				<% for(int i=0; i<buyList.size(); i++){ %>
+				<li class="list-group-item border-0 p-0">
+					<div class="d-flex product_card" data-productSeq="<%= buyList.get(i).getProductSeq() %>">
+						<img src="images/product/product2/product2-img1.jpg" class="img-fluid">
+						<div class="ms-1">
+							<div class="card-text d-flex">
+								<div id="item-title-group">
+									<h6><%= buyList.get(i).getTitle() %></h6>
+									<p><%= buyList.get(i).getCategory() %></p>
+									<p><%= buyList.get(i).getAddress() %> | 종료일 <%= buyList.get(i).getEndDate() %></p>
+									<span class="badge badge-e">판매가</span> 
+									<span><%= buyList.get(i).getBidMax() %>P</span> 
+									<span>입찰 <%= buyList.get(i).getBidCount() %>건</span>
+									
+									<% if(buyList.get(i).getState().equals("T")){ %>
+									<div>
+										<button id="buyComplete" class="btn btn-primary rounded-pill"
+											data-bs-toggle="modal" data-bs-target="#exampleModal">구매확정</button>
+							 		</div>
+							 		<% } else if(buyList.get(i).getState().equals("E")){ %>
+									<div>
+										<button id="buyEnd" class="btn btn-primary rounded-pill" disabled>구매확정완료</button>
+									</div>							 		
+							 		<% } %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<hr class="my-1">
+				<% } %>
+				<% } %>
+				
 			</ul>
 		</div>
 		<jsp:include page="/navbar_buy.jsp"></jsp:include>
@@ -174,11 +185,7 @@
 		</div>
 	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 		// 별 이미지 요소 가져오기
 		const
@@ -221,7 +228,7 @@
 
 		document.querySelector("#save").addEventListener('click', save);
 		function save() {
-			//alert(num + '점');
+			alert(num + '점');
 			//$('#exampleModal').modal('hide');
 		    $.ajax({
 		        type: "POST",
@@ -235,6 +242,12 @@
 		            alert("평가 저장에 실패했습니다.");
 		        }
 		    });
+		}
+		
+		cardClick = function(){
+			$(".product_card").on('click', function() {
+				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+			})
 		}
 	</script>
 
