@@ -64,7 +64,7 @@
 										<% if(sellList.get(i).getState().equals("S")){ %>
 										<span class="badge badge-s">판매중</span>
 										<% } else if(sellList.get(i).getState().equals("T")) {  %>
-										<span class="badge badge-s">거래중</span>
+										<span class="badge bg-info">거래중</span>
 										<% } %>
 									</div>
 									<p><%= sellList.get(i).getCategory() %></p>
