@@ -17,7 +17,7 @@ public class SearchAction implements Action {
 		String region = request.getParameter("region");
 		String search = request.getParameter("search");
 
-		request.setAttribute("list", new ProductListService().getListBySearch(region, search));
+		request.setAttribute("list", new ProductListService().getListBySearch(search, region));
 		
 		return new URLModel("asynchronous_productList.jsp", false);
 	}

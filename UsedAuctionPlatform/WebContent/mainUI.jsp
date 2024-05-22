@@ -52,7 +52,7 @@
 					</div>
 				</div>
 
-				<input class="input-field" value="" />
+				<input class="input-field" value="" id="search"/>
 				<div class="me-2">
 					<button class="input-button border-0 bg-body" id="searchBtn">
 						<i class="fi fi-rr-search"></i>
@@ -169,6 +169,7 @@
 		
 		$(document).ready(function() {
 			dropboxList();
+			searchBtn();
 			cardClick();
 		});
 	
@@ -185,6 +186,7 @@
 			})
 			$("#hopelist div > a").on('click', function() {
 				$("#hopelistBtn").text($(this).text());
+				hopeList($(this).text());
 			})
 
 			//마우스 눌렀을 경우 active 변화
@@ -210,6 +212,10 @@
 					region : reg
 				},
 				success : function(response) {
+					categoryInit();
+					hopeInit();
+					$("#search").val("");
+					
 					$("#scroll").html(response);
 					cardClick();
 				}
@@ -225,14 +231,31 @@
 					category : cg
 				},
 				success : function(response) {
+					hopeInit();
+					$("#search").val("");
 					$("#scroll").html(response);
 					cardClick();
 				}
 			});
 		}
 		
-		hopeList = function(){		// 등록순, 마감임박순, 
-			
+		hopeList = function(h){		// 등록순, 입찰건순, 마감임박순
+			$.ajax({
+				url : "controller?cmd=hopeAction",
+				type : "POST",
+				data : {
+					region : userAddress,
+					hope : h
+				},
+				success : function(response) {
+					$("#search").val("");
+					regionInit();
+					categoryInit();
+					
+					$("#scroll").html(response);
+					cardClick();
+				}
+			});
 		}
 	
 		searchBtn = function() { // 상품검색
@@ -241,10 +264,15 @@
 					url : "controller?cmd=searchAction",
 					type : "POST",
 					data : {
-						search : $("#search").val()
+						search : $("#search").val(),
+						region : userAddress
 					},
 					success : function(response) {
-						$("#searchDiv").html(response);
+						regionInit();
+						categoryInit();
+						hopeInit();
+				
+						$("#scroll").html(response);
 						cardClick();
 					}
 				});
@@ -254,6 +282,37 @@
 		cardClick = function(){
 			$(".card").on('click', function() {
 				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+			})
+		}
+		
+		// 초기화
+		regionInit = function(){
+			$("#regionBtn").text(userAddress);
+			$("#region div > a").removeClass("active bg-warning rounded-3");
+			$("#region div > a").each(function(){
+				if(userAddress === $(this).text()){
+					$(this).addClass("active bg-warning rounded-3");
+				}
+			})
+		}
+		
+		categoryInit = function(){
+			$("#categoryBtn").text("전체");
+			$("#category div > a").removeClass("active bg-warning rounded-3");
+			$("#category div > a").each(function(){
+				if("전체" === $(this).text()){
+					$(this).addClass("active bg-warning rounded-3");
+				}
+			})
+		}
+		
+		hopeInit = function(){
+			$("#hopelistBtn").text("등록순");
+			$("#hopelist div > a").removeClass("active bg-warning rounded-3");
+			$("#hopelist div > a").each(function(){
+				if("등록순" === $(this).text()){
+					$(this).addClass("active bg-warning rounded-3");
+				}
 			})
 		}
 		

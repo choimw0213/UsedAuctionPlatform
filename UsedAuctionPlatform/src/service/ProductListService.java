@@ -96,7 +96,7 @@ public class ProductListService {
 		return list;
 	}
 	
-	public ArrayList<ProductBoxDTO> getListBySearch(String address, String search){
+	public ArrayList<ProductBoxDTO> getListBySearch(String search, String address){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();
 		try {
 			conn = dataSource.getConnection();
