@@ -86,10 +86,6 @@ body{
     scrollbar-width: none;
 }
 
-.dropdown-item {
-    width: 100px;
-}
-
 .input-field {
 	border: none;
 	outline: none;
