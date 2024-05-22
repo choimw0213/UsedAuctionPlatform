@@ -49,7 +49,58 @@ public class ProductListService {
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();
 		try {
 			conn = dataSource.getConnection();
-			list = new ProductDAO(conn).getListByCategory(category, address);
+			if(category.equals("전체"))
+				list = new ProductDAO(conn).getList(address);
+			else
+				list = new ProductDAO(conn).getListByCategory(category, address);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductBoxDTO> getListByHope(String address, String hope){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();
+		try {
+			conn = dataSource.getConnection();
+			if(hope.equals("등록순")){
+				list = new ProductDAO(conn).getList(address);
+			}
+			else if(hope.equals("입찰건순")){
+				list = new ProductDAO(conn).getListByBidCount(address);
+			}
+			else if(hope.equals("마감임박순")){
+				list = new ProductDAO(conn).getListByEndDate(address);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<ProductBoxDTO> getListBySearch(String address, String search){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();
+		try {
+			conn = dataSource.getConnection();
+			list = new ProductDAO(conn).getListBySearch(search, address);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

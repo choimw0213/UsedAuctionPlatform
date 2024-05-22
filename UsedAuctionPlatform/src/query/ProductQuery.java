@@ -36,28 +36,28 @@ public interface ProductQuery {
 	String GET_LIST_REGION = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ?"
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
 			+ "order by start_date desc";
 
 	String GET_LIST_BIDCOUNT = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
 			+ "order by count(bid_price) desc, start_date desc";
 
 	String GET_LIST_ENDDATE = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by end_date";
 
 	String GET_LIST_SEARCH = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
-			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and (title like ? or content like ?) "
+			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and (title like ? or content like ?) and address like ? "
 			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 	
