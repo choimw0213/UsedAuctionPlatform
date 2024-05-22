@@ -8,6 +8,7 @@ import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
 import controller.action.FindPWAction;
 import controller.action.HopeAction;
+import controller.action.IdCheckAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
@@ -135,6 +136,9 @@ public class ActionFactory {
 			case "myPageUI" :
 				action = new myPageUI();
 				break;		
+			case "idCheckAction" :
+				action = new IdCheckAction();
+				break;
 		}
 		
 		return action;

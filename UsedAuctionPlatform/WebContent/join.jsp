@@ -130,7 +130,7 @@
 	
 	
 		$("id").on("change", function(){
-			$.ajax({url:"controller?cmd=idCheck",
+			$.ajax({url:"controller?cmd=idCheckAction",
 					data : {id : $(this).val},
 					success : function(responseText){
 						
