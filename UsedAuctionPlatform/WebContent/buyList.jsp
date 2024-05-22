@@ -89,8 +89,9 @@
 									<span class="badge badge-e">거래완료</span> <span>10,000P</span> <span>입찰
 										7건</span>
 									<div>
-										<button id="buyComplete" class="btn btn-primary rounded-pill"
-											data-bs-toggle="modal" data-bs-target="#exampleModal">구매확정</button>
+										<button id="buyComplete" class="btn btn-primary rounded-pill buyComplete"
+											data-bs-toggle="modal" data-bs-target="#exampleModal" 
+											data-productSeq="1234">구매확정</button>
 							 		</div>
 								</div>
 							</div>
@@ -112,7 +113,7 @@
 									<span class="badge badge-e">거래완료</span> <span>10,000P</span> <span>입찰
 										7건</span>
 									<div>
-										<button id="buyEnd" class="btn btn-primary rounded-pill" disabled>구매확정완료</button>
+										<button id="buyEnd" class="btn btn-primary rounded-pill buyEnd" disabled>구매확정완료</button>
 									</div>
 								</div>
 							</div>
@@ -138,12 +139,13 @@
 									
 									<% if(buyList.get(i).getState().equals("T")){ %>
 									<div>
-										<button id="buyComplete" class="btn btn-primary rounded-pill"
-											data-bs-toggle="modal" data-bs-target="#exampleModal">구매확정</button>
+										<button id="buyComplete" class="btn btn-primary rounded-pill buyComplete"
+											data-bs-toggle="modal" data-bs-target="#exampleModal" 
+											data-productSeq="<%= buyList.get(i).getProductSeq() %>">구매확정</button>
 							 		</div>
 							 		<% } else if(buyList.get(i).getState().equals("E")){ %>
 									<div>
-										<button id="buyEnd" class="btn btn-primary rounded-pill" disabled>구매확정완료</button>
+										<button id="buyEnd" class="btn btn-primary rounded-pill buyEnd" disabled>구매확정완료</button>
 									</div>							 		
 							 		<% } %>
 								</div>
@@ -188,10 +190,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 		// 별 이미지 요소 가져오기
-		const
-		stars = document.querySelectorAll('.star');
-		let
-		num = 0;
+		const stars = document.querySelectorAll('.star');
+		let num = 0;
+		let productSeq = 0;
 
 		// 각 별에 마우스 이벤트 추가
 		stars.forEach(function(star, index) {
@@ -228,12 +229,16 @@
 
 		document.querySelector("#save").addEventListener('click', save);
 		function save() {
-			alert(num + '점');
+			//alert(productSeq);
+			//alert(num + '점');
 			//$('#exampleModal').modal('hide');
 		    $.ajax({
 		        type: "POST",
 		        url: "controller?cmd=setRateAction",
-		        data: { rate: num },
+		        data: { 
+		        	productSeq: productSeq,
+		        	rate: num
+	        	},
 		        success: function(response) {
 		            alert("평가 저장에 성공했습니다.");
 		            $('#exampleModal').modal('hide');
@@ -244,11 +249,19 @@
 		    });
 		}
 		
+		$(document).ready(function() {
+			cardClick();
+		});
+		
 		cardClick = function(){
 			$(".product_card").on('click', function() {
 				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
 			})
-		}
+		};
+		
+		$(".buyComplete").on('click', function(){
+			productSeq = this.dataset.productseq;
+		});
 	</script>
 
 </body>

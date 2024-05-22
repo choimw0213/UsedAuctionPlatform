@@ -13,9 +13,10 @@ public class SetRateAction implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		
+
 		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
 		double rate = Double.parseDouble(request.getParameter("rate"));
+		System.out.println(productSeq);
 		System.out.println(rate);
 		
 		SetRateService setRateService = new SetRateService();
