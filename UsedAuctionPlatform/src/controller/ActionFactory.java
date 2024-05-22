@@ -6,10 +6,12 @@ import controller.action.BidAction;
 import controller.action.CategoryAction;
 import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
+import controller.action.FindPWAction;
 import controller.action.HopeAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.MyPointAction;
 import controller.action.SearchAction;
 import controller.action.SellListAction;
 import controller.action.SetMyInfoAction;
@@ -19,6 +21,7 @@ import controller.action.SortAction;
 import controller.page.AddProductUI;
 import controller.page.ChatListUI;
 import controller.page.FindIDUI;
+import controller.page.FindPWUI;
 import controller.page.JoinUI;
 import controller.page.LoginUI;
 import controller.page.MainManagerUI;
@@ -28,6 +31,7 @@ import controller.page.ProductInfoUI;
 import controller.page.SellListUI;
 import controller.page.SetMyInfoUI;
 import controller.page.SetPWUI;
+import controller.page.myPageUI;
 
 public class ActionFactory {
 	ActionFactory(){}
@@ -119,6 +123,18 @@ public class ActionFactory {
 			case "bidAction":
 				action = new BidAction();
 				break;
+			case "findPWUI" :
+				action = new FindPWUI();
+				break;
+			case "findPWAction" :
+				action = new FindPWAction();
+				break;
+			case "myPointAction" :
+				action = new MyPointAction();
+				break;
+			case "myPageUI" :
+				action = new myPageUI();
+				break;		
 		}
 		
 		return action;
