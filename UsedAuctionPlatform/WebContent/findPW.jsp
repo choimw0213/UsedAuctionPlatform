@@ -149,7 +149,7 @@ input:focus {outline: none;}
 			</div>
 
 
-
+		<form action="controller?cmd=findPWAction" method="post">
 			<div class="addUserId">
 				<h6>아이디ㅤ </h6><input type="text" name="userId"
 					style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
@@ -167,10 +167,11 @@ input:focus {outline: none;}
 
 
 			<div class="findPasswordBtn">
-				<form action="setPW.jsp">
+				<div>
 					<input type="submit" value="O K" class="lgbt">
-				</form>
+				</div>
 			</div>
+		</form>	
 		</div>
 	</div>
 </body>

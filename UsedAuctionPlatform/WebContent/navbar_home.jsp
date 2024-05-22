@@ -22,7 +22,7 @@
 				<img src="images/menu/buyList.png" /><br>
 				구매내역
 			</a> 
-			<a href="myPage.jsp"> 
+			<a href="controller?cmd=myPageUI"> 
 				<img src="images/menu/myPage.png" /><br>
 				나
 			</a>

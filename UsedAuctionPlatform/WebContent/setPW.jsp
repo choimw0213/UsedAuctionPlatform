@@ -151,10 +151,11 @@ input:focus {outline: none;}
 		  	  </div>		
 	
 		<div class="container">
+		
 			<div class="setPWH1">
 				<h1 class="fontFindPasswordH1">비 밀 번 호 찾 기</h1>
 			</div>
-
+<form action="controller?cmd=setPWAction" method="post">
 			<div class="setPW">
 				<h6 class="passwordH6">새 비밀번호</h6><input type="password" name="password" class="inputNewPW"><br>
 			</div>
@@ -164,13 +165,27 @@ input:focus {outline: none;}
 			</div>
 
 			<div class="setPWBtn">
-				<form action="login.jsp">
-					<input type="submit" value="O K" class="lgbt">
-				</form>
+				<div>
+					<input type="submit" value="O K" class="lgbt" onclick = "return passwordTest()">
+				</div>
 			</div>
+		</form>	
 		</div>
 	</div>
 <script type="text/javascript">
+function passwordTest(){
+
+	var p1 = document.getElementById('password').value;
+		var p2 = document.getElementById('checkPassword').value;
+		if (p1 != p2) {
+			alert("비밀번호가 일치 하지 않습니다");
+			return false;
+		} else {
+
+			return true;
+		}
+	}
+
 </script>	
 </body>
 </html>

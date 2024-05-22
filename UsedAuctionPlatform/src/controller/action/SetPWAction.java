@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
@@ -16,17 +17,21 @@ public class SetPWAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String page = "setPW.jsp";
+		HttpSession session = request.getSession();
 		
-		// 아직 덜함String id = request.getAttribute("id"); 
-		//findPW에서 리퀘스트 넘겨줘야 함
 		
-		/* 아직 덜함
+		String id = (String) session.getAttribute("id");
+		String pw = request.getParameter("password");
+		
+
+		
+		
 		if(new SetPWService().setPw(id, pw)){
 			page = "login.jsp";
-		}*/
+		}
 		
 		
-		return null;
+		return new URLModel(page, true);
 	}
 
 }

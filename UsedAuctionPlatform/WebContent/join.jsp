@@ -20,6 +20,12 @@
 <body>
 	<div id="project_container">
 
+<br><br><br>
+			  <div id="top">
+				<img class="img" src="images/icon/arrow.png" onclick="history.back()" style=" width: 23px;  height: 23px;">
+		  	  </div>	
+
+
 		<div class="row align-content-center w-100 h-100">
 			<p class="fs-1 text-center">회원가입</p>
 			<form action="controller?cmd=joinAction" method="post">
@@ -34,10 +40,10 @@
 						<span id="idCheck"></span>	
 					</div>
 					<div class="col-3 text-end p-0">
-						<label for="inputPassword6" class="col-form-label">비밀번호</label>
+						<label for="inputPassword6" class="col-form-label" id="password">비밀번호</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="userPw" type="password" id="pw"
+						<input name="userPw" type="password" id="checkPassword"
 							class="form-control-sm" aria-describedby="passwordHelpInline">
 					</div>
 					<div class="col-3 text-end p-0">
@@ -93,7 +99,7 @@
 
 					<div class="d-grid ps-5 pe-5 text-center mt-4 mb-3">
 						<button type="submit" class="btn btn-primary btn-lg">
-							<div class="text-center m">JOIN</div>
+							<div class="text-center m" onclick="return passwordTest()">JOIN</div>
 						</button>
 					</div>
 				</div>
@@ -102,6 +108,25 @@
 	</div>
 
 	<script>
+	function passwordTest(){
+
+		var p1 = document.getElementById('password').value;
+			var p2 = document.getElementById('checkPassword').value;
+			if (p1 != p2) {
+				alert("비밀번호가 일치 하지 않습니다");
+				return false;
+			} else {
+
+				return true;
+			}
+		}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 		$("id").on("change", function(){

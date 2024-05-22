@@ -21,16 +21,24 @@ public class SetMyInfoAction implements Action {
 		String page = "setMyInfo.jsp";
 		
 		
-		HttpSession session = request.getSession(true);
-		UserVO vo = (UserVO) session.getAttribute("user");
-		String id = vo.getUserId();
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("userId");
+		
 		
 		String pw = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
 		String phoneNumber = request.getParameter("phoneNumber");
 		String email = request.getParameter("email");
 		String address = request.getParameter("cityAddress")+" "+request.getParameter("districtAddress");
-	
+		
+		
+		
+		System.out.println("아이디 : " + id);
+		System.out.println("비밀번호 : " + pw);
+		System.out.println("전화번호 : " + phoneNumber);
+		System.out.println("이메일 : " + email);
+		System.out.println("주소 : " + address);
+		
 		if(new SetMyInfoService().setUser(id, pw, nickname, phoneNumber, email, address)){
 			page = "login.jsp";
 		}		
