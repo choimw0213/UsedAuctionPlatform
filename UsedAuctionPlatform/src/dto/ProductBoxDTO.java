@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class ProductBoxDTO {
 	private int imgSeq;
+	private String imgURL;
 	private int productSeq;
 	private String nickName;
 	private String title;
@@ -17,13 +18,13 @@ public class ProductBoxDTO {
 	private int bidMax;	
 	private String content;
 	
-	public ProductBoxDTO(int imgSeq, int productSeq, String title, String category, int startPrice, int price,
+	public ProductBoxDTO(String imgURL, int productSeq, String title, String category, int startPrice, int price,
 			String address, LocalDateTime endDate, String state, int bidCount, int bidMax) {
 		setAddress(address);
 		setBidCount(bidCount);
 		setCategory(category);
 		setEndDate(endDate);
-		setImgSeq(imgSeq);
+		setImgURL(imgURL);
 		setPrice(price);
 		setProductSeq(productSeq);
 		setStartPrice(startPrice);
@@ -31,6 +32,7 @@ public class ProductBoxDTO {
 		setTitle(title);
 		setBidMax(bidMax);
 	}
+
 	
 	public ProductBoxDTO(int imgSeq, int productSeq, String nickName, String title, String category, int startPrice, int price,
 			String address, LocalDateTime endDate, String state, int bidCount, int bidMax) {
@@ -65,6 +67,14 @@ public class ProductBoxDTO {
 		setContent(content);
 	}
 	
+	public String getImgURL() {
+		return imgURL;
+	}
+
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
+
 	public String getContent() {
 		return content;
 	}

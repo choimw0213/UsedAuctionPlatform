@@ -134,7 +134,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"),
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -157,7 +157,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -180,7 +180,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), rs.getInt("count(bid_price)-1"),
 							rs.getInt("max(bid_price)"));
@@ -211,7 +211,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -235,7 +235,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -259,7 +259,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -284,7 +284,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -308,7 +308,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
@@ -334,7 +334,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
