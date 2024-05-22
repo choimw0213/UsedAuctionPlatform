@@ -31,14 +31,14 @@ public class AddProductAction implements Action {
 		String region = multi.getParameter("region");
 		String bidDate = multi.getParameter("sell_date");
 		String price = multi.getParameter("price");
-		String bidPrice = multi.getParameter("bid_price");
+		String startPrice = multi.getParameter("start_price");
 		String content = multi.getParameter("content");
 		
 		String page = "addProductUI";
 		
 		boolean result = false;
 		
-		result = new ProductService().addProduct(userId, fileName, title, category, region, bidDate, price, bidPrice, content);
+		result = new ProductService().addProduct(userId, fileName, title, category, region, bidDate, price, startPrice, content);
 		
 		if(result){
 			page = "mainUI";

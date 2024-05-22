@@ -131,7 +131,7 @@
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">경매시작금액</label></td>
-				<td><input placeholder="경매시작금액 입력" name="bid_price" required></td>
+				<td><input placeholder="경매시작금액 입력" name="start_price" required></td>
 			</tr>
 			<tr>
 				<td valign="top" align="right"><label class="res-label">내용</label></td>

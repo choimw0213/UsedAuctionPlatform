@@ -25,7 +25,7 @@ public class ProductService {
 	}
 
 	public boolean addProduct(String user_id, String fileName, String title, String category, String region, String bid_date,
-			String price, String bid_price, String content){
+			String price, String startPrice, String content){
 		Connection conn = null;
 		//		if(category.equals("카테고리") || category == null){
 		//			return false;
@@ -35,7 +35,7 @@ public class ProductService {
 		try {
 			conn = dataSource.getConnection();
 			ProductDAO pDAO = new ProductDAO(conn);
-			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(bid_price), content, "s");
+			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(startPrice), content, "s");
 
 			conn.setAutoCommit(false);
 
@@ -44,7 +44,7 @@ public class ProductService {
 				result = pDAO.addProductImage(productSeq, fileName);
 				if(result){
 					BidDAO bDAO = new BidDAO(conn);
-					result = bDAO.addBid(productSeq, user_id, 0);
+					result = bDAO.addBid(productSeq, user_id, Integer.parseInt(startPrice));
 				} 
 			}
 			conn.commit();
