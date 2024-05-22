@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class ProductBoxDTO {
 	private int imgSeq;
 	private int productSeq;
+	private String nickName;
 	private String title;
 	private String category;
 	private int startPrice;
@@ -14,6 +15,7 @@ public class ProductBoxDTO {
 	private String state;
 	private int bidCount;
 	private int bidMax;	
+	private String content;
 	
 	public ProductBoxDTO(int imgSeq, int productSeq, String title, String category, int startPrice, int price,
 			String address, LocalDateTime endDate, String state, int bidCount, int bidMax) {
@@ -30,6 +32,47 @@ public class ProductBoxDTO {
 		setBidMax(bidMax);
 	}
 	
+	public ProductBoxDTO(int imgSeq, int productSeq, String nickName, String title, String category, int startPrice, int price,
+			String address, LocalDateTime endDate, String state, int bidCount, int bidMax) {
+		setAddress(address);
+		setBidCount(bidCount);
+		setCategory(category);
+		setEndDate(endDate);
+		setImgSeq(imgSeq);
+		setPrice(price);
+		setProductSeq(productSeq);
+		setStartPrice(startPrice);
+		setState(state);
+		setTitle(title);
+		setBidMax(bidMax);
+		setNickName(nickName);
+	}
+	
+	public ProductBoxDTO(int imgSeq, int productSeq, String nickName, String title, String category, int startPrice, int price,
+			String address, LocalDateTime endDate, String state, int bidCount, int bidMax, String content) {
+		setAddress(address);
+		setBidCount(bidCount);
+		setCategory(category);
+		setEndDate(endDate);
+		setImgSeq(imgSeq);
+		setPrice(price);
+		setProductSeq(productSeq);
+		setStartPrice(startPrice);
+		setState(state);
+		setTitle(title);
+		setBidMax(bidMax);
+		setNickName(nickName);
+		setContent(content);
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public int getBidMax() {
 		return bidMax;
 	}
@@ -49,6 +92,12 @@ public class ProductBoxDTO {
 	}
 	public void setProductSeq(int productSeq) {
 		this.productSeq = productSeq;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	public String getTitle() {
 		return title;

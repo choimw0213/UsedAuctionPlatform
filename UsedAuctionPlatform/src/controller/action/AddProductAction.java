@@ -12,7 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import controller.Action;
 import controller.URLModel;
-import service.AddProductService;
+import service.ProductService;
 
 public class AddProductAction implements Action {
 
@@ -24,21 +24,21 @@ public class AddProductAction implements Action {
 		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 		
 		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("userId");
+		String userId = (String) session.getAttribute("userId");
 		String fileName = multi.getOriginalFileName("file");
 		String title = multi.getParameter("title");
 		String category = multi.getParameter("category");
 		String region = multi.getParameter("region");
-		String bid_date = multi.getParameter("sell_date");
+		String bidDate = multi.getParameter("sell_date");
 		String price = multi.getParameter("price");
-		String bid_price = multi.getParameter("bid_price");
+		String bidPrice = multi.getParameter("bid_price");
 		String content = multi.getParameter("content");
 		
 		String page = "addProductUI";
 		
 		boolean result = false;
 		
-		result = new AddProductService().addProduct(user_id, fileName, title, category, region, bid_date, price, bid_price, content);
+		result = new ProductService().addProduct(userId, fileName, title, category, region, bidDate, price, bidPrice, content);
 		
 		if(result){
 			page = "mainUI";

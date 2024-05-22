@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import controller.Action;
 import controller.URLModel;
+import dto.ProductBoxDTO;
+import service.ProductService;
 
 public class ProductInfoUI implements Action {
 
@@ -15,7 +17,9 @@ public class ProductInfoUI implements Action {
 		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
 		System.out.println(productSeq);
 		
-		
+		ProductBoxDTO dto = new ProductService().getProduct(productSeq);
+		System.out.println(dto);
+		request.setAttribute("productInfo", dto);
 		return new URLModel("productInfo.jsp");
 	}
 }

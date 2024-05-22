@@ -5,17 +5,17 @@ import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import dao.BidDAO;
 import dao.ProductDAO;
+import dto.ProductBoxDTO;
 import vo.ProductVO;
 
-public class AddProductService {
+public class ProductService {
 	private DataSource dataSource;
 
-	public AddProductService(){
+	public ProductService(){
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
@@ -68,5 +68,26 @@ public class AddProductService {
 			}
 		}
 		return result;
+	}
+
+	public ProductBoxDTO getProduct(int productSeq) {
+		Connection conn = null;
+		ProductBoxDTO dto = null;
+
+		try {
+			conn = dataSource.getConnection();
+			dto = new ProductDAO(conn).getProductBox(productSeq);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return dto;
 	}
 }

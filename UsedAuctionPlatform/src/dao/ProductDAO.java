@@ -53,10 +53,10 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				if(rs.next()){
-					dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
-							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
-							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"),
-							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
+					dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("nickname"),
+							rs.getString("title"), rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), 
+							rs.getString("address"), LocalDateTime.parse(rs.getString("end_date"),formmatter), 
+							rs.getString("state"), rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"), rs.getString("content"));
 				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}

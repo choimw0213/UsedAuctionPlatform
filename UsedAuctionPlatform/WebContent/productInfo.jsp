@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,19 +77,19 @@
 					<img src="./images/icon/person.png">
 				</div>
 				<div id="nickname_container">
-					<p>nickname1234</p>
+					<p>${productInfo.getNickName()}</p>
 				</div>
 			</div>
 			<hr>
 			<div id="title_container">
-				<span id="title">목 마를 때 마시면 좋습니다. 물 팔아요~</span> <span id="category">생활용품</span>
+				<span id="title">${productInfo.getTitle()}</span> <span id="category">${productInfo.getCategory()}</span>
 			</div>
 			<hr>
 			<div id="price">
-				<span>1,100P</span> <span>즉시 구매가 3,000P</span>
+				<span>${productInfo.getBidMax()}P</span> <span>즉시 구매가 ${productInfo.getPrice()}P</span>
 			</div>
 			<div id="product_state">
-				<span>입찰 5건</span> <span>경매 마감까지 6일 10시간 남음</span>
+				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감까지 6일 10시간 남음${productInfo.getEndDate()}</span>
 			</div>
 			<hr>
 			<div id="button">
@@ -97,18 +98,17 @@
 			</div>
 			<hr>
 			<div id="content">
-				<span> 물을 너무 많이 사서 남네요 한번도 안쓴 새겁니다. </span>
+				<span>${productInfo.getContent()}</span>
 			</div>
 		</div>
-		<div id="nav_bar"></div>
 		<div class="modal_default" id="bid_modal">
 			<div id="bid_modal_container">
 				<div id="bid_modal_top">얼마를 입찰 하시겠습니까?</div>
 				<div id="bid_modal_input_container">
-					<input placeholder="0P" value="">
+					<input name="bid_price" placeholder="0P" value="">
 				</div>
 				<div id="bid_modal_button_container">
-					<div>확인</div>
+					<div id="add_bid">확인</div>
 					<div id="close">취소</div>
 				</div>
 			</div>
@@ -130,6 +130,9 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
+	$("#add_bid").click(function(){
+		location.href = "controller?cmd=BidAction&bidPrice=" + Number($("bid_price").val());
+	})
 	$("#bid_button").click(function(){
 		$("#bid_modal")[0].style.display="flex";
 		$("#bid_modal")[0].style.position="absolute";
