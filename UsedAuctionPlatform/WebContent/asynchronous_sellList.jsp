@@ -1,38 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="dto.ProductBoxDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% ArrayList<ProductBoxDTO> sellList = (ArrayList<ProductBoxDTO>)request.getAttribute("sellList"); %>
+<% String type = (String)request.getAttribute("type"); %>
 
-<c:forEach items='${sellList}' var='p'>
-	<div class="card d-flex align-items-center border-0 p-2"
-		data-productSeq="${p.getProductSeq()}">
-		<div class="row align-content-center w-100">
-			<div
-				class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-				<img src="images/product/product1/product1-img1.jpg"
-					class="img-fluid" />
-				<div class="ms-2 w-100">
-					<div
-						class="card-text d-flex align-items-start justify-content-between">
-						<h6>${p.getTitle()}</h6>
-						<div class="d-flex justify-content-end ms-1">
-							<span class="badge badge-s">경매중</span>
-						</div>
-					</div>
-					<div class="d-flex text-group pt-1">
-						<p class="product-info">${p.getCategory()}</p>
-						<p class="product-info ms-2 me-2">|</p>
-						<p class="product-info">${p.getAddress()}</p>
-					</div>
-					<div class="text-group-point pt-1 pb-1">
-						<p class="m-0 text-danger" id="bidMax">입찰가 ${p.getBidMax()}P</p>
-						<p class="m-0" id="nowprice">즉구가 ${p.getPrice()}P</p>
-					</div>
-					<div class="d-flex justify-content-between text-group">
-						<p class="product-info">${p.getEndDate()}</p>
-						<p class="product-info me-2">입찰 ${p.getBidCount()}건</p>
-					</div>
+<% if(sellList != null){ %>
+
+<% if(type.equals("selling")){ %>
+
+<% for(int i=0; i<sellList.size(); i++){ %>
+<div class="d-flex product_card" data-productSeq="<%= sellList.get(i).getProductSeq() %>">
+	<img src="images/product/product1/product1-img1.jpg" class="img-fluid">
+	<div class="ms-1">
+		<div class="card-text d-flex">
+			<div id="item-title-group">
+				<div class="d-flex product_title">
+					<h6 class="truncate"><%= sellList.get(i).getTitle() %></h6>
+					<% if(sellList.get(i).getState().equals("S")){ %>
+					<span class="badge badge-s">판매중</span>
+					<% } else if(sellList.get(i).getState().equals("T")) {  %>
+					<span class="badge badge-s">거래중</span>
+					<% } %>
 				</div>
+				<p><%= sellList.get(i).getCategory() %></p>
+				<p><%= sellList.get(i).getAddress() %>
+					| 종료일
+					<%= sellList.get(i).getEndDate() %></p>
+				<span class="badge badge-s">입찰가</span> <span><%= sellList.get(i).getBidMax() %>P</span>
+				<span class="badge badge-s">즉구가</span> <span><%= sellList.get(i).getPrice() %>P</span>
+				<span>입찰 <%= sellList.get(i).getBidCount() %>건
+				</span>
 			</div>
 		</div>
 	</div>
-	<hr class="m-0">
-</c:forEach>
+</div>
+<hr class="my-1">
+<% } %>
+
+<% } else if(type.equals("sellComplete")){ %>
+
+<% for(int i=0; i<sellList.size(); i++){ %>
+<div class="d-flex product_card" data-productSeq="<%= sellList.get(i).getProductSeq() %>">
+	<img src="images/product/product2/product2-img1.jpg" class="img-fluid">
+	<div class="ms-1">
+		<div class="card-text d-flex">
+			<div id="item-title-group">
+				<div class="d-flex product_title">
+					<h6 class="truncate"><%= sellList.get(i).getTitle() %></h6>
+					<span class="badge badge-e">거래완료</span>				
+				</div>
+				<p><%= sellList.get(i).getCategory() %></p>
+				<p><%= sellList.get(i).getAddress() %>
+					| 종료일
+					<%= sellList.get(i).getEndDate() %></p>
+				<span class="badge badge-e">판매가</span> <span><%= sellList.get(i).getPrice() %>P</span>
+				<span>입찰 <%= sellList.get(i).getBidCount() %>건
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+<hr class="my-1">
+<% } %>
+
+<% } %>
+
+<% } %>
+

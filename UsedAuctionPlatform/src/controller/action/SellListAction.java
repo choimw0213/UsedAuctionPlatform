@@ -23,7 +23,9 @@ public class SellListAction implements Action {
 			request.setAttribute("sellList", new ProductSellListService().getSellCompleteList(userId));
 		}
 		
-		return new URLModel("asynchronous_sellList.jsp", true);
+		request.setAttribute("type", type);
+		
+		return new URLModel("asynchronous_sellList.jsp", false);
 	}
 
 }
