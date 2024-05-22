@@ -99,9 +99,13 @@ public class ProductService {
 			conn = dataSource.getConnection();
 			BidDAO dao = new BidDAO(conn);
 			conn.setAutoCommit(false);
-			result = dao.addBid(productSeq, id, price);
+			result = dao.pointDeduction(productSeq, id, price);
+			//result = dao.addBid(productSeq, id, price);
 			if(result){
-				result = dao.pointDeduction(productSeq, id, price);
+				System.out.println(new UserDAO(conn).getUser(id).getPoint());
+				//result = dao.pointDeduction(productSeq, id, price);
+				result = dao.addBid(productSeq, id, price);
+				System.out.println(new UserDAO(conn).getUser(id).getPoint());
 			}
 			conn.commit();
 			
