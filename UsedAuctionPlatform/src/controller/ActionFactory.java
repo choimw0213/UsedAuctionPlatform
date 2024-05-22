@@ -2,6 +2,7 @@ package controller;
 
 import controller.action.AddChatAction;
 import controller.action.AddProductAction;
+import controller.action.CategoryAction;
 import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
 import controller.action.JoinAction;
@@ -94,7 +95,10 @@ public class ActionFactory {
 				break;
 			case "setPWAction" :
 				action = new SetPWAction();
-				break;				
+				break;	
+			case "categoryAction":
+				action = new CategoryAction();
+				break;
 		}
 		
 		return action;

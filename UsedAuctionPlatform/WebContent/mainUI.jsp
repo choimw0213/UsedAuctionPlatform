@@ -73,7 +73,7 @@
 						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">전체</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">전체</a>
-						<a class="dropdown-item" href="#">디지털 기기</a> <a
+						<a class="dropdown-item" href="#">디지털기기</a> <a
 							class="dropdown-item" href="#">가구/인테리어</a> <a
 							class="dropdown-item" href="#">유아동</a> <a class="dropdown-item"
 							href="#">의류</a> <a class="dropdown-item" href="#">잡화</a> <a
@@ -182,6 +182,7 @@
 			})
 			$("#category div > a").on('click', function() {
 				$("#categoryBtn").text($(this).text());
+				categoryList($("#regionBtn").text(), $(this).text());
 			})
 			$("#hopelist div > a").on('click', function() {
 				$("#hopelistBtn").text($(this).text());
@@ -208,6 +209,20 @@
 				type : "POST",
 				data : {
 					region : reg
+				},
+				success : function(response) {
+					$("#scroll").html(response);
+				}
+			});
+		}
+		
+		categoryList = function(reg, cg){
+			$.ajax({
+				url : "controller?cmd=categoryAction",
+				type : "POST",
+				data : {
+					region : reg,
+					category : cg
 				},
 				success : function(response) {
 					$("#scroll").html(response);
