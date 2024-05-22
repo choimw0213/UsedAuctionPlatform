@@ -15,6 +15,7 @@ public class ProductBoxDTO {
 	private String state;
 	private int bidCount;
 	private int bidMax;	
+	private String content;
 	
 	public ProductBoxDTO(int imgSeq, int productSeq, String title, String category, int startPrice, int price,
 			String address, LocalDateTime endDate, String state, int bidCount, int bidMax) {
@@ -47,6 +48,31 @@ public class ProductBoxDTO {
 		setNickName(nickName);
 	}
 	
+	public ProductBoxDTO(int imgSeq, int productSeq, String nickName, String title, String category, int startPrice, int price,
+			String address, LocalDateTime endDate, String state, int bidCount, int bidMax, String content) {
+		setAddress(address);
+		setBidCount(bidCount);
+		setCategory(category);
+		setEndDate(endDate);
+		setImgSeq(imgSeq);
+		setPrice(price);
+		setProductSeq(productSeq);
+		setStartPrice(startPrice);
+		setState(state);
+		setTitle(title);
+		setBidMax(bidMax);
+		setNickName(nickName);
+		setContent(content);
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public int getBidMax() {
 		return bidMax;
 	}
