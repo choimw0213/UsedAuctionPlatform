@@ -99,6 +99,7 @@ public class ActionFactory {
 			case "categoryAction":
 				action = new CategoryAction();
 				break;
+				
 		}
 		
 		return action;
