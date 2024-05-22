@@ -16,13 +16,8 @@ public class CategoryAction implements Action {
 		
 		String region = request.getParameter("region");
 		String category = request.getParameter("category");
-		System.out.println(category);
-		System.out.println(category.equals("전체"));
-		if(category.equals("전체")){
-			request.setAttribute("list", new ProductListService().getList("region"));
-		}
-		else
-			request.setAttribute("list", new ProductListService().getListByCategory(region, category));
+
+		request.setAttribute("list", new ProductListService().getListByCategory(region, category));
 		
 		return new URLModel("asynchronous_productList.jsp", false);
 	}

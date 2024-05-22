@@ -18,7 +18,6 @@ public class HopeAction implements Action {
 		String hope = request.getParameter("hope");
 		
 		request.setAttribute("list", new ProductListService().getListByHope(region, hope));
-		
 		return new URLModel("asynchronous_productList.jsp", false);
 	}
 
