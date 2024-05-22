@@ -20,62 +20,62 @@ public interface ProductQuery {
 	String ADD_PRODUCT_IMG = "insert into product_img values(img_seq.nextval, ?, ?)";
 
 	
-	String GET_LIST = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ?"
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_CATEGORY = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_CATEGORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and category= ? and address like ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_REGION = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_REGION = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
 			+ "order by start_date desc";
 
-	String GET_LIST_BIDCOUNT = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_BIDCOUNT = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, start_date, state "
 			+ "order by count(bid_price) desc, start_date desc";
 
-	String GET_LIST_ENDDATE = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_ENDDATE = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and address like ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by end_date";
 
-	String GET_LIST_SEARCH = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_SEARCH = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) and state='S' and (title like ? or content like ?) and address like ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 	
-	String GET_LIST_SELLING_HISTORY = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_SELLING_HISTORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) "
 			+ "and (state = 'S' or state = 'T') and p.user_id = ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_COMPLETE_HISTORY = "select img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_COMPLETE_HISTORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) "
 			+ "and state = 'E' and p.user_id = ? "
-			+ "group by img_seq, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
+			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
 	String GET_LIST_BUYING_HISTORY = "";
