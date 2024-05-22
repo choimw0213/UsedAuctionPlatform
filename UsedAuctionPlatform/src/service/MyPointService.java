@@ -30,9 +30,10 @@ public class MyPointService {
 		try {
 			conn = dataSource.getConnection();
 			conn.setAutoCommit(false);
-			if(new UserDAO(conn).setPoint(id, point)){
+			result = new UserDAO(conn).setPoint(id, point);
+			if(result){
 				conn.commit();
-				result = new UserDAO(conn).setPoint(id, point);
+				
 			}
 
 		} catch (SQLException e) {

@@ -36,10 +36,12 @@
 
 .nicknameP {
 	transform: translateY(40%);
+	font-size:15px;
 }
 
 .rateP {
-	transform: translateY(-20%);
+	transform: translateY(-5%);
+	font-size:15px;
 }
 
 .modal-header {
@@ -79,10 +81,23 @@ a {
 	transform: translateX(40%);
 }
 
+
+.nickRateP{
+	
+	transform:translateY(20%);
+}
+
+
+.imgLocation{
+	
+}
+
+
+
 .cBeB {
 	display: flex;
 	flex-wrap: nowrap;
-	transform: translateX(-15%);
+	transform: translateX(-5%);
 }
 
 .chargeButton {
@@ -90,11 +105,11 @@ a {
 }
 
 .aButtons {
-	transform: translateX(-18%);
+	transform: translateX(-8%);
 }
 
 .loPointFont {
-	transform: translateX(-18%);
+	transform: translateX(-8%);
 }
 
 button {
@@ -114,18 +129,27 @@ button {
 			<table class="table">
 				<thead>
 					<tr class="table-borderless">
-						<th class="col-md-3"><img src="images/icon/icon.png"
-							class="img-fluid rounded-circle border" id="imgIcon"></th>
+						<th class="col-md-3">
+						<div class = "imgLocation">
+						<img src="images/icon/icon.png"
+							class="img-fluid rounded-circle border" id="imgIcon">
+						</div>	
+						</th>
+						<th></th>
 						<th class="maPageInfo">
+						<div class="nickRateP mt-4">
 							<p class="nicknameP"><%=request.getAttribute("nickname")%></p>
 							<p class="rateP">
 								★<%=request.getAttribute("rate")%></p>
+						</div>
+								
 						</th>
+						<th></th>
 					</tr>
 					<tr>
 						<th class="pointTxt">
 							<div class="loPointFont">
-								<p class="pointFont"><%=request.getAttribute("point")%></p>
+								<p class="pointFont" id="myPoint"><%=request.getAttribute("point")%></p>
 							</div>
 							<div class="cBeB">
 								<div class="chargeButton">
@@ -143,8 +167,11 @@ button {
 							</div>
 						</th>
 						<th></th>
+						<th></th>
+						<th></th>
 					</tr>
 					<tr>
+					
 						<th id="myActButton" class="border-0">
 							<div class="aButtons">
 								<br>
@@ -163,7 +190,7 @@ button {
 								</button>
 							</div>
 						</th>
-
+						
 					</tr>
 				</thead>
 			</table>
@@ -182,7 +209,7 @@ button {
 						<form action="controller?cmd=myPointAction" method="post">
 							<div class="modal-body">
 								<input class="form-control form-control-lg" type="number"
-									name="plusPoint">
+									name="plusPoint" id="plusPoint">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" id="modalBtn"
@@ -213,13 +240,13 @@ button {
 						<form action="controller?cmd=myPointAction" method="post">
 							<div class="modal-body">
 								<input class="form-control form-control-lg" type="number"
-									name="minusPoint">
+									name="minusPoint" id="minusPoint">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" id="modalBtn"
 									data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn">확인</button>
+								<button type="submit" class="btn btn-primary" id="modalBtn" onclick="return exchangeTest()">확인</button>
 
 							</div>
 						</form>
@@ -232,7 +259,17 @@ button {
 		</div>
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
-	<script type="text/javascript">
+<script type="text/javascript">
+function exchangeTest(){
+	var num1 = parseInt(document.getElementById("myPoint").textContent);
+	var num2 = document.getElementById("minusPoint").value;
+	if(num1 >= num2){
+		return true;
+	}else{
+		alert("포인트가 부족합니다");
+		return false;
+	}
+}
 
 
 </script>

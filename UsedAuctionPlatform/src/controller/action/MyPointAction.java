@@ -46,9 +46,7 @@ public class MyPointAction implements Action {
 			page = "pointActionCheck.jsp";
 		}
 		
-		System.out.println("\nMyPointAction");
-		System.out.println("아이디 : " + id);
-		System.out.println("추가된 포인트 : " + point);
+		
 		
 		return new URLModel(page, true);
 	}
