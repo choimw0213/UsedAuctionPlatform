@@ -158,33 +158,34 @@
 				<% } %>
 				
 			</ul>
-		</div>
-		<jsp:include page="/navbar_buy.jsp"></jsp:include>
-	</div>
-
-	<div class="modal fade" id="exampleModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header d-flex justify-content-center">
-					<h5 class="modal-title" id="exampleModalLabel">평가</h5>
-				</div>
-				<div class="modal-body">
-					<div id="starContainer">
-						<div class="star" id="star1"></div>
-						<div class="star" id="star2"></div>
-						<div class="star" id="star3"></div>
-						<div class="star" id="star4"></div>
-						<div class="star" id="star5"></div>
+			
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered justify-content-center">
+					<div class="modal-content">
+						<div class="modal-header d-flex justify-content-center">
+							<h5 class="modal-title" id="exampleModalLabel">평가</h5>
+						</div>
+						<div class="modal-body">
+							<div id="starContainer">
+								<div class="star" id="star1"></div>
+								<div class="star" id="star2"></div>
+								<div class="star" id="star3"></div>
+								<div class="star" id="star4"></div>
+								<div class="star" id="star5"></div>
+							</div>
+						</div>
+						<div class="modal-footer justify-content-center">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">취소</button>
+							<button id="save" type="button" class="btn btn-primary">확인</button>
+						</div>
 					</div>
 				</div>
-				<div class="modal-footer justify-content-center">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">취소</button>
-					<button id="save" type="button" class="btn btn-primary">확인</button>
-				</div>
 			</div>
+			
 		</div>
+		<jsp:include page="/navbar_buy.jsp"></jsp:include>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

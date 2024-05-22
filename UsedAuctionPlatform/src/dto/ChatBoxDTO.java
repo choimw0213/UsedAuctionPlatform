@@ -3,9 +3,11 @@ package dto;
 import java.time.LocalDateTime;
 
 public class ChatBoxDTO {
-	private String imgSeq;
+	private int imgSeq;
+	private String imgURL;
 	private String productUserId;
-	private String toIdNickName;
+	private String fromNickName;
+	private String toNickName;
 	
 	private int chatSeq;
 	private int productSeq;
