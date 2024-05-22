@@ -9,16 +9,15 @@ import controller.Action;
 import controller.URLModel;
 import service.ProductListService;
 
-public class SearchAction implements Action {
+public class HopeAction implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		
 		String region = request.getParameter("region");
-		String search = request.getParameter("search");
-
-		request.setAttribute("list", new ProductListService().getListBySearch(search, region));
+		String hope = request.getParameter("hope");
 		
+		request.setAttribute("list", new ProductListService().getListByHope(region, hope));
 		return new URLModel("asynchronous_productList.jsp", false);
 	}
 

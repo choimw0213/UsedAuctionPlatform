@@ -52,7 +52,7 @@
 						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">카테고리</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item active bg-warning rounded-3" href="#">카테고리</a>
-						<a class="dropdown-item" href="#">디지털기기</a> 
+						<a class="dropdown-item" href="#">디지털 기기</a> 
 						<a class="dropdown-item" href="#">가구/인테리어</a> 
 						<a class="dropdown-item" href="#">유아동</a> 
 						<a class="dropdown-item" href="#">의류</a> 
@@ -131,7 +131,7 @@
 			</tr>
 			<tr>
 				<td align="right"><label class="res-label">경매시작금액</label></td>
-				<td><input placeholder="경매시작금액 입력" name="bid_price" required></td>
+				<td><input placeholder="경매시작금액 입력" name="start_price" required></td>
 			</tr>
 			<tr>
 				<td valign="top" align="right"><label class="res-label">내용</label></td>

@@ -5,17 +5,17 @@ import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import dao.BidDAO;
 import dao.ProductDAO;
+import dto.ProductBoxDTO;
 import vo.ProductVO;
 
-public class AddProductService {
+public class ProductService {
 	private DataSource dataSource;
 
-	public AddProductService(){
+	public ProductService(){
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
@@ -25,7 +25,7 @@ public class AddProductService {
 	}
 
 	public boolean addProduct(String user_id, String fileName, String title, String category, String region, String bid_date,
-			String price, String bid_price, String content){
+			String price, String startPrice, String content){
 		Connection conn = null;
 		//		if(category.equals("카테고리") || category == null){
 		//			return false;
@@ -35,7 +35,7 @@ public class AddProductService {
 		try {
 			conn = dataSource.getConnection();
 			ProductDAO pDAO = new ProductDAO(conn);
-			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(bid_price), content, "s");
+			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(startPrice), content, "s");
 
 			conn.setAutoCommit(false);
 
@@ -44,7 +44,7 @@ public class AddProductService {
 				result = pDAO.addProductImage(productSeq, fileName);
 				if(result){
 					BidDAO bDAO = new BidDAO(conn);
-					result = bDAO.addBid(productSeq, user_id, 0);
+					result = bDAO.addBid(productSeq, user_id, Integer.parseInt(startPrice));
 				} 
 			}
 			conn.commit();
@@ -68,5 +68,26 @@ public class AddProductService {
 			}
 		}
 		return result;
+	}
+
+	public ProductBoxDTO getProduct(int productSeq) {
+		Connection conn = null;
+		ProductBoxDTO dto = null;
+
+		try {
+			conn = dataSource.getConnection();
+			dto = new ProductDAO(conn).getProductBox(productSeq);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return dto;
 	}
 }

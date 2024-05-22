@@ -53,10 +53,10 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				if(rs.next()){
-					dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
-							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
-							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"),
-							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
+					dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("nickname"),
+							rs.getString("title"), rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), 
+							rs.getString("address"), LocalDateTime.parse(rs.getString("end_date"),formmatter), 
+							rs.getString("state"), rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"), rs.getString("content"));
 				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}
@@ -273,56 +273,62 @@ public class ProductDAO {
 	
 	
 	// 입찰건순 목록 조회
-	public ArrayList<ProductBoxDTO> getListByBidCount(){
+	public ArrayList<ProductBoxDTO> getListByBidCount(String region){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
-		
-		try (Statement stmt = conn.createStatement()){
-			try(ResultSet rs = stmt.executeQuery(ProductQuery.GET_LIST_BIDCOUNT)){
-				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-				while(rs.next()){
-					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
-							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
-							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"),
-							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
-					list.add(dto);
-				}	
-			}
-		} catch (SQLException e) {e.printStackTrace();}
-		
-		return list;
-		
-	}
 	
-	// 마감 임박순 목록조회
-	public ArrayList<ProductBoxDTO> getListByEndDate(){
-		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
-		DateTimeFormatter formmatter = null;
-		
-		try (Statement stmt = conn.createStatement()){
-			try(ResultSet rs = stmt.executeQuery(ProductQuery.GET_LIST_ENDDATE)){
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_BIDCOUNT)){
+			pstmt.setString(1, "%"+region+"%");	
+			
+			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
 				while(rs.next()){
 					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
 							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
 					list.add(dto);
-				}	
+				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}
 		
-		return list;
+		return list;	
+	}
+	
+	// 마감 임박순 목록조회
+	public ArrayList<ProductBoxDTO> getListByEndDate(String region){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
+		DateTimeFormatter formmatter = null;
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_ENDDATE)){
+			pstmt.setString(1, "%"+region+"%");	
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
+				while(rs.next()){
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getInt("img_seq"), rs.getInt("product_seq"), rs.getString("title"),
+							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
+							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
+							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
+					list.add(dto);
+				}
+			}
+		} catch (SQLException e) {e.printStackTrace();}
+		
+		return list;	
 	}
 	
 	// 검색 상품 목록 조회
-	public ArrayList<ProductBoxDTO> getListBySearch(String searchKeyWord){
+	public ArrayList<ProductBoxDTO> getListBySearch(String searchKeyWord, String region){
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_SEARCH)){
 			pstmt.setString(1, "%"+searchKeyWord+"%");	
 			pstmt.setString(2, "%"+searchKeyWord+"%");	
+			pstmt.setString(3, "%"+region+"%");	
 			
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
