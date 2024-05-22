@@ -71,3 +71,12 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+.pr {
+	width: 230px;
+	font-size: 10px;
+	margin: 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

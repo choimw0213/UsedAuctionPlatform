@@ -7,13 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 
 import controller.Action;
 import controller.URLModel;
+import service.NotiService;
+import service.ProductListService;
 
 public class NotiUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return new URLModel("notiUI.jsp", true);
+
+		String id = (String)request.getSession().getAttribute("userId");
+
+		request.setAttribute("list", new NotiService().getNotiList(id));
+		
+		return new URLModel("notiUI.jsp");
 	}
 
 }
