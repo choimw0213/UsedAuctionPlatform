@@ -5,9 +5,11 @@ import controller.action.AddProductAction;
 import controller.action.CategoryAction;
 import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
+import controller.action.HopeAction;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.SearchAction;
 import controller.action.SetMyInfoAction;
 import controller.action.SetPWAction;
 import controller.action.SetRateAction;
@@ -98,6 +100,12 @@ public class ActionFactory {
 				break;	
 			case "categoryAction":
 				action = new CategoryAction();
+				break;
+			case "hopeAction":
+				action = new HopeAction();
+				break;
+			case "searchAction":
+				action = new SearchAction();
 				break;
 				
 		}
