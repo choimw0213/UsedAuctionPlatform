@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import query.BidQuery;
+import vo.BidVO;
 
 public class BidDAO {
 	private Connection conn;
@@ -87,5 +91,23 @@ public class BidDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public ArrayList<BidVO> getBidList(int productSeq){
+		ArrayList<BidVO> refundList = new ArrayList<BidVO>();
+		BidVO vo = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(BidQuery.GET_BID_LIST);){
+			pstmt.setInt(1, productSeq);
+			pstmt.setInt(2, productSeq);
+			try(ResultSet rs = pstmt.executeQuery();){
+				while(rs.next()){
+					vo = new BidVO(rs.getString(1), rs.getInt(2));
+					refundList.add(vo);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return refundList;
 	}
 }
