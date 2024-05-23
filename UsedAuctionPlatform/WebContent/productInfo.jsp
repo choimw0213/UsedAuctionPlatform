@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/productInfo.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -134,7 +134,7 @@
 		<div class="modal_default" id="report_modal">
 			<div id="report_modal_container">
 				<div id="report_modal_top">신고사유</div>
-				<textarea></textarea>
+				<textarea id="report_content"></textarea>
 				<div id="report_modal_button_container">
 					<div id="report_close">취소</div>
 					<div id="add_report">접수</div>
@@ -144,7 +144,6 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
-	var bidPrice = Number($("input[name=bid_price]").val());
 	var bidMax = ${productInfo.getBidMax()};
 	var myPoint = ${point};
 	var price = ${productInfo.getPrice()};
@@ -152,11 +151,15 @@
 	var myId = "${nickName}";
 	var productState = "${productInfo.getState()}";
 	var productSeq = "${productSeq}";
+
 	$("#add_report").click(function(){
-		location.href = "controller?cmd=reportAction&product"
+		var reportContent = $("#report_content").val();
+		alert("신고가 접수되었습니다!");
+		location.href = "controller?cmd=reportAction&productSeq=" + productSeq + "&reportContent=" + reportContent;
 	})
 	
 	$("#add_bid").click(function(){
+		var bidPrice = Number($("input[name=bid_price]").val());
 		if(bidPrice <= bidMax){
 			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
 			return;
@@ -170,14 +173,14 @@
 			return;
 		}
 
-		location.href = "controller?cmd=bidAction&productSeq=${productSeq}&bidPrice=" + bidPrice;
+		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + bidPrice;
 	})
 	$("#buy").click(function(){
 		if(myPoint < price){
 			alert("포인트가 부족합니다!");
 			return;
 		}
-		location.href = "controller?cmd=bidAction&productSeq=${productSeq}&bidPrice=" + price;
+		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + price;
 	})
 	$("#bid_button").click(function(){
 		if(sellerId == myId){
