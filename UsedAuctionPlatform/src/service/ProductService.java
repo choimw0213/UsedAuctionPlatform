@@ -37,9 +37,7 @@ public class ProductService {
 			conn = dataSource.getConnection();
 			ProductDAO pDAO = new ProductDAO(conn);
 			ProductVO vo = new ProductVO(0, user_id, title, category, "서울특별시 " + region, null, null, Integer.parseInt(bid_date), Integer.parseInt(price), Integer.parseInt(startPrice), content, "s");
-
 			conn.setAutoCommit(false);
-
 			productSeq = pDAO.addProduct(vo);
 			if(productSeq >= 1){
 				result = pDAO.addProductImage(productSeq, fileName);
@@ -74,7 +72,6 @@ public class ProductService {
 	public ProductBoxDTO getProduct(int productSeq) {
 		Connection conn = null;
 		ProductBoxDTO dto = null;
-
 		try {
 			conn = dataSource.getConnection();
 			dto = new ProductDAO(conn).getProductBox(productSeq);
@@ -92,23 +89,22 @@ public class ProductService {
 		return dto;
 	}
 	
-	public boolean addBid(int productSeq, String id, int price){
+	public boolean addBid(int productSeq, String id, int bidPrice){
 		Connection conn = null;
 		boolean result = false;
+		ProductBoxDTO dto = getProduct(productSeq);;
 		try {
 			conn = dataSource.getConnection();
 			BidDAO dao = new BidDAO(conn);
 			conn.setAutoCommit(false);
-			result = dao.pointDeduction(productSeq, id, price);
-			//result = dao.addBid(productSeq, id, price);
+			result = dao.pointDeduction(productSeq, id, bidPrice);
 			if(result){
-				System.out.println(new UserDAO(conn).getUser(id).getPoint());
-				//result = dao.pointDeduction(productSeq, id, price);
-				result = dao.addBid(productSeq, id, price);
-				System.out.println(new UserDAO(conn).getUser(id).getPoint());
+				result = dao.addBid(productSeq, id, bidPrice);
+				if(dto.getPrice() == bidPrice){
+					dao.setProductState(productSeq);
+				}
 			}
 			conn.commit();
-			
 		} catch (SQLException e) {
 			if(conn != null){
 				try {

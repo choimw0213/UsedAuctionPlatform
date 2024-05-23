@@ -110,20 +110,20 @@
 				</div>
 				<div id="bid_modal_button_container">
 					<div id="add_bid">확인</div>
-					<div id="close">취소</div>
+					<div class="close">취소</div>
 				</div>
 			</div>
 		</div>
 		<div class="modal_default" id="buy_modal">
 			<div id="buy_modal_container">
-				<div id="buy_modal_top">얼마를 입찰 하시겠습니까?</div>
+				<div id="buy_modal_top">즉시 구매 하시겠습니까?</div>
 				<div id="buy_modal_input_container">
-					<input name="buy_price" placeholder="0P">
+					<p>즉시 구매가 ${productInfo.getPrice()}P</p>
 					<span>내 포인트: ${point}</span>
 				</div>
 				<div id="buy_modal_button_container">
 					<div id="buy">확인</div>
-					<div id="close">취소</div>
+					<div class="close">취소</div>
 				</div>
 			</div>
 		</div>
@@ -137,18 +137,25 @@
 				<textarea></textarea>
 				<div id="report_modal_button_container">
 					<div id="report_close">취소</div>
-					<div>접수</div>
+					<div id="add_report">접수</div>
 				</div>
 			</div>
 		</div>
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
+	var bidPrice = Number($("input[name=bid_price]").val());
+	var bidMax = ${productInfo.getBidMax()};
+	var myPoint = ${point};
+	var price = ${productInfo.getPrice()};
+	var sellerId = "${productInfo.getNickName()}";
+	var myId = "${nickName}";
+	var productState = "${productInfo.getState()}";
+	var productSeq = "${productSeq}";
+	$("#add_report").click(function(){
+		location.href = "controller?cmd=reportAction&product"
+	})
 	$("#add_bid").click(function(){
-		var bidPrice = Number($("input[name=bid_price]").val());
-		var bidMax = ${productInfo.getBidMax()};
-		var myPoint = ${point};
-		var price = ${productInfo.getPrice()};
 		if(bidPrice <= bidMax){
 			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
 			return;
@@ -161,25 +168,43 @@
 			alert("즉시구매를 이용해주세요!");
 			return;
 		}
+
 		location.href = "controller?cmd=bidAction&productSeq=${productSeq}&bidPrice=" + bidPrice;
 	})
+	$("#buy").click(function(){
+		if(myPoint < price){
+			alert("포인트가 부족합니다!");
+			return;
+		}
+		location.href = "controller?cmd=bidAction&productSeq=${productSeq}&bidPrice=" + price;
+	})
 	$("#bid_button").click(function(){
-		var sellerId = "${productInfo.getNickName()}";
-		var myId = "${nickName}";
-		console.log(sellerId);
-		console.log(myId);
 		if(sellerId == myId){
 			alert("본인 물품에는 입찰 할 수 없습니다!");
+			return;
+		}
+		if(productState != 'S'){
+			alert("판매가 종료된 물품입니다!");
 			return;
 		}
 		$("#bid_modal")[0].style.display="flex";
 		$("#bid_modal")[0].style.position="absolute";
 	});
 	$("#buy_button").click(function(){
-		
+		if(sellerId == myId){
+			alert("본인 물품은 구매 할 수 없습니다!");
+			return;
+		}
+		if(productState != 'S'){
+			alert("판매가 종료된 물품입니다!");
+			return;
+		}
+		$("#buy_modal")[0].style.display="flex";
+		$("#buy_modal")[0].style.position="absolute";
 	})
-	$("#close").click(function(){
+	$(".close").click(function(){
 		$("#bid_modal")[0].style.display="none";
+		$("#buy_modal")[0].style.display="none";
 	});
 	$("#option").click(function(){
 		$("#option_modal")[0].style.display="flex";
