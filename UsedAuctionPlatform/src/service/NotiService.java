@@ -26,6 +26,25 @@ public class NotiService {
 		}
 	}
 	
+	public boolean addNoti(int productSeq){
+		boolean res = false;
+		ArrayList<String> list = new ArrayList<>();
+		
+		try {
+			conn = dataSource.getConnection();
+			NotiDAO nDAO = new NotiDAO(conn);
+			list = nDAO.getNotiUserList(productSeq);
+			for(String id : list){
+				nDAO.addNoti(id, productSeq);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
 	public ArrayList<NotiBoxDTO> getNotiList(String id){
 		ArrayList<NotiBoxDTO> list = new ArrayList<>();
 		try {

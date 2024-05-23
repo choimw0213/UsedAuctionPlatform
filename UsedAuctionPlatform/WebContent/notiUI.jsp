@@ -39,7 +39,7 @@
 
 			<c:forEach items='${list}' var='p'>
 				<div class="card d-flex align-items-center border-0 ps-2 pe-2"
-				data-productseq="${p.getProductSeq()}">
+					data-productseq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
@@ -53,10 +53,10 @@
 										<c:choose>
 											<c:when test="${p.getProductUserId().equals(userId)}">
 												<span class="badge badge-s">판매품</span>
-    										</c:when>
-    										<c:otherwise>
+											</c:when>
+											<c:otherwise>
 												<span class="badge bg-info">구매품</span>
-    										</c:otherwise>
+											</c:otherwise>
 										</c:choose>
 									</div>
 									<div id="item-title-group">
@@ -64,12 +64,8 @@
 										<p class="p-1">${p.getCategory()}</p>
 									</div>
 								</div>
-								<div class="ms-1">
-									<div class="card-text d-flex"></div>
-									<span class="noti-content">[${p.getNickname()}]님이</span>
-									<span class="pr">${p.getPrice()}</span>
-									<sapn class="noti-content">에 입찰하셨습니다.</sapn>
-								</div>
+								<span class="noti-content">[${p.getNickname()}]님이</span> <span
+									class="pr">${p.getPrice()}P에 입찰하셨습니다.</span>
 							</div>
 						</div>
 					</div>
@@ -82,7 +78,6 @@
 	</div>
 	<script>
 		$(document).ready(function() {
-
 			cardClick();
 		});
 		

@@ -21,20 +21,36 @@ public class NotiDAO {
 		this.conn = conn;
 	}
 	
-	public boolean addNoti(String id, int bidSeq, boolean state){
+	public boolean addNoti(String id, int productSeq){
 		
+		try(PreparedStatement pstmt = conn.prepareStatement(NotiQuery.ADD_NOTI)){
+			pstmt.setString(1, id);
+			pstmt.setInt(2, productSeq);
+			
+			return pstmt.executeUpdate() == 1;
+		} catch (SQLException e) {e.printStackTrace();}
 		
 		return false;
 	}
 	
-	public Map<String, Integer> getNotiUserList(int productSeq){
-		Map<String, Integer> list = null;
+	public ArrayList<String> getNotiUserList(int productSeq){	// 알림 날릴 사용자들
+		ArrayList<String> list = new ArrayList<>();
 		
+		try(PreparedStatement pstmt = conn.prepareStatement(NotiQuery.GET_NOTI_USERS)){
+			pstmt.setInt(1, productSeq);
+			pstmt.setInt(2, productSeq);
+			pstmt.setInt(3, productSeq);
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()){
+					list.add(rs.getString(1));
+				}
+			}
+		} catch (SQLException e) {e.printStackTrace();}
 		
 		return list;
 	}
 	
-	public ArrayList<NotiBoxDTO> getNotiList(String id){
+	public ArrayList<NotiBoxDTO> getNotiList(String id){	// 알림 목록
 		ArrayList<NotiBoxDTO> list = new ArrayList<>();
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(NotiQuery.GET_NOTI_LIST)){
