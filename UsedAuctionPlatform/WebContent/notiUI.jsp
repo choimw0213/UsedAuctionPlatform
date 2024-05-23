@@ -60,11 +60,13 @@
 									</div>
 									<div id="item-title-group">
 										<h6>${p.getTitle()}</h6>
-										<p class="p-1">${p.getCategory()}</p>
+										<p class="p-0 pt-1">${p.getCategory()}</p>
 									</div>
 								</div>
-								<span class="noti-content">[${p.getNickname()}]님이
-								</span> <span class="pr">${p.getPrice()}</span>
+								<div class="m-0">
+									<span class="noti-content">[${p.getNickname()}]님이
+									</span> <span class="pr">${p.getPrice()}</span>
+								</div>
 							</div>
 						</div>
 					</div>
