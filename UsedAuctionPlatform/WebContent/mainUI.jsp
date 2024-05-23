@@ -124,8 +124,8 @@
 									<p class="product-info">${p.getAddress()}</p>
 								</div>
 								<div class="text-group-point pt-1 pb-1">
-									<p class="m-0 text-danger" id="bidMax">입찰가 ${p.getBidMax()}P</p>
-									<p class="m-0" id="nowprice">즉구가 ${p.getPrice()}P</p>
+									<p class="bpr m-0 text-danger" id="bidMax">${p.getBidMax()}</p>
+									<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 								</div>
 								<div class="d-flex justify-content-between text-group">
 									<p class="product-info">${p.getEndDate()}</p>
@@ -165,15 +165,23 @@
 		$("#addProduct").on('click', function() {
 			location.href = "controller?cmd=addProductUI";
 		})
-
 		
-		$(document).ready(function() {
+		$(document).ready(function() {	
 			dropboxList();
 			searchBtn();
 			cardClick();
+			priceShow();
 		});
 	
-
+		priceShow = function(){
+			$(".bpr").each(function(){
+				$(this).text("입찰가 " + Number($(this).text()).toLocaleString('ko-KR') + "P");
+			})
+			$(".pr").each(function(){
+				$(this).text("즉구가 " + Number($(this).text()).toLocaleString('ko-KR') + "P");
+			})
+		}
+		
 		dropboxList = function() {
 			// 드롭다운 text 변경
 			$("#region div > a").on('click', function() {
@@ -215,9 +223,9 @@
 					categoryInit();
 					hopeInit();
 					$("#search").val("");
-					
 					$("#scroll").html(response);
 					cardClick();
+					priceShow();
 				}
 			});
 		}
@@ -235,6 +243,7 @@
 					$("#search").val("");
 					$("#scroll").html(response);
 					cardClick();
+					priceShow();
 				}
 			});
 		}
@@ -254,6 +263,7 @@
 					
 					$("#scroll").html(response);
 					cardClick();
+					priceShow();
 				}
 			});
 		}
@@ -274,6 +284,7 @@
 				
 						$("#scroll").html(response);
 						cardClick();
+						priceShow();
 					}
 				});
 			})
