@@ -57,16 +57,6 @@
 						<a class="dropdown-item" href="#">유아동</a> 
 						<a class="dropdown-item" href="#">의류</a> 
 						<a class="dropdown-item" href="#">잡화</a> 
-						<a class="dropdown-item" href="#">생활가전</a> 
-						<a class="dropdown-item" href="#">주방용품</a> 
-						<a class="dropdown-item" href="#">스포츠/레저</a> 
-						<a class="dropdown-item" href="#">취미/게임/음반</a> 
-						<a class="dropdown-item" href="#">뷰티/미용</a> 
-						<a class="dropdown-item" href="#">생활용품</a> 
-						<a class="dropdown-item" href="#">도서</a> 
-						<a class="dropdown-item" href="#">반려동물용품</a> 
-						<a class="dropdown-item" href="#">티켓/교환권</a> 
-						<a class="dropdown-item" href="#">식품</a> 
 						<input name="category" id="category_value" type="hidden" required>
 					</div>
 				</div>
@@ -87,23 +77,6 @@
 						<a class="dropdown-item" href="#">광진구</a> 
 						<a class="dropdown-item" href="#">구로구</a> 
 						<a class="dropdown-item" href="#">금천구</a> 
-						<a class="dropdown-item" href="#">노원구</a> 
-						<a class="dropdown-item" href="#">도봉구</a> 
-						<a class="dropdown-item" href="#">동대문구</a> 
-						<a class="dropdown-item" href="#">동작구</a> 
-						<a class="dropdown-item" href="#">마포구</a> 
-						<a class="dropdown-item" href="#">서대문구</a> 
-						<a class="dropdown-item" href="#">서초구</a> 
-						<a class="dropdown-item" href="#">성동구</a> 
-						<a class="dropdown-item" href="#">성북구</a> 
-						<a class="dropdown-item" href="#">송파구</a> 
-						<a class="dropdown-item" href="#">양천구</a> 
-						<a class="dropdown-item" href="#">영등포구</a> 
-						<a class="dropdown-item" href="#">용산구</a> 
-						<a class="dropdown-item" href="#">은평구</a> 
-						<a class="dropdown-item" href="#">종로구</a> 
-						<a class="dropdown-item" href="#">중구</a> 
-						<a class="dropdown-item" href="#">중랑구</a>
 						<input name="region" id="region_value" type="hidden" required>
 					</div>
 				</div>
