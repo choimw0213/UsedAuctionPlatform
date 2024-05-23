@@ -76,7 +76,7 @@
     <% } %>
     <hr class="my-1">
 
-    <ul class="list-group w-100">
+    <ul class="list-group w-100" id="chatList">
     
       <% if(chat != null){ %>
       <% for(int i=0; i<chat.size(); i++){ %>
@@ -123,6 +123,7 @@ sendBtn.addEventListener('click', function() {
         success: function(response) {
             alert("채팅 메시지가 전송에 성공했습니다.");
             document.querySelector('#chatContent').value = "";
+            location.reload();
         },
         error: function(xhr, status, error) {
             alert("채팅 메시지 전송에 실패했습니다.");
@@ -130,6 +131,11 @@ sendBtn.addEventListener('click', function() {
         }
     });
 });
+
+window.onload = function() {
+	  var chatList = document.getElementById('chatList');
+	  chatList.scrollTop = chatList.scrollHeight;
+}
 
 </script>
 
