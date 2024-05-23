@@ -1,4 +1,11 @@
+<%@page import="vo.ChatVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% String userId = (String)session.getAttribute("userId"); %>
+<% if(userId == null) response.sendRedirect("controller?cmd=loginUI"); %>
+<% ArrayList<ChatVO> chat = (ArrayList<ChatVO>)request.getAttribute("chat"); %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,22 +63,17 @@
     <hr class="my-1">
 
     <ul class="list-group w-100">
-      <div class="chatbox you">제주도 사는데, 배송이 어느정도 걸리는지 알 수 있을까요?</div>
-      <div class="chatbox you">다른 제품보다 더 좋아보여서 연락드려요.</div>
-      <div class="chatbox me">급하시면</div>
-      <div class="chatbox me">오늘내로 보내드릴게요.</div>
-      <div class="chatbox you">생각보다 빠르네요!</div>
-      <div class="chatbox you">감사합니다</div>
-      <div class="chatbox me">스크롤바 테스트</div>
-      <div class="chatbox you">스크롤바 테스트</div>
-      <div class="chatbox me">스크롤바 테스트</div>
-      <div class="chatbox you">스크롤바 테스트</div>
-      <div class="chatbox me">스크롤바 테스트</div>
-      <div class="chatbox you">스크롤바 테스트</div>
-      <div class="chatbox me">스크롤바 테스트</div>
-      <div class="chatbox you">스크롤바 테스트</div>
-      <div class="chatbox me">스크롤바 테스트</div>
-      <div class="chatbox you">스크롤바 테스트</div>
+    
+      <% if(chat != null){ %>
+      <% for(int i=0; i<chat.size(); i++){ %>
+		<% if(userId.equals(chat.get(i).getFromId())){ %>
+      	<div class="chatbox me"><%= chat.get(i).getContent() %></div>
+      	<% } else if(userId.equals(chat.get(i).getToId())){%>
+      	<div class="chatbox you"><%= chat.get(i).getContent() %></div>
+      	<% } %>
+      <% } %>
+      <% } %>
+      
     </ul>
 
     </div>
