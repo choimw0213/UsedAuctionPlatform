@@ -6,6 +6,7 @@ public class ProductBoxDTO {
 	private int imgSeq;
 	private String imgURL;
 	private int productSeq;
+	private String id;
 	private String nickName;
 	private String title;
 	private String category;
@@ -67,6 +68,34 @@ public class ProductBoxDTO {
 		setContent(content);
 	}
 	
+	public ProductBoxDTO(int imgSeq, int productSeq, String nickName, String title, String category, int startPrice, int price,
+			String address, LocalDateTime endDate, String state, int bidCount, int bidMax, String content, String id) {
+		setAddress(address);
+		setBidCount(bidCount);
+		setCategory(category);
+		setEndDate(endDate);
+		setImgSeq(imgSeq);
+		setPrice(price);
+		setProductSeq(productSeq);
+		setStartPrice(startPrice);
+		setState(state);
+		setTitle(title);
+		setBidMax(bidMax);
+		setNickName(nickName);
+		setContent(content);
+		setId(id);
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
 	public String getImgURL() {
 		return imgURL;
 	}

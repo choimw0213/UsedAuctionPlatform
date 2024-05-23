@@ -11,6 +11,7 @@ import controller.URLModel;
 import dto.ProductBoxDTO;
 import service.ProductService;
 import service.UserService;
+import vo.ProductVO;
 
 public class ProductInfoUI implements Action {
 
@@ -23,7 +24,6 @@ public class ProductInfoUI implements Action {
 		
 		int point = new UserService().getUser((String)session.getAttribute("userId"));
 		request.setAttribute("productInfo", dto);
-		request.setAttribute("productSeq", request.getParameter("productSeq"));
 		request.setAttribute("point", point);
 		return new URLModel("productInfo.jsp");
 	}

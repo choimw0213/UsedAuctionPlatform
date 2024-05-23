@@ -67,7 +67,7 @@ public class ProductService {
 		}
 		return result;
 	}
-
+	
 	public ProductBoxDTO getProduct(int productSeq) {
 		Connection conn = null;
 		ProductBoxDTO dto = null;
@@ -127,11 +127,8 @@ public class ProductService {
 			result = dao.pointDeduction(productSeq, id, bidPrice);
 			if(result){
 				result = dao.addBid(productSeq, id, bidPrice);
-				System.out.println("123");
 				if(dto.getPrice() == bidPrice){
-					System.out.println("123");
 					result = setProductState(productSeq);
-					System.out.println("1234");
 				}
 			}
 			conn.commit();

@@ -147,10 +147,11 @@
 	var bidMax = ${productInfo.getBidMax()};
 	var myPoint = ${point};
 	var price = ${productInfo.getPrice()};
-	var sellerId = "${productInfo.getUserId()}";
-	var myId = "${nickName}";
+	var sellerNickName = "${productInfo.getNickName()}";
+	var myNickName = "${nickName}";
 	var productState = "${productInfo.getState()}";
-	var productSeq = "${productSeq}";
+	var productSeq = ${productInfo.getProductSeq()};
+	var sellerId = "${productInfo.getId()}";
 	
 	$(document).ready(function() {	
 		$("#price :first-child").text(bidMax.toLocaleString('ko-KR') + "P");
@@ -192,7 +193,7 @@
 		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + price;
 	})
 	$("#bid_button").click(function(){
-		if(sellerId == myId){
+		if(sellerNickName == myNickName){
 			alert("본인 물품에는 입찰 할 수 없습니다!");
 			return;
 		}
@@ -204,7 +205,7 @@
 		$("#bid_modal")[0].style.position="absolute";
 	});
 	$("#buy_button").click(function(){
-		if(sellerId == myId){
+		if(sellerNickName == myNickName){
 			alert("본인 물품은 구매 할 수 없습니다!");
 			return;
 		}
