@@ -109,7 +109,7 @@ public class NotiService {
 				}
 			}
 		}
-		return false;
+		return res;
 	}
 	
 	public String getNotiState(String id){
