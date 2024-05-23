@@ -147,7 +147,7 @@
 	var bidMax = ${productInfo.getBidMax()};
 	var myPoint = ${point};
 	var price = ${productInfo.getPrice()};
-	var sellerId = "${productInfo.getNickName()}";
+	var sellerId = "${productInfo.getUserId()}";
 	var myId = "${nickName}";
 	var productState = "${productInfo.getState()}";
 	var productSeq = "${productSeq}";
@@ -157,7 +157,8 @@
 		$("#price :nth-child(2)").text("즉시구매가 " + price.toLocaleString('ko-KR') + "P");
 	});
 	$("#chat").click(function(){
-		location.href = "controller?cmd=chat&productSeq=" + productSeq +"&toId=" + sellerId;
+		console.log(sellerId);
+		location.href = "controller?cmd=chatUI&productSeq=" + productSeq +"&toId=" + sellerId;
 	})
 	$("#add_report").click(function(){
 		var reportContent = $("#report_content").val();

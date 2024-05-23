@@ -26,6 +26,6 @@ public class BidAction implements Action {
 		
 		String page = "productInfoUI&productSeq=" + productSeq;
 		
-		return new URLModel("controller?cmd=" + page);
+		return new URLModel("controller?cmd=" + page, true);
 	}
 }

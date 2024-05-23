@@ -99,6 +99,7 @@ public class BidDAO {
 		try(PreparedStatement pstmt = conn.prepareStatement(BidQuery.GET_BID_LIST);){
 			pstmt.setInt(1, productSeq);
 			pstmt.setInt(2, productSeq);
+			pstmt.setInt(3, productSeq);
 			try(ResultSet rs = pstmt.executeQuery();){
 				while(rs.next()){
 					vo = new BidVO(rs.getString(1), rs.getInt(2));

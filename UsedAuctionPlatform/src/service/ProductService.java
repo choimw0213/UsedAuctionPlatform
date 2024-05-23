@@ -2,6 +2,7 @@ package service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -11,6 +12,7 @@ import dao.BidDAO;
 import dao.ProductDAO;
 import dao.UserDAO;
 import dto.ProductBoxDTO;
+import vo.BidVO;
 import vo.ProductVO;
 
 public class ProductService {
@@ -86,6 +88,34 @@ public class ProductService {
 		return dto;
 	}
 	
+	public boolean setProductState(int productSeq){
+		Connection conn = null;
+		boolean result = false;
+		try {
+			conn = dataSource.getConnection();
+			BidDAO dao = new BidDAO(conn);
+			UserDAO uDao = new UserDAO(conn);
+			conn.setAutoCommit(false);
+			result = dao.setProductState(productSeq);
+			ArrayList<BidVO> refundList = dao.getBidList(productSeq);
+			for(int i=0; i<refundList.size(); i++){
+				uDao.setPoint(refundList.get(i).getUserId(), refundList.get(i).getBidPrice());
+			}
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.setAutoCommit(true);
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
 	public boolean addBid(int productSeq, String id, int bidPrice){
 		Connection conn = null;
 		boolean result = false;
@@ -97,8 +127,11 @@ public class ProductService {
 			result = dao.pointDeduction(productSeq, id, bidPrice);
 			if(result){
 				result = dao.addBid(productSeq, id, bidPrice);
+				System.out.println("123");
 				if(dto.getPrice() == bidPrice){
-					dao.setProductState(productSeq);
+					System.out.println("123");
+					result = setProductState(productSeq);
+					System.out.println("1234");
 				}
 			}
 			conn.commit();
