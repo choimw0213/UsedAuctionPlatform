@@ -33,13 +33,32 @@ public class NotiService {
 		try {
 			conn = dataSource.getConnection();
 			NotiDAO nDAO = new NotiDAO(conn);
+			
+			conn.setAutoCommit(false);
 			list = nDAO.getNotiUserList(productSeq);
 			for(String id : list){
 				nDAO.addNoti(id, productSeq);
 			}
-			
-		} catch (SQLException e) {
+			res = true;
+			conn.commit();
+		} catch (Exception e) {
+			if(conn != null){
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
 			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.setAutoCommit(true);
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		return res;
@@ -62,5 +81,54 @@ public class NotiService {
 			}
 		}
 		return list;
+	}
+	
+	public boolean setNotiState(String id){
+		boolean res = false;
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			res = new NotiDAO(conn).setNotiState(id);
+			conn.commit();
+		} catch (Exception e) {
+			if(conn != null){
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.setAutoCommit(true);
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return false;
+	}
+	
+	public String getNotiState(String id){
+		String res = null;
+		try {
+			conn = dataSource.getConnection();
+			res = new NotiDAO(conn).getNotiState(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return res;
 	}
 }

@@ -15,4 +15,8 @@ public interface NotiQuery {
 			+ "user_id != (SELECT user_id FROM bid WHERE product_seq = ? "
 			+ "and bid_price = (SELECT MAX(bid_price) FROM bid WHERE product_seq = ?))";
 	
+	String SET_NOTI_STATE = "UPDATE noti SET noti_state = 't' WHERE user_id = ?";
+	
+	String GET_NOTI_STATE = "SELECT noti_state FROM noti WHERE user_id = ? and "
+			+ "noti_seq = (SELECT MAX(noti_seq) FROM noti WHERE user_id = ?)";
 }

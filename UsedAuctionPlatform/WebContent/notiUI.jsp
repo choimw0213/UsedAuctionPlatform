@@ -25,8 +25,7 @@
 		<div class="row d-flex sticky-top pt-2" id="top1">
 			<div class="d-flex align-items-center justify-content-between p-2 ">
 				<div class="m-0" id="pre">
-					<img src="images/icon/arrow.png" id="previous" class="ms-2"
-						onclick="history.back()">
+					<img src="images/icon/arrow.png" id="previous" class="ms-2">
 				</div>
 				<div>
 					<h6 class="m-0 pe-4" id="top-head">알림</h6>
@@ -82,8 +81,12 @@
 				$(this).text(Number($(this).text()).toLocaleString('ko-KR') + "P에 입찰하셨습니다.");
 			})
 			cardClick();
-		});
-		
+			
+			$("#previous").on('click', function(){
+				location.href = document.referrer;
+			})
+			
+		})
 		cardClick = function(){
 			$(".card").on('click', function() {
 				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;

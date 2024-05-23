@@ -81,3 +81,16 @@
 	width: 71px;
 	text-align: right;
 }
+
+#noti {
+	position: relative;
+}
+
+.alarm {
+	position : absolute;
+	right : 4px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: red;
+}
