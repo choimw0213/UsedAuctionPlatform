@@ -27,6 +27,7 @@ public class ChatUI implements Action {
 		
 		ChatService chatService = new ChatService();
 		request.setAttribute("chat", chatService.getChat(productSeq, userId, toId));
+		chatService.readChat(productSeq, userId, toId);
 		
 		ProductService productService = new ProductService();
 		request.setAttribute("product", productService.getProduct(productSeq));

@@ -50,4 +50,8 @@ public interface ChatQuery {
 
 	String ADD_CHAT = "insert into chat values (chat_seq.nextval, ?, ?, ?, ?, sysdate, 'F')";
 	
+	String READ_CHAT = "update chat set chat_state = 'T' "
+			+ "where product_seq = ? "
+			+ "and ((from_id = ? and to_id = ?) or (from_id = ? and to_id = ?))";
+	
 }

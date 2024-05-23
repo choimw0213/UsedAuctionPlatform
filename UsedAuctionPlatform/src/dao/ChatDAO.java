@@ -80,5 +80,20 @@ public class ChatDAO {
 		return false;
 	}
 	
+	public boolean readChat(int productSeq, String userId, String toId){
+		
+		
+		return false;
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+

@@ -35,12 +35,12 @@ public class MyPageService {
 				conn.commit();
 				userInfo = new UserDAO(conn).getUser(id);
 			}
-			System.out.println("rate서비스 : " + userInfo.getRate());
 		} catch (SQLException e) {
 			// TODO: handle exception
 			if(conn != null){
 				try {
 					conn.rollback();
+					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
@@ -51,6 +51,8 @@ public class MyPageService {
 			if(conn != null){
 				try {
 					conn.setAutoCommit(true);
+					conn.close();
+
 				} catch (Exception e2) {
 					// TODO: handle exception
 					e2.printStackTrace();
