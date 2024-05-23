@@ -215,7 +215,7 @@ button {
 								<button type="button" class="btn btn-secondary" id="modalBtn"
 									data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn">확인</button>
+								<button type="submit" class="btn btn-primary" id="modalBtn" onclick="chargeTest()">확인</button>
 
 							</div>
 						</form>
@@ -260,18 +260,39 @@ button {
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
 <script type="text/javascript">
-function exchangeTest(){
-	var num1 = parseInt(document.getElementById("myPoint").textContent);
-	var num2 = document.getElementById("minusPoint").value;
-	if(num1 >= num2){
-		return true;
-	}else{
-		alert("포인트가 부족합니다");
-		return false;
+
+	function exchangeTest() {
+		var num1 = parseInt(document.getElementById("myPoint").textContent);
+		var num2 = document.getElementById("minusPoint").value;
+
+		if (num2 != 0) {
+			if (num1 >= num2) {
+				return true;
+			} else {
+				alert("포인트가 부족합니다");
+				return false;
+			}
+		} else {
+			alert("포인트를 입력해주세요");
+			return false;
+		}
+
 	}
-}
+	
+	
+	
+	
+	function chargeTest() {
+		var num3 = document.getElementById("plusPoint").value;
 
+		if (num3 == 0) {
+			alert("포인트를 입력해주세요");
+			return false;
+		} else {
+			return true;
+		}
 
+	}	
 </script>
 </body>
 </html>

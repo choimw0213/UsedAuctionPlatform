@@ -23,7 +23,7 @@ public class SetPWAction implements Action {
 		String id = (String) session.getAttribute("id");
 		String pw = request.getParameter("password");
 		
-
+		session.invalidate();
 		
 		
 		if(new SetPWService().setPw(id, pw)){
