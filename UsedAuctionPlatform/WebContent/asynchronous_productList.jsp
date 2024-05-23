@@ -24,8 +24,8 @@
 						<p class="product-info">${p.getAddress()}</p>
 					</div>
 					<div class="text-group-point pt-1 pb-1">
-						<p class="m-0 text-danger" id="bidMax">입찰가 ${p.getBidMax()}P</p>
-						<p class="m-0" id="nowprice">즉구가 ${p.getPrice()}P</p>
+						<p class="bpr m-0 text-danger" id="bidMax">${p.getBidMax()}</p>
+						<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 					</div>
 					<div class="d-flex justify-content-between text-group">
 						<p class="product-info">${p.getEndDate()}</p>

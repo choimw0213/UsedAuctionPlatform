@@ -64,8 +64,8 @@
 										<p class="p-1">${p.getCategory()}</p>
 									</div>
 								</div>
-								<span class="noti-content">[${p.getNickname()}]님이</span> <span
-									class="pr">${p.getPrice()}P에 입찰하셨습니다.</span>
+								<span class="noti-content">[${p.getNickname()}]님이
+								</span> <span class="pr">${p.getPrice()}</span>
 							</div>
 						</div>
 					</div>
@@ -78,6 +78,9 @@
 	</div>
 	<script>
 		$(document).ready(function() {
+			$(".pr").each(function(){
+				$(this).text(Number($(this).text()).toLocaleString('ko-KR') + "P에 입찰하셨습니다.");
+			})
 			cardClick();
 		});
 		
