@@ -28,7 +28,7 @@
 						<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 					</div>
 					<div class="d-flex justify-content-between text-group">
-						<p class="product-info">${p.getEndDate()}</p>
+						<p class="product-info endDate">${p.getEndDate()}</p>
 						<p class="product-info me-2">입찰 ${p.getBidCount()}건</p>
 					</div>
 				</div>

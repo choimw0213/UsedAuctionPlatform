@@ -15,7 +15,7 @@
 }
 
 .badge-s {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 .card-text>.badge-t {
@@ -56,11 +56,11 @@
 }
 
 .card-text>.badge-s {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 .card-text>.badge-t {
-	background-color: #E07F39;
+	background-color: #1CADFF;
 }
 
 .card-text>.badge-e {
@@ -74,7 +74,7 @@
 }
 
 .active {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 #regionBtn {

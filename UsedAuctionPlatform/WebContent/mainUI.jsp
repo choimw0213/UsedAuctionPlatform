@@ -111,7 +111,7 @@
 									<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 								</div>
 								<div class="d-flex justify-content-between text-group">
-									<p class="product-info">${p.getEndDate()}</p>
+									<p class="product-info endDate">${p.getEndDate()}</p>
 									<p class="product-info me-2">입찰 ${p.getBidCount()}건</p>
 								</div>
 							</div>
@@ -123,7 +123,7 @@
 		</div>
 
 		<button class="btn btn-primary floating-btn border-0" id="addProduct"
-			style="background-color: #ffb966; position: relative; bottom: 10px; left: 130px; border-radius: 50%">
+			style="background-color: #FF922E; position: relative; bottom: 10px; left: 130px; border-radius: 50%">
 			<i class="fi fi-rr-plus-small"></i>
 		</button>
 
@@ -154,7 +154,15 @@
 			searchBtn();
 			cardClick();
 			priceShow();
+			timeShow();
 		});
+		
+		timeShow = function(){
+			$(".endDate").each(function(){
+				var str = $(this).text().split('T');
+				$(this).text(str[0] + " " + str[1]);
+			})
+		}
 	
 		priceShow = function(){
 			$(".bpr").each(function(){
@@ -209,6 +217,7 @@
 					$("#scroll").html(response);
 					cardClick();
 					priceShow();
+					timeShow();
 				}
 			});
 		}
@@ -227,6 +236,7 @@
 					$("#scroll").html(response);
 					cardClick();
 					priceShow();
+					timeShow();
 				}
 			});
 		}
@@ -247,6 +257,7 @@
 					$("#scroll").html(response);
 					cardClick();
 					priceShow();
+					timeShow();
 				}
 			});
 		}
@@ -268,6 +279,7 @@
 						$("#scroll").html(response);
 						cardClick();
 						priceShow();
+						timeShow();
 					}
 				});
 			})
