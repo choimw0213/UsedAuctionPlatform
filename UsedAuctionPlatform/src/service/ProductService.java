@@ -28,9 +28,6 @@ public class ProductService {
 	public boolean addProduct(String user_id, String fileName, String title, String category, String region, String bid_date,
 			String price, String startPrice, String content){
 		Connection conn = null;
-		//		if(category.equals("카테고리") || category == null){
-		//			return false;
-		//		}
 		boolean result = false;
 		int productSeq = 0;
 		try {

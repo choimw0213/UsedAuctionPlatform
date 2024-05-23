@@ -53,7 +53,6 @@ public class BidDAO {
 			pstmt.setString(4, id);
 			int num = pstmt.executeUpdate();
 			if(num >= 1){
-				System.out.println(num);
 				result = true;
 			}
 		} catch (SQLException e) {
