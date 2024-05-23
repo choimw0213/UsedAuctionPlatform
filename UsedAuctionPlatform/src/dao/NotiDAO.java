@@ -67,4 +67,29 @@ public class NotiDAO {
 		
 		return list;	
 	}
+	
+	public boolean setNotiState(String id){
+		try(PreparedStatement pstmt = conn.prepareStatement(NotiQuery.SET_NOTI_STATE)){
+			pstmt.setString(1, id);
+			int num = pstmt.executeUpdate();
+			return pstmt.executeUpdate() >= 1;
+		} catch (SQLException e) {e.printStackTrace();}
+		
+		return false;
+	}
+	
+	public String getNotiState(String id){
+		String state = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(NotiQuery.GET_NOTI_STATE)){
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()){
+					state = rs.getString(1);
+				}
+			}
+			
+		} catch (SQLException e) {e.printStackTrace();}
+		return state;
+	}
 }

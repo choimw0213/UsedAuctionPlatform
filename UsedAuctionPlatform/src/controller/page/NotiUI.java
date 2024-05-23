@@ -16,9 +16,8 @@ public class NotiUI implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 
 		String id = (String)request.getSession().getAttribute("userId");
-
-		request.setAttribute("list", new NotiService().getNotiList(id));
-		
+		boolean res = new NotiService().setNotiState(id);	
+		request.setAttribute("list", new NotiService().getNotiList(id));	
 		return new URLModel("notiUI.jsp");
 	}
 

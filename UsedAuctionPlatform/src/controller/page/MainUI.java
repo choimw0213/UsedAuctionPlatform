@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import controller.Action;
 import controller.URLModel;
 import dto.ProductBoxDTO;
+import service.NotiService;
 import service.ProductListService;
 
 public class MainUI implements Action {
@@ -19,7 +20,8 @@ public class MainUI implements Action {
 		
 		String id = (String)request.getSession().getAttribute("userId");
 		String address = (String)request.getSession().getAttribute("address");
-		
+
+		request.setAttribute("notiState", new NotiService().getNotiState(id));
 		request.setAttribute("list", new ProductListService().getList(address));
 		
 		return new URLModel("mainUI.jsp");
