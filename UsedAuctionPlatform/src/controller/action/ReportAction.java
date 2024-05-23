@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
+import service.ReportService;
 
 public class ReportAction implements Action {
 
@@ -18,7 +19,7 @@ public class ReportAction implements Action {
 		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
 		String reportContent = request.getParameter("reportContent");
 		
-		
+		boolean result = new ReportService().addReport(userId, productSeq, reportContent);
 		
 		String page = "productInfoUI&productSeq=" + productSeq;
 		return new URLModel("controller?cmd=" + page);

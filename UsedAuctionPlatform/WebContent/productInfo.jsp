@@ -128,7 +128,7 @@
 			</div>
 		</div>
 		<div class="modal_default" id="option_modal">
-			<div class="option_button">1:1 채팅</div>
+			<div class="option_button" id="chat">1:1 채팅</div>
 			<div class="option_button" id="report_button">신고하기</div>
 		</div>
 		<div class="modal_default" id="report_modal">
@@ -151,7 +151,10 @@
 	var myId = "${nickName}";
 	var productState = "${productInfo.getState()}";
 	var productSeq = "${productSeq}";
-
+	
+	$("#chat").click(function(){
+		location.href = "controller?cmd=chat&productSeq=" + productSeq +"&toId=" + sellerId;
+	})
 	$("#add_report").click(function(){
 		var reportContent = $("#report_content").val();
 		alert("신고가 접수되었습니다!");
@@ -172,7 +175,7 @@
 			alert("즉시구매를 이용해주세요!");
 			return;
 		}
-
+		alert("입찰완료!");
 		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + bidPrice;
 	})
 	$("#buy").click(function(){
@@ -180,6 +183,7 @@
 			alert("포인트가 부족합니다!");
 			return;
 		}
+		alert("구매완료!");
 		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + price;
 	})
 	$("#bid_button").click(function(){
