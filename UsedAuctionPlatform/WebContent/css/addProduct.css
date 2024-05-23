@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+hr{
+	margin: 5px;
+}
 #top{
 	display: flex;
 	justify-content: space-between;

@@ -7,7 +7,7 @@ public interface UserQuery {
 			+ "rate, rate_count, user_type, report_count) "
 			+ "values"
 			+ "(?, ?, ?, ?, ?, ?, ?, 0,'img.png', "
-			+ "0, 0, 'U', 0)";
+			+ "5, 1, 'U', 0)";
 	String ID_CHECK = "select user_id from users where user_id = ?";
 	String NICK_CHECK = "select nickname from users where nickname = ?";
 	String FIND_ID = "select user_id from users "
