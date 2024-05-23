@@ -28,7 +28,7 @@ public class MyPointAction implements Action {
 			strMinusPoint = request.getParameter("minusPoint");
 			strPlusPoint = request.getParameter("plusPoint");
 			
-			/*request.setAttribute("plusPoint", strPlusPoint);*/
+			
 			
 			
 			if(strMinusPoint == null){
@@ -46,9 +46,11 @@ public class MyPointAction implements Action {
 			page = "pointActionCheck.jsp";
 		}
 		
+		request.setAttribute("plusPoint", strPlusPoint);
 		
 		
-		return new URLModel(page, true);
+		
+		return new URLModel(page, false);
 	}
 
 }

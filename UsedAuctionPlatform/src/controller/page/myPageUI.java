@@ -43,7 +43,6 @@ public class myPageUI implements Action {
 		}
 		
 		
-		
 		request.setAttribute("nickname", nickname);
 		request.setAttribute("rate", strRate);
 		request.setAttribute("point", strPoint);

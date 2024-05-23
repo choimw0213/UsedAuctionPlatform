@@ -4,6 +4,7 @@
 
 <script>
 var strPlusPoint = <%= request.getAttribute("plusPoint") %>;
+console.log(strPlusPoint);
 	if(strPlusPoint != null){
 		alert('포인트 충전 완료')
 	}else{
