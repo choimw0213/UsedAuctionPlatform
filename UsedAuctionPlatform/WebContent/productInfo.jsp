@@ -152,6 +152,10 @@
 	var productState = "${productInfo.getState()}";
 	var productSeq = "${productSeq}";
 	
+	$(document).ready(function() {	
+		$("#price :first-child").text(bidMax.toLocaleString('ko-KR') + "P");
+		$("#price :nth-child(2)").text("즉시구매가 " + price.toLocaleString('ko-KR') + "P");
+	});
 	$("#chat").click(function(){
 		location.href = "controller?cmd=chat&productSeq=" + productSeq +"&toId=" + sellerId;
 	})
