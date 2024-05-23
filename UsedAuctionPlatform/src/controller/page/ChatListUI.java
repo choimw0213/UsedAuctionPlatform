@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
+import dto.ChatBoxDTO;
 import service.ChatListService;
-import vo.ChatVO;
 
 public class ChatListUI implements Action {
 	private final ChatListService chatListService;
@@ -24,7 +24,7 @@ public class ChatListUI implements Action {
 		
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
-		ArrayList<ChatVO> chatList = chatListService.getChatList(userId);
+		ArrayList<ChatBoxDTO> chatList = chatListService.getChatList(userId);
 		request.setAttribute("chatList", chatList);
 		
 		return new URLModel("chatList.jsp", false);

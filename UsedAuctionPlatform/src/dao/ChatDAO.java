@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import dto.ChatBoxDTO;
 import query.ChatQuery;
-import vo.ChatVO;
 
 public class ChatDAO {
 	private Connection conn;
@@ -18,8 +18,8 @@ public class ChatDAO {
 		this.conn = conn;
 	}
 	
-	public ArrayList<ChatVO> getChatList(String userId){
-		ArrayList<ChatVO> chatList = new ArrayList<ChatVO>();
+	public ArrayList<ChatBoxDTO> getChatList(String userId){
+		ArrayList<ChatBoxDTO> chatList = new ArrayList<ChatBoxDTO>();
 		DateTimeFormatter formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		
 		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.GET_CHAT_ROOM_LIST);){
@@ -28,8 +28,8 @@ public class ChatDAO {
 			pstmt.setString(3, userId);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
-				ChatVO vo = new ChatVO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7));
-				chatList.add(vo);
+				ChatBoxDTO dto = new ChatBoxDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));		
+				chatList.add(dto);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

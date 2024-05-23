@@ -1,9 +1,10 @@
-<%@page import="vo.ChatVO"%>
+<%@page import="dto.ChatBoxDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% String userId = (String)session.getAttribute("userId"); %>
 <% if(userId == null) response.sendRedirect("controller?cmd=loginUI"); %>
-<% ArrayList<ChatVO> chatList = (ArrayList<ChatVO>)request.getAttribute("chatList"); %>
+<% ArrayList<ChatBoxDTO> chatList = (ArrayList<ChatBoxDTO>)request.getAttribute("chatList"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +20,8 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <style>
 .chatP {
@@ -54,23 +57,27 @@ a {
 				<% if(chatList != null){ %>
 					<% for(int i=0; i<chatList.size(); i++){ %>
 					<% String toId = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToId() : chatList.get(i).getFromId(); %>
-					<li class="list-group-item border-0 p-0">
-						<a href="controller?cmd=chatUI&productSeq=<%= chatList.get(i).getProductSeq() %>&toId=<%= toId %>">
+					<% String toNickName = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToNickName() : chatList.get(i).getFromNickName(); %>
+					<li class="list-group-item border-0 p-0 product_card" data-productSeq="<%= chatList.get(i).getProductSeq() %>"
+					data-toId="<%= toId %>">
 							<div class="d-flex">
 								<img src="images/product/product1/product1-img1.jpg" class="img-fluid">
 								<div class="ms-1">
 									<div class="card-text d-flex">
 										<div id="item-title-group">
 											<div class="d-flex">
+												<% if(userId.equals(chatList.get(i).getProductUserId())){ %>
 												<span class="badge badge-s">판매품</span>
-												<p>nickname1234</p>
+												<% } else { %>
+												<span class="badge bg-info">구매품</span>
+												<% } %>
+												<p><%= toNickName %></p>
 											</div>
 											<p class="chatP"><%= chatList.get(i).getContent() %></p>
 										</div>
 									</div>
 								</div>
 							</div>
-						</a>
 					</li>
 					<hr class="my-1">
 					<% } %>
@@ -79,6 +86,24 @@ a {
 		</div>
 		<jsp:include page="/navbar_chat.jsp"></jsp:include>
 	</div>
+<script>
 
+	document.addEventListener('DOMContentLoaded', function() {
+		$(document).ready(function() {
+			cardClick();
+		});
+		
+		cardClick = function(){
+			$(".product_card").on('click', function() {
+				location.href = "controller?cmd=chatUI&productSeq="+ this.dataset.productseq + "&toId="+ this.dataset.toid;
+			})
+		};
+	});
+
+</script>
 </body>
 </html>
+
+
+
+

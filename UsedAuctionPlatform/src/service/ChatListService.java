@@ -10,7 +10,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import dao.ChatDAO;
-import vo.ChatVO;
+import dto.ChatBoxDTO;
 
 public class ChatListService {
 	
@@ -26,8 +26,8 @@ public class ChatListService {
 		}
 	}
 
-	public ArrayList<ChatVO> getChatList(String userId){
-		ArrayList<ChatVO> chatList = new ArrayList<ChatVO>();
+	public ArrayList<ChatBoxDTO> getChatList(String userId){
+		ArrayList<ChatBoxDTO> chatList = new ArrayList<ChatBoxDTO>();
 		
 		try (Connection conn = dataSource.getConnection();){
 			chatList = new ChatDAO(conn).getChatList(userId);
