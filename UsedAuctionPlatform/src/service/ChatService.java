@@ -21,7 +21,6 @@ public class ChatService {
 			context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/myoracle");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -29,15 +28,69 @@ public class ChatService {
 	public ArrayList<ChatVO> getChat(int productSeq, String fromId, String toId){
 		ArrayList<ChatVO> chat = new ArrayList<ChatVO>();
 		
-		try (Connection conn = dataSource.getConnection();){
+//		try (Connection conn = dataSource.getConnection();){
+//			chat = new ChatDAO(conn).getChat(productSeq, fromId, toId);
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+		
+		Connection conn = null;
+		
+		try {
+			conn = dataSource.getConnection();
 			chat = new ChatDAO(conn).getChat(productSeq, fromId, toId);
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		return chat;
+	}
+	
+	public boolean addChat(int productSeq, String fromId, String toId, String chatContent){
+		boolean result = false;
+		Connection conn = null;
+		
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			
+			System.out.println("상품번호 : "+productSeq);
+			System.out.println("보낸사람 : "+fromId);
+			System.out.println("받는사람 : "+toId);
+			System.out.println("채팅내용 : "+chatContent);
+			
+			result = new ChatDAO(conn).addChat(productSeq, fromId, toId, chatContent);
+			conn.commit();
+		} catch (SQLException e) {
+			if(conn != null){
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			e.printStackTrace();
+		} finally {
+			if(conn != null){
+				try {
+					conn.setAutoCommit(true);
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return result;
 	}
 	
 }

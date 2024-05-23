@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import controller.Action;
 import controller.URLModel;
 import service.ChatService;
+import service.ProductService;
+import service.UserService;
 
 public class ChatUI implements Action {
 
@@ -19,12 +21,18 @@ public class ChatUI implements Action {
 		String userId = (String)request.getSession().getAttribute("userId");
 		String toId = (String)request.getParameter("toId");
 		
-		System.out.println(productSeq);
-		System.out.println(userId);
-		System.out.println(toId);
+		//System.out.println(productSeq);
+		//System.out.println(userId);
+		//System.out.println(toId);
 		
 		ChatService chatService = new ChatService();
 		request.setAttribute("chat", chatService.getChat(productSeq, userId, toId));
+		
+		ProductService productService = new ProductService();
+		request.setAttribute("product", productService.getProduct(productSeq));
+		
+		UserService userService = new UserService();
+		request.setAttribute("toNickName", userService.getUsers(toId).getNickName());
 		
 		return new URLModel("chat.jsp", false);
 	}

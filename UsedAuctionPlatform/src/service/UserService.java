@@ -8,6 +8,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import dao.UserDAO;
+import vo.UserVO;
 
 public class UserService {
 	private DataSource dataSource;
@@ -29,7 +30,7 @@ public class UserService {
 			point = new UserDAO(conn).getUser(userId).getPoint();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally{
 			if(conn != null){
 				try {
 					conn.close();
@@ -40,4 +41,27 @@ public class UserService {
 		}
 		return point;
 	}
+	
+	public UserVO getUsers(String userId){
+		Connection conn = null;
+		UserVO vo = new UserVO();
+		
+		try {
+			conn = dataSource.getConnection();
+			vo = new UserDAO(conn).getUser(userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return vo;
+	}
 }
+

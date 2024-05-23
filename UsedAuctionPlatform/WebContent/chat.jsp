@@ -1,3 +1,4 @@
+<%@page import="dto.ProductBoxDTO"%>
 <%@page import="vo.ChatVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -5,6 +6,8 @@
 <% String userId = (String)session.getAttribute("userId"); %>
 <% if(userId == null) response.sendRedirect("controller?cmd=loginUI"); %>
 <% ArrayList<ChatVO> chat = (ArrayList<ChatVO>)request.getAttribute("chat"); %>
+<% ProductBoxDTO product = (ProductBoxDTO)request.getAttribute("product"); %>
+<% String toNickName = (String)request.getAttribute("toNickName"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +31,9 @@
   width: 30px;
   height: 30px;
 }
+#top {
+  margin-top: 10px;
+}
 </style>
 </head>
 
@@ -37,29 +43,37 @@
 
     <div id="top">
       <img src="images/icon/arrow.png" id="previous" onclick="history.back()">
-      <h6 id="top-head">nickname1234님과의 채팅</h6>
+      <h6 id="top-head"><%= toNickName %>님과의 채팅</h6>
       <div></div>
     </div>
     <br>
     <div class="container">
-
+	
+	<% if(product != null){ %>
     <li class="list-group-item border-0 p-0">
       <div class="d-flex">
         <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
-            <h6>Product1 Title</h6>
-            <span class="badge badge-s">경매중</span>
+            <h6><%= product.getTitle() %></h6>
+            <% if(product.getState().equals("S")){ %>
+            <span class="badge badge-s">판매중</span>
+            <% } else if(product.getState().equals("T")){ %>
+            <span class="badge badge-s">거래중</span>
+            <% } else if(product.getState().equals("E")){ %>
+            <span class="badge badge-e">거래완료</span>
+            <% } %>
           </div>
-          <p class="product-info">생활용품</p>
-          <p class="product-info">서울특별시 금천구</p>
+          <p class="product-info"><%= product.getCategory() %></p>
+          <p class="product-info"><%= product.getAddress() %></p>
           <div class="text-group">
-            <p class="product-info">2024년 5월 12일 24:00 마감</p>
-            <p class="product-info">입찰 5건</p>
+            <p class="product-info"><%= product.getEndDate() %></p>
+            <p class="product-info">입찰 <%= product.getBidCount() %>건</p>
           </div>
         </div>
       </div>
     </li>
+    <% } %>
     <hr class="my-1">
 
     <ul class="list-group w-100">
@@ -89,16 +103,23 @@
 
 <script>
 
+var productSeq = "${param.productSeq}";
+var fromId = "${sessionScope.userId}";
+var toId = "${param.toId}";
+
 var sendBtn = document.querySelector('#sendBtn');
 sendBtn.addEventListener('click', function() {
-	var fromID;
-	var toID;
 	var chatContent = document.querySelector('#chatContent').value;
 	//alert(chatContent);
     $.ajax({
         type: "POST",
         url: "controller?cmd=addChatAction",
-        data: { chatContent: chatContent },
+        data: { 
+        	productSeq: productSeq,
+        	fromId: fromId,
+        	toId: toId,
+        	chatContent: chatContent 
+       	},
         success: function(response) {
             alert("채팅 메시지가 전송에 성공했습니다.");
             document.querySelector('#chatContent').value = "";

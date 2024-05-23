@@ -46,7 +46,8 @@ public interface ChatQuery {
 	String GET_CHAT_MESSAGE_LIST = "select chat_seq, product_seq, from_id, to_id, content, chat_date, chat_state "
 			+ "from chat "
 			+ "where product_seq = ? "
-			+ "and ((from_id = ? and to_id = ?) or (from_id = ? and to_id = ?)) "
-			+ "order by chat_date desc, chat_seq desc";
+			+ "and ((from_id = ? and to_id = ?) or (from_id = ? and to_id = ?))";
 
+	String ADD_CHAT = "insert into chat values (chat_seq.nextval, ?, ?, ?, ?, sysdate, 'F')";
+	
 }

@@ -44,17 +44,17 @@ public class ChatDAO {
 		ArrayList<ChatVO> chat = new ArrayList<ChatVO>();
 		DateTimeFormatter formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		
-		
 		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.GET_CHAT_MESSAGE_LIST);){
 			pstmt.setInt(1, productSeq);
 			pstmt.setString(2, fromId);
 			pstmt.setString(3, toId);
 			pstmt.setString(4, toId);
 			pstmt.setString(5, fromId);
-			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()){
-				ChatVO vo = new ChatVO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7));
-				chat.add(vo);
+			try (ResultSet rs = pstmt.executeQuery();) {
+				while(rs.next()){
+					ChatVO vo = new ChatVO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7));
+					chat.add(vo);
+				}				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -63,5 +63,22 @@ public class ChatDAO {
 		
 		return chat;
 	}
+	
+	public boolean addChat(int productSeq, String fromId, String toId, String chatContent){
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.ADD_CHAT);){
+			pstmt.setInt(1, productSeq);
+			pstmt.setString(2, fromId);
+			pstmt.setString(3, toId);
+			pstmt.setString(4, chatContent);
+			if(pstmt.executeUpdate() == 1) return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
 	
 }
