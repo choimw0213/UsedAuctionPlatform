@@ -14,14 +14,20 @@ public class IdCheckAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String id = request.getParameter("userId");
+		System.out.println(id);
+		
+		String result = null;
 		
 		if(new DuplicationService().idCheck(id)){
-			request.setAttribute("idCheck", "사용할 수 있는 아이디입니다.");
+			result = "다른 유저가 사용중인 아이디입니다.";
 		} else {
-			request.setAttribute("idCheck", "사용할 수 없는 아이디입니다.");
+			result = "사용할 수 있는 아이디입니다.";
 		}
+		request.setAttribute("idCheckFeedBackResult", result);
 		
+		System.out.println("결과값 : " + result);
 		
 		return new URLModel("idCheck.jsp", false);
 	}

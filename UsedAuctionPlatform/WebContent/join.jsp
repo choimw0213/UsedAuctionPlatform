@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,6 +13,8 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/join.css">
 <title>Insert title here</title>
@@ -20,10 +23,13 @@
 <body>
 	<div id="project_container">
 
-<br><br><br>
-			  <div id="top">
-				<img class="img" src="images/icon/arrow.png" onclick="history.back()" style=" width: 23px;  height: 23px;">
-		  	  </div>	
+		<br>
+		<br>
+		<br>
+		<div id="top">
+			<img class="img" src="images/icon/arrow.png" onclick="history.back()"
+				style="width: 23px; height: 23px;">
+		</div>
 
 
 		<div class="row align-content-center w-100 h-100">
@@ -35,15 +41,15 @@
 						<label class="col-form-label">아이디</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="userId" type="text" id="id"
+						<input name="userId" type="text" id="idCheck"
 							class="form-control-sm">
-						<span id="idCheck"></span>	
+						<span id="idCheckFeedBack"></span>
 					</div>
 					<div class="col-3 text-end p-0">
-						<label for="inputPassword6" class="col-form-label" id="password">비밀번호</label>
+						<label for="inputPassword6" class="col-form-label" >비밀번호</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="userPw" type="password" id="checkPassword"
+						<input name="userPw" type="password"  id="password"
 							class="form-control-sm" aria-describedby="passwordHelpInline">
 					</div>
 					<div class="col-3 text-end p-0">
@@ -51,7 +57,7 @@
 					</div>
 					<div class="col-7 ms-1">
 						<input name="userPw" type="password" class="form-control-sm"
-							aria-describedby="passwordHelpInline">
+							aria-describedby="passwordHelpInline" id="checkPassword">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이름</label>
@@ -86,10 +92,12 @@
 					</div>
 					<div class="col-7 ms-1">
 						<select class="form-select form-select-sm mb-2"
-							aria-label=".form-select-sm example" name="cityAddress" onchange="selectBox1(this.value);">
+							aria-label=".form-select-sm example" name="cityAddress"
+							onchange="selectBox1(this.value);">
 							<option selected value="서울특별시">서울특별시</option>
 						</select> <select class="form-select form-select-sm"
-							aria-label=".form-select-smexample" name="districtAddress" onchange="selectBox2(this.value);">
+							aria-label=".form-select-smexample" name="districtAddress"
+							onchange="selectBox2(this.value);">
 							<option selected value="강남구">강남구</option>
 							<option value="강동구">강동구</option>
 							<option value="강북구">강북구</option>
@@ -108,10 +116,12 @@
 	</div>
 
 	<script>
-	function passwordTest(){
+		function passwordTest() {
 
-		var p1 = document.getElementById('password').value;
+			var p1 = document.getElementById('password').value;
 			var p2 = document.getElementById('checkPassword').value;
+			console.log(p1);
+			console.log(p2);
 			if (p1 != p2) {
 				alert("비밀번호가 일치 하지 않습니다");
 				return false;
@@ -120,26 +130,42 @@
 				return true;
 			}
 		}
+
+		
+		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-		$("id").on("change", function(){
-			$.ajax({url:"controller?cmd=idCheckAction",
-					data : {id : $(this).val},
-					success : function(responseText){
-						
-						alert(result_data.result);
-					}});
-		});
-			
+/*  		$("idCheck").on("change", function() {
+			$.ajax({
+				url : "controller?cmd=idCheckAction",
+				
+				data : {
+					userId : $(this).val()
+				},
+				success : function(resonseText) {
+					result_date = JSON.parse(resonseText);
+					$("idCheckFeedBack").html(result_data.result);
+					//alert(result_data.result);
+				}
+			});
+		}); */
+ 
+		
+		
+		
+		
+		$(document).ready(function() {
+			  $("#idCheck").on("change", function() {
+			    let id = $(this).val();
+
+			    $.get("controller?cmd=idCheckAction", { id: id }, function(result) {
+			    	alert(result.result);
+			    });
+			  });
+			});
+		
+		
 		
 	</script>
-	
+
 </body>
 </html>
