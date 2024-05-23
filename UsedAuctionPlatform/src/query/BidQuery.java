@@ -12,6 +12,7 @@ public interface BidQuery {
 	String ADD_BID = "insert into bid (bid_seq, product_seq, user_id, bid_price) "
 			+ "values(bid_seq.nextval, ?, ?, ?)";
 	String SET_PRODUCT_STATE = "update product set state = 'T' where product_seq = ?";
-	
-
+	String GET_BID_LIST = "select user_id, bid_price from bid where product_seq = ? "
+			+ "and user_id != (select user_id from bid where bid_price = (select max(bid_price) "
+			+ "from bid where product_seq = ?)) order by bid_price desc";
 }

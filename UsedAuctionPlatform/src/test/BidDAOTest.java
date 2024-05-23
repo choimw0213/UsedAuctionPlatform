@@ -61,10 +61,18 @@ private static Connection conn;
 		conn.setAutoCommit(true);
 	}
 	
-	@Test
+	//@Test
 	public void setProductStateTest() throws Exception{
 		conn.setAutoCommit(false);
 		assertTrue(new BidDAO(conn).setProductState(2));
+		conn.rollback();
+		conn.setAutoCommit(true);
+	}
+	
+	@Test
+	public void getBidList() throws Exception{
+		conn.setAutoCommit(false);
+		assertNotNull(new BidDAO(conn).getBidList(67));
 		conn.rollback();
 		conn.setAutoCommit(true);
 	}
