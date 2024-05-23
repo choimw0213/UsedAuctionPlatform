@@ -133,7 +133,7 @@
 
 		
 		
-	
+ 		
 /*  		$("idCheck").on("change", function() {
 			$.ajax({
 				url : "controller?cmd=idCheckAction",
@@ -142,26 +142,27 @@
 					userId : $(this).val()
 				},
 				success : function(resonseText) {
-					result_date = JSON.parse(resonseText);
+					result_data = JSON.parse(resonseText);
 					$("idCheckFeedBack").html(result_data.result);
 					//alert(result_data.result);
 				}
 			});
-		}); */
- 
+		});  */
+		 
 		
 		
 		
 		
-		$(document).ready(function() {
+  		$(document).ready(function() {
 			  $("#idCheck").on("change", function() {
 			    let id = $(this).val();
-
-			    $.get("controller?cmd=idCheckAction", { id: id }, function(result) {
-			    	alert(result.result);
+				
+			    $.get("controller?cmd=idCheckAction", { id: id }, function(responseText) {
+			    	result_data = JSON.parse(responseText);
+			    	alert(result_data.result);	
 			    });
 			  });
-			});
+			});  
 		
 		
 		
