@@ -97,15 +97,12 @@ public class ChatDAO {
 		return false;
 	}
 	
-	public int getUnreadChat(int productSeq, String fromId, String toId){
+	public int getUnreadChat(String userId){
 		int count = 0;
 		
 		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.GET_UNREAD_CHAT);){
-			pstmt.setInt(1, productSeq);
-			pstmt.setString(2, fromId);
-			pstmt.setString(3, toId);
-			pstmt.setString(4, toId);
-			pstmt.setString(5, fromId);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userId);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()){
 				count = rs.getInt(1);

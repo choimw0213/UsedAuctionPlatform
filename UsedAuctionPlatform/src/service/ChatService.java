@@ -126,11 +126,11 @@ public class ChatService {
 		return result;
 	}
 	
-	public int getUnreadChat(int productSeq, String fromId, String toId){
+	public int getUnreadChat(String userId){
 		int count = 0;
 		
 		try (Connection conn = dataSource.getConnection();){
-			count = new ChatDAO(conn).getUnreadChat(productSeq, fromId, toId);
+			count = new ChatDAO(conn).getUnreadChat(userId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

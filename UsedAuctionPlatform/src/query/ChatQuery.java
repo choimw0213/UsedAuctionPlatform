@@ -54,9 +54,15 @@ public interface ChatQuery {
 			+ "where product_seq = ? "
 			+ "and ((from_id = ? and to_id = ?) or (from_id = ? and to_id = ?))";
 	
-	String GET_UNREAD_CHAT = "SELECT COUNT(*) AS unread_chat_count "
-			+ "FROM chat WHERE product_seq = ? "
-			+ "AND ((from_id = ? AND to_id = ?) OR (from_id = ? AND from_id = ?)) "
-			+ "AND chat_state = 'F'";
+//	String GET_UNREAD_CHAT = "SELECT COUNT(*) AS unread_chat_count "
+//			+ "FROM chat "
+//			+ "WHERE product_seq = ? "
+//			+ "AND ((from_id = ? AND to_id = ?) OR (from_id = ? AND from_id = ?)) "
+//			+ "AND chat_state = 'F'";
+	
+	String GET_UNREAD_CHAT = "select count(*) as unread_chat_count "
+			+ "from chat "
+			+ "where chat_state = 'F' "
+			+ "and (from_id = ? or to_id = ?)";
 	
 }
