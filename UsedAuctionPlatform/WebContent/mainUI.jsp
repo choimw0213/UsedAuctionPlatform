@@ -280,6 +280,7 @@
 		}
 		
 		// 초기화
+		
 		regionInit = function(){
 			$("#regionBtn").text(userAddress);
 			$("#region div > a").removeClass("active bg-warning rounded-3");
