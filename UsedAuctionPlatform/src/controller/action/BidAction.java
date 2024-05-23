@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
+import service.NotiService;
 import service.ProductService;
 
 public class BidAction implements Action {
@@ -21,6 +22,7 @@ public class BidAction implements Action {
 		String userId = (String) session.getAttribute("userId");
 		
 		boolean result = new ProductService().addBid(productSeq, userId, bidPrice);
+		if(new NotiService().addNoti(productSeq)){}
 		
 		String page = "productInfoUI&productSeq=" + productSeq;
 		
