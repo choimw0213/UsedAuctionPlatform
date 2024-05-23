@@ -42,7 +42,7 @@ public class ProductService {
 				result = pDAO.addProductImage(productSeq, fileName);
 				if(result){
 					BidDAO bDAO = new BidDAO(conn);
-					result = bDAO.addBid(productSeq, user_id, Integer.parseInt(startPrice));
+					result = bDAO.addBid(productSeq, user_id, 0);
 				} 
 			}
 			conn.commit();

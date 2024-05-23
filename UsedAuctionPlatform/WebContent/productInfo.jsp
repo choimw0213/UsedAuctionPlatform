@@ -144,7 +144,7 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
-	var bidMax = ${productInfo.getBidMax()};
+	var bidMax = ${productInfo.getStartPrice()};
 	var myPoint = ${point};
 	var price = ${productInfo.getPrice()};
 	var sellerNickName = "${productInfo.getNickName()}";
