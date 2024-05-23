@@ -13,6 +13,7 @@ import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
 import controller.action.MyPointAction;
+import controller.action.ReportAction;
 import controller.action.SearchAction;
 import controller.action.SellListAction;
 import controller.action.SetMyInfoAction;
@@ -142,6 +143,9 @@ public class ActionFactory {
 				break;		
 			case "idCheckAction" :
 				action = new IdCheckAction();
+				break;
+			case "reportAction":
+				action = new ReportAction();
 				break;
 		}
 		
