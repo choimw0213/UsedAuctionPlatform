@@ -35,7 +35,7 @@ public class MyPageService {
 				conn.commit();
 				userInfo = new UserDAO(conn).getUser(id);
 			}
-
+			System.out.println("rate서비스 : " + userInfo.getRate());
 		} catch (SQLException e) {
 			// TODO: handle exception
 			if(conn != null){
