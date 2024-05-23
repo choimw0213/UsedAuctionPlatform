@@ -144,7 +144,8 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 	<script type="text/javascript">
-	var bidMax = ${productInfo.getStartPrice()};
+	var startPrice = ${productInfo.getStartPrice()};
+	var bidMax = ${productInfo.getBidMax()};
 	var myPoint = ${point};
 	var price = ${productInfo.getPrice()};
 	var sellerNickName = "${productInfo.getNickName()}";
@@ -153,8 +154,14 @@
 	var productSeq = ${productInfo.getProductSeq()};
 	var sellerId = "${productInfo.getId()}";
 	
-	$(document).ready(function() {	
-		$("#price :first-child").text(bidMax.toLocaleString('ko-KR') + "P");
+	$(document).ready(function() {
+		console.log(bidMax);
+		if(bidMax == 0){
+			$("#price :first-child").text(startPrice.toLocaleString('ko-KR') + "P");
+		}
+		else{
+			$("#price :first-child").text(bidMax.toLocaleString('ko-KR') + "P");
+		}
 		$("#price :nth-child(2)").text("즉시구매가 " + price.toLocaleString('ko-KR') + "P");
 	});
 	$("#chat").click(function(){
