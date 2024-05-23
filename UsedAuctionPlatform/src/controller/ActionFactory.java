@@ -7,6 +7,9 @@ import controller.action.CategoryAction;
 import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
 import controller.action.FindPWAction;
+import controller.action.GetChatAction;
+import controller.action.GetChatListAction;
+import controller.action.GetUnreadAction;
 import controller.action.HopeAction;
 import controller.action.IdCheckAction;
 import controller.action.JoinAction;
@@ -45,8 +48,8 @@ public class ActionFactory {
 		Action action = null;
 		switch (cmd) {
 			case "loginUI" :
-			action = new LoginUI();
-			break;
+				action = new LoginUI();
+				break;
 			case "loginAction" :
 				action = new LoginAction();
 				break;
@@ -73,6 +76,15 @@ public class ActionFactory {
 				break;
 			case "addChatAction" :
 				action = new AddChatAction();
+				break;
+			case "getUnreadAction" :
+				action = new GetUnreadAction();
+				break;
+			case "getChatAction" :
+				action = new GetChatAction();
+				break;
+			case "getChatListAction" :
+				action = new GetChatListAction();
 				break;
 			case "addProductUI" :
 				action = new AddProductUI();

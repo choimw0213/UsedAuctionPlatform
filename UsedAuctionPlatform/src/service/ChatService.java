@@ -93,7 +93,7 @@ public class ChatService {
 		return result;
 	}
 
-	public void readChat(int productSeq, String fromId, String toId) {
+	public boolean readChat(int productSeq, String fromId, String toId) {
 		boolean result = false;
 		Connection conn = null;
 
@@ -123,6 +123,19 @@ public class ChatService {
 			}
 		}
 		
+		return result;
+	}
+	
+	public int getUnreadChat(int productSeq, String fromId, String toId){
+		int count = 0;
+		
+		try (Connection conn = dataSource.getConnection();){
+			count = new ChatDAO(conn).getUnreadChat(productSeq, fromId, toId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
 	}
 	
 }

@@ -80,12 +80,43 @@ public class ChatDAO {
 		return false;
 	}
 	
-	public boolean readChat(int productSeq, String userId, String toId){
+	public boolean readChat(int productSeq, String fromId, String toId){
 		
+		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.READ_CHAT);){
+			pstmt.setInt(1, productSeq);
+			pstmt.setString(2, fromId);
+			pstmt.setString(3, toId);
+			pstmt.setString(4, toId);
+			pstmt.setString(5, fromId);
+			if(pstmt.executeUpdate() >= 1) return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return false;
 	}
 	
+	public int getUnreadChat(int productSeq, String fromId, String toId){
+		int count = 0;
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(ChatQuery.GET_UNREAD_CHAT);){
+			pstmt.setInt(1, productSeq);
+			pstmt.setString(2, fromId);
+			pstmt.setString(3, toId);
+			pstmt.setString(4, toId);
+			pstmt.setString(5, fromId);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 	
 }
 

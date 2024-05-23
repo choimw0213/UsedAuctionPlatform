@@ -38,6 +38,13 @@
 </head>
 
 <body>
+<% String toId = request.getParameter("toId"); %>
+<% if(userId.equals(toId)){ %>
+<script>
+	alert("자신과 채팅할 수 없습니다.");
+	history.back();
+</script>
+<% } %>
 
   <div id="project_container">
 
