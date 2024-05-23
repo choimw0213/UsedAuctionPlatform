@@ -89,7 +89,7 @@
 				<span>${productInfo.getBidMax()}P</span> <span>즉시 구매가 ${productInfo.getPrice()}P</span>
 			</div>
 			<div id="product_state">
-				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감까지 6일 10시간 남음${productInfo.getEndDate()}</span>
+				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감: ${productInfo.getEndDate()}</span>
 			</div>
 			<hr>
 			<div id="button">
