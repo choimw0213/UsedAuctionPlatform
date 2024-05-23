@@ -23,6 +23,7 @@ import controller.action.SortAction;
 import controller.page.AddProductUI;
 import controller.page.BuyListUI;
 import controller.page.ChatListUI;
+import controller.page.ChatUI;
 import controller.page.FindIDUI;
 import controller.page.FindPWUI;
 import controller.page.JoinUI;
@@ -65,6 +66,9 @@ public class ActionFactory {
 				break;
 			case "chatListUI" :
 				action = new ChatListUI();
+				break;
+			case "chatUI" :
+				action = new ChatUI();
 				break;
 			case "addChatAction" :
 				action = new AddChatAction();
