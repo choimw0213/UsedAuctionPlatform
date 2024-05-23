@@ -155,6 +155,7 @@
 	$("#add_report").click(function(){
 		location.href = "controller?cmd=reportAction&product"
 	})
+	
 	$("#add_bid").click(function(){
 		if(bidPrice <= bidMax){
 			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
