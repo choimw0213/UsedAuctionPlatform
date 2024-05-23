@@ -19,8 +19,8 @@ public class DeleteMyInfoAction implements Action {
 		String page = "myPage.jsp";
 		
 		HttpSession session = request.getSession(true);
-		UserVO vo = (UserVO) session.getAttribute("user");
-		String id = vo.getUserId();
+		String id = (String) session.getAttribute("userId");
+
 		
 	
 		
