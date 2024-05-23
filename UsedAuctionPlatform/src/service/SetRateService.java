@@ -29,15 +29,15 @@ public class SetRateService {
 			conn.setAutoCommit(false);
 			UserDAO dao = new UserDAO(conn);
 			
-//			dao.setRateCount(productSeq);
-//			dao.setRate(productSeq, rate);
-//			dao.setProductState(productSeq);
+			dao.setRate(productSeq, rate);
+			dao.setRateCount(productSeq);
+			dao.setProductState(productSeq);
 			
-			if(dao.setRateCount(productSeq)){
-				if(dao.setRate(productSeq, rate)){
-					dao.setProductState(productSeq);
-				}
-			}
+//			if(dao.setRateCount(productSeq)){
+//				if(dao.setRate(productSeq, rate)){
+//					dao.setProductState(productSeq);
+//				}
+//			}
 			
 			conn.commit();
 		} catch (SQLException e) {

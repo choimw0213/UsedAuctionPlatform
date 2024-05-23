@@ -60,6 +60,9 @@
 #item-title-group {
 	width: 100%;
 }
+#top {
+	margin-top: 10px;
+}
 </style>
 </head>
 
@@ -74,52 +77,6 @@
 		<div class="container">
 
 			<ul class="list-group w-100">
-				<hr class="my-1">
-				
-				<li class="list-group-item border-0 p-0">
-					<div class="d-flex">
-						<img src="images/product/product2/product2-img1.jpg"
-							class="img-fluid">
-						<div class="ms-1">
-							<div class="card-text d-flex">
-								<div id="item-title-group">
-									<h6>Product2 Title</h6>
-									<p>Category</p>
-									<p>서울특별시 금천구 | 종료일 2024-05-12</p>
-									<span class="badge badge-e">거래완료</span> <span>10,000P</span> <span>입찰
-										7건</span>
-									<div>
-										<button id="buyComplete" class="btn btn-primary rounded-pill buyComplete"
-											data-bs-toggle="modal" data-bs-target="#exampleModal" 
-											data-productSeq="1234">구매확정</button>
-							 		</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<hr class="my-1">
-				
-				<li class="list-group-item border-0 p-0">
-					<div class="d-flex">
-						<img src="images/product/product3/product3-img1.png"
-							class="img-fluid">
-						<div class="ms-1">
-							<div class="card-text d-flex">
-								<div id="item-title-group">
-									<h6>Product3 Title</h6>
-									<p>Category</p>
-									<p>서울특별시 금천구 | 종료일 2024-05-12</p>
-									<span class="badge badge-e">거래완료</span> <span>10,000P</span> <span>입찰
-										7건</span>
-									<div>
-										<button id="buyEnd" class="btn btn-primary rounded-pill buyEnd" disabled>구매확정완료</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
 				<hr class="my-1">
 				
 				<% if(buyList != null){ %>
@@ -137,21 +94,22 @@
 									<span><%= buyList.get(i).getBidMax() %>P</span> 
 									<span>입찰 <%= buyList.get(i).getBidCount() %>건</span>
 									
-									<% if(buyList.get(i).getState().equals("T")){ %>
-									<div>
-										<button id="buyComplete" class="btn btn-primary rounded-pill buyComplete"
-											data-bs-toggle="modal" data-bs-target="#exampleModal" 
-											data-productSeq="<%= buyList.get(i).getProductSeq() %>">구매확정</button>
-							 		</div>
-							 		<% } else if(buyList.get(i).getState().equals("E")){ %>
-									<div>
-										<button id="buyEnd" class="btn btn-primary rounded-pill buyEnd" disabled>구매확정완료</button>
-									</div>							 		
-							 		<% } %>
+
 								</div>
 							</div>
 						</div>
 					</div>
+					<% if(buyList.get(i).getState().equals("T")){ %>
+					<div>
+						<button id="buyComplete" class="btn btn-primary rounded-pill buyComplete"
+							data-bs-toggle="modal" data-bs-target="#exampleModal" 
+							data-productSeq="<%= buyList.get(i).getProductSeq() %>">구매확정</button>
+			 		</div>
+			 		<% } else if(buyList.get(i).getState().equals("E")){ %>
+					<div>
+						<button id="buyEnd" class="btn btn-primary rounded-pill buyEnd" disabled>구매확정완료</button>
+					</div>							 		
+			 		<% } %>
 				</li>
 				<hr class="my-1">
 				<% } %>

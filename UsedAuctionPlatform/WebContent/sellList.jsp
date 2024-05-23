@@ -21,6 +21,7 @@
 <style>
 #top {
 	justify-content: center;
+	margin-top: 10px;
 }
 .button > #selling,
 .button > #sellComplete {
