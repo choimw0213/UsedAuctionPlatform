@@ -201,6 +201,7 @@
 		        success: function(response) {
 		            alert("평가 저장에 성공했습니다.");
 		            $('#exampleModal').modal('hide');
+		            location.reload();
 		        },
 		        error: function(xhr, status, error) {
 		            alert("평가 저장에 실패했습니다.");

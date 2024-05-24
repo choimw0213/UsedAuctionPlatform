@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import controller.Action;
 import controller.URLModel;
+import dto.ProductBoxDTO;
+import service.MyPointService;
+import service.ProductService;
 import service.SetRateService;
 
 public class SetRateAction implements Action {
@@ -21,8 +24,8 @@ public class SetRateAction implements Action {
 		
 		SetRateService setRateService = new SetRateService();
 		setRateService.setRate(productSeq, rate);
-		
+		ProductBoxDTO dto = new ProductService().getProduct(productSeq);
+		new MyPointService().setPoint(dto.getId(), dto.getBidMax());
 		return new URLModel("controller?cmd=buyListUI", true);
 	}
-
 }
