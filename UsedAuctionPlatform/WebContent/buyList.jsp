@@ -63,6 +63,11 @@
 #top {
 	margin-top: 10px;
 }
+
+#buyList {
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
 </style>
 </head>
 
@@ -76,7 +81,7 @@
 
 		<div class="container">
 
-			<ul class="list-group w-100">
+			<ul class="list-group w-100" id="buyList">
 				<hr class="my-1">
 				
 				<% if(buyList != null){ %>

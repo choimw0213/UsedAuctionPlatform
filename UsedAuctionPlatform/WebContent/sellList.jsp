@@ -35,6 +35,10 @@
     text-overflow: ellipsis;
     margin: 0px;
 }
+#scroll {
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
 </style>
 <body>
 
