@@ -329,10 +329,10 @@ button {
 		    }
 
  		    
-		    $.get("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
+		    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
 		      var resultData = JSON.parse(responseText);
 		      var actPoint = parseInt(resultData.result);
-
+			  
 		      if (actPoint > 0) {
 		        alert('포인트 충전 완료.');
 		      } else if (actPoint < 0) {
