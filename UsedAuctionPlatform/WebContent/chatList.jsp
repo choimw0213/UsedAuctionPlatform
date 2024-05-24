@@ -101,6 +101,43 @@ a {
 	});
 
 </script>
+
+<script>
+	function getUnread(){
+		$.ajax({
+			type: "POST",
+			url: "controller?cmd=getUnreadAction",
+			data: {
+				userId: "<%= userId %>"
+			},
+			success: function(result){
+				var data = JSON.parse(result);
+				console.log(data.count);
+				if(data.count >= 1){
+					showUnread(data.count);
+				} else {
+					showUnread('');
+				}
+			}
+		});
+	}
+	
+	function getInfiniteUnread(){
+		setInterval(function(){
+			getUnread();
+		},3000);
+	}
+	
+	function showUnread(result){
+		$('#unread').html(result);
+	}
+	
+	$(document).ready(function(){
+		getUnread();
+		getInfiniteUnread();
+	});
+</script>
+
 </body>
 </html>
 
