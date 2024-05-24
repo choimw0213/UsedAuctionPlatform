@@ -155,7 +155,6 @@
 	var sellerId = "${productInfo.getId()}";
 	
 	$(document).ready(function() {
-		console.log(bidMax);
 		if(bidMax == 0){
 			$("#price :first-child").text(startPrice.toLocaleString('ko-KR') + "P");
 		}
