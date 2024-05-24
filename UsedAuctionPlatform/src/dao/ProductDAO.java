@@ -184,6 +184,7 @@ public class ProductDAO {
 							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
 							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), rs.getInt("count(bid_price)-1"),
 							rs.getInt("max(bid_price)"));
+					if(dto.getId().equals(id)) continue;
 					list.add(dto);
 				}
 			}
