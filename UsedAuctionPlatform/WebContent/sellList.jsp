@@ -39,6 +39,12 @@
 	overflow-y: scroll;
 	scrollbar-width: none;
 }
+
+.button {
+	float: right !important;
+	margin-left: auto;
+	margin-right: 10px;
+}
 </style>
 <body>
 
@@ -48,15 +54,16 @@
 			<div></div>
 		</div>
 
-		<div class="container">
-			<div class="button">
-				<button id="selling" class="btn btn-primary rounded-pill">판매중</button>
-				<button id="sellComplete" class="btn btn-primary rounded-pill">거래완료</button>
-			</div>
+		<div class="button">
+			<button id="selling" class="btn btn-primary rounded-pill">판매중</button>
+			<button id="sellComplete" class="btn btn-primary rounded-pill">거래완료</button>
+		</div>
+
+		<div class="container" id="scroll">
 
 			<ul class="list-group w-100">
 				<hr class="my-1">
-				<li class="list-group-item border-0 p-0" id="scroll">
+				<li class="list-group-item border-0 p-0">
 					<% if(sellList != null){ %>
 					<% for(int i=0; i<sellList.size(); i++){ %>
 					<div class="d-flex product_card" data-productSeq="<%= sellList.get(i).getProductSeq() %>">
