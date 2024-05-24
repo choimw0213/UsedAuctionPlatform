@@ -89,6 +89,27 @@ public class ProductService {
 		}
 		return dto;
 	}
+	
+	public String getProductImage(int productSeq){
+		String productImage = null;
+		Connection conn = null;
+		ProductDAO dao = new ProductDAO(conn);
+		try {
+			conn = dataSource.getConnection();
+			productImage = (dao.getProductImage(productSeq).get(0));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(conn != null){
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return productImage;
+	}
 
 	public boolean setProductState(int productSeq){
 		Connection conn = null;

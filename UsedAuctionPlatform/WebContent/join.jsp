@@ -1,8 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<c:if test="${userId ne null}">
+	<c:redirect url = "controller?cmd=mainUI"/>
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,20 +19,13 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/join.css">
 <title>Insert title here</title>
-
 </head>
 <body>
 	<div id="project_container">
-
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div id="top">
-			<img class="img" src="images/icon/arrow.png" onclick="history.back()"
-				style="width: 23px; height: 23px;">
+			<img class="img" src="images/icon/arrow.png" onclick="history.back()" style="width: 23px; height: 23px;">
 		</div>
-
-
 		<div class="row align-content-center w-100 h-100">
 			<p class="fs-1 text-center">회원가입</p>
 			<form action="controller?cmd=joinAction" method="post">
@@ -46,10 +40,10 @@
 						<div id="idCheckFeedBack"></div>
 					</div>
 					<div class="col-3 text-end p-0">
-						<label for="inputPassword6" class="col-form-label" >비밀번호</label>
+						<label for="inputPassword6" class="col-form-label">비밀번호</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="userPw" type="password"  id="password"
+						<input name="userPw" type="password" id="password"
 							class="form-control-sm" aria-describedby="passwordHelpInline">
 					</div>
 					<div class="col-3 text-end p-0">
@@ -58,14 +52,13 @@
 					<div class="col-7 ms-1">
 						<input name="userPw" type="password" class="form-control-sm"
 							aria-describedby="passwordHelpInline" id="checkPassword">
-						<div id = "passwordCheckDiv"></div>	
+						<div id="passwordCheckDiv"></div>
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이름</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="name" type="text" id="inputId"
-							class="form-control-sm">
+						<input name="name" type="text" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">닉네임</label>
@@ -73,21 +66,19 @@
 					<div class="col-7 ms-1">
 						<input name="nickname" type="text" id="nickCheck"
 							class="form-control-sm">
-							<div id = "nickCheckFeedBack"></div>
+						<div id="nickCheckFeedBack"></div>
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">전화번호</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="phoneNumber" type="text" id="inputId"
-							class="form-control-sm">
+						<input name="phoneNumber" type="text" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이메일</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="email" type="text" id="inputId"
-							class="form-control-sm">
+						<input name="email" type="text" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label pt-1 mb-4">주소</label>
@@ -108,7 +99,8 @@
 					</div>
 
 					<div class="d-grid ps-5 pe-5 text-center mt-4 mb-3">
-						<button type="submit" class="btn btn-primary btn-lg" onclick="return passwordTest()">
+						<button type="submit" class="btn btn-primary btn-lg"
+							onclick="return passwordTest()">
 							<div class="text-center m">JOIN</div>
 						</button>
 					</div>
@@ -118,118 +110,166 @@
 	</div>
 
 	<script>
-/* 		function passwordTest() {
+		/* 		function passwordTest() {
 
-			var p1 = document.getElementById('password').value;
-			var p2 = document.getElementById('checkPassword').value;
-			console.log(p1);
-			console.log(p2);
-			if (p1 != p2) {
-				alert("비밀번호가 일치 하지 않습니다");
-				return false;
-			} else {
+		 var p1 = document.getElementById('password').value;
+		 var p2 = document.getElementById('checkPassword').value;
+		 console.log(p1);
+		 console.log(p2);
+		 if (p1 != p2) {
+		 alert("비밀번호가 일치 하지 않습니다");
+		 return false;
+		 } else {
 
-				return true;
-			}
-		} */
+		 return true;
+		 }
+		 } */
 
-		
-		
- 		
-/*   		$("idCheck").on("change", function() {
-			$.ajax({
-				url : "controller?cmd=idCheckAction",
-				type : "POST",
-				data : {
-					userId : $(this).val()
-				},
-				success : function(resonseText) {
-					result_data = JSON.parse(resonseText);
-					$("idCheckFeedBack").html(result_data.result);
-					//alert(result_data.result);
-				}
-			});
-		}); */  
-		 
-		//비밀번호 일치하는 지 확인
-		 $(document).ready(function() {
-			 $("#checkPassword").on("change", function() {
-				    let nick = $(this).val();
-				    $('.passwordCheckSpan').remove();
-			var p1 = document.getElementById('password').value;
-			var p2 = document.getElementById('checkPassword').value;
-
-				if (p1 != p2) {
-					$('#passwordCheckDiv').after("<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:red;'>비밀번호가 일치하지 않습니다.</span>")
-				} else {
-					$('#passwordCheckDiv').after("<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:green;'>비밀번호가 일치합니다.</span>")
-				}
-			 });
+		/*   		$("idCheck").on("change", function() {
+		 $.ajax({
+		 url : "controller?cmd=idCheckAction",
+		 type : "POST",
+		 data : {
+		 userId : $(this).val()
+		 },
+		 success : function(resonseText) {
+		 result_data = JSON.parse(resonseText);
+		 $("idCheckFeedBack").html(result_data.result);
+		 //alert(result_data.result);
+		 }
 		 });
-		
-		
-		
-		//닉네임 중복체크
-   		 $(document).ready(function() {
-			  $("#nickCheck").on("change", function() {
-			    let nick = $(this).val();
-			    $('.nickCheckFeedBackSpan').remove();
-			    $.post("controller?cmd=nickCheckAction", { nick: nick }, function(responseText) {
-			    	result_data = JSON.parse(responseText);
-			    	//$("nickCheckFeedBack").html(result_data.result);
-			    	//alert(result_data.result);
-			    	if(result_data.result == '다른 유저가 사용중인 닉네임입니다.'){
-			    		$('#nickCheckFeedBack').after("<span class='nickCheckFeedBackSpan' id='spanNickname' style='font-size:10px; color:red;'>"+result_data.result+"</span>")
-			    	} else {
-			    		$('#nickCheckFeedBack').after("<span class='nickCheckFeedBackSpan' id='spanNickname' style='font-size:10px; color:green;'>"+result_data.result+"</span>")
-			    	}	
-			    });
-			  });
-			});   
-		
-		
-		// 아이디 중복체크
-   		$(document).ready(function() {
-			  $("#idCheck").on("change", function() {
-			    let id = $(this).val();
-			    $('.idCheckFeedBackSpan').remove();			
-			    $.post("controller?cmd=idCheckAction", { id: id }, function(responseText) {
-			    	result_data = JSON.parse(responseText);
-			    	//$("idCheckFeedBack").html(result_data.result);
-			    	//alert(result_data.result);
-			    	if(result_data.result == '다른 유저가 사용중인 아이디입니다.'){
-			    		$('#idCheckFeedBack').after("<span class='idCheckFeedBackSpan' id='spanId' style='font-size:10px; color:red;'>"+result_data.result+"</span>")
-			    	} else {
-			    		$('#idCheckFeedBack').after("<span class='idCheckFeedBackSpan' id='spanId' style='font-size:10px; color:green;'>"+result_data.result+"</span>")
-			    	} 
-			    });
-			  });
-			}); 		
-		
-		
-   		
-   		
-   		
-   		
-   		
+		 }); */
 
-    	function passwordTest() {
+		//비밀번호 일치하는 지 확인
+		$(document)
+				.ready(
+						function() {
+							$("#checkPassword")
+									.on(
+											"change",
+											function() {
+												let
+												nick = $(this).val();
+												$('.passwordCheckSpan')
+														.remove();
+												var p1 = document
+														.getElementById('password').value;
+												var p2 = document
+														.getElementById('checkPassword').value;
+
+												if (p1 != p2) {
+													$('#passwordCheckDiv')
+															.after(
+																	"<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:red;'>비밀번호가 일치하지 않습니다.</span>")
+												} else {
+													$('#passwordCheckDiv')
+															.after(
+																	"<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:green;'>비밀번호가 일치합니다.</span>")
+												}
+											});
+						});
+
+		//닉네임 중복체크
+		$(document)
+				.ready(
+						function() {
+							$("#nickCheck")
+									.on(
+											"change",
+											function() {
+												let
+												nick = $(this).val();
+												$('.nickCheckFeedBackSpan')
+														.remove();
+												$
+														.post(
+																"controller?cmd=nickCheckAction",
+																{
+																	nick : nick
+																},
+																function(
+																		responseText) {
+																	result_data = JSON
+																			.parse(responseText);
+																	//$("nickCheckFeedBack").html(result_data.result);
+																	//alert(result_data.result);
+																	if (result_data.result == '다른 유저가 사용중인 닉네임입니다.') {
+																		$(
+																				'#nickCheckFeedBack')
+																				.after(
+																						"<span class='nickCheckFeedBackSpan' id='spanNickname' style='font-size:10px; color:red;'>"
+																								+ result_data.result
+																								+ "</span>")
+																	} else {
+																		$(
+																				'#nickCheckFeedBack')
+																				.after(
+																						"<span class='nickCheckFeedBackSpan' id='spanNickname' style='font-size:10px; color:green;'>"
+																								+ result_data.result
+																								+ "</span>")
+																	}
+																});
+											});
+						});
+
+		// 아이디 중복체크
+		$(document)
+				.ready(
+						function() {
+							$("#idCheck")
+									.on(
+											"change",
+											function() {
+												let
+												id = $(this).val();
+												$('.idCheckFeedBackSpan')
+														.remove();
+												$
+														.post(
+																"controller?cmd=idCheckAction",
+																{
+																	id : id
+																},
+																function(
+																		responseText) {
+																	result_data = JSON
+																			.parse(responseText);
+																	//$("idCheckFeedBack").html(result_data.result);
+																	//alert(result_data.result);
+																	if (result_data.result == '다른 유저가 사용중인 아이디입니다.') {
+																		$(
+																				'#idCheckFeedBack')
+																				.after(
+																						"<span class='idCheckFeedBackSpan' id='spanId' style='font-size:10px; color:red;'>"
+																								+ result_data.result
+																								+ "</span>")
+																	} else {
+																		$(
+																				'#idCheckFeedBack')
+																				.after(
+																						"<span class='idCheckFeedBackSpan' id='spanId' style='font-size:10px; color:green;'>"
+																								+ result_data.result
+																								+ "</span>")
+																	}
+																});
+											});
+						});
+
+		function passwordTest() {
 			var spanId = document.getElementById('spanId');
 			var spanNickname = document.getElementById('spanNickname');
 			var spanPassword = document.getElementById('spanPassword');
-			
-			if(spanId.style.color === 'red' || spanNickname.style.color === 'red' || spanPassword.style.color === 'red'){
+
+			if (spanId.style.color === 'red'
+					|| spanNickname.style.color === 'red'
+					|| spanPassword.style.color === 'red') {
 				alert('회원가입이 불가능합니다.')
 				return false;
 			} else {
 				return true;
 			}
-			
-    		
-    	}
-   		
-   		
-		
+
+		}
 	</script>
 
 </body>
