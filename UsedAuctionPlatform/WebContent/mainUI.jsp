@@ -91,7 +91,7 @@
 					<div class="row align-content-center w-100">
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-							<img src="images/product/product1/product1-img1.jpg"
+							<img src="images/product/uploaded/${p.getImgURL()}"
 								class="img-fluid" />
 							<div class="ms-2 w-100">
 								<div
