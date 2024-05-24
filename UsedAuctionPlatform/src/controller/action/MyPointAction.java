@@ -17,40 +17,27 @@ public class MyPointAction implements Action {
 		String page = "myPage.jsp";
 		
 		String id = (String)request.getSession().getAttribute("userId");
+		String strPoint = request.getParameter("pointAct");
 		
-		
-		String strPlusPoint = null;
-		String strMinusPoint = null;
-		String temp = null;
 		int point = 0;
-
 		try {
-			strMinusPoint = request.getParameter("minusPoint");
-			strPlusPoint = request.getParameter("plusPoint");
-			
-			
-			
-			
-			if(strMinusPoint == null){
-				point = Integer.parseInt(strPlusPoint);
-			}else{
-				temp = "-"+strMinusPoint;
-				point = Integer.parseInt(temp);
-			}
+			point = Integer.parseInt(strPoint);
 		} catch (NumberFormatException e) {
 			// TODO: handle exception
-			e.printStackTrace();
 		}
+			
+		System.out.println("point : " + point);
+		System.out.println("strPoint : " + strPoint);
 		
 		if(new MyPointService().setPoint(id, point)){
 			page = "pointActionCheck.jsp";
 		}
 		
-		request.setAttribute("plusPoint", strPlusPoint);
+		request.setAttribute("pointActCheck", strPoint);
 		
 		
 		
-		return new URLModel(page, false);
+		return new URLModel(page, true);
 	}
 
 }

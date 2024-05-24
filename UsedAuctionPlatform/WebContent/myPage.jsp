@@ -16,6 +16,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
 <link rel="stylesheet" href="css/common.css">
 <!-- <link rel="stylesheet" href="css/myPage.css"> -->
 <title>Insert title here</title>
@@ -148,7 +150,7 @@ button {
 					</tr>
 					<tr>
 						<th class="pointTxt">
-							<div class="loPointFont">
+							<div class="loPointFont" id="loPointFontDiv">
 								<p class="pointFont" id="myPoint"><%=request.getAttribute("point")%></p>
 							</div>
 							<div class="cBeB">
@@ -199,14 +201,14 @@ button {
 			<!-- Modal -->
 			<div class="modal fade" id="chargeModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-dialog-centered justify-content-center">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">얼마를 충전하시겠습니까?</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<form action="controller?cmd=myPointAction" method="post">
+						<!-- <form action="controller?cmd=myPointAction" method="post"> -->
 							<div class="modal-body">
 								<input class="form-control form-control-lg" type="number"
 									name="plusPoint" id="plusPoint">
@@ -215,11 +217,11 @@ button {
 								<button type="button" class="btn btn-secondary" id="modalBtn"
 									data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn" onclick="chargeTest()">확인</button>
+								<button type="submit" class="btn btn-primary" id="modalBtn" >확인</button>
 
 							</div>
-						</form>
-					</div>
+ 						<!-- </form> -->
+				</div>
 				</div>
 			</div>
 
@@ -230,14 +232,14 @@ button {
 			<!-- Modal -->
 			<div class="modal fade" id="exchangeModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-dialog-centered justify-content-center">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">얼마를 환전하시겠습니까?</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<form action="controller?cmd=myPointAction" method="post">
+						<!-- <form action="controller?cmd=myPointAction" method="post"> -->
 							<div class="modal-body">
 								<input class="form-control form-control-lg" type="number"
 									name="minusPoint" id="minusPoint">
@@ -246,10 +248,10 @@ button {
 								<button type="button" class="btn btn-secondary" id="modalBtn"
 									data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn" onclick="return exchangeTest()">확인</button>
+								<button type="submit" class="btn btn-primary" id="modalBtn" >확인</button>
 
 							</div>
-						</form>
+						<!-- </form> -->
 					</div>
 				</div>
 			</div>
@@ -260,7 +262,95 @@ button {
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
 <script type="text/javascript">
+	
+/* 	$(document).ready(function() {
+	  $("#modalBtn").on("click", function() {
+		  var pointAct = 0;
+		  var numP = document.getElementById("plusPoint").value;
+		  var numM = document.getElementById("minusPoint").value;
+		  var numMyPoint = parseInt(document.getElementById("myPoint").textContent);
+		  
+		  
+		  
+		  if(numP != 0){
+	    	pointAct = pointAct + numP;
+		  }else{
+			  if(numM > numMyPoint){
+				pointAct = pointAct - numM;
+			  } else {
+			    pointAct = 0;	 
+			  }
+		  }
+	    $('.pointFont').remove();
+	    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
+	    	result_data = JSON.parse(responseText);
+	    	//$("nickCheckFeedBack").html(result_data.result);
+	    	//alert(result_data.result);
+	    	var actPoint = parseInt(result_data.result);
+	    	console.log(actPoint);
+	    	if(actPoint > 0){
+	    		alert('포인트 충전 완료.')	
+	    	} else if(actPoint < 0){																																																								
+				alert('포인트 환전 완료.')
+	    	} else {
+	    		alert('포인트가 부족합니다.')
+	    	}																																																											
+	    });
+	  });
+	});  */	
+	
+	
+	
+	
+	
+	$(document).ready(function() {
+		  $("#modalBtn.btn-primary").on("click", function() {
+		    var pointAct = 0;
+		    var numP = parseInt(document.getElementById("plusPoint").value) || 0;
+		    var numM = parseInt(document.getElementById("minusPoint").value) || 0;
+		    var numMyPoint = parseInt(document.getElementById("myPoint").textContent);
+			
+		    if(numP < 0 || numM < 0){
+		      alert('음수 입력불가.')	
+		      return;
+		    }
+		    
+		    
+		    if (numP > 0) {
+		      pointAct = pointAct + numP;
+		    } else if (numM > 0 && numM <= numMyPoint) {
+		      pointAct = pointAct - numM;
+		    } else if(numP == 0 && numM == 0){
+		      alert('포인트를 입력해주세요.')		
+		      return;
+		    } else {
+		      alert('포인트가 부족합니다.');
+		      return;
+		    }
 
+ 		    
+		    $.get("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
+		      var resultData = JSON.parse(responseText);
+		      var actPoint = parseInt(resultData.result);
+
+		      if (actPoint > 0) {
+		        alert('포인트 충전 완료.');
+		      } else if (actPoint < 0) {
+		        alert('포인트 환전 완료.');
+		      } else {
+		        alert('알 수 없는 오류가 발생했습니다.');
+		      }
+		    });
+		  });
+		});
+	
+	
+	
+	
+	
+	
+	
+	
 	function exchangeTest() {
 		var num1 = parseInt(document.getElementById("myPoint").textContent);
 		var num2 = document.getElementById("minusPoint").value;
@@ -284,12 +374,12 @@ button {
 	
 	function chargeTest() {
 		var num3 = document.getElementById("plusPoint").value;
-
-		if (num3 == 0) {
+		
+		if (num3 != 0) {
+			return true;
+		} else {
 			alert("포인트를 입력해주세요");
 			return false;
-		} else {
-			return true;
 		}
 
 	}	
