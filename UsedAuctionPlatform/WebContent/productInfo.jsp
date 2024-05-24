@@ -199,12 +199,12 @@
 		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + price;
 	})
 	$("#bid_button").click(function(){
-		if(sellerNickName == myNickName){
-			alert("본인 물품에는 입찰 할 수 없습니다!");
-			return;
-		}
 		if(productState != 'S'){
 			alert("판매가 종료된 물품입니다!");
+			return;
+		}
+		if(sellerNickName == myNickName){
+			alert("본인 물품에는 입찰 할 수 없습니다!");
 			return;
 		}
 		$("#bid_modal")[0].style.display="flex";
