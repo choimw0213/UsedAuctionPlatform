@@ -12,17 +12,19 @@ import controller.URLModel;
 import dto.ProductBoxDTO;
 import service.NotiService;
 import service.ProductListService;
+import service.ProductService;
 
 public class MainUI implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
-		
 		String id = (String)request.getSession().getAttribute("userId");
 		String address = (String)request.getSession().getAttribute("address");
-
+		
+		ArrayList<ProductBoxDTO> dtoList = new ProductListService().getList(address);
+		new ProductService().setProductStateByEndDate(dtoList);
 		request.setAttribute("notiState", new NotiService().getNotiState(id));
-		request.setAttribute("list", new ProductListService().getList(address));
+		request.setAttribute("list", dtoList);
 		
 		return new URLModel("mainUI.jsp");
 	}

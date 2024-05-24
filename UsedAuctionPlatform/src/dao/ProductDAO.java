@@ -192,12 +192,6 @@ public class ProductDAO {
 		return list;
 	}
 	
-	// 구매 확정
-	public boolean setProductState(int productSeq){
-		return false;
-	}
-	
-	
 	/* 메인 리스트 */
 	
 	// 등록순 목록 조회(default)
