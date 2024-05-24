@@ -15,12 +15,13 @@ public class GetUnreadAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		
 		String userId = (String)request.getSession().getAttribute("userId");
+		//System.out.println(userId);
 		
 		ChatService chatService = new ChatService();
 		int count = chatService.getUnreadChat(userId);
 		request.setAttribute("count", count);
 		
-		return new URLModel("asynchronous_unread",false);
+		return new URLModel("asynchronous_unread.jsp",false);
 	}
 
 }

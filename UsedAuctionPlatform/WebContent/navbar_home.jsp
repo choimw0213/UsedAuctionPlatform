@@ -12,7 +12,7 @@
 			</a> 
 			<a href="controller?cmd=chatListUI">
 				<img src="images/menu/chat.png" /><br>
-				채팅
+				채팅<div id="unread"></div>
 			</a> 
 			<a href="controller?cmd=sellListUI">
 				<img src="images/menu/sellList.png" /><br>

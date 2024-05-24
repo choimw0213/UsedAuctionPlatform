@@ -13,7 +13,7 @@ public class GetChatAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return new URLModel("asynchronous_chat",false);
+		return new URLModel("asynchronous_chat.jsp",false);
 	}
 
 }
