@@ -29,7 +29,7 @@ public class ChatDAO {
 			pstmt.setString(3, userId);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
-				ChatBoxDTO dto = new ChatBoxDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));		
+				ChatBoxDTO dto = new ChatBoxDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), LocalDateTime.parse(rs.getString(6),formmatter), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12));		
 				chatList.add(dto);
 			}
 		} catch (SQLException e) {

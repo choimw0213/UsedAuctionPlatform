@@ -38,14 +38,6 @@
 </head>
 
 <body>
-<% String toId = request.getParameter("toId"); %>
-<% if(userId.equals(toId)){ %>
-<script>
-	alert("자신과 채팅할 수 없습니다.");
-	history.back();
-</script>
-<% } %>
-
   <div id="project_container">
 
     <div id="top">
@@ -130,7 +122,7 @@ sendBtn.addEventListener('click', function() {
         success: function(response) {
             alert("채팅 메시지가 전송에 성공했습니다.");
             document.querySelector('#chatContent').value = "";
-            location.reload();
+            //location.reload();
         },
         error: function(xhr, status, error) {
             alert("채팅 메시지 전송에 실패했습니다.");
@@ -144,7 +136,46 @@ window.onload = function() {
 	  chatList.scrollTop = chatList.scrollHeight;
 }
 
+var previous = document.querySelector('#previous');
+previous.addEventListener('click', function() {
+	location.href = "controller?cmd=chatListUI";
+})
+
+
+
+function getChat(){
+	$.ajax({
+		type: "POST",
+		url: "controller?cmd=getChatAction",
+		data: {
+        	productSeq: productSeq,
+        	fromId: fromId,
+        	toId: toId
+		},
+		success: function(result){
+			$("#chatList").html(result);
+		    var chatList = document.getElementById('chatList');
+		    chatList.scrollTop = chatList.scrollHeight;
+		}
+	});		
+}
+
+function getInfiniteChat(){
+	setInterval(function(){
+		getChat();
+	},3000);		
+}
+
+$(document).ready(function(){
+	getChat();
+	getInfiniteChat();
+});
+
 </script>
 
 </body>
 </html>
+
+
+
+
