@@ -14,7 +14,9 @@ public class ChatBoxDTO {
 	private String toNickName;
 	private String productUserId;
 	private String imgURL;
+	private int unreadChatCount;
 	
+
 	public ChatBoxDTO(){}
 	public ChatBoxDTO(int chatSeq, int productSeq, String fromId, String toId, String content, LocalDateTime chatDate,
 			String chatState, String fromNickName, String toNickName, String productUserId, String imgURL) {
@@ -30,6 +32,23 @@ public class ChatBoxDTO {
 		this.toNickName = toNickName;
 		this.productUserId = productUserId;
 		this.imgURL = imgURL;
+	}
+	public ChatBoxDTO(int chatSeq, int productSeq, String fromId, String toId, String content, LocalDateTime chatDate,
+			String chatState, String fromNickName, String toNickName, String productUserId, String imgURL,
+			int unreadChatCount) {
+		super();
+		this.chatSeq = chatSeq;
+		this.productSeq = productSeq;
+		this.fromId = fromId;
+		this.toId = toId;
+		this.content = content;
+		this.chatDate = chatDate;
+		this.chatState = chatState;
+		this.fromNickName = fromNickName;
+		this.toNickName = toNickName;
+		this.productUserId = productUserId;
+		this.imgURL = imgURL;
+		this.unreadChatCount = unreadChatCount;
 	}
 	
 	public int getChatSeq() {
@@ -98,6 +117,11 @@ public class ChatBoxDTO {
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
 	}
-	
+	public int getUnreadChatCount() {
+		return unreadChatCount;
+	}
+	public void setUnreadChatCount(int unreadChatCount) {
+		this.unreadChatCount = unreadChatCount;
+	}
 	
 }

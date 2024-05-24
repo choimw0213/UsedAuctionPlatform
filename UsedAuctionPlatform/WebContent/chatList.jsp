@@ -39,6 +39,15 @@ a {
 #top {
 	margin-top: 10px;
 }
+#unreadCount {
+	color: white;
+	background-color: red;
+	font-size: 14px;
+	padding: 0px 4px;	
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 4px;
+}
 </style>
 
 <body>
@@ -53,7 +62,7 @@ a {
 		</div>
 
 		<div class="container">
-			<ul class="list-group w-100">
+			<ul class="list-group w-100" id="scroll">
 				<% if(chatList != null){ %>
 					<% for(int i=0; i<chatList.size(); i++){ %>
 					<% String toId = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToId() : chatList.get(i).getFromId(); %>
@@ -72,6 +81,9 @@ a {
 												<span class="badge bg-info">구매품</span>
 												<% } %>
 												<p><%= toNickName %></p>
+												<% if(chatList.get(i).getUnreadChatCount() != 0){ %>
+												<div id="unreadCount"><%= chatList.get(i).getUnreadChatCount() %></div>
+												<% } %>
 											</div>
 											<p class="chatP"><%= chatList.get(i).getContent() %></p>
 										</div>
@@ -132,9 +144,31 @@ a {
 		$('#unread').html(result);
 	}
 	
+	function getChatList(){
+		$.ajax({
+			type: "POST",
+			url: "controller?cmd=getChatListAction",
+			data: {
+				userId: "<%= userId %>"
+			},
+			success: function(result){
+				$("#scroll").html(result);
+				cardClick();
+			}
+		});		
+	}
+	
+	function getInfiniteChatList(){
+		setInterval(function(){
+			getChatList();
+		},3000);		
+	}
+	
 	$(document).ready(function(){
 		getUnread();
 		getInfiniteUnread();
+		getChatList();
+		getInfiniteChatList();
 	});
 </script>
 
