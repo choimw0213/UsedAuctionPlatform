@@ -79,9 +79,9 @@
 			<div></div>
 		</div>
 
-		<div class="container">
+		<div class="container" id="buyList">
 
-			<ul class="list-group w-100" id="buyList">
+			<ul class="list-group w-100">
 				<hr class="my-1">
 				
 				<% if(buyList != null){ %>
