@@ -57,3 +57,4 @@ private static Connection conn;
 		assertNotNull(new ProductDAO(conn).getBuyingHistory("user003"));
 	}
 }
+
