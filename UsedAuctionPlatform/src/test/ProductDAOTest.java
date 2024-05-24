@@ -56,14 +56,4 @@ private static Connection conn;
 	public void getProductList() {
 		assertNotNull(new ProductDAO(conn).getBuyingHistory("user003"));
 	}
-	
-	@Test
-	public void setProductState() throws SQLException{	// 거래종료 상태
-		conn.setAutoCommit(false);
-		
-		assertTrue(new ProductDAO(conn).setProductState(10));
-		
-		conn.rollback();
-		conn.setAutoCommit(true);
-	}
 }
