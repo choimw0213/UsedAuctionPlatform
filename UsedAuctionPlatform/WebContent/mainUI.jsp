@@ -107,7 +107,17 @@
 									<p class="product-info">${p.getAddress()}</p>
 								</div>
 								<div class="text-group-point pt-1 pb-1">
-									<p class="bpr m-0 text-danger" id="bidMax">${p.getBidMax()}</p>
+									<p class="bpr m-0 text-danger" id="bidMax">
+									<c:choose>
+										<c:when test = "${p.getBidMax() == 0}">
+											${p.getStartPrice()}
+										</c:when>
+										<c:otherwise>
+											${p.getBidMax()}
+										</c:otherwise>
+									</c:choose>
+									
+									</p>
 									<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 								</div>
 								<div class="d-flex justify-content-between text-group">
@@ -326,3 +336,4 @@
 	</script>
 </body>
 </html>
+
