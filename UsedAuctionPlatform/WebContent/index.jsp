@@ -12,7 +12,11 @@
 </head>
 <body>
 
+<% if(request.getSession().getAttribute("userId") != null){ %>
+<% response.sendRedirect("controller?cmd=mainUI"); %>
+<% } else { %>
 <% response.sendRedirect("controller?cmd=loginUI"); %>
+<% } %>
 
 </body>
 </html>
