@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId ne null}">
-	<c:redirect url = "controller?cmd=mainUI"/>
+	<c:redirect url="controller?cmd=mainUI" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,8 +20,8 @@
 <link rel="stylesheet" href="css/join.css">
 <title>Insert title here</title>
 <style>
-.fontJoinP{
-	font-size:27.4px;
+.fontJoinP {
+	font-size: 27.4px;
 }
 </style>
 </head>
@@ -29,7 +29,8 @@
 	<div id="project_container">
 		<br> <br> <br>
 		<div id="top">
-			<img class="img" src="images/icon/arrow.png" onclick="history.back()" style="width: 23px; height: 23px;">
+			<img class="img" src="images/icon/arrow.png" onclick="history.back()"
+				style="width: 23px; height: 23px;">
 		</div>
 		<div class="row align-content-center w-100 h-100">
 			<p class="fontJoinP text-center">회원가입</p>
@@ -96,10 +97,30 @@
 						</select> <select class="form-select form-select-sm"
 							aria-label=".form-select-smexample" name="districtAddress"
 							onchange="selectBox2(this.value);">
-							<option selected value="강남구">강남구</option>
-							<option value="강동구">강동구</option>
-							<option value="강북구">강북구</option>
-							<option value="강서구">강서구</option>
+							<option selected class="selectItems">금천구</option>
+							<option value="강남구" class="selectItems">강남구</option>
+							<option value="강북구" class="selectItems">강북구</option>
+							<option value="광진구" class="selectItems">광진구</option>
+							<option value="강서구" class="selectItems">강서구</option>
+							<option value="구로구" class="selectItems">구로구</option>
+							<option value="관악구" class="selectItems">관악구</option>
+							<option value="중구" class="selectItems">중구</option>
+							<option value="용산구" class="selectItems">용산구</option>
+							<option value="성동구" class="selectItems">성동구</option>
+							<option value="동대문구" class="selectItems">동대문구</option>
+							<option value="중랑구" class="selectItems">중랑구</option>
+							<option value="성북구" class="selectItems">성북구</option>
+							<option value="도봉구" class="selectItems">도봉구</option>
+							<option value="노원구" class="selectItems">노원구</option>
+							<option value="은평구" class="selectItems">은평구</option>
+							<option value="종로구" class="selectItems">종로구</option>
+							<option value="서대문구" class="selectItems">서대문구</option>
+							<option value="마포구" class="selectItems">마포구</option>
+							<option value="동작구" class="selectItems">동작구</option>
+							<option value="송파구" class="selectItems">송파구</option>
+							<option value="양천구" class="selectItems">양천구</option>
+							<option value="영등포구" class="selectItems">영등포구</option>
+							<option value="강동구" class="selectItems">강동구</option>
 						</select>
 					</div>
 
