@@ -72,7 +72,7 @@
 	<hr class="my-1">
     <li class="list-group-item border-0 p-0">
       <div class="d-flex">
-        <img src="images/product/uploaded/<%= product.getImgURL() %>" class="img-fluid">
+        <img src="uploaded/<%= product.getImgURL() %>" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
             <h6><%= product.getTitle() %></h6>
