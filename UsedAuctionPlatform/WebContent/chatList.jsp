@@ -62,7 +62,7 @@ a {
 	<div id="project_container">
 
 		<div id="top">
-			<div id="previous"></div>
+			<div></div>
 			<h6 id="top-head">채팅</h6>
 			<div></div>
 		</div>
