@@ -23,6 +23,7 @@ public class MainUI implements Action {
 		
 		ArrayList<ProductBoxDTO> dtoList = new ProductListService().getList(address);
 		new ProductService().setProductStateByEndDate(dtoList);
+		
 		request.setAttribute("notiState", new NotiService().getNotiState(id));
 		request.setAttribute("list", dtoList);
 		

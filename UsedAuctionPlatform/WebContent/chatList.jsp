@@ -48,6 +48,11 @@ a {
 	vertical-align: middle;
 	border-radius: 4px;
 }
+#scroll {
+	overflow-y: scroll;
+	scrollbar-width: none;
+	height: 478px;
+}
 </style>
 
 <body>

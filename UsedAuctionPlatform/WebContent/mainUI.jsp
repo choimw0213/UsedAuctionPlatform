@@ -49,9 +49,7 @@
 						<i class="fi fi-rr-search"></i>
 					</button>
 					<button class="input-button border-0 bg-body" id="noti">
-						<c:if test ="${notiState.equals('f')}">
-							<div class="alarm"></div>
-						</c:if>
+						<div class="alarm"></div>
 						<i class="fi fi-rr-bell"></i>
 					</button>
 				</div>
@@ -92,10 +90,12 @@
 					data-productseq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
-							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-							<img src="images/product/uploaded/${p.getImgURL()}" alt="상품이미지" 
-							onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'"
-								class="img-fluid" />
+							class="d-flex align-items-center justify-content-center p-0">
+							<div>
+								<img src="images/product/uploaded/${p.getImgURL()}"
+								class="thumbnail" />
+							</div>
+
 							<div class="ms-2 w-100">
 								<div
 									class="card-text d-flex align-items-start justify-content-between">
@@ -164,6 +164,8 @@
 		
 		$(document).ready(function() {	
 			dropboxList();
+			getNoti();
+			getInfiniteNoti();
 			searchBtn();
 			cardClick();
 			priceShow();
@@ -190,15 +192,15 @@
 			// 드롭다운 text 변경
 			$("#region div > a").on('click', function() {
 				$("#regionBtn").text($(this).text());
-				regionList($(this).text()); // 비동기작동
+				regionList($(this).text(), "지역별"); // 비동기작동
 			})
 			$("#category div > a").on('click', function() {
 				$("#categoryBtn").text($(this).text());
-				categoryList($("#regionBtn").text(), $(this).text());
+				categoryList($("#regionBtn").text(), $(this).text(), "카테고리별");
 			})
 			$("#hopelist div > a").on('click', function() {
 				$("#hopelistBtn").text($(this).text());
-				hopeList($(this).text());
+				hopeList($(this).text(), "선택별");
 			})
 
 			//마우스 눌렀을 경우 active 변화
@@ -216,12 +218,13 @@
 			})
 		}
 		
-		regionList = function(reg) { // 지역별 리스트
+		regionList = function(reg, sort) { // 지역별 리스트
 			$.ajax({
 				url : "controller?cmd=sortAction",
 				type : "POST",
 				data : {
-					region : reg
+					region : reg,
+					sort : sort
 				},
 				success : function(response) {
 					categoryInit();
@@ -235,13 +238,14 @@
 			});
 		}
 		
-		categoryList = function(reg, cg){	// 카테고리별
+		categoryList = function(reg, cg, sort){	// 카테고리별
 			$.ajax({
-				url : "controller?cmd=categoryAction",
+				url : "controller?cmd=sortAction",
 				type : "POST",
 				data : {
 					region : reg,
-					category : cg
+					category : cg,
+					sort : sort
 				},
 				success : function(response) {
 					hopeInit();
@@ -254,13 +258,14 @@
 			});
 		}
 		
-		hopeList = function(h){		// 등록순, 입찰건순, 마감임박순
+		hopeList = function(h, sort){		// 등록순, 입찰건순, 마감임박순
 			$.ajax({
-				url : "controller?cmd=hopeAction",
+				url : "controller?cmd=sortAction",
 				type : "POST",
 				data : {
 					region : userAddress,
-					hope : h
+					hope : h,
+					sort : sort
 				},
 				success : function(response) {
 					$("#search").val("");
@@ -278,11 +283,12 @@
 		searchBtn = function() { // 상품검색
 			$("#searchBtn").on("click", function() {
 				$.ajax({
-					url : "controller?cmd=searchAction",
+					url : "controller?cmd=sortAction",
 					type : "POST",
 					data : {
 						search : $("#search").val(),
-						region : userAddress
+						region : userAddress,
+						sort : "검색"
 					},
 					success : function(response) {
 						regionInit();
@@ -334,6 +340,30 @@
 					$(this).addClass("active bg-warning rounded-3");
 				}
 			})
+		}
+		
+		function getInfiniteNoti(){
+			setInterval(function(){
+				getNoti();
+			},3000);		
+		}
+		
+		function getNoti(){
+			$.ajax({
+				type: "POST",
+				url: "controller?cmd=getUnreadAction",
+				data: {	},
+				success: function(result){
+					var data = JSON.parse(result);
+					if(data.noti === "f"){
+						console.log(data.noti);
+						$(".alarm").show();
+					}
+					else if(data.noti === "t"){
+						$(".alarm").hide();
+					}
+				}
+			});	
 		}
 		
 	</script>

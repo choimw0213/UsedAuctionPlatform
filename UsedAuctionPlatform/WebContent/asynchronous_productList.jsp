@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId eq null}">
-	<c:redirect url = "controller?cmd=loginUI"/>
+	<c:redirect url="controller?cmd=loginUI" />
 </c:if>
 <c:forEach items='${list}' var='p'>
 	<div class="card d-flex align-items-center border-0 p-2"
@@ -10,8 +10,10 @@
 		<div class="row align-content-center w-100">
 			<div
 				class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-				<img src="images/product/product1/product1-img1.jpg"
-					class="img-fluid" />
+				<div>
+					<img src="images/product/uploaded/${p.getImgURL()}"
+						class="thumbnail " />
+				</div>
 				<div class="ms-2 w-100">
 					<div
 						class="card-text d-flex align-items-start justify-content-between">
@@ -27,14 +29,14 @@
 					</div>
 					<div class="text-group-point pt-1 pb-1">
 						<p class="bpr m-0 text-danger" id="bidMax">
-						<c:choose>
-							<c:when test = "${p.getBidMax() == 0}">
+							<c:choose>
+								<c:when test="${p.getBidMax() == 0}">
 								${p.getStartPrice()}
 							</c:when>
-							<c:otherwise>
+								<c:otherwise>
 								${p.getBidMax()}
 							</c:otherwise>
-						</c:choose>
+							</c:choose>
 						</p>
 						<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
 					</div>
