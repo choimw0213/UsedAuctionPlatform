@@ -363,7 +363,7 @@
 					if(data.noti === "f"){
 						$(".alarm").show();
 					}
-					else if(data.noti === "t"){
+					else if(data.noti === "t" || data.noti == "null"){
 						$(".alarm").hide();
 					}
 				}
