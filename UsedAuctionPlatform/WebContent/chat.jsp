@@ -154,6 +154,12 @@ var sendBtn = document.querySelector('#sendBtn');
 sendBtn.addEventListener('click', function() {
 	var chatContent = document.querySelector('#chatContent').value;
 	//alert(chatContent);
+	
+    if (chatContent === '') {
+        alert('메세지를 입력해주세요.');
+        return; // Exit the function if chatContent is empty
+    }
+	
     $.ajax({
         type: "POST",
         url: "controller?cmd=addChatAction",
