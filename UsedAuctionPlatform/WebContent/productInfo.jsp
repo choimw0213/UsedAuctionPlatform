@@ -25,17 +25,6 @@
 		<div id="container">
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
-        </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
@@ -51,7 +40,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
 			<div id="nickname">
 				<div id="nickname_img_container">
 					<img src="./images/icon/person.png">
@@ -161,7 +149,7 @@
 	
 	$("#add_bid").click(function(){
 		var bidPrice = Number($("input[name=bid_price]").val());
-		if(bidPrice <= bidMax || bidPrice <= startPrice){
+		if(bidPrice <= bidMax || bidPrice < startPrice){
 			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
 			return;
 		}
@@ -221,6 +209,10 @@
 		$("#option_modal")[0].style.display="none";
 	});
 	$("#report_button").click(function(){
+		if(sellerId == myId){
+			alert("본인의 게시글에는 신고 할 수 없습니다!");
+			return;
+		}
 		$("#option_modal")[0].style.display="none";
 		$("#report_modal")[0].style.display="flex";
 		$("#report_modal")[0].style.position="absolute";
