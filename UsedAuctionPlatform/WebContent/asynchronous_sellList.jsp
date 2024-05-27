@@ -10,7 +10,7 @@
 <% String type = (String)request.getAttribute("type"); %>
 
 <% if(sellList != null){ %>
-
+<hr class="my-1">
 <% if(type.equals("selling")){ %>
 
 <% for(int i=0; i<sellList.size(); i++){ %>

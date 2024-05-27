@@ -332,13 +332,17 @@ button {
 
  		    
 		    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
-		      var resultData = JSON.parse(responseText);
-		      var actPoint = parseInt(resultData.result);
-			  
+		      var actPoint = parseInt(pointAct);
+		      
+		      
 		      if (actPoint > 0) {
 		        alert('포인트 충전 완료.');
+		        $('#chargeModal').modal('hide');
+		        location.reload();
 		      } else if (actPoint < 0) {
 		        alert('포인트 환전 완료.');
+		        $('#exchangeModal').modal('hide');
+		        location.reload();
 		      } else {
 		        alert('알 수 없는 오류가 발생했습니다.');
 		      }
