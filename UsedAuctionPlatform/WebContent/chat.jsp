@@ -53,6 +53,7 @@
     <li class="list-group-item border-0 p-0">
       <div class="d-flex">
         <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
+        <img src="images/product/uploaded/<%= product.getImgURL() %>" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
             <h6><%= product.getTitle() %></h6>
