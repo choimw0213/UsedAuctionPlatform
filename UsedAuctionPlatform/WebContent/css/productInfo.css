@@ -141,9 +141,9 @@ hr{
 #button div{
 	width: 158px;
 	height: 40px;
-	border-radius: 5 5 0 0px;
 	text-align: center;
 	cursor: pointer;
+	border-radius: 5px 5px 0px 0px;
 }
 
 #button :first-child{

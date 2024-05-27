@@ -30,7 +30,7 @@
 		<h1>상품등록</h1>
 	</div>
 	<div id="container">
-		<form action="controller?cmd=addProductAction" method="post" encType="multipart/form-data">
+		<form action="controller?cmd=addProductAction" method="post" encType="multipart/form-data" onsubmit = "return addSubmit()">
 		<div id="img_list_container">
 			<div class="img_container">
 				<label for="input_file">
@@ -59,7 +59,7 @@
 						<a class="dropdown-item" href="#">유아동</a> 
 						<a class="dropdown-item" href="#">의류</a> 
 						<a class="dropdown-item" href="#">잡화</a> 
-						<input name="category" id="category_value" type="hidden" required>
+						<input name="category" id="category_value" type="hidden" value="카테고리" required>
 					</div>
 				</div>
 				</td>
@@ -117,6 +117,7 @@
 </div>
 <script>
 	$(document).ready(function(){
+		console.log($("#category_value").val());
 		$("#regionBtn").text("${address}");
 		$("#region_value").val("${address}");
 	})
@@ -168,7 +169,15 @@
 			alert("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
 			this.value = null;
 		}
-	}) 
+	})
+	
+	function addSubmit(){
+		if($("#category_value").val() == "카테고리"){
+			alert("카테고리를 선택해주세요!");
+			return false;
+		}
+		return true;
+	}
 </script>
 </body>
 </html>
