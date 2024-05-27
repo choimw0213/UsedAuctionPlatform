@@ -134,15 +134,12 @@
 				<hr class="m-0">
 			</c:forEach>
 		</div>
-
-		<div class="addProduct">
+		<div class="row d-flex addProduct">
 			<button class="btn btn-primary floating-btn border-0" id="addProduct">
 				<i class="fi fi-br-plus"></i>
 			</button>
 		</div>
-
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
-
 	</div>
 
 	<script>
