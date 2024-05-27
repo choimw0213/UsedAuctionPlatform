@@ -269,35 +269,11 @@ label {
 							<select class="form-select mt-4"
 								aria-label="Default select example" id="select-box"
 								name="districtAddress">
-
-								<option selected class="selectItems">금천구</option>
 								<option value="1" class="selectItems">강남구</option>
-								<option value="2" class="selectItems">강북구</option>
-								<option value="3" class="selectItems">광진구</option>
+								<option value="2" class="selectItems">강동구</option>
+								<option value="3" class="selectItems">강북구</option>
 								<option value="4" class="selectItems">강서구</option>
-								<option value="5" class="selectItems">구로구</option>
-								<option value="6" class="selectItems">관악구</option>
-								<option value="7" class="selectItems">중구</option>
-								<option value="8" class="selectItems">용산구</option>
-								<option value="9" class="selectItems">성동구</option>
-								<option value="10" class="selectItems">동대문구</option>
-								<option value="11" class="selectItems">중랑구</option>
-								<option value="12" class="selectItems">성북구</option>
-								<option value="13" class="selectItems">도봉구</option>
-								<option value="14" class="selectItems">노원구</option>
-								<option value="15" class="selectItems">은평구</option>
-								<option value="16" class="selectItems">종로구</option>
-								<option value="17" class="selectItems">서초구</option>
-								<option value="18" class="selectItems">송파구</option>
-								<option value="19" class="selectItems">양천구</option>
-								<option value="20" class="selectItems">영등포구</option>
-								<option value="21" class="selectItems">동작구</option>
-								<option value="22" class="selectItems">강동구</option>
-								<option value="23" class="selectItems">도봉구</option>
-								<option value="24" class="selectItems">성북구</option>
-								<option value="25" class="selectItems">서대문구</option>
-								
-								
+								<option value="5" class="selectItems">관악구</option>
 							</select>
 						</div>
 					</div>
