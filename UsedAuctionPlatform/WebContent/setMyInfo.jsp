@@ -4,7 +4,7 @@
 <c:if test="${userId eq null}">
 	<c:redirect url="controller?cmd=loginUI" />
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -219,7 +219,13 @@ label{
     padding:0.5em 1.5em;
 }
 
+#submitBtn{
+	transform:translateY(-30px);
+}
 
+#okBtnSubmit{
+	padding:0.3em 4em;
+}
 
 </style>
 </head>
@@ -267,7 +273,7 @@ label{
 
 
 
-				<div class="addAddress mt-3">
+				<div class="addAddress mt-3 mb-0">
 					<div class="addressH6">
 						<p>주</p>
 						<p>소ㅤㅤㅤ</p>
@@ -288,23 +294,25 @@ label{
 					</select>
 					</div>
 				</div>
-
+					<div class="d-grid ps-5 pe-5 text-center mt-0 mb-0" id = "submitBtn">
+						<button type="submit" class="btn btn-primary btn-lg" id="okBtnSubmit" onclick="return passwordTest()">
+							<div class="text-center m">OK</div>
+						</button>
+					</div>
 
 			</div>
 
 
 
 			<!-- <div class="setMyInfoBtn mb-0"> -->
-					<div class="d-grid ps-5 pe-5 text-center mt-4 mb-2">
-						<button type="submit" class="btn btn-primary btn-lg" onclick="return passwordTest()">
-							<div class="text-center m">OK</div>
-						</button>
-					</div>
+
 			<!-- </div> -->
 		</div>
 		</form>
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
+
+</body>
 <script type="text/javascript">
 
 //닉네임 중복체크
@@ -313,9 +321,11 @@ label{
 	    let nick = $(this).val();
 	    $('.nickCheckFeedBackSpan').remove();
 	    $.post("controller?cmd=nickCheckAction", { nick: nick }, function(responseText) {
+					
 	    	result_data = JSON.parse(responseText);
 	    	//$("nickCheckFeedBack").html(result_data.result);
 	    	//alert(result_data.result);
+	    	
 	    	console.log(result_data.result);
 	    	if(result_data.result == '다른 유저가 사용중인 닉네임입니다.'){
 	    		$('#nickCheckFeedBack').after("<span class='nickCheckFeedBackSpan mt-0 mb-0' id='spanNickname' style='font-size:9px; font-weight:bold; color:red; white-space:nowrap; transform:translateX(120px);'>"+result_data.result+"</span>")
@@ -373,5 +383,4 @@ function passwordTest() {
 
 
 </script>	
-</body>
 </html>

@@ -21,13 +21,20 @@
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/common.css">
 <title>Insert title here</title>
+<style>
+.fontLoginP{
+
+
+}
+
+</style>
 </head>
 <body>
 	<div id="project_container">
 	
 		<form action="controller?cmd=loginAction" method="post">
 			<div class="row align-items-center">
-				<p class="fs-1 text-center pb-2">로그인</p>
+				<p class="fontLoginP fs-1 text-center pb-2">로그인</p>
 				<div class="row g-2 d-flex align-items-center justify-content-center pt-2">
 					<div class="col-4 text-end">
 						<label class="col-form-label">아이디</label>

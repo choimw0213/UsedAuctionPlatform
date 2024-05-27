@@ -20,7 +20,7 @@ public class DeleteMyInfoAction implements Action {
 		
 		HttpSession session = request.getSession(true);
 		String id = (String) session.getAttribute("userId");
-
+		session.invalidate();
 		
 	
 		

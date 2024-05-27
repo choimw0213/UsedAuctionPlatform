@@ -19,6 +19,11 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/join.css">
 <title>Insert title here</title>
+<style>
+.fontJoinP{
+	font-size:27.4px;
+}
+</style>
 </head>
 <body>
 	<div id="project_container">
@@ -27,7 +32,7 @@
 			<img class="img" src="images/icon/arrow.png" onclick="history.back()" style="width: 23px; height: 23px;">
 		</div>
 		<div class="row align-content-center w-100 h-100">
-			<p class="fs-1 text-center">회원가입</p>
+			<p class="fontJoinP text-center">회원가입</p>
 			<form action="controller?cmd=joinAction" method="post">
 				<div
 					class="row g-2 d-flex align-items-center justify-content-center pt-2 pb-2">
