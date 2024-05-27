@@ -12,12 +12,11 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/join.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 <title>Insert title here</title>
 <style>
 .fontJoinP {
@@ -34,7 +33,7 @@
 		</div>
 		<div class="row align-content-center w-100 h-100">
 			<p class="fontJoinP text-center">회원가입</p>
-			<form action="controller?cmd=joinAction" method="post">
+			<form action="controller?cmd=joinAction" method="post" id="joinForm" onsubmit="hashFormData(event)">
 				<div
 					class="row g-2 d-flex align-items-center justify-content-center pt-2 pb-2">
 					<div class="col-3 text-end p-0">
@@ -280,6 +279,18 @@
 
 		}
 	</script>
+	
+  <script>
+  function hashFormData(event) {
+    event.preventDefault();
+    var form = document.getElementById("joinForm");
+    var formData = new FormData(form);  
+    var password = formData.get("userPw");
+    var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    document.getElementById("password").value = hashedPassword;
+    form.submit();
+  }
+  </script> 
 
 </body>
 </html>

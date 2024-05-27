@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import config.SHA256;
 import controller.Action;
 import controller.URLModel;
 import service.JoinService;
@@ -16,8 +17,6 @@ public class JoinAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		
 		String page = "join.jsp";
 		String id = request.getParameter("userId");
 		String pw = request.getParameter("userPw");
@@ -27,8 +26,9 @@ public class JoinAction implements Action {
 		String email = request.getParameter("email");
 		String address = request.getParameter("cityAddress")+" "+request.getParameter("districtAddress");
 		
-		
-
+		System.out.println(pw);
+		pw = SHA256.encrypt(pw);
+		System.out.println(pw);
 		
 		if(new JoinService().addUser(id, pw, name, nickname, phoneNumber, email, address)){
 			page = "login.jsp";
