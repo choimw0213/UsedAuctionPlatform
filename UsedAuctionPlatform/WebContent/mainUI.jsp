@@ -92,7 +92,7 @@
 						<div
 							class="d-flex align-items-center justify-content-center p-0">
 							<div>
-								<img src="images/product/uploaded/${p.getImgURL()}"
+								<img src="uploaded/${p.getImgURL()}"
 								class="thumbnail" />
 							</div>
 
