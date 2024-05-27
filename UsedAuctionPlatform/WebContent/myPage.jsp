@@ -52,20 +52,20 @@
 }
 
 .modal-header {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 .modal-body {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 .modal-title {
-	background-color: #FFB966;
+	background-color: #FF922E;
 	color: #FFFFFF;
 }
 
 .modal-footer {
-	background-color: #FFB966;
+	background-color: #FF922E;
 }
 
 #modalBtn {
@@ -79,7 +79,7 @@ a {
 }
 
 .btn {
-	background-color: #FFB966;
+	background-color: #FF922E;
 	border: none;
 }
 
@@ -305,7 +305,7 @@ button {
 	});  */	
 	
 	
-	
+	$(".pointFont").text(Number($(".pointFont").text()).toLocaleString('ko-KR') + "P");
 	
 	
 	$(document).ready(function() {
@@ -319,7 +319,7 @@ button {
 		      alert('음수 입력불가.')	
 		      return;
 		    }
-		    
+		  
 		    
 		    if (numP > 0) {
 		      pointAct = pointAct + numP;
