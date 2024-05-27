@@ -6,7 +6,7 @@
 </c:if>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
-${"result":"${pointActCheck}"}
+{"result":"${pointActCheck}"}
 
 <%-- <script type="text/javascript">
 var resultData = <%= request.getAttribute("pointActCheck") %>;
