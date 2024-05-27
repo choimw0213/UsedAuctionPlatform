@@ -65,13 +65,12 @@
       <h6 id="top-head"><%= toNickName %>님과의 채팅</h6>
       <div></div>
     </div>
-    <br>
     <div class="container">
 	
 	<% if(product != null){ %>
 	<hr class="my-1">
     <li class="list-group-item border-0 p-0">
-      <div class="d-flex">
+      <div class="d-flex product_card" data-productSeq="<%= product.getProductSeq() %>">
         <img src="uploaded/<%= product.getImgURL() %>" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
@@ -215,6 +214,22 @@ $(document).ready(function(){
 	getChat();
 	getInfiniteChat();
 });
+
+</script>
+
+<script>
+
+	document.addEventListener('DOMContentLoaded', function() {
+		$(document).ready(function() {
+			cardClick();
+		});
+		
+		cardClick = function(){
+			$(".product_card").on('click', function() {
+				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+			})
+		};
+	});
 
 </script>
 

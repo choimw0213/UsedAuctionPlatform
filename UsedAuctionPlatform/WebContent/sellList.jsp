@@ -56,7 +56,7 @@
 
 		<div class="button">
 			<button id="selling" class="btn btn-primary rounded-pill">판매중</button>
-			<button id="sellComplete" class="btn btn-primary rounded-pill">거래완료</button>
+			<button id="sellComplete" class="btn btn-primary rounded-pill">판매종료</button>
 		</div>
 
 		<div class="container" id="scroll">
@@ -84,7 +84,11 @@
 									<p><%= sellList.get(i).getCategory() %></p>
 									<p><%= sellList.get(i).getAddress() %> | 종료일 <%= sellList.get(i).getEndDate() %></p>
 									<span class="badge badge-s">입찰가</span> 
+									<% if(sellList.get(i).getBidMax() == 0){ %>
+									<span><%= sellList.get(i).getStartPrice() %>P</span> 
+									<% } else {%>
 									<span><%= sellList.get(i).getBidMax() %>P</span> 
+									<% } %>
 									<span class="badge badge-s">즉구가</span> 
 									<span><%= sellList.get(i).getPrice() %>P</span> 
 									<span>입찰 <%= sellList.get(i).getBidCount() %>건</span>
