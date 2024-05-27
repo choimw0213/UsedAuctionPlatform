@@ -62,6 +62,8 @@
 	margin-top: -20%;
 }
 
+
+
 .addUserId {
 	grid-area: 2/1/3/2;
 	display: flex;
@@ -74,7 +76,7 @@
 	grid-area: 3/1/4/2;
 	display: flex;
 	justify-content: center;
-	transform: translateY(8px);
+	transform: translateX(2px);
 	margin-top: 5px;
 }
 
@@ -89,6 +91,7 @@
 
 input:focus {
 	outline: none;
+	
 }
 
 .findPasswordBtn {
@@ -108,12 +111,17 @@ input:focus {
 
 .lgbt {
 	color: #FFFFFF;
-	background-color: #FFB966;
+	background-color: #FF922E;
 	border: none;
 	margin-top: 20px;
-	border-radius: 5px;
+	border-radius: 10px;
 	font-size: 1.75em;
-	padding: 20px 60px;
+	padding:8px 90px;
+}
+
+.fontFindPWP{
+	font-weight:normal !important;
+	font-size:27.4px;
 }
 </style>
 </head>
@@ -126,23 +134,23 @@ input:focus {
 		</div>
 		<div class="container">
 			<div class="findPasswordH1">
-				<h1 style="font-size: 2em; font-weight: bold;">비 밀 번 호 찾 기</h1>
+				<p class="fontFindPWP text-center">ㅤ비밀번호 찾기</p>
 			</div>
 			<form action="controller?cmd=findPWAction" method="post">
-				<div class="addUserId">
-					<h6>아이디ㅤ</h6>
+				<div class="addUserId mb-2">
+					<label class="col-form-label">아이디ㅤ</label>
 					<input type="text" name="userId"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
+						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
 				</div>
-				<div class="addName">
-					<h6>이름ㅤ</h6>
+				<div class="addName mb-0">
+					<label class="col-form-label">이름ㅤ</label>
 					<input type="text" name="name"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
+						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
 				</div>
-				<div class="addEmail">
-					<h6>이메일ㅤ</h6>
+				<div class="addEmail mt-2">
+					<label class="col-form-label">이메일ㅤ</label>
 					<input type="text" name="email"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 200px; height: 35px;"><br>
+						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
 				</div>
 				<div class="findPasswordBtn">
 					<div>

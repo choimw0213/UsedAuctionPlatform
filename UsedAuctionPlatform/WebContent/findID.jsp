@@ -59,7 +59,12 @@
 .findIdH1 {
 	grid-area: 1/1/2/2;
 	display: flex;
-	align-content: space-between;
+	flex-content:center;
+	
+}
+
+.fontFindIdH1{
+	font-size:27.4px;
 }
 
 .fontFindIdH1 {
@@ -73,25 +78,22 @@
 	grid-area: 2/1/3/2;
 	display: flex;
 	justify-content: center;
-	transform: translateX(8px);
-	margin-top: 20px;
+	transform: translateX(6px);
+
 }
 
 .addEmail {
 	grid-area: 3/1/4/2;
 	display: flex;
 	justify-content: center;
-	transform: translateY(8px);
-	margin-top: 5px;
+	
 }
 
 .addPhoneNumber {
 	grid-area: 4/1/5/2;
 	display: flex;
 	justify-content: center;
-	transform: translateY(8px);
-	transform: translateX(-7px);
-	margin-top: 5px;
+	transform: translateX(-5px);
 }
 
 input:focus {
@@ -107,29 +109,29 @@ input:focus {
 }
 
 .container {
-	transform: translateX(-8px);
+	transform: translateX(-25px);
 }
 
 .inputTxt {
 	background-color: #D9D9D9;
 	border: none;
 	border-radius: 3px;
-	width: 200px;
-	height: 35px;
+	width: 140px;
+	height: 31px;
 }
 
-.fontFindIdH1 {
-	font-size: 2em;
-	font-weight: bold;
-}
+
 
 .lgbt {
 	color: #FFFFFF;
-	background-color: #FFB966;
+	background-color: #FF992E;
 	border: none;
-	border-radius: 5px;
-	padding: 0.8em 2.5em;
+	border-radius: 10px;
+	padding: 8px 90px;
 }
+
+
+
 </style>
 </head>
 <body>
@@ -138,21 +140,22 @@ input:focus {
 			<img class="img" src="images/icon/arrow.png" onclick="history.back()">
 		</div>
 		<div class="container">
-			<div class="findIdH1">
-				<h1 class="fontFindIdH1">아 이 디 찾 기</h1>
-			</div>
 			<form action="controller?cmd=findIDAction" method="post">
-				<div class="addName">
-					<h6>이름ㅤ</h6>
+			<div class="findIdH1 mb-3">
+				<p class="fontFindIdH1 text-center">아이디 찾기</p>
+			</div>
+			
+				<div class="addName mt-4 mb-0">
+					<label class="col-form-label">이름ㅤ</label>
 					<input type="text" name="name" class="inputTxt"><br>
 				</div>
-				<div class="addEmail">
-					<h6>이메일ㅤ</h6>
+				<div class="addEmail mt-2 mb-0">
+					<label class="col-form-label">이메일ㅤ</label>
 					<input type="text" name="email" class="inputTxt"><br>
 					<br>
 				</div>
-				<div class="addPhoneNumber mt-4">
-					<h6>전화번호ㅤ</h6>
+				<div class="addPhoneNumber mt-1">
+					<label class="col-form-label">전화번호ㅤ</label>
 					<input type="text" name="phoneNumber" class="inputTxt"><br>
 				</div>
 				<div class="findIdBtn">

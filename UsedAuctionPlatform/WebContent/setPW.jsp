@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 <style>
 .passwordH6{
-	font-size:15px;
+	font-size:12px;
 }
 
 
@@ -72,7 +72,6 @@
     grid-area : 1/1/2/2;
     display : flex;
     justify-content : center;
-    margin-top: -30%;
 }
 
 
@@ -82,8 +81,7 @@
     grid-area : 2/1/3/2;
     display : flex;
     justify-content : center;
-    transform: translateX(10px);
-    margin-top:20px;
+    transform: translateX(7px);
 }
 
 
@@ -92,7 +90,7 @@
     display : flex;
     justify-content : center;
 	white-space:nowrap;
-    transform: translateY(8px);
+    transform: translateY(-25px);
 
 }
 
@@ -117,33 +115,35 @@ input:focus {outline: none;}
 
 
 
-.fontFindPasswordH1{
-	font-size:2em; font-weight:bold;
-}
+
 
 .inputNewPW{
 	background-color:#D9D9D9; 
 	border:none; 
 	border-radius:3px; 
-	width:200px; 
-	height:35px;
+	width:140px; 
+	height:31px;
 }
 .inputNewPWCheck{
 	background-color:#D9D9D9; 
 	border:none; 
 	border-radius:3px; 
-	width:200px; 
-	height:35px;
+	width:140px; 
+	height:31px;
 }
 
 .lgbt{
     color:#FFFFFF;
-    background-color:#FFB966;
+    background-color:#FF992E;
     border:none;
-    border-radius:5px;
-    padding:0.8em 2.5em;
+    border-radius:10px;
+    padding:8px 90px;
+    transform:translateY(-25px);
 }
+.fontFindPasswordH1{
+	font-size:27.4px;
 
+}
 
 </style>
 </head>
@@ -155,20 +155,20 @@ input:focus {outline: none;}
 		  	  </div>		
 	
 		<div class="container">
+			<form action="controller?cmd=setPWAction" method="post">
 		
-			<div class="setPWH1">
-				<h1 class="fontFindPasswordH1">비 밀 번 호 찾 기</h1>
+			<div class="setPWH1 mb-4">
+				<p class="fontFindPasswordH1 text-center">비밀번호 찾기</p>
 			</div>
-<form action="controller?cmd=setPWAction" method="post">
-			<div class="setPW">
-				<h6 class="passwordH6">새 비밀번호</h6><input type="password" name="password" class="inputNewPW"><br>
-			</div>
-
-			<div class="checkPassword">
-				<h6 class="passwordH6">비밀번호 확인 </h6><input type="password" name="checkPassword" class="inputNewPWCheck"><br>
+			<div class="setPW mt-4">
+				<label class="passwordH6 col-form-label">새 비밀번호ㅤ</label><input type="password" name="password" class="inputNewPW"><br>
 			</div>
 
-			<div class="setPWBtn">
+			<div class="checkPassword mb-0">
+				<label class="passwordH6 col-form-label">비밀번호 확인ㅤ</label><input type="password" name="checkPassword" class="inputNewPWCheck"><br>
+			</div>
+
+			<div class="setPWBtn mt-0">
 				<div>
 					<input type="submit" value="O K" class="lgbt" onclick = "return passwordTest()">
 				</div>
