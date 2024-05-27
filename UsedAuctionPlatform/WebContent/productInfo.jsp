@@ -135,6 +135,7 @@
 	var productState = "${productInfo.getState()}";
 	var productSeq = ${productInfo.getProductSeq()};
 	var sellerId = "${productInfo.getId()}";
+	var myId = "${userId}"
 	
 	$(document).ready(function() {
 		if(bidMax == 0){
@@ -146,7 +147,10 @@
 		$("#price :nth-child(2)").text("즉시구매가 " + price.toLocaleString('ko-KR') + "P");
 	});
 	$("#chat").click(function(){
-		console.log(sellerId);
+		if(sellerId == myId){
+			alert("자신과는 채팅을 할 수 없습니다!");
+			return;
+		}
 		location.href = "controller?cmd=chatUI&productSeq=" + productSeq +"&toId=" + sellerId;
 	})
 	$("#add_report").click(function(){
