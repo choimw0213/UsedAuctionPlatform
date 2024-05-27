@@ -99,10 +99,10 @@
 							aria-label=".form-select-smexample" name="districtAddress"
 							onchange="selectBox2(this.value);">
 							<option selected class="selectItems">강남구</option>
-							<option value="강남구" class="selectItems">강동구</option>
+							<option value="강동구" class="selectItems">강동구</option>
 							<option value="강북구" class="selectItems">강북구</option>
-							<option value="광진구" class="selectItems">강서구</option>
-							<option value="강서구" class="selectItems">관악구</option>
+							<option value="강서구" class="selectItems">강서구</option>
+							<option value="관악구" class="selectItems">관악구</option>
 						</select>
 					</div>
 
