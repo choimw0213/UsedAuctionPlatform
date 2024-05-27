@@ -38,39 +38,39 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
+                <img src="uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
 				onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9"
+                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9"
                 onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
         </div>
@@ -102,11 +102,6 @@
 			</div>
 			<div id="product_state">
 				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감: ${productInfo.getEndDate()}</span>
-			</div>
-			<hr>
-			<div id="button">
-				<div id="bid_button">입찰</div>
-				<div id="buy_button">즉시 구매</div>
 			</div>
 			<hr>
 			<div id="content">
@@ -153,8 +148,15 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="/navbar_home.jsp"></jsp:include>
-	</div>
+		<div id="bottom">
+			<div id="button">
+				<div id="bid_button">입찰</div>
+				<div id="buy_button">즉시 구매</div>
+			</div>
+			<jsp:include page="/navbar_home.jsp"></jsp:include>
+	
+		</div>
+		</div>
 	<script type="text/javascript">
 	var startPrice = ${productInfo.getStartPrice()};
 	var bidMax = ${productInfo.getBidMax()};

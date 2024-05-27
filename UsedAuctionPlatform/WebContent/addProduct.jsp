@@ -76,9 +76,6 @@
 						<a class="dropdown-item" href="#">강북구</a> 
 						<a class="dropdown-item" href="#">강서구</a> 
 						<a class="dropdown-item" href="#">관악구</a> 
-						<a class="dropdown-item" href="#">광진구</a> 
-						<a class="dropdown-item" href="#">구로구</a> 
-						<a class="dropdown-item" href="#">금천구</a> 
 						<input name="region" id="region_value" type="hidden" required>
 					</div>
 				</div>

@@ -46,7 +46,7 @@
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
 							<div>
-								<img src="images/product/product1/product1-img1.jpg"
+								<img src="uploaded/${p.getImgURL()}"
 								class="thumbnail">
 							</div>
 							<div class="ms-2 w-100">

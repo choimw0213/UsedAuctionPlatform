@@ -39,9 +39,7 @@
 						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a> <a class="dropdown-item"
 							href="#">강동구</a> <a class="dropdown-item" href="#">강북구</a> <a
 							class="dropdown-item" href="#">강서구</a> <a class="dropdown-item"
-							href="#">관악구</a> <a class="dropdown-item" href="#">광진구</a> <a
-							class="dropdown-item" href="#">구로구</a> <a class="dropdown-item"
-							href="#">금천구</a>
+							href="#">관악구</a>
 					</div>
 				</div>
 
@@ -94,7 +92,7 @@
 						<div
 							class="d-flex align-items-center justify-content-center p-0">
 							<div>
-								<img src="images/product/uploaded/${p.getImgURL()}"
+								<img src="uploaded/${p.getImgURL()}"
 								class="thumbnail" />
 							</div>
 
@@ -363,9 +361,10 @@
 					if(data.noti === "f"){
 						$(".alarm").show();
 					}
-					else if(data.noti === "t"){
+					else if(data.noti === "t" || data.noti === "null"){
 						$(".alarm").hide();
 					}
+					
 				}
 			});	
 		}

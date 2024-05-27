@@ -27,7 +27,7 @@ public class MainUI implements Action {
 		request.setAttribute("notiState", new NotiService().getNotiState(id));
 		request.setAttribute("list", dtoList);
 		
-		return new URLModel("mainUI.jsp");
+		return new URLModel("mainUI.jsp", false);
 	}
 
 }

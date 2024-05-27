@@ -35,9 +35,11 @@
 a {
 	text-decoration: none;
 	color: #000000;
+	margin-right: 5px;
 }
 #top {
-	margin-top: 10px;
+	padding-top: 10px;
+	padding-left: 5px;
 }
 #unreadCount {
 	color: white;
@@ -51,7 +53,7 @@ a {
 #scroll {
 	overflow-y: scroll;
 	scrollbar-width: none;
-	height: 478px;
+	height: 468px;
 }
 </style>
 
@@ -76,7 +78,7 @@ a {
 					<li class="list-group-item border-0 p-0 product_card" data-productSeq="<%= chatList.get(i).getProductSeq() %>"
 					data-toId="<%= toId %>">
 							<div class="d-flex">
-								<img src="images/product/uploaded/<%= chatList.get(i).getImgURL() %>" class="img-fluid">
+								<img src="uploaded/<%= chatList.get(i).getImgURL() %>" class="img-fluid">
 								<div class="ms-1">
 									<div class="card-text d-flex">
 										<div id="item-title-group">
