@@ -209,6 +209,7 @@
 			alert("포인트가 부족합니다!");
 			return;
 		}
+		
 		alert("구매완료!");
 		location.href = "controller?cmd=bidAction&productSeq=" + productSeq + "&bidPrice=" + price;
 	})
