@@ -143,6 +143,11 @@
 	})
 	$("#add_report").click(function(){
 		var reportContent = $("#report_content").val();
+		console.log(reportContent);
+		if(reportContent == null){
+			alert("신고내용을 입력해주세요!");
+			return;
+		}
 		alert("신고가 접수되었습니다!");
 		location.href = "controller?cmd=reportAction&productSeq=" + productSeq + "&reportContent=" + reportContent;
 	})
