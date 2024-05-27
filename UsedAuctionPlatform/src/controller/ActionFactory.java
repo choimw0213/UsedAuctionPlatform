@@ -167,6 +167,9 @@ public class ActionFactory {
 			case "nickCheckAction" :
 				action = new NickCheckAction();
 				break;
+			case "getNotiListAction" :
+				action = new GetNotiListAction();
+				break;
 		}
 		
 		
