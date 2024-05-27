@@ -94,7 +94,8 @@
 							aria-label=".form-select-sm example" name="cityAddress"
 							onchange="selectBox1(this.value);">
 							<option selected value="서울특별시">서울특별시</option>
-						</select> <select class="form-select form-select-sm"
+						</select> 
+						<select class="form-select form-select-sm"
 							aria-label=".form-select-smexample" name="districtAddress"
 							onchange="selectBox2(this.value);">
 							<option selected class="selectItems">금천구</option>
