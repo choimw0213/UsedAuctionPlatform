@@ -189,7 +189,7 @@
 	
 	$("#add_bid").click(function(){
 		var bidPrice = Number($("input[name=bid_price]").val());
-		if(bidPrice <= bidMax){
+		if(bidPrice <= bidMax || bidPrice <= startPrice){
 			alert("입찰금액이 현재 최대 입찰금액 보다 적습니다!");
 			return;
 		}
