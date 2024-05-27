@@ -75,7 +75,7 @@ public class ProductService {
 		ProductBoxDTO dto = null;
 		try {
 			conn = dataSource.getConnection();
-			dto = new ProductDAO(conn).getProductBox(productSeq);
+			dto = new ProductDAO(conn).getProductBoxChat(productSeq);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

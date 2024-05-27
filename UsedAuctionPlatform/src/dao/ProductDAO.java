@@ -64,6 +64,27 @@ public class ProductDAO {
 		return dto;
 	}
 	
+	public ProductBoxDTO getProductBoxChat(int productSeq){
+		ProductBoxDTO dto = null;
+		DateTimeFormatter formmatter = null;
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_PRODUCTBOX_CHAT)){
+			pstmt.setInt(1, productSeq);	
+			try(ResultSet rs = pstmt.executeQuery()){
+				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
+				if(rs.next()){
+					dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"),
+							rs.getString("title"), rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), 
+							rs.getString("address"), LocalDateTime.parse(rs.getString("end_date"),formmatter), 
+							rs.getString("state"), rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
+				}
+			}
+		} catch (SQLException e) {e.printStackTrace();}
+		
+		return dto;
+	}
+	
 	// 물품 이미지
 	public ArrayList<String> getProductImage(int productSeq){
 		ArrayList<String> list = new ArrayList<>();
