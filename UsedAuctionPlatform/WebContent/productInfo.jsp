@@ -41,38 +41,6 @@
                 <img src="uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
 				onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
-            <div class="carousel-item">
-                <img src="C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9"
-                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
-            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
