@@ -49,6 +49,7 @@ public class DuplicationService {
 		try {
 			conn = dataSource.getConnection();
 			result = new UserDAO(conn).nickCheck(id);
+			conn.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
