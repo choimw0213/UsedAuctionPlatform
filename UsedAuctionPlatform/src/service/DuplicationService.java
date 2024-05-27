@@ -41,6 +41,7 @@ public class DuplicationService {
 
 	
 	
+	
 	public boolean nickCheck(String id){
 		boolean result = false;
 		Connection conn = null;
