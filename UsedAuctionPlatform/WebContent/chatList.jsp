@@ -65,7 +65,6 @@ a {
 			<div id="previous"></div>
 			<h6 id="top-head">채팅</h6>
 			<div></div>
-			</a>
 		</div>
 
 		<div class="container">
