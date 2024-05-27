@@ -5,3 +5,4 @@
 </c:if>
 {"count":<%= request.getAttribute("count") %>, 
 "noti": "<%= request.getAttribute("noti") %>"}
+
