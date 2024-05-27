@@ -45,8 +45,10 @@
 					<div class="row align-content-center w-100">
 						<div
 							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-							<img src="images/product/product1/product1-img1.jpg"
-								class="img-fluid">
+							<div>
+								<img src="images/product/product1/product1-img1.jpg"
+								class="thumbnail">
+							</div>
 							<div class="ms-2 w-100">
 								<div class="card-text d-flex align-items-start">
 									<div
@@ -107,6 +109,9 @@
 				data: {	},
 				success: function(result){
 					$("#scroll").html(result);
+					$(".pr").each(function(){
+						$(this).text(Number($(this).text()).toLocaleString('ko-KR') + "P에 입찰하셨습니다.");
+					})
 					cardClick();
 				}
 			});		

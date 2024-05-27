@@ -8,8 +8,10 @@
 		<div class="row align-content-center w-100">
 			<div
 				class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-				<img src="images/product/product1/product1-img1.jpg"
-					class="img-fluid">
+				<div>
+					<img src="images/product/product1/product1-img1.jpg"
+						class="thumbnail">
+				</div>
 				<div class="ms-2 w-100">
 					<div class="card-text d-flex align-items-start">
 						<div class="d-flex align-items-center justify-content-start me-1">

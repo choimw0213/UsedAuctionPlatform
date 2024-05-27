@@ -90,9 +90,12 @@
 					data-productseq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
-							class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-							<img src="images/product/uploaded/${p.getImgURL()}"
-								class="img-fluid" />
+							class="d-flex align-items-center justify-content-center p-0">
+							<div>
+								<img src="images/product/uploaded/${p.getImgURL()}"
+								class="thumbnail" />
+							</div>
+
 							<div class="ms-2 w-100">
 								<div
 									class="card-text d-flex align-items-start justify-content-between">
