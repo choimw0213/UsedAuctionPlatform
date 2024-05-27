@@ -49,6 +49,7 @@
     <div class="container">
 	
 	<% if(product != null){ %>
+	<hr class="my-1">
     <li class="list-group-item border-0 p-0">
       <div class="d-flex">
         <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
@@ -72,8 +73,8 @@
         </div>
       </div>
     </li>
-    <% } %>
     <hr class="my-1">
+    <% } %>
 
     <ul class="list-group w-100" id="chatList">
     

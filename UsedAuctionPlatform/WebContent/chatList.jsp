@@ -64,6 +64,7 @@ a {
 		<div class="container">
 			<ul class="list-group w-100" id="scroll">
 				<% if(chatList != null){ %>
+					<hr class="my-1">				
 					<% for(int i=0; i<chatList.size(); i++){ %>
 					<% String toId = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToId() : chatList.get(i).getFromId(); %>
 					<% String toNickName = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToNickName() : chatList.get(i).getFromNickName(); %>
