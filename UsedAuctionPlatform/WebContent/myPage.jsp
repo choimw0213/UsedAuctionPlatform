@@ -41,11 +41,14 @@
 .nicknameP {
 	transform: translateY(40%);
 	font-size:15px;
+	text-align:right
 }
 
 .rateP {
 	transform: translateY(-5%);
 	font-size:15px;
+	text-align:right;
+	width:100px;
 }
 
 .modal-header {
@@ -101,19 +104,19 @@ a {
 .cBeB {
 	display: flex;
 	flex-wrap: nowrap;
-	transform: translateX(-5%);
+	transform: translateX(20%);
 }
 
 .chargeButton {
-	transform: translateX(-50%);
+	transform: translateX(-25%);
 }
 
 .aButtons {
-	transform: translateX(-8%);
+	transform: translateX(17%);
 }
 
 .loPointFont {
-	transform: translateX(-8%);
+	transform: translateX(17%);
 }
 
 button {
