@@ -259,6 +259,7 @@
 		}
 		
 		
+		
 		hopeList = function(h, sort){		// 등록순, 입찰건순, 마감임박순
 			$.ajax({
 				url : "controller?cmd=sortAction",
