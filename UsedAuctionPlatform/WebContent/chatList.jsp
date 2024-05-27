@@ -64,7 +64,7 @@ a {
 		<div id="top">
 			<div id="previous"></div>
 			<h6 id="top-head">채팅</h6>
-			<a href="chat.jsp"> <img src="images/icon/headset.png">
+			<div></div>
 			</a>
 		</div>
 
