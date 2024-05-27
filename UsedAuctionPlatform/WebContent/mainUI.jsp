@@ -15,6 +15,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 <link rel='stylesheet'
 	href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel='stylesheet' 
+	href='https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script
@@ -135,10 +137,11 @@
 			</c:forEach>
 		</div>
 
-		<button class="btn btn-primary floating-btn border-0" id="addProduct"
-			style="background-color: #FF922E; position: relative; bottom: 10px; left: 130px; border-radius: 50%">
-			<i class="fi fi-rr-plus-small"></i>
-		</button>
+		<div class="addProduct">
+			<button class="btn btn-primary floating-btn border-0" id="addProduct">
+				<i class="fi fi-br-plus"></i>
+			</button>
+		</div>
 
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 
@@ -358,7 +361,6 @@
 				success: function(result){
 					var data = JSON.parse(result);
 					if(data.noti === "f"){
-						console.log(data.noti);
 						$(".alarm").show();
 					}
 					else if(data.noti === "t"){

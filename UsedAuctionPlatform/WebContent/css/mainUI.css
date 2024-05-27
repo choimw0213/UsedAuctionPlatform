@@ -94,3 +94,20 @@
 	border-radius: 50%;
 	background-color: red;
 }
+.addProduct{
+	position: relative; 
+	bottom: 10px; 
+	left: 130px;
+}
+
+#addProduct{
+	height: 40px;
+ 	width: 40px;
+ 	border-radius: 100px;
+ 	background-color: #FF922E; 
+}
+
+.plus{
+	width: 16px;
+	height: 16px;
+}
