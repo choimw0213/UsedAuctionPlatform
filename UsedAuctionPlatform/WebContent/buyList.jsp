@@ -88,7 +88,9 @@
 				<% for(int i=0; i<buyList.size(); i++){ %>
 				<li class="list-group-item border-0 p-0">
 					<div class="d-flex product_card" data-productSeq="<%= buyList.get(i).getProductSeq() %>">
-						<img src="images/product/uploaded/<%= buyList.get(i).getImgURL() %>" class="img-fluid">
+						<img src="images/product/uploaded/<%= buyList.get(i).getImgURL() %>" 
+						alt="상품이미지" onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'"
+						class="img-fluid">
 						<div class="ms-1">
 							<div class="card-text d-flex">
 								<div id="item-title-group">

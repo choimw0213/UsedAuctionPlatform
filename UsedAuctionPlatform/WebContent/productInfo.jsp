@@ -38,31 +38,40 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
+				onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
             <div class="carousel-item">
-                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9"
+                onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">

@@ -3,7 +3,7 @@ package query;
 public interface ProductQuery {
 	String ADD_PRODUCT = "insert into product "
 			+ "(product_seq, user_id, title, category, address, end_date, price, start_price, content, state, start_date) "
-			+ "values(product_seq.nextval, ?, ?, ?, ?, sysdate + (? / 1440), ?, ?, ?, 'S', sysdate)";
+			+ "values(product_seq.nextval, ?, ?, ?, ?, sysdate + ?, ?, ?, ?, 'S', sysdate)";
 	
 	String GET_PRODUCT = "select user_id, title, category, address, end_date, price, start_price, content, state, start_date "
 			+ "from product where product_seq = ?";

@@ -67,7 +67,9 @@
 					<% if(sellList != null){ %>
 					<% for(int i=0; i<sellList.size(); i++){ %>
 					<div class="d-flex product_card" data-productSeq="<%= sellList.get(i).getProductSeq() %>">
-						<img src="images/product/uploaded/<%= sellList.get(i).getImgURL() %>" class="img-fluid">
+						<img src="images/product/uploaded/<%= sellList.get(i).getImgURL() %>" 
+						alt="상품이미지" onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'"
+						class="img-fluid">
 						<div class="ms-1">
 							<div class="card-text d-flex">
 								<div id="item-title-group">
