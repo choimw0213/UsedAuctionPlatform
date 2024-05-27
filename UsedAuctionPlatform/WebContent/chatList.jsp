@@ -48,6 +48,11 @@ a {
 	vertical-align: middle;
 	border-radius: 4px;
 }
+#scroll {
+	overflow-y: scroll;
+	scrollbar-width: none;
+	height: 478px;
+}
 </style>
 
 <body>
@@ -71,7 +76,7 @@ a {
 					<li class="list-group-item border-0 p-0 product_card" data-productSeq="<%= chatList.get(i).getProductSeq() %>"
 					data-toId="<%= toId %>">
 							<div class="d-flex">
-								<img src="images/product/product1/product1-img1.jpg" class="img-fluid">
+								<img src="images/product/uploaded/<%= chatList.get(i).getImgURL() %>" class="img-fluid">
 								<div class="ms-1">
 									<div class="card-text d-flex">
 										<div id="item-title-group">

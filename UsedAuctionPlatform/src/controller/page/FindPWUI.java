@@ -13,7 +13,7 @@ public class FindPWUI implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return new URLModel("findPW.jsp", true);
+		return new URLModel("findPW.jsp", false);
 	}
 
 }

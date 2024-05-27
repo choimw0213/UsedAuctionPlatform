@@ -13,7 +13,7 @@ public class SetMyInfoUI implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return new URLModel("setMyInfo.jsp", true);
+		return new URLModel("setMyInfo.jsp", false);
 	}
 
 }

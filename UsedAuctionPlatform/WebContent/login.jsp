@@ -47,15 +47,15 @@
 			</div>
 
 			<div class="container text-center mt-3" id="linkA">
-				<a href="findID.jsp"
+				<a href="controller?cmd=findIDUI"
 					class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-1"
 					id="findIDA">아이디 찾기</a>
 				<p>|</p>
-				<a href="findPW.jsp"
+				<a href="controller?cmd=findPWUI"
 					class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-1"
 					id="findPWA">비밀번호 찾기</a>
 				<p>|</p>
-				<a href="join.jsp"
+				<a href="controller?cmd=joinUI"
 					class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-1"
 					id="joinA">회원가입</a>
 			</div>

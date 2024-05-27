@@ -8,7 +8,7 @@
 <% ArrayList<ChatVO> chat = (ArrayList<ChatVO>)request.getAttribute("chat"); %>
 <% ProductBoxDTO product = (ProductBoxDTO)request.getAttribute("product"); %>
 <% String toNickName = (String)request.getAttribute("toNickName"); %>
-
+<% if(userId.equals(request.getParameter("toId"))) response.sendRedirect("controller?cmd=chatListUI"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +52,7 @@
 	<hr class="my-1">
     <li class="list-group-item border-0 p-0">
       <div class="d-flex">
-        <img src="images/product/product1/product1-img1.jpg" class="img-fluid">
+        <img src="images/product/uploaded/<%= product.getImgURL() %>" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
             <h6><%= product.getTitle() %></h6>
