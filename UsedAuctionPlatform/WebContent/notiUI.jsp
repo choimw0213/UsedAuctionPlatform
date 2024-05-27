@@ -85,18 +85,40 @@
 			$(".pr").each(function(){
 				$(this).text(Number($(this).text()).toLocaleString('ko-KR') + "P에 입찰하셨습니다.");
 			})
+			getNoti();
+			getInfiniteNoti();
 			cardClick();
 			
 			$("#previous").on('click', function(){
 				location.href = document.referrer;
 			})
-			
+
 		})
 		cardClick = function(){
 			$(".card").on('click', function() {
 				location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
 			})
 		}
+		
+		function getNoti(){
+			$.ajax({
+				type: "POST",
+				url: "controller?cmd=getNotiListAction",
+				data: {	},
+				success: function(result){
+					$("#scroll").html(result);
+					cardClick();
+				}
+			});		
+		}
+
+		function getInfiniteNoti(){
+			setInterval(function(){
+				getNoti();
+			},3000);		
+		}
+		
+		
 	</script>
 </body>
 

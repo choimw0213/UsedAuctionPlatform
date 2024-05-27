@@ -17,7 +17,7 @@ public class NotiUI implements Action {
 
 		String id = (String)request.getSession().getAttribute("userId");
 		boolean res = new NotiService().setNotiState(id);	
-		request.setAttribute("list", new NotiService().getNotiList(id));	
+		request.setAttribute("list", new NotiService().getNotiList(id));
 		return new URLModel("notiUI.jsp");
 	}
 
