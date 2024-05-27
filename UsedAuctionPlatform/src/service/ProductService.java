@@ -93,9 +93,10 @@ public class ProductService {
 	public String getProductImage(int productSeq){
 		String productImage = null;
 		Connection conn = null;
-		ProductDAO dao = new ProductDAO(conn);
+		ProductDAO dao = null;
 		try {
 			conn = dataSource.getConnection();
+			dao = new ProductDAO(conn);
 			productImage = (dao.getProductImage(productSeq).get(0));
 		} catch (SQLException e) {
 			e.printStackTrace();

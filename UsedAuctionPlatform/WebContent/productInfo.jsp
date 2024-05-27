@@ -38,31 +38,31 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="./images/product/product1/product1-img1.jpg" class="d-block w-100" alt="Image 1">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img2.png" class="d-block w-100" alt="Image 2">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 2">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img3.jpg" class="d-block w-100" alt="Image 3">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 3">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img4.png" class="d-block w-100" alt="Image 4">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 4">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img5.png" class="d-block w-100" alt="Image 5">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 5">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img6.jpg" class="d-block w-100" alt="Image 6">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 6">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img7.png" class="d-block w-100" alt="Image 7">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 7">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img8.png" class="d-block w-100" alt="Image 8">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 8">
             </div>
             <div class="carousel-item">
-                <img src="./images/product/product1/product1-img9.png" class="d-block w-100" alt="Image 9">
+                <img src="images/product/uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 9">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -158,6 +158,7 @@
 	var sellerId = "${productInfo.getId()}";
 	
 	$(document).ready(function() {
+		console.log("${productInfo}");
 		if(bidMax == 0){
 			$("#price :first-child").text(startPrice.toLocaleString('ko-KR') + "P");
 		}

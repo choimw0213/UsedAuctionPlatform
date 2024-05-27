@@ -179,7 +179,6 @@ public class ProductDAO {
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
-				
 				while(rs.next()){
 					if(rs.getString(12).equals(id)) continue;
 					ProductBoxDTO dto = new ProductBoxDTO(rs.getString(1), rs.getInt(2), rs.getString(3),
