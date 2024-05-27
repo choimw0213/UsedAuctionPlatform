@@ -19,8 +19,7 @@ public class AddProductAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		//String directory = "C:/Users/KOSTA/git/UsedAuctionPlatform/UsedAuctionPlatform/WebContent/WEB-INF/uploaded";
-		String directory = "C:/Users/KOSTA/git/UsedAuctionPlatform/UsedAuctionPlatform/"
-				+ "WebContent/images/product/uploaded";
+		String directory = "C:/OOPSW/java_workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/uploaded";
 		int sizeLimit = 100*1024*1024;		//100MB �젣�븳
 
 		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
