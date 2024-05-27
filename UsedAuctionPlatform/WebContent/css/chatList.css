@@ -33,10 +33,9 @@
   height: 528px;
 }
 
-.d-flex > img {
+.thumbnail{
   width: 70px;
   height: 70px;
-  object-fit: cover;
 }
 
 .d-flex > .badge {

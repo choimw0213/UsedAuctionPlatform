@@ -78,7 +78,9 @@ a {
 					<li class="list-group-item border-0 p-0 product_card" data-productSeq="<%= chatList.get(i).getProductSeq() %>"
 					data-toId="<%= toId %>">
 							<div class="d-flex">
-								<img src="uploaded/<%= chatList.get(i).getImgURL() %>" class="img-fluid">
+							<div>
+								<img src="uploaded/<%= chatList.get(i).getImgURL() %>" class="thumbnail">
+							</div>
 								<div class="ms-1">
 									<div class="card-text d-flex">
 										<div id="item-title-group">
