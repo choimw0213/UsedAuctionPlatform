@@ -192,6 +192,13 @@ previous.addEventListener('click', function() {
 })
 
 
+var lastChatSize = 
+<% if(chat != null){ %>
+<%= chat.size() %>;
+<% } else { %>
+0;
+<% } %>
+//console.log('lastChatSize : '+lastChatSize);
 
 function getChat(){
 	$.ajax({
@@ -204,8 +211,15 @@ function getChat(){
 		},
 		success: function(result){
 			$("#chatList").html(result);
-		    var chatList = document.getElementById('chatList');
-		    chatList.scrollTop = chatList.scrollHeight;
+			
+			var chatSize = parseInt($("#chatSize").val());
+			//console.log('chatSize : '+chatSize);
+			
+			if(chatSize > 0 && chatSize > lastChatSize){
+			    var chatList = document.getElementById('chatList');
+			    chatList.scrollTop = chatList.scrollHeight;
+			    lastChatSize = chatSize;
+			}
 		}
 	});		
 }

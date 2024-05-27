@@ -42,3 +42,4 @@
       	<% } %>
       <% } %>
       <% } %>
+      <input type="hidden" id="chatSize" value="<%= chat != null ? chat.size() : 0 %>">
