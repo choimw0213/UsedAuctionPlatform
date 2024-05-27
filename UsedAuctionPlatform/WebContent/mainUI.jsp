@@ -366,6 +366,7 @@
 					else if(data.noti === "t" || data.noti === "null"){
 						$(".alarm").hide();
 					}
+					
 				}
 			});	
 		}
