@@ -104,11 +104,6 @@
 				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감: ${productInfo.getEndDate()}</span>
 			</div>
 			<hr>
-			<div id="button">
-				<div id="bid_button">입찰</div>
-				<div id="buy_button">즉시 구매</div>
-			</div>
-			<hr>
 			<div id="content">
 				<span>${productInfo.getContent()}</span>
 			</div>
@@ -153,8 +148,15 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="/navbar_home.jsp"></jsp:include>
-	</div>
+		<div id="bottom">
+			<div id="button">
+				<div id="bid_button">입찰</div>
+				<div id="buy_button">즉시 구매</div>
+			</div>
+			<jsp:include page="/navbar_home.jsp"></jsp:include>
+	
+		</div>
+		</div>
 	<script type="text/javascript">
 	var startPrice = ${productInfo.getStartPrice()};
 	var bidMax = ${productInfo.getBidMax()};

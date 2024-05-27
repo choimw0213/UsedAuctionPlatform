@@ -35,9 +35,11 @@
 a {
 	text-decoration: none;
 	color: #000000;
+	margin-right: 5px;
 }
 #top {
-	margin-top: 10px;
+	padding-top: 10px;
+	padding-left: 5px;
 }
 #unreadCount {
 	color: white;
@@ -51,7 +53,7 @@ a {
 #scroll {
 	overflow-y: scroll;
 	scrollbar-width: none;
-	height: 478px;
+	height: 468px;
 }
 </style>
 
