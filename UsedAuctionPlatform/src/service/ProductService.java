@@ -188,7 +188,6 @@ public class ProductService {
 			UserDAO uDao = new UserDAO(conn);
 			conn.setAutoCommit(false);
 			for(int i=0; i<dtoList.size(); i++){
-				System.out.println(dtoList.get(i).getEndDate().isAfter(now));
 				if(dtoList.get(i).getEndDate().isBefore(now)){
 					if(dtoList.get(i).getBidCount() == 0){
 						uDao.setProductState(dtoList.get(i).getProductSeq()); //상태 -> E
