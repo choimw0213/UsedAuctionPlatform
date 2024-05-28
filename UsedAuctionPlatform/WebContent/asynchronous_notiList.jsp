@@ -35,7 +35,7 @@
 												<span class="badge badge-s">판매품</span>
 											</c:when>
 											<c:otherwise>
-												<span class="badge bg-info">구매품</span>
+												<span class="badge badge-t">구매품</span>
 											</c:otherwise>
 										</c:choose>
 									</div>

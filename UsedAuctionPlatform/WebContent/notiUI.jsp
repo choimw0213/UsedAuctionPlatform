@@ -70,7 +70,7 @@
 												<span class="badge badge-s">판매품</span>
 											</c:when>
 											<c:otherwise>
-												<span class="badge bg-info">구매품</span>
+												<span class="badge badge-t">구매품</span>
 											</c:otherwise>
 										</c:choose>
 									</div>
@@ -104,7 +104,7 @@
 				$(this).text(Number($(this).text()).toLocaleString('ko-KR') + "P에 입찰하셨습니다.");
 			})
 			getNoti();
-			getInfiniteNoti();
+			//getInfiniteNoti();
 			cardClick();	
 			$("#previous").on('click', function(){
 				location.href = document.referrer;
