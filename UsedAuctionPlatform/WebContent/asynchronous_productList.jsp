@@ -9,7 +9,7 @@
 		<div class="card d-flex align-items-center border-0 mt-5 pt-5">
 			<img src="./images/product/uploaded/logo.png" class="logo">
 			<div class="card-body">
-				<p class="card-text">물품이 없습니다.</</p>
+				<p class="card-text">물품이 없습니다.</p>
 			</div>
 		</div>
 	</c:when>
