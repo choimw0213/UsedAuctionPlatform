@@ -24,10 +24,15 @@ public class ReportService {
 	public boolean addReport(String userId, int productSeq, String reportContent){
 		boolean result = false;
 		Connection conn = null;
+		ReportDAO dao = null;
 		try {
 			conn = dataSource.getConnection();
+			dao = new ReportDAO(conn);
 			conn.setAutoCommit(false);
-			result = new ReportDAO(conn).addReport(userId, productSeq, reportContent);
+			result = dao.addReport(userId, productSeq, reportContent);
+			if(result){
+				dao.setReportCount(userId);
+			}
 			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
