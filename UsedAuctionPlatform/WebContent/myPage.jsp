@@ -294,7 +294,7 @@ button {
 								<input class="form-check-input" type="checkbox" value=""
 									id="flexCheckDefault2"> <label
 									class="form-check-label" for="flexCheckDefault">
-									2. 탈퇴 후 서비스 내에서 충전한 금액은 소멸됩니다. </label>
+									2. 탈퇴 후 서비스 내에서 충전한 포인트는 소멸됩니다. </label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value=""
