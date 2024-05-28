@@ -22,7 +22,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
 <link rel="stylesheet" href="css/common.css">
 <!-- <link rel="stylesheet" href="css/myPage.css"> -->
-<title>Insert title here</title>
+<title>호박마켓 : 마이페이지</title>
 <style>
 #imgIcon {
 	width: 60px;
@@ -323,15 +323,25 @@ button {
 		    
 		    if (numP > 0) {
 		      pointAct = pointAct + numP;
-		    } else if (numM > 0 && numM <= numMyPoint) {
-		      pointAct = pointAct - numM;
-		    } else if(numP == 0 && numM == 0){
-		      alert('포인트를 입력해주세요.')		
+		    } else if (numP == 0 && numM == 0) {
+		      alert('포인트를 입력해주세요.')
 		      return;
-		    } else {
-		      alert('포인트가 부족합니다.');
-		      return;
-		    }
+		    } else if(numM <= numMyPoint){
+		      pointAct = pointAct - numM; 
+		      
+		    } 
+		    
+		    
+/* 			if (numM != 0) {
+				if (myPoint >= numM) {
+					
+		
+					return;
+				
+			} else {
+				alert("포인트를 입력해주세요");
+				return;
+			} */
 
  		    
 		    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
@@ -359,13 +369,13 @@ button {
 	
 	
 	
-	
+/* 	
 	function exchangeTest() {
 		var num1 = parseInt(document.getElementById("myPoint").textContent);
 		var num2 = document.getElementById("minusPoint").value;
 
-		if (num2 != 0) {
-			if (num1 >= num2) {
+		if (numM != 0) {
+			if (myPoint >= numM) {
 				return true;
 			} else {
 				alert("포인트가 부족합니다");
@@ -391,7 +401,7 @@ button {
 			return false;
 		}
 
-	}	
+	}	 */
 </script>
 </body>
 </html>

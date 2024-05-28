@@ -16,7 +16,7 @@ public class SetPWAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String page = "setPW.jsp";
+		String page = "controller?cmd=setPWUI";
 		HttpSession session = request.getSession();
 		
 		
@@ -27,7 +27,7 @@ public class SetPWAction implements Action {
 		
 		
 		if(new SetPWService().setPw(id, pw)){
-			page = "login.jsp";
+			page = "controller?cmd=loginUI";
 		}
 		
 		

@@ -18,7 +18,7 @@ public class SetMyInfoAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String page = "setMyInfo.jsp";
+		String page = "controller?cmd=setMyInfoUI";
 		
 		
 		HttpSession session = request.getSession();
@@ -36,7 +36,7 @@ public class SetMyInfoAction implements Action {
 
 		
 		if(new SetMyInfoService().setUser(id, pw, nickname, phoneNumber, email, address)){
-			page = "login.jsp";
+			page = "controller?cmd=loginUI";
 		}		
 		
 		

@@ -15,7 +15,7 @@ public class FindPWAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String page = "findPW.jsp";
+		String page = "controller?cmd=findPWUI";
 		
 		String id = request.getParameter("userId");
 		String name = request.getParameter("name");
@@ -26,7 +26,7 @@ public class FindPWAction implements Action {
 
 		
 		if(new FindPWService().findPW(id, name, email)){
-			page = "setPW.jsp";
+			page = "controller?cmd=setPWUI";
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 		}

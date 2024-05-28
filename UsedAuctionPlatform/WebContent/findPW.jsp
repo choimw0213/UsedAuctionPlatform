@@ -15,7 +15,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
-<title>Insert title here</title>
+<title>호박마켓 : 비밀번호 찾기</title>
 <style>
 .img {
 	width: 23px;

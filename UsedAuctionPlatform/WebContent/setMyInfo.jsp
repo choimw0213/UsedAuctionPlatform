@@ -18,7 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/setMyInfo.css">
-<title>Insert title here</title>
+<title>마이페이지 : 회원 정보 수정</title>
 <style>
 .img {
 	width: 23px;

@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/addProduct.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인 : 글 등록</title>
 </head>
 <body>
 <div id = "project_container">

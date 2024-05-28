@@ -17,7 +17,7 @@ public class JoinAction implements Action {
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String page = "join.jsp";
+		String page = "controller?cmd=joinUI";
 		String id = request.getParameter("userId");
 		String pw = request.getParameter("userPw");
 		String name = request.getParameter("name");
@@ -31,7 +31,7 @@ public class JoinAction implements Action {
 		System.out.println(pw);
 		
 		if(new JoinService().addUser(id, pw, name, nickname, phoneNumber, email, address)){
-			page = "login.jsp";
+			page = "controller?cmd=loginUI";
 		}
 		
 		return new URLModel(page, true);

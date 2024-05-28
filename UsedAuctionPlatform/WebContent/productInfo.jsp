@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/productInfo.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>메인 : 게시글 정보</title>
 </head>
 <body>
 	<div id="project_container">
