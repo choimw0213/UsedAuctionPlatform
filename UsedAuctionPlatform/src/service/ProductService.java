@@ -201,18 +201,24 @@ public class ProductService {
 	public boolean setProductStateByEndDate(ArrayList<ProductBoxDTO> dtoList) {
 		Connection conn = null;
 		boolean result = false;
+		ArrayList<BidVO> refundList = null;
 		LocalDateTime now = LocalDateTime.now();
 		try {
 			conn = dataSource.getConnection();
 			BidDAO bDao = new BidDAO(conn);
 			UserDAO uDao = new UserDAO(conn);
 			conn.setAutoCommit(false);
+
 			for(int i=0; i<dtoList.size(); i++){
 				if(dtoList.get(i).getEndDate().isBefore(now)){
 					if(dtoList.get(i).getBidCount() == 0){
 						uDao.setProductState(dtoList.get(i).getProductSeq()); //상태 -> E
 					}
 					else{
+						refundList = bDao.getBidList(dtoList.get(i).getProductSeq());
+						for(int j=0; j<refundList.size(); j++){
+						uDao.setPoint(refundList.get(j).getUserId(), refundList.get(j).getBidPrice());
+					}
 						bDao.setProductState(dtoList.get(i).getProductSeq()); //상태 -> T
 					}
 				}
