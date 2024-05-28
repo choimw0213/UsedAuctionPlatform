@@ -39,7 +39,8 @@
 						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a> <a class="dropdown-item"
 							href="#">강동구</a> <a class="dropdown-item" href="#">강북구</a> <a
 							class="dropdown-item" href="#">강서구</a> <a class="dropdown-item"
-							href="#">관악구</a>
+							href="#">관악구</a><a class="dropdown-item"
+							href="#">광진구</a>
 					</div>
 				</div>
 
@@ -81,20 +82,21 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<c:choose>
-			<c:when test="${empty list}">
-				<div class="card d-flex align-items-center border-0 mt-5 pt-5">
-	 				 <img src="./images/product/uploaded/logo.png" class="logo">
-	  				<div class="card-body">
-	    				<p class="card-text">물품이 없습니다.</</p>
-	  				</div>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
-				id="scroll">
-				<c:forEach items='${list}' var='p'>
+		</div>		
+		
+		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
+				id="scroll">			
+			<c:choose>
+				<c:when test="${empty list}">
+						<div class="card d-flex align-items-center border-0 mt-5 pt-5">
+			 				<img src="./images/product/uploaded/logo.png" class="logo">
+			  			<div class="card-body">
+			    			<p class="card-text">물품이 없습니다.</</p>
+			  			</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+			<c:forEach items='${list}' var='p'>
 					<div class="card d-flex align-items-center border-0 p-2"
 						data-productseq="${p.getProductSeq()}">
 						<div class="row align-content-center w-100">
@@ -142,9 +144,9 @@
 					</div>
 					<hr class="m-0">
 				</c:forEach>
-			</div>
-			</c:otherwise>
-		</c:choose>
+				</c:otherwise>
+			</c:choose>		
+		</div>
 
 		<div class="row d-flex addProduct">
 			<button class="btn btn-primary floating-btn border-0" id="addProduct">
