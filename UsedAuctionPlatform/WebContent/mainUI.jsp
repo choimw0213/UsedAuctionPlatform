@@ -81,8 +81,7 @@
 					</div>
 				</div>
 			</div>
-		</div>		
-		
+		</div>	
 		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 				id="scroll">			
 			<c:choose>

@@ -11,7 +11,7 @@
 			<div class="card-body">
 				<p class="card-text">물품이 없습니다.</p>
 			</div>
-		</div>
+		</div> 
 	</c:when>
 	<c:otherwise>
 		<c:forEach items='${list}' var='p'>
