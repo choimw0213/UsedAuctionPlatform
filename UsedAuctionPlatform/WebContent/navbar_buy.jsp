@@ -41,7 +41,7 @@ function getUnread(){
 		},
 		success: function(result){
 			var data = JSON.parse(result);
-			console.log(data.count);
+			//console.log(data.count);
 			if(data.count >= 1){
 				showUnread(data.count);
 			} else {

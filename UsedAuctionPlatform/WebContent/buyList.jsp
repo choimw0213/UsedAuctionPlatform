@@ -153,36 +153,37 @@
 				
 			</ul>
 			
-			<div class="modal fade" id="exampleModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered justify-content-center">
-					<div class="modal-content">
-						<div class="modal-header d-flex justify-content-center">
-							<h5 class="modal-title" id="exampleModalLabel">평가</h5>
-						</div>
-						<div class="modal-body">
-							<div id="starContainer">
-								<div class="star" id="star1"></div>
-								<div class="star" id="star2"></div>
-								<div class="star" id="star3"></div>
-								<div class="star" id="star4"></div>
-								<div class="star" id="star5"></div>
-							</div>
-						</div>
-						<div class="modal-footer justify-content-center">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">취소</button>
-							<button id="save" type="button" class="btn btn-primary">확인</button>
-						</div>
-					</div>
-				</div>
-			</div>
+
 			
 		</div>
 		<jsp:include page="/navbar_buy.jsp"></jsp:include>
 	</div>
+	
+      <div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">평가</h5>
+            </div>
+            <div class="modal-body">
+              <div id="starContainer">
+                <div class="star" id="star1"></div>
+                <div class="star" id="star2"></div>
+                <div class="star" id="star3"></div>
+                <div class="star" id="star4"></div>
+                <div class="star" id="star5"></div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">취소</button>
+              <button id="save" type="button" class="btn btn-primary">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>	
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 		// 별 이미지 요소 가져오기
 		const stars = document.querySelectorAll('.star');
@@ -262,67 +263,75 @@
 		$(".buyComplete").on('click', function(){
 			productSeq = this.dataset.productseq;
 		});
-	</script>
 
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          var selling = document.querySelector('#selling');
-          var sellComplete = document.querySelector('#sellComplete');
+    document.addEventListener('DOMContentLoaded', function() {
+        var selling = document.querySelector('#selling');
+        var sellComplete = document.querySelector('#sellComplete');
 
-          selling.style.backgroundColor = '#E07F39';
-          selling.style.borderColor = '#E07F39';
+        selling.style.backgroundColor = '#E07F39';
+        selling.style.borderColor = '#E07F39';
 
-          selling.addEventListener('click', function(){
-              selling.style.backgroundColor = '#E07F39';
-              selling.style.borderColor = '#E07F39';
+        selling.addEventListener('click', function(){
+            selling.style.backgroundColor = '#E07F39';
+            selling.style.borderColor = '#E07F39';
 
-              sellComplete.style.backgroundColor = '#FFB966';
-              sellComplete.style.borderColor = '#FFB966';
+            sellComplete.style.backgroundColor = '#FFB966';
+            sellComplete.style.borderColor = '#FFB966';
 
-              $.ajax({
-                  url: "controller?cmd=buyListAction",
-                  type: "POST",
-                  data: {
-                      type: "buying"
-                  },
-                  success: function(response) {
-                      $("#buyList").html(response);
-                      cardClick();
-                  }
-              });
-          });
-
-          sellComplete.addEventListener('click', function(){
-              sellComplete.style.backgroundColor = '#E07F39';
-              sellComplete.style.borderColor = '#E07F39';
-
-              selling.style.backgroundColor = '#FFB966';
-              selling.style.borderColor = '#FFB966';        
-
-              $.ajax({
-                  url: "controller?cmd=buyListAction",
-                  type: "POST",
-                  data: {
-                      type: "buyComplete"
-                  },
-                  success: function(response) {
-                      $("#buyList").html(response);
-                      cardClick();
-                  }
-              });
-          });
-          
-      $(document).ready(function() {
-        cardClick();
-      });
-      
-      cardClick = function(){
-        $(".product_card").on('click', function() {
-          location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+            $.ajax({
+                url: "controller?cmd=buyListAction",
+                type: "POST",
+                data: {
+                    type: "buying"
+                },
+                success: function(response) {
+                    $("#buyList").html(response);
+                    cardClick();
+                    buyCompleteClick();
+                }
+            });
         });
-      };
+
+        sellComplete.addEventListener('click', function(){
+            sellComplete.style.backgroundColor = '#E07F39';
+            sellComplete.style.borderColor = '#E07F39';
+
+            selling.style.backgroundColor = '#FFB966';
+            selling.style.borderColor = '#FFB966';        
+
+            $.ajax({
+                url: "controller?cmd=buyListAction",
+                type: "POST",
+                data: {
+                    type: "buyComplete"
+                },
+                success: function(response) {
+                    $("#buyList").html(response);
+                    cardClick();
+                    buyCompleteClick();
+                }
+            });
+        });
+        
+    $(document).ready(function() {
+      cardClick();
+      buyCompleteClick();
+    });
+    
+    cardClick = function(){
+      $(".product_card").on('click', function() {
+        location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
       });
-      
+    };
+
+    buyCompleteClick = function(){
+        $(".buyComplete").on('click', function(){
+            productSeq = this.dataset.productseq;
+        });       
+    };
+    
+    });
+
   </script>
 
 </body>
