@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import config.SHA256;
 import controller.Action;
 import controller.URLModel;
 import service.LoginService;
@@ -21,9 +22,13 @@ public class LoginAction implements Action {
 		String userPw = request.getParameter("userPw");
 		HttpSession session = request.getSession();
 		
+		//System.out.println(userPw);
+		userPw = SHA256.encrypt(userPw);
+		//System.out.println(userPw);
+		
 		UserVO vo = loginService.login(userId, userPw);
 		if(vo == null){
-			return new URLModel("login.jsp", true);
+			return new URLModel("controller?cmd=loginUI", true);
 		}
 		
 		String[] address = vo.getAddress().split(" ");
@@ -41,10 +46,10 @@ public class LoginAction implements Action {
 			session.setAttribute("address", address[1]);
 			return new URLModel("controller?cmd=mainManagerUI", true);
 		} else if(vo.getUserType().equals("D")){
-			return new URLModel("login.jsp", true);
+			return new URLModel("controller?cmd=loginUI", true);
 		}
 		
-		return new URLModel("login.jsp", true);
+		return new URLModel("controller?cmd=loginUI", true);
 	}
 
 }

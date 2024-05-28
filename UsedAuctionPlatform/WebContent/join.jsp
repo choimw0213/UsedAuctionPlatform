@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId ne null}">
 	<c:redirect url="controller?cmd=mainUI" />
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,6 +20,17 @@
 <style>
 .fontJoinP {
 	font-size: 27.4px;
+}
+.selectItems{
+	font-size:10px;
+	
+}
+
+.selectCity{
+	height:30px;
+}
+.selectDistrict{
+	height:30px;
 }
 </style>
 </head>
@@ -89,12 +99,12 @@
 						<label class="col-form-label pt-1 mb-4">주소</label>
 					</div>
 					<div class="col-7 ms-1">
-						<select class="form-select form-select-sm mb-2"
+						<select class="selectCity form-select form-select-sm mb-2"
 							aria-label=".form-select-sm example" name="cityAddress"
 							onchange="selectBox1(this.value);">
 							<option selected value="서울특별시">서울특별시</option>
 						</select> 
-						<select class="form-select form-select-sm"
+						<select class="selectDistrict form-select form-select-sm"
 							aria-label=".form-select-smexample" name="districtAddress"
 							onchange="selectBox2(this.value);">
 							<option selected class="selectItems">강남구</option>
