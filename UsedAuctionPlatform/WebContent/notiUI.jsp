@@ -105,8 +105,7 @@
 			})
 			getNoti();
 			getInfiniteNoti();
-			cardClick();
-			
+			cardClick();	
 			$("#previous").on('click', function(){
 				location.href = document.referrer;
 			})
