@@ -286,34 +286,22 @@ button {
 						<div class="modal-body">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value=""
-									id="flexCheckDefault0"> <label class="form-check-label"
-									for="flexCheckDefault"> 1. 탈퇴 후에는 서비스 이용 기간 동안 발생한 모든 데이터가 삭제됩니다. 중요한 데이터는 탈퇴 전에 백업하세요.포인트가 다 날아갑니다 </label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
 									id="flexCheckDefault1" > <label
 									class="form-check-label" for="flexCheckDefault">
-									2. 구매한 상품, 이용한 서비스 내역 등을 확인하세요. 탈퇴 후에는 구매 내역 확인이 불가능하며, 환불 불가될 수 있습니다. </label>
+									1. 탈퇴 후 서비스 이용내역 확인이 불가능합니다. </label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value=""
 									id="flexCheckDefault2"> <label
 									class="form-check-label" for="flexCheckDefault">
-									3. 서비스 내에서 적립된 금액은 탈퇴 후 소멸됩니다. </label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="flexCheckDefault3" > <label
-									class="form-check-label" for="flexCheckDefault">
-									4. 서비스 내에서 적립된 금액은 탈퇴 후 소멸됩니다. </label>
+									2. 탈퇴 후 서비스 내에서 충전한 금액은 소멸됩니다. </label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value=""
 									id="flexCheckDefault4" > <label
 									class="form-check-label" for="flexCheckDefault">
-									5. 탈퇴 후 동일한 아이디로 재가입이 불가능할 수 있습니다. </label>
+									3. 탈퇴 후 동일한 아이디로 재가입이 불가능합니다. </label>
 							</div>
-														
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="stopSuicideBtn btn btn-secondary"
