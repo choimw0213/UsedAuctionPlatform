@@ -4,49 +4,66 @@
 <c:if test="${userId eq null}">
 	<c:redirect url="controller?cmd=loginUI" />
 </c:if>
-<c:forEach items='${list}' var='p'>
-	<div class="card d-flex align-items-center border-0 p-2"
-		data-productSeq="${p.getProductSeq()}">
-		<div class="row align-content-center w-100">
-			<div
-				class="d-flex align-items-center justify-content-center h-100 ps-0 pe-0">
-				<div>
-					<img src="uploaded/${p.getImgURL()}"
-						class="thumbnail " />
-				</div>
-				<div class="ms-2 w-100">
-					<div
-						class="card-text d-flex align-items-start justify-content-between">
-						<h6>${p.getTitle()}</h6>
-						<div class="d-flex justify-content-end ms-1">
-							<span class="badge badge-s">경매중</span>
-						</div>
-					</div>
-					<div class="d-flex text-group pt-1">
-						<p class="product-info">${p.getCategory()}</p>
-						<p class="product-info ms-2 me-2">|</p>
-						<p class="product-info">${p.getAddress()}</p>
-					</div>
-					<div class="text-group-point pt-1 pb-1">
-						<p class="bpr m-0 text-danger" id="bidMax">
-							<c:choose>
-								<c:when test="${p.getBidMax() == 0}">
-								${p.getStartPrice()}
-							</c:when>
-								<c:otherwise>
-								${p.getBidMax()}
-							</c:otherwise>
-							</c:choose>
-						</p>
-						<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
-					</div>
-					<div class="d-flex justify-content-between text-group">
-						<p class="product-info endDate">${p.getEndDate()}</p>
-						<p class="product-info me-2">입찰 ${p.getBidCount()}건</p>
-					</div>
-				</div>
+
+<c:choose>
+	<c:when test="${empty list}">
+		<div class="card d-flex align-items-center border-0 mt-5 pt-5">
+			<img src="./images/product/uploaded/logo.png" class="logo">
+			<div class="card-body">
+				<p class="card-text">물품이 없습니다.</</p>
 			</div>
 		</div>
-	</div>
-	<hr class="m-0">
-</c:forEach>
+	</c:when>
+	<c:otherwise>
+		<div
+			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
+			id="scroll">
+			<c:forEach items='${list}' var='p'>
+				<div class="card d-flex align-items-center border-0 p-2"
+					data-productseq="${p.getProductSeq()}">
+					<div class="row align-content-center w-100">
+						<div class="d-flex align-items-center justify-content-center p-0">
+							<div>
+								<img src="uploaded/${p.getImgURL()}" class="thumbnail" />
+							</div>
+
+							<div class="ms-2 w-100">
+								<div
+									class="card-text d-flex align-items-start justify-content-between">
+									<h6>${p.getTitle()}</h6>
+									<div class="d-flex justify-content-end ms-1">
+										<span class="badge badge-s">경매중</span>
+									</div>
+								</div>
+								<div class="d-flex text-group pt-1">
+									<p class="product-info">${p.getCategory()}</p>
+									<p class="product-info ms-2 me-2">|</p>
+									<p class="product-info">${p.getAddress()}</p>
+								</div>
+								<div class="text-group-point pt-1 pb-1">
+									<p class="bpr m-0 text-danger" id="bidMax">
+										<c:choose>
+											<c:when test="${p.getBidMax() == 0}">
+												${p.getStartPrice()}
+											</c:when>
+											<c:otherwise>
+												${p.getBidMax()}
+											</c:otherwise>
+										</c:choose>
+
+									</p>
+									<p class="pr m-0" id="nowprice">${p.getPrice()}</p>
+								</div>
+								<div class="d-flex justify-content-between text-group">
+									<p class="product-info endDate">${p.getEndDate()}</p>
+									<p class="product-info me-2">입찰 ${p.getBidCount()}건</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="m-0">
+			</c:forEach>
+		</div>
+	</c:otherwise>
+</c:choose>
