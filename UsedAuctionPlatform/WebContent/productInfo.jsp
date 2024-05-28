@@ -141,6 +141,7 @@
 		}
 		location.href = "controller?cmd=chatUI&productSeq=" + productSeq +"&toId=" + sellerId;
 	})
+	
 	$("#add_report").click(function(){
 		var reportContent = $("#report_content").val();
  		if(reportContent == ""){
