@@ -29,7 +29,7 @@
   border-color: #FFB966;
 }
 .truncate {
-    width: 140px;
+    width: 160px;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;

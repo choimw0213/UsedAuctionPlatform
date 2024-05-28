@@ -76,6 +76,13 @@
   margin-left: auto;
   margin-right: 10px;
 }
+.truncate {
+    width: 160px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
 </style>
 </head>
 
