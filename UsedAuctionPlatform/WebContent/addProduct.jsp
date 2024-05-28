@@ -172,6 +172,10 @@
 	})
 	
 	function addSubmit(){
+		if($("#input_file").val() == ""){
+			alert("상품 이미지를 등록해주세요!");
+			return false;
+		}
 		if($("#category_value").val() == "카테고리"){
 			alert("카테고리를 선택해주세요!");
 			return false;
