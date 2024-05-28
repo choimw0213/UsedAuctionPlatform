@@ -70,6 +70,12 @@
 	overflow-y: scroll;
 	scrollbar-width: none;
 }
+
+.button {
+  float: right !important;
+  margin-left: auto;
+  margin-right: 10px;
+}
 </style>
 </head>
 
@@ -237,6 +243,67 @@
 			productSeq = this.dataset.productseq;
 		});
 	</script>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var selling = document.querySelector('#selling');
+          var sellComplete = document.querySelector('#sellComplete');
+
+          selling.style.backgroundColor = '#E07F39';
+          selling.style.borderColor = '#E07F39';
+
+          selling.addEventListener('click', function(){
+              selling.style.backgroundColor = '#E07F39';
+              selling.style.borderColor = '#E07F39';
+
+              sellComplete.style.backgroundColor = '#FFB966';
+              sellComplete.style.borderColor = '#FFB966';
+
+              $.ajax({
+                  url: "controller?cmd=sellListAction",
+                  type: "POST",
+                  data: {
+                      type: "selling"
+                  },
+                  success: function(response) {
+                      $("#scroll").html(response);
+                      cardClick();
+                  }
+              });
+          });
+
+          sellComplete.addEventListener('click', function(){
+              sellComplete.style.backgroundColor = '#E07F39';
+              sellComplete.style.borderColor = '#E07F39';
+
+              selling.style.backgroundColor = '#FFB966';
+              selling.style.borderColor = '#FFB966';        
+
+              $.ajax({
+                  url: "controller?cmd=sellListAction",
+                  type: "POST",
+                  data: {
+                      type: "sellComplete"
+                  },
+                  success: function(response) {
+                      $("#scroll").html(response);
+                      cardClick();
+                  }
+              });
+          });
+          
+      $(document).ready(function() {
+        cardClick();
+      });
+      
+      cardClick = function(){
+        $(".product_card").on('click', function() {
+          location.href = "controller?cmd=productInfoUI&productSeq="+ this.dataset.productseq;
+        });
+      };
+      });
+      
+  </script>
 
 </body>
 </html>

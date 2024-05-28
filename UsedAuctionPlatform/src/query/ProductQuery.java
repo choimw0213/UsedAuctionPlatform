@@ -77,7 +77,7 @@ public interface ProductQuery {
 			+ "group by product_img, p.product_seq, title, category, start_price, price, address, end_date, state, start_date "
 			+ "order by start_date desc";
 
-	String GET_LIST_COMPLETE_HISTORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
+	String GET_LIST_SELL_COMPLETE_HISTORY = "select product_img, p.product_seq, title, category, start_price, price, address, end_date, state, count(bid_price)-1, MAX(bid_price) "
 			+ "from product p, product_img i, bid b "
 			+ "where b.product_seq = p.product_seq and p.product_seq = i.product_seq and "
 			+ "img_seq in (select min(img_seq) from product_img group by product_seq) "
@@ -116,6 +116,8 @@ public interface ProductQuery {
 			+ "GROUP BY i.PRODUCT_IMG, p.PRODUCT_SEQ, p.TITLE, p.CATEGORY, p.START_PRICE, p.PRICE, p.ADDRESS, p.END_DATE, p.STATE, p.USER_ID, p.START_DATE "
 			+ "ORDER BY p.START_DATE DESC";
 
+	String GET_LIST_BUY_COMPLETE_HISTORY = "";
+	
 }
 
 
