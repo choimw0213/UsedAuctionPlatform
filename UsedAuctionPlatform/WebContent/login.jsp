@@ -16,7 +16,7 @@
 <title>호박마켓 : 로그인</title>
 <style>
 .fontLoginP{
-
+	font-size:27.4px;
 }
 </style>
 </head>
@@ -25,7 +25,7 @@
   
     <form action="controller?cmd=loginAction" method="post" id="loginForm" onsubmit="hashFormData(event)">
       <div class="row align-items-center">
-        <p class="fontLoginP fs-1 text-center pb-2">로그인</p>
+        <p class="fontLoginP text-center">로그인</p>
         <div class="row g-2 d-flex align-items-center justify-content-center pt-2">
           <div class="col-4 text-end">
             <label class="col-form-label">아이디</label>
