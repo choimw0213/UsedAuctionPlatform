@@ -209,7 +209,7 @@ label {
 		<br>
 		<br>
 		<div id="top">
-			<img class="img" src="images/icon/arrow.png" onclick="history.back()">
+			<img class="img ms-2 mt-2" src="images/icon/arrow.png" onclick="history.back()">
 		</div>
 		<form action="controller?cmd=setMyInfoAction" method="post">
 			<div class="container">

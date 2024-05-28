@@ -268,41 +268,7 @@ button {
 	</div>
 <script type="text/javascript">
 	
-/* 	$(document).ready(function() {
-	  $("#modalBtn").on("click", function() {
-		  var pointAct = 0;
-		  var numP = document.getElementById("plusPoint").value;
-		  var numM = document.getElementById("minusPoint").value;
-		  var numMyPoint = parseInt(document.getElementById("myPoint").textContent);
-		  
-		  
-		  
-		  if(numP != 0){
-	    	pointAct = pointAct + numP;
-		  }else{
-			  if(numM > numMyPoint){
-				pointAct = pointAct - numM;
-			  } else {
-			    pointAct = 0;	 
-			  }
-		  }
-	    $('.pointFont').remove();
-	    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
-	    	result_data = JSON.parse(responseText);
-	    	//$("nickCheckFeedBack").html(result_data.result);
-	    	//alert(result_data.result);
-	    	var actPoint = parseInt(result_data.result);
-	    	console.log(actPoint);
-	    	if(actPoint > 0){
-	    		alert('포인트 충전 완료.')	
-	    	} else if(actPoint < 0){																																																								
-				alert('포인트 환전 완료.')
-	    	} else {
-	    		alert('포인트가 부족합니다.')
-	    	}																																																											
-	    });
-	  });
-	});  */	
+
 	
 	
 	$(".pointFont").text(Number($(".pointFont").text()).toLocaleString('ko-KR') + "P");
@@ -313,7 +279,10 @@ button {
 		    var pointAct = 0;
 		    var numP = parseInt(document.getElementById("plusPoint").value) || 0;
 		    var numM = parseInt(document.getElementById("minusPoint").value) || 0;
-		    var numMyPoint = parseInt(document.getElementById("myPoint").textContent);
+		    
+		    var numberStr = document.getElementById("myPoint").textContent;
+		    var numMyPoint = parseInt(numberStr.replace(/,/g, ""));
+		    
 			
 		    if(numP < 0 || numM < 0){
 		      alert('음수 입력불가.')	
@@ -323,25 +292,25 @@ button {
 		    
 		    if (numP > 0) {
 		      pointAct = pointAct + numP;
-		    } else if (numP == 0 && numM == 0) {
+		    }
+		    
+		    
+		    if (numP == 0 && numM == 0) {
 		      alert('포인트를 입력해주세요.')
 		      return;
-		    } else if(numM <= numMyPoint){
-		      pointAct = pointAct - numM; 
-		      
 		    } 
 		    
 		    
-/* 			if (numM != 0) {
-				if (myPoint >= numM) {
-					
-		
-					return;
-				
-			} else {
-				alert("포인트를 입력해주세요");
-				return;
-			} */
+		    console.log(numP);
+		    console.log(numM);
+		    console.log(numMyPoint);
+		    if(numM <= numMyPoint){
+			      pointAct = pointAct - numM; 
+			    } else {
+			    	alert('포인트가 부족합니다.')
+			    	return;
+			    }
+		    
 
  		    
 		    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
@@ -368,40 +337,7 @@ button {
 	
 	
 	
-	
-/* 	
-	function exchangeTest() {
-		var num1 = parseInt(document.getElementById("myPoint").textContent);
-		var num2 = document.getElementById("minusPoint").value;
 
-		if (numM != 0) {
-			if (myPoint >= numM) {
-				return true;
-			} else {
-				alert("포인트가 부족합니다");
-				return false;
-			}
-		} else {
-			alert("포인트를 입력해주세요");
-			return false;
-		}
-
-	}
-	
-	
-	
-	
-	function chargeTest() {
-		var num3 = document.getElementById("plusPoint").value;
-		
-		if (num3 != 0) {
-			return true;
-		} else {
-			alert("포인트를 입력해주세요");
-			return false;
-		}
-
-	}	 */
 </script>
 </body>
 </html>
