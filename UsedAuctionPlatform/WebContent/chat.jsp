@@ -54,6 +54,13 @@
   font-size: 12px;
   float: right;
 }
+.truncate {
+    width: 160px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
 </style>
 </head>
 
@@ -74,7 +81,7 @@
         <img src="uploaded/<%= product.getImgURL() %>" class="img-fluid">
         <div class="ms-1">
           <div class="card-text d-flex">
-            <h6><%= product.getTitle() %></h6>
+            <h6 class="truncate"><%= product.getTitle() %></h6>
             <% if(product.getState().equals("S")){ %>
             <span class="badge badge-s">판매중</span>
             <% } else if(product.getState().equals("T")){ %>
