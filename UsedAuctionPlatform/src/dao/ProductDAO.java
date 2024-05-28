@@ -172,7 +172,7 @@ public class ProductDAO {
 		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
 		DateTimeFormatter formmatter = null;
 		
-		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_COMPLETE_HISTORY)){
+		try(PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_SELL_COMPLETE_HISTORY)){
 			pstmt.setString(1, id);	
 			try(ResultSet rs = pstmt.executeQuery()){
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -210,6 +210,31 @@ public class ProductDAO {
 				}
 			}
 		} catch (SQLException e) {e.printStackTrace();}
+		
+		return list;
+	}
+	
+	public ArrayList<ProductBoxDTO> getBuyCompleteHistory(String id){
+		ArrayList<ProductBoxDTO> list = new ArrayList<>();	
+		DateTimeFormatter formmatter = null;
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(ProductQuery.GET_LIST_BUY_COMPLETE_HISTORY)){
+			pstmt.setString(1, id);
+			try(ResultSet rs = pstmt.executeQuery()){
+				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				
+				while(rs.next()){
+					ProductBoxDTO dto = new ProductBoxDTO(rs.getString("product_img"), rs.getInt("product_seq"), rs.getString("title"),
+							rs.getString("category"), rs.getInt("start_price"), rs.getInt("price"), rs.getString("address"),
+							LocalDateTime.parse(rs.getString("end_date"),formmatter), rs.getString("state"), 
+							rs.getInt("count(bid_price)-1"), rs.getInt("max(bid_price)"));
+					list.add(dto);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return list;
 	}
