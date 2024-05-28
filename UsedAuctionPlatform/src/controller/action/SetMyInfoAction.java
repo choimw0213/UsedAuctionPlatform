@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import config.SHA256;
 import controller.Action;
 import controller.URLModel;
 import service.JoinService;
@@ -20,10 +21,8 @@ public class SetMyInfoAction implements Action {
 		// TODO Auto-generated method stub
 		String page = "controller?cmd=setMyInfoUI";
 		
-		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("userId");
-		
 		
 		String pw = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
@@ -31,8 +30,9 @@ public class SetMyInfoAction implements Action {
 		String email = request.getParameter("email");
 		String address = request.getParameter("cityAddress")+" "+request.getParameter("districtAddress");
 		
-		
-		
+		System.out.println(pw);
+		pw = SHA256.encrypt(pw);
+		System.out.println(pw);
 
 		
 		if(new SetMyInfoService().setUser(id, pw, nickname, phoneNumber, email, address)){

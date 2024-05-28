@@ -1,20 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId ne null}">
 	<c:redirect url="controller?cmd=mainUI" />
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/common.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>호박마켓 : 비밀번호 찾기</title>
 <style>
 .img {
@@ -61,8 +57,6 @@
 	justify-content: center;
 	margin-top: -20%;
 }
-
-
 
 .addUserId {
 	grid-area: 2/1/3/2;
@@ -120,7 +114,11 @@ input:focus {
 }
 
 .inputInfos{
-background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;
+  background-color: #D9D9D9; 
+  border: none; 
+  border-radius: 3px; 
+  width: 140px; 
+  height: 31px;
 }
 
 .fontFindPWP{

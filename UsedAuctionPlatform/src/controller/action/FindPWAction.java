@@ -20,15 +20,10 @@ public class FindPWAction implements Action {
 		String id = request.getParameter("userId");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-
-		
-		request.setAttribute("id", id);
-
 		
 		if(new FindPWService().findPW(id, name, email)){
 			page = "controller?cmd=setPWUI";
-			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
+			request.setAttribute("id", id);
 		}
 		
 		return new URLModel(page, false);
