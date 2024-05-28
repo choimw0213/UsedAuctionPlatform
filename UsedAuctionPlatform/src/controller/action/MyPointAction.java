@@ -37,7 +37,7 @@ public class MyPointAction implements Action {
 		
 		
 		
-		return new URLModel(page, true);
+		return new URLModel(page, false);
 	}
 
 }
