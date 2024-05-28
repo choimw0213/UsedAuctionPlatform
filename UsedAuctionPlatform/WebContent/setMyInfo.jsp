@@ -337,6 +337,10 @@ label {
                                               + result_data.result
                                               + "</span>")
                                 }
+                                
+                                if(nick == ''){
+									$('.nickCheckFeedBackSpan').remove();
+								}
                               });
                     });
           });
@@ -366,8 +370,51 @@ label {
                             .after(
                                 "<span class='passwordCheckSpan mt-0 mb-0' id='spanPassword' style='font-size:9px; font-weight:bold; color:green; white-space:nowrap; transform:translateX(120px);'>비밀번호가 일치합니다.</span>")
                       }
+                      
+                      if(p1 == '' || p2 == ''){
+							$('.passwordCheckSpan').remove();
+						}
                     });
           });
+  
+  $(document)
+  .ready(
+      function() {
+        $("#password")
+            .on(
+                "change",
+                function() {
+                  let
+                  nick = $(this).val();
+                  $('.passwordCheckSpan').remove();
+                  var p1 = document
+                      .getElementById('password').value;
+                  var p2 = document
+                      .getElementById('checkPassword').value;
+
+                  if (p1 != p2) {
+                    $('#passwordInputSpan')
+                        .after(
+                            "<span class='passwordCheckSpan mt-0 mb-0' id='spanPassword' style='font-size:9px; font-weight:bold; color:red; white-space:nowrap;  transform:translateX(120px);'>비밀번호가 일치하지 않습니다.</span>")
+                  } else {
+                    $('#passwordInputSpan')
+                        .after(
+                            "<span class='passwordCheckSpan mt-0 mb-0' id='spanPassword' style='font-size:9px; font-weight:bold; color:green; white-space:nowrap; transform:translateX(120px);'>비밀번호가 일치합니다.</span>")
+                  }
+                  
+                  if(p1 == '' || p2 == ''){
+						$('.passwordCheckSpan').remove();
+					}
+                });
+      });
+  
+  
+  
+  
+  
+  
+  
+  
 
   function passwordTest() {
     var spanNickname = document.getElementById('spanNickname');

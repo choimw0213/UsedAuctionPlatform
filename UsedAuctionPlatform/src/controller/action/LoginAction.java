@@ -40,11 +40,11 @@ public class LoginAction implements Action {
 			session.setAttribute("nickName", vo.getNickName());
 			session.setAttribute("address", address[1]);
 			return new URLModel("controller?cmd=mainUI", true);			
-		} else if(vo.getUserType().equals("M")){
+		/*} else if(vo.getUserType().equals("M")){	관리자 기능 없음
 			session.setAttribute("userId", vo.getUserId());
 			session.setAttribute("nickName", vo.getNickName());
 			session.setAttribute("address", address[1]);
-			return new URLModel("controller?cmd=mainManagerUI", true);
+			return new URLModel("controller?cmd=mainManagerUI", true);*/
 		} else if(vo.getUserType().equals("D")){
 			return new URLModel("loginFail.jsp", false);
 		}
