@@ -154,6 +154,7 @@
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
 
+
 	<script>
 		var userAddress = "${address}";
 		$("#regionBtn").text(userAddress);

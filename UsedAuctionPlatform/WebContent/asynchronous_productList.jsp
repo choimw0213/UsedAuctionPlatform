@@ -4,7 +4,6 @@
 <c:if test="${userId eq null}">
 	<c:redirect url="controller?cmd=loginUI" />
 </c:if>
-
 <c:choose>
 	<c:when test="${empty list}">
 		<div class="card d-flex align-items-center border-0 mt-5 pt-5">
