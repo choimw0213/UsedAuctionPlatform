@@ -21,6 +21,17 @@
 .fontJoinP {
 	font-size: 27.4px;
 }
+.selectItems{
+	font-size:10px;
+	
+}
+
+.selectCity{
+	height:30px;
+}
+.selectDistrict{
+	height:30px;
+}
 </style>
 </head>
 <body>
@@ -88,12 +99,12 @@
 						<label class="col-form-label pt-1 mb-4">주소</label>
 					</div>
 					<div class="col-7 ms-1">
-						<select class="form-select form-select-sm mb-2"
+						<select class="selectCity form-select form-select-sm mb-2"
 							aria-label=".form-select-sm example" name="cityAddress"
 							onchange="selectBox1(this.value);">
 							<option selected value="서울특별시">서울특별시</option>
 						</select> 
-						<select class="form-select form-select-sm"
+						<select class="selectDistrict form-select form-select-sm"
 							aria-label=".form-select-smexample" name="districtAddress"
 							onchange="selectBox2(this.value);">
 							<option selected class="selectItems">강남구</option>

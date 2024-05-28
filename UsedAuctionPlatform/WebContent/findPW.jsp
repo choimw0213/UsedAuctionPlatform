@@ -119,6 +119,10 @@ input:focus {
 	padding:8px 90px;
 }
 
+.inputInfos{
+background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;
+}
+
 .fontFindPWP{
 	font-weight:normal !important;
 	font-size:27.4px;
@@ -140,17 +144,17 @@ input:focus {
 				<div class="addUserId mb-2">
 					<label class="col-form-label">아이디ㅤ</label>
 					<input type="text" name="userId"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
+						class = "inputInfos" ><br>
 				</div>
 				<div class="addName mb-0">
 					<label class="col-form-label">이름ㅤ</label>
 					<input type="text" name="name"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
+						class = "inputInfos"><br>
 				</div>
 				<div class="addEmail mt-2">
 					<label class="col-form-label">이메일ㅤ</label>
 					<input type="text" name="email"
-						style="background-color: #D9D9D9; border: none; border-radius: 3px; width: 140px; height: 31px;"><br>
+						class = "inputInfos"><br>
 				</div>
 				<div class="findPasswordBtn">
 					<div>

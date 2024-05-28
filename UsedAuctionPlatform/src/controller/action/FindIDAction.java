@@ -17,7 +17,7 @@ public class FindIDAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String page = "findID.jsp";
+		String page = "controller?cmd=findIDUI";
 		
 
 		
