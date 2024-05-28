@@ -1,10 +1,12 @@
-package controller;
+package controller.action;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
+import controller.Action;
+import controller.URLModel;
 import service.NotiService;
 
 public class GetNotiListAction implements Action {

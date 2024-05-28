@@ -10,6 +10,7 @@ import controller.action.FindIDAction;
 import controller.action.FindPWAction;
 import controller.action.GetChatAction;
 import controller.action.GetChatListAction;
+import controller.action.GetNotiListAction;
 import controller.action.GetUnreadAction;
 import controller.action.HopeAction;
 import controller.action.IdCheckAction;
