@@ -93,8 +93,8 @@
           <p class="product-info"><%= product.getCategory() %></p>
           <p class="product-info"><%= product.getAddress() %></p>
           <div class="text-group">
-            <p class="product-info"><%= product.getEndDate() %></p>
-            <p class="product-info">입찰 <%= product.getBidCount() %>건</p>
+            <p class="product-info" id="end_date"><%= product.getEndDate() %></p>
+            <p class="product-info" id="bid_count">입찰 <%= product.getBidCount() %>건</p>
           </div>
         </div>
       </div>
@@ -237,7 +237,9 @@ function getInfiniteChat(){
 	},3000);		
 }
 
+var endDateStr = $("#end_date").text().split('T');
 $(document).ready(function(){
+	$("#end_date").text(endDateStr[0] + " " + endDateStr[1]);
 	getChat();
 	getInfiniteChat();
 });
