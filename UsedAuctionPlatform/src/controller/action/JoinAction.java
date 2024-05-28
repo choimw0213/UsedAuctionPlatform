@@ -26,9 +26,9 @@ public class JoinAction implements Action {
 		String email = request.getParameter("email");
 		String address = request.getParameter("cityAddress")+" "+request.getParameter("districtAddress");
 		
-		System.out.println(pw);
+		//System.out.println(pw);
 		pw = SHA256.encrypt(pw);
-		System.out.println(pw);
+		//System.out.println(pw);
 		
 		if(new JoinService().addUser(id, pw, name, nickname, phoneNumber, email, address)){
 			page = "controller?cmd=loginUI";
