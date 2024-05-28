@@ -260,13 +260,13 @@
               sellComplete.style.borderColor = '#FFB966';
 
               $.ajax({
-                  url: "controller?cmd=sellListAction",
+                  url: "controller?cmd=buyListAction",
                   type: "POST",
                   data: {
-                      type: "selling"
+                      type: "buying"
                   },
                   success: function(response) {
-                      $("#scroll").html(response);
+                      $("#buyList").html(response);
                       cardClick();
                   }
               });
@@ -280,13 +280,13 @@
               selling.style.borderColor = '#FFB966';        
 
               $.ajax({
-                  url: "controller?cmd=sellListAction",
+                  url: "controller?cmd=buyListAction",
                   type: "POST",
                   data: {
-                      type: "sellComplete"
+                      type: "buyComplete"
                   },
                   success: function(response) {
-                      $("#scroll").html(response);
+                      $("#buyList").html(response);
                       cardClick();
                   }
               });
