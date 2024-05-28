@@ -147,24 +147,40 @@ input:focus {
 			
 				<div class="addName mt-4 mb-0">
 					<label class="col-form-label">이름ㅤ</label>
-					<input type="text" name="name" class="inputTxt"><br>
+					<input type="text" name="name" class="inputTxt" id="name"><br>
 				</div>
 				<div class="addEmail mt-2 mb-0">
 					<label class="col-form-label">이메일ㅤ</label>
-					<input type="text" name="email" class="inputTxt"><br>
+					<input type="text" name="email" class="inputTxt" id="email"><br>
 					<br>
 				</div>
 				<div class="addPhoneNumber mt-1">
 					<label class="col-form-label">전화번호ㅤ</label>
-					<input type="text" name="phoneNumber" class="inputTxt"><br>
+					<input type="text" name="phoneNumber" class="inputTxt" id="phoneNumber"><br>
 				</div>
 				<div class="findIdBtn">
 					<div>
-						<input type="submit" value="O K" class="lgbt">
+						<input type="submit" value="O K" class="lgbt" id="searchIDBtn" onclick="return submitInput()">
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+<script type="text/javascript">
+
+function submitInput(){
+ var input1 = document.getElementById('name');
+ var input2 = document.getElementById('email');
+ var input3 = document.getElementById('phoneNumber');
+ 
+ if(input1.value == ''|| input2.value == ''|| input3.value == ''){
+	alert('정보를 입력해주세요.') 
+	return false;		 
+ } else {
+	true;
+ }
+ 
+ }
+</script>	
 </body>
 </html>

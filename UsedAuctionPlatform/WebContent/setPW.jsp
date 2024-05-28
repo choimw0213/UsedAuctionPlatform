@@ -128,7 +128,8 @@ input:focus {outline: none;}
 			</div>
 
 			<div class="checkPassword mb-0">
-				<label class="passwordH6 col-form-label">비밀번호 확인ㅤ</label><input type="password" name="checkPassword" class="inputNewPWCheck" id="checkPassword"><br>
+				<label class="passwordH6 col-form-label">비밀번호 확인ㅤ</label><input type="password" name="checkPassword" class="inputNewPWCheck" id="checkPassword">
+				<div id = "passwordCheckDiv"></div><br>
 			</div>
 
 			<div class="setPWBtn mt-0">
@@ -141,17 +142,40 @@ input:focus {outline: none;}
 	</div>
 	<script type="text/javascript">
 	function passwordTest(){
-	
+		 var input1 = document.getElementById('password');
+		 var input2 = document.getElementById('checkPassword');
+		
+		 
+		 if(input1.value == ''|| input2.value == ''){
+			alert('정보를 입력해주세요.') 
+			return false;		 
+		 } else {
+			true;
+		 }
+
+		
+		
+		
 		var p1 = document.getElementById('password').value;
 			var p2 = document.getElementById('checkPassword').value;
 			if (p1 != p2) {
-				alert("비밀번호가 일치 하지 않습니다");
+				alert("비밀번호가 일치 하지 않습니다.");
 				return false;
 			} else {
-	
+				alert("비밀번호 변경 완료")
 				return true;
 			}
+			
+			
+
+			
 		}
+	
+		 
+	
+	
+	
+	
 	
 	</script>
 

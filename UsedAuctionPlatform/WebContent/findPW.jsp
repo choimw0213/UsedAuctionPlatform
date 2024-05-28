@@ -142,25 +142,41 @@ input:focus {
 				<div class="addUserId mb-2">
 					<label class="col-form-label">아이디ㅤ</label>
 					<input type="text" name="userId"
-						class = "inputInfos" ><br>
+						class = "inputInfos" id="id"><br>
 				</div>
 				<div class="addName mb-0">
 					<label class="col-form-label">이름ㅤ</label>
 					<input type="text" name="name"
-						class = "inputInfos"><br>
+						class = "inputInfos" id="name"><br>
 				</div>
 				<div class="addEmail mt-2">
 					<label class="col-form-label">이메일ㅤ</label>
 					<input type="text" name="email"
-						class = "inputInfos"><br>
+						class = "inputInfos" id="email"><br>
 				</div>
 				<div class="findPasswordBtn">
 					<div>
-						<input type="submit" value="O K" class="lgbt">
+						<input type="submit" value="O K" class="lgbt" onclick="return submitInput()">
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+<script type="text/javascript">
+
+function submitInput(){
+ var input1 = document.getElementById('id');
+ var input2 = document.getElementById('email');
+ var input3 = document.getElementById('name');
+ 
+ if(input1.value == ''|| input2.value == ''|| input3.value == ''){
+	alert('정보를 입력해주세요.') 
+	return false;		 
+ } else {
+	true;
+ }
+ 
+ }
+</script>		
 </body>
 </html>

@@ -15,8 +15,14 @@
 <body>
     <script>
         var id = '<%= request.getAttribute("id") %>'; 
-        alert('아이디: ' + id);
-        location.href = "controller?cmd=loginUI";
+        if(id === null){
+        	alert('존재하지 않는 회원정보입니다.')
+        	location.href = "controller?cmd=findIDUI";
+        } else {
+			alert('아이디: ' + id);
+            location.href = "controller?cmd=loginUI";
+        }
+        
     </script>
 </body>
 </html>   

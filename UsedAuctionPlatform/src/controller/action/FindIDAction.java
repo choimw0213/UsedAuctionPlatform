@@ -17,7 +17,7 @@ public class FindIDAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String page = "controller?cmd=findIDUI";
+		String page = "showID.jsp";
 		
 
 		
@@ -27,11 +27,9 @@ public class FindIDAction implements Action {
 		
 		String id = new FindIDService().findId(name, email, phoneNumber);
 		System.out.println("아이디  : "+id);
-		if(id != null){
-			page = "showID.jsp";
-			//서비스에서 아이디 가져와서 세션에 아이디 넣어줘야
-			request.setAttribute("id", id);
-		}
+			
+		request.setAttribute("id", id);
+		
 		
 		return  new URLModel(page, false);
 	}

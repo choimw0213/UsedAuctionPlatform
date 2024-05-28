@@ -24,6 +24,16 @@
 <!-- <link rel="stylesheet" href="css/myPage.css"> -->
 <title>호박마켓 : 마이페이지</title>
 <style>
+.suicideBtn:hover {
+      background-color:#FFD9AC;
+		color:#000000;
+  }
+  
+.stopSuicideBtn:hover{
+	color:#000000;
+	background-color:#FFD9AC;
+}
+
 #imgIcon {
 	width: 60px;
 	height: 60px;
@@ -403,13 +413,11 @@ button {
 		
 		
 		function deleteMe(){
-		const checkDelete0 = document.getElementById('flexCheckDefault0');
 		const checkDelete1 = document.getElementById('flexCheckDefault1');
 		const checkDelete2 = document.getElementById('flexCheckDefault2');
-		const checkDelete3 = document.getElementById('flexCheckDefault3');
 		const checkDelete4 = document.getElementById('flexCheckDefault4');
 
-		if(checkDelete0.checked && checkDelete1.checked && checkDelete2.checked && checkDelete3.checked && checkDelete4.checked){
+		if(checkDelete1.checked && checkDelete2.checked && checkDelete4.checked){
 			alert('회원 탈퇴가 완료됐습니다.')
 			return true;
 		}else{

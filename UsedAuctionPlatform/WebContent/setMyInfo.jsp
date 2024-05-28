@@ -425,6 +425,7 @@ label {
       alert('정보수정이 불가능합니다.')
       return false;
     } else {
+      alert('정보수정이 완료됐습니다.')
       return true;
     }
 
