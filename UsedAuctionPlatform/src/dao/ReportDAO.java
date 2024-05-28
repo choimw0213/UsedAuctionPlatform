@@ -30,9 +30,16 @@ public class ReportDAO {
 		return result;
 	}
 	
-	public ArrayList<ReportVO> getReportList(){
-		ArrayList<ReportVO> reportList = null;
-		
-		return reportList;
+	public boolean setReportCount(String id){
+		boolean result = false;
+		try(PreparedStatement pstmt = conn.prepareStatement(ReportQuery.SET_REPORTCOUNT);){
+			pstmt.setString(1, id);
+			if(pstmt.executeUpdate() >= 1){
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
