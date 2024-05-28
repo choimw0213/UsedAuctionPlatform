@@ -69,11 +69,20 @@ a {
 
 		<div class="container">
 			<ul class="list-group w-100" id="scroll">
-				<% if(chatList != null){ %>
-					<hr class="my-1">				
+				<c:if test="${empty chatList}">
+					<div class="card d-flex align-items-center border-0 mt-5 pt-5">
+		 				<img src="./images/product/uploaded/logo.png" class="logo">
+		  				<div class="card-body">
+		    				<p class="card-text">채팅이 없습니다.</</p>
+		  				</div>
+					</div>
+				</c:if>
+			
+				<% if(chatList != null){ %>			
 					<% for(int i=0; i<chatList.size(); i++){ %>
 					<% String toId = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToId() : chatList.get(i).getFromId(); %>
 					<% String toNickName = (chatList.get(i).getFromId().equals(userId)) ? chatList.get(i).getToNickName() : chatList.get(i).getFromNickName(); %>
+					<hr class="my-1 mt-2 mb-2">
 					<li class="list-group-item border-0 p-0 product_card" data-productSeq="<%= chatList.get(i).getProductSeq() %>"
 					data-toId="<%= toId %>">
 							<div class="d-flex">
@@ -100,7 +109,7 @@ a {
 								</div>
 							</div>
 					</li>
-					<hr class="my-1">
+
 					<% } %>
 				<% } %>
 			</ul>
