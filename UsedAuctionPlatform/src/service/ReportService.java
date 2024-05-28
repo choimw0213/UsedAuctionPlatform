@@ -31,7 +31,7 @@ public class ReportService {
 			conn.setAutoCommit(false);
 			result = dao.addReport(userId, productSeq, reportContent);
 			if(result){
-				dao.setReportCount(userId);
+				dao.setReportCount(productSeq);
 			}
 			conn.commit();
 		} catch (SQLException e) {

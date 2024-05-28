@@ -30,10 +30,10 @@ public class ReportDAO {
 		return result;
 	}
 	
-	public boolean setReportCount(String id){
+	public boolean setReportCount(int productSeq){
 		boolean result = false;
 		try(PreparedStatement pstmt = conn.prepareStatement(ReportQuery.SET_REPORTCOUNT);){
-			pstmt.setString(1, id);
+			pstmt.setInt(1, productSeq);
 			if(pstmt.executeUpdate() >= 1){
 				result = true;
 			}
