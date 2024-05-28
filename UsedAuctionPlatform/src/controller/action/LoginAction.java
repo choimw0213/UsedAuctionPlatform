@@ -28,7 +28,7 @@ public class LoginAction implements Action {
 		
 		UserVO vo = loginService.login(userId, userPw);
 		if(vo == null){
-			return new URLModel("controller?cmd=loginUI", true);
+			return new URLModel("loginFail.jsp", false);
 		}
 		
 		String[] address = vo.getAddress().split(" ");
@@ -46,7 +46,7 @@ public class LoginAction implements Action {
 			session.setAttribute("address", address[1]);
 			return new URLModel("controller?cmd=mainManagerUI", true);
 		} else if(vo.getUserType().equals("D")){
-			return new URLModel("controller?cmd=loginUI", true);
+			return new URLModel("loginFail.jsp", false);
 		}
 		
 		return new URLModel("controller?cmd=loginUI", true);
