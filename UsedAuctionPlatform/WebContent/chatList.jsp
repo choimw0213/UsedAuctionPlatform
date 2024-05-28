@@ -96,7 +96,7 @@ a {
 												<% if(userId.equals(chatList.get(i).getProductUserId())){ %>
 												<span class="badge badge-s">판매품</span>
 												<% } else { %>
-												<span class="badge bg-info">구매품</span>
+												<span class="badge badge-t">구매품</span>
 												<% } %>
 												<p><%= toNickName %></p>
 												<% if(chatList.get(i).getUnreadChatCount() != 0){ %>
