@@ -35,7 +35,18 @@
 				</div>
 			</div>
 		</div>
-		<div
+		
+		<c:choose>
+			<c:when test="${empty list}">
+			<div class="card d-flex align-items-center border-0 mt-5 pt-5">
+ 				 <img src="./images/product/uploaded/logo.png" class="logo">
+  				<div class="card-body">
+    				<p class="card-text">알림이 없습니다.</</p>
+  				</div>
+			</div>
+			</c:when>
+			<c:otherwise>
+			<div
 			class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
 			id="scroll">
 
@@ -79,6 +90,11 @@
 				<hr class="m-2">
 			</c:forEach>
 		</div>
+			
+			</c:otherwise>
+		</c:choose>
+		
+		
 
 		<jsp:include page="/navbar_home.jsp"></jsp:include>
 	</div>
