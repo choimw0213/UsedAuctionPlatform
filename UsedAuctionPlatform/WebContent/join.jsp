@@ -73,7 +73,7 @@
 						<label class="col-form-label">이름</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="name" type="text" class="form-control-sm">
+						<input name="name" type="text" id="nameInput" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">닉네임</label>
@@ -87,13 +87,13 @@
 						<label class="col-form-label">전화번호</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="phoneNumber" type="text" class="form-control-sm">
+						<input name="phoneNumber" type="text" id="phoneNumberInput" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label">이메일</label>
 					</div>
 					<div class="col-7 ms-1">
-						<input name="email" type="text" class="form-control-sm">
+						<input name="email" type="text" id="emailInput" class="form-control-sm">
 					</div>
 					<div class="col-3 text-end p-0">
 						<label class="col-form-label pt-1 mb-4">주소</label>
@@ -166,8 +166,7 @@
 									.on(
 											"change",
 											function() {
-												let
-												nick = $(this).val();
+												
 												$('.passwordCheckSpan')
 														.remove();
 												var p1 = document
@@ -184,8 +183,48 @@
 															.after(
 																	"<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:green;'>비밀번호가 일치합니다.</span>")
 												}
+												
+												if(p1 == '' || p2 == ''){
+													$('.passwordCheckSpan').remove();
+												}
 											});
 						});
+		 
+			$(document)
+			.ready(
+					function() {
+						$("#password")
+								.on(
+										"change",
+										function() {
+											
+											$('.passwordCheckSpan')
+													.remove();
+											var p1 = document
+													.getElementById('password').value;
+											var p2 = document
+													.getElementById('checkPassword').value;
+
+											if (p1 != p2) {
+												$('#passwordCheckDiv')
+														.after(
+																"<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:red;'>비밀번호가 일치하지 않습니다.</span>")
+											} else {
+												$('#passwordCheckDiv')
+														.after(
+																"<span class='passwordCheckSpan' id='spanPassword' style='font-size:10px; color:green;'>비밀번호가 일치합니다.</span>")
+											}
+											
+											if(p1 == '' || p2 == ''){
+												$('.passwordCheckSpan').remove();
+											}
+										});
+					});
+		 
+		 
+		 
+		 
+		 
 
 		//닉네임 중복체크
 		$(document)
@@ -226,10 +265,18 @@
 																								+ result_data.result
 																								+ "</span>")
 																	}
+																	
+																	if(nick == ''){
+																		$('.nickCheckFeedBackSpan').remove();
+																	}
+																	
 																});
 											});
 						});
 
+		
+		
+		
 		// 아이디 중복체크
 		$(document)
 				.ready(
@@ -269,6 +316,12 @@
 																								+ result_data.result
 																								+ "</span>")
 																	}
+																	
+																	
+																	if(id == ''){
+																		$('.idCheckFeedBackSpan').remove();
+																	}
+																	
 																});
 											});
 						});
@@ -277,13 +330,32 @@
 			var spanId = document.getElementById('spanId');
 			var spanNickname = document.getElementById('spanNickname');
 			var spanPassword = document.getElementById('spanPassword');
+			
+			var idCheck = document.getElementById('idCheck').value;
+			var password = document.getElementById('password').value;
+			var checkPassword = document.getElementById('checkPassword').value;
+			var nameInput = document.getElementById('nameInput').value;
+			var nickCheck = document.getElementById('nickCheck').value;
+			var phoneNumberInput = document.getElementById('phoneNumberInput').value;
+			var emailInput = document.getElementById('emailInput').value;
 
+			if(		idCheck ==''
+					|| password ==''
+					|| checkPassword ==''
+					|| nickCheck ==''
+					|| phoneNumberInput ==''
+					|| emailInput ==''){
+				alert('정보를 입력해주세요.')
+				return false;
+			}
+			
 			if (spanId.style.color === 'red'
 					|| spanNickname.style.color === 'red'
 					|| spanPassword.style.color === 'red') {
 				alert('회원가입이 불가능합니다.')
 				return false;
 			} else {
+				alert('회원가입 성공.')
 				return true;
 			}
 
