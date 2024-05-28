@@ -122,7 +122,7 @@
                   <% } %>
                 </div>
                 <p><%= buyList.get(i).getCategory() %></p>
-                <p><%= buyList.get(i).getAddress() %>
+                <p class="end_date"><%= buyList.get(i).getAddress() %>
                   | 종료일
                   <%= buyList.get(i).getEndDate() %></p>
                 <span class="badge badge-s">입찰가</span> 
@@ -238,6 +238,10 @@
 		}
 		
 		$(document).ready(function() {
+			$(".end_date").each(function(){
+				var str = $(this).text().split('T');
+				$(this).text(str[0] + " " + str[1]);
+			})
 			cardClick();
 		});
 		
