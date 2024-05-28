@@ -28,6 +28,7 @@ import controller.page.AddProductUI;
 import controller.page.BuyListUI;
 import controller.page.ChatListUI;
 import controller.page.ChatUI;
+import controller.page.ErrorUI;
 import controller.page.FindIDUI;
 import controller.page.FindPWUI;
 import controller.page.JoinUI;
@@ -169,6 +170,9 @@ public class ActionFactory {
 				break;
 			case "getNotiListAction" :
 				action = new GetNotiListAction();
+				break;
+			default:
+				action = new ErrorUI();
 				break;
 		}
 		
