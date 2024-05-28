@@ -201,6 +201,7 @@ public class ProductDAO {
 				formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				
 				while(rs.next()){
+					if(rs.getString(12).equals(id)) continue;
 					ProductBoxDTO dto = new ProductBoxDTO(rs.getString(1), rs.getInt(2), rs.getString(3),
 							rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7),
 							LocalDateTime.parse(rs.getString(8),formmatter), rs.getString(9), 
