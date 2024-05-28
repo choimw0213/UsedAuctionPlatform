@@ -58,11 +58,20 @@
 			<button id="selling" class="btn btn-primary rounded-pill">판매중</button>
 			<button id="sellComplete" class="btn btn-primary rounded-pill">판매종료</button>
 		</div>
-
 		<div class="container" id="scroll">
-
+			<hr class="my-1">
+			
+			<c:if test="${empty sellList}">
+			<div class="card d-flex align-items-center border-0 mt-5 pt-5">
+				<img src="./images/product/uploaded/logo.png" class="logo">
+		 		<div class="card-body">
+		    		<p class="card-text">판매 내역이 없습니다.</</p>
+		 		</div>
+			</div>
+			</c:if>
+			
+			
 			<ul class="list-group w-100">
-				<hr class="my-1">
 				<li class="list-group-item border-0 p-0">
 					<% if(sellList != null){ %>
 					<% for(int i=0; i<sellList.size(); i++){ %>
