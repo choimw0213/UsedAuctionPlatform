@@ -3,6 +3,7 @@ package controller;
 import controller.action.AddChatAction;
 import controller.action.AddProductAction;
 import controller.action.BidAction;
+import controller.action.BuyListAction;
 import controller.action.CategoryAction;
 import controller.action.DeleteMyInfoAction;
 import controller.action.FindIDAction;
@@ -143,7 +144,10 @@ public class ActionFactory {
 				break;
 			case "buyListUI" :
 				action = new BuyListUI();
-				break;				
+				break;
+			case "buyListAction" :
+				action = new BuyListAction();
+				break;
 			case "bidAction":
 				action = new BidAction();
 				break;
