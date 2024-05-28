@@ -23,6 +23,7 @@ public class AddChatAction implements Action {
 		chatService.addChat(productSeq, fromId, toId, chatContent);
 		
 		return new URLModel("chat.jsp",false);
+		
 	}
 
 }
