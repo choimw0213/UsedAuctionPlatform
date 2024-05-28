@@ -265,11 +265,11 @@ label {
               <select class="form-select mt-4"
                 aria-label="Default select example" id="select-box"
                 name="districtAddress">
-                <option value="1" class="selectItems">강남구</option>
-                <option value="2" class="selectItems">강동구</option>
-                <option value="3" class="selectItems">강북구</option>
-                <option value="4" class="selectItems">강서구</option>
-                <option value="5" class="selectItems">관악구</option>
+                <option value="강남구" class="selectItems">강남구</option>
+                <option value="강동구" class="selectItems">강동구</option>
+                <option value="강북구" class="selectItems">강북구</option>
+                <option value="강서구" class="selectItems">강서구</option>
+                <option value="관악구" class="selectItems">관악구</option>
               </select>
             </div>
           </div>
