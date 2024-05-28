@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -75,6 +77,16 @@
     document.getElementById("pw").value = hashedPassword;
     form.submit();
   }
+  $("button").on("click", function(){
+	  if($("#inputId").val() == ""){
+		  alert("아이디를 입력해주세요.");
+		  return false;
+	  }
+	  if($("#pw").val() == ""){
+		  alert("비밀번호를 입력해주세요.");
+		  return false;
+	  }
+  })
   </script> 
 
 </body>
