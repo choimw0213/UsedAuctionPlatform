@@ -132,6 +132,7 @@ public class ProductService {
 		return productImage;
 	}
 
+	
 	public boolean setProductState(int productSeq){
 		Connection conn = null;
 		boolean result = false;
