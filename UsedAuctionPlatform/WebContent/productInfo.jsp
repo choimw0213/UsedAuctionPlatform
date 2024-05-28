@@ -97,7 +97,7 @@
 		<div class="modal_default" id="report_modal">
 			<div id="report_modal_container">
 				<div id="report_modal_top">신고사유</div>
-				<textarea id="report_content"></textarea>
+				<textarea id="report_content" name="content" placeholder="신고 내용을 입력해주세요."></textarea>
 				<div id="report_modal_button_container">
 					<div id="report_close">취소</div>
 					<div id="add_report">접수</div>
@@ -141,10 +141,10 @@
 		}
 		location.href = "controller?cmd=chatUI&productSeq=" + productSeq +"&toId=" + sellerId;
 	})
+	
 	$("#add_report").click(function(){
 		var reportContent = $("#report_content").val();
-		console.log(reportContent);
-		if(reportContent == null){
+ 		if(reportContent == ""){
 			alert("신고내용을 입력해주세요!");
 			return;
 		}
