@@ -60,7 +60,7 @@
             <div class="ms-1">
               <div class="card-text d-flex">
                 <div id="item-title-group">
-                  <h6><%= buyList.get(i).getTitle() %></h6>
+                  <h6 class="truncate"><%= buyList.get(i).getTitle() %></h6>
                   <p><%= buyList.get(i).getCategory() %></p>
                   <p><%= buyList.get(i).getAddress() %> | 종료일 <%= buyList.get(i).getEndDate() %></p>
                   <span class="badge badge-e">판매가</span> 
