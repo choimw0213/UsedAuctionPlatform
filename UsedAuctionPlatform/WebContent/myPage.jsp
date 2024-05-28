@@ -19,7 +19,7 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>		
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/common.css">
 <!-- <link rel="stylesheet" href="css/myPage.css"> -->
 <title>호박마켓 : 마이페이지</title>
@@ -40,15 +40,15 @@
 
 .nicknameP {
 	transform: translateY(40%);
-	font-size:15px;
-	text-align:right
+	font-size: 15px;
+	text-align: right
 }
 
 .rateP {
 	transform: translateY(-5%);
-	font-size:15px;
-	text-align:right;
-	width:100px;
+	font-size: 15px;
+	text-align: right;
+	width: 100px;
 }
 
 .modal-header {
@@ -88,18 +88,13 @@ a {
 	transform: translateX(40%);
 }
 
-
-.nickRateP{
-	
-	transform:translateY(20%);
+.nickRateP {
+	transform: translateY(20%);
 }
 
-
-.imgLocation{
+.imgLocation {
 	
 }
-
-
 
 .cBeB {
 	display: flex;
@@ -126,6 +121,16 @@ button {
 .exchangeButton {
 	transform: translateX(40%);
 }
+
+.suicideBtn{
+	background-color:#FFD9AC;
+	color:#000000;
+}
+
+.stopSuicideBtn{
+	background-color:#FFD9AC;
+	color:#000000;
+}
 </style>
 </head>
 <body>
@@ -137,19 +142,19 @@ button {
 				<thead>
 					<tr class="table-borderless">
 						<th class="col-md-3">
-						<div class = "imgLocation">
-						<img src="images/icon/icon.png"
-							class="img-fluid rounded-circle border" id="imgIcon">
-						</div>	
+							<div class="imgLocation">
+								<img src="images/icon/icon.png"
+									class="img-fluid rounded-circle border" id="imgIcon">
+							</div>
 						</th>
 						<th></th>
 						<th class="maPageInfo">
-						<div class="nickRateP mt-4">
-							<p class="nicknameP"><%=request.getAttribute("nickname")%></p>
-							<p class="rateP">
-								★<%=request.getAttribute("rate")%></p>
-						</div>
-								
+							<div class="nickRateP mt-4">
+								<p class="nicknameP"><%=request.getAttribute("nickname")%></p>
+								<p class="rateP">
+									★<%=request.getAttribute("rate")%></p>
+							</div>
+
 						</th>
 						<th></th>
 					</tr>
@@ -178,27 +183,26 @@ button {
 						<th></th>
 					</tr>
 					<tr>
-					
+
 						<th id="myActButton" class="border-0">
 							<div class="aButtons">
 								<br>
 								<button type="button" class="btn btn-primary">
 									<a href="controller?cmd=setMyInfoUI">회원정보수정</a>
 								</button>
-								<br>
-								<br>
+								<br> <br>
 								<button type="button" class="btn btn-primary">
 									<a href="controller?cmd=logoutAction">ㅤ로그아웃ㅤ</a>
 								</button>
-								<br>
-								<br>
-								<button type="button" class="btn btn-primary">
-									<a href="controller?cmd=deleteMyInfoAction">ㅤ회원탈퇴ㅤ</a>
-								</button>
+								<br> <br>
+								<button type="button" class="btn btn-primary"
+									data-bs-toggle="modal" data-bs-target="#deleteMeModal">
+									ㅤ회원탈퇴ㅤ</button>
 							</div>
 						</th>
-						
+
 					</tr>
+
 				</thead>
 			</table>
 
@@ -206,7 +210,8 @@ button {
 			<!-- Modal -->
 			<div class="modal fade" id="chargeModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered justify-content-center">
+				<div
+					class="modal-dialog modal-dialog-centered justify-content-center">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">얼마를 충전하시겠습니까?</h5>
@@ -214,19 +219,19 @@ button {
 								aria-label="Close"></button>
 						</div>
 						<!-- <form action="controller?cmd=myPointAction" method="post"> -->
-							<div class="modal-body">
-								<input class="form-control form-control-lg" type="number"
-									name="plusPoint" id="plusPoint">
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" id="modalBtn"
-									data-bs-dismiss="modal">닫기</button>
+						<div class="modal-body">
+							<input class="form-control form-control-lg" type="number"
+								name="plusPoint" id="plusPoint">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" id="modalBtn"
+								data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn" >확인</button>
+							<button type="submit" class="btn btn-primary" id="modalBtn">확인</button>
 
-							</div>
- 						<!-- </form> -->
-				</div>
+						</div>
+						<!-- </form> -->
+					</div>
 				</div>
 			</div>
 
@@ -237,7 +242,8 @@ button {
 			<!-- Modal -->
 			<div class="modal fade" id="exchangeModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered justify-content-center">
+				<div
+					class="modal-dialog modal-dialog-centered justify-content-center">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">얼마를 환전하시겠습니까?</h5>
@@ -245,17 +251,17 @@ button {
 								aria-label="Close"></button>
 						</div>
 						<!-- <form action="controller?cmd=myPointAction" method="post"> -->
-							<div class="modal-body">
-								<input class="form-control form-control-lg" type="number"
-									name="minusPoint" id="minusPoint">
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" id="modalBtn"
-									data-bs-dismiss="modal">닫기</button>
+						<div class="modal-body">
+							<input class="form-control form-control-lg" type="number"
+								name="minusPoint" id="minusPoint">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" id="modalBtn"
+								data-bs-dismiss="modal">닫기</button>
 
-								<button type="submit" class="btn btn-primary" id="modalBtn" >확인</button>
+							<button type="submit" class="btn btn-primary" id="modalBtn">확인</button>
 
-							</div>
+						</div>
 						<!-- </form> -->
 					</div>
 				</div>
@@ -263,81 +269,172 @@ button {
 
 
 
+
+			<!-- Modal -->
+			<div class="modal fade" id="deleteMeModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div
+					class="modal-dialog modal-dialog-centered justify-content-center">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">주의사항</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<!-- <form action="controller?cmd=myPointAction" method="post"> -->
+						<div class="modal-body">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault0"> <label class="form-check-label"
+									for="flexCheckDefault"> 1. 탈퇴 후에는 서비스 이용 기간 동안 발생한 모든 데이터가 삭제됩니다. 중요한 데이터는 탈퇴 전에 백업하세요.포인트가 다 날아갑니다 </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault1" > <label
+									class="form-check-label" for="flexCheckDefault">
+									2. 구매한 상품, 이용한 서비스 내역 등을 확인하세요. 탈퇴 후에는 구매 내역 확인이 불가능하며, 환불 불가될 수 있습니다. </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault2"> <label
+									class="form-check-label" for="flexCheckDefault">
+									3. 서비스 내에서 적립된 금액은 탈퇴 후 소멸됩니다. </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault3" > <label
+									class="form-check-label" for="flexCheckDefault">
+									4. 서비스 내에서 적립된 금액은 탈퇴 후 소멸됩니다. </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault4" > <label
+									class="form-check-label" for="flexCheckDefault">
+									5. 탈퇴 후 동일한 아이디로 재가입이 불가능할 수 있습니다. </label>
+							</div>
+														
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="stopSuicideBtn btn btn-secondary"
+								data-bs-dismiss="modal">닫기</button>
+							<a href="controller?cmd=deleteMyInfoAction">
+								<button type="submit" class="suicideBtn btn btn-primary" onclick = "return deleteMe()">확인</button>
+							</a>
+						</div>
+						<!-- </form> -->
+					</div>
+				</div>
+			</div>
+
+
+
+
 		</div>
 		<jsp:include page="/navbar_my.jsp"></jsp:include>
 	</div>
-<script type="text/javascript">
-	
+	<script type="text/javascript">
+		$(".pointFont").text(
+				Number($(".pointFont").text()).toLocaleString('ko-KR') + "P");
 
-	
-	
-	$(".pointFont").text(Number($(".pointFont").text()).toLocaleString('ko-KR') + "P");
-	
-	
-	$(document).ready(function() {
-		  $("#modalBtn.btn-primary").on("click", function() {
-		    var pointAct = 0;
-		    var numP = parseInt(document.getElementById("plusPoint").value) || 0;
-		    var numM = parseInt(document.getElementById("minusPoint").value) || 0;
-		    
-		    var numberStr = document.getElementById("myPoint").textContent;
-		    var numMyPoint = parseInt(numberStr.replace(/,/g, ""));
-		    
-			
-		    if(numP < 0 || numM < 0){
-		      alert('음수 입력불가.')	
-		      return;
-		    }
-		  
-		    
-		    if (numP > 0) {
-		      pointAct = pointAct + numP;
-		    }
-		    
-		    
-		    if (numP == 0 && numM == 0) {
-		      alert('포인트를 입력해주세요.')
-		      return;
-		    } 
-		    
-		    
-		    console.log(numP);
-		    console.log(numM);
-		    console.log(numMyPoint);
-		    if(numM <= numMyPoint){
-			      pointAct = pointAct - numM; 
-			    } else {
-			    	alert('포인트가 부족합니다.')
-			    	return;
-			    }
-		    
+		$(document)
+				.ready(
+						function() {
+							$("#modalBtn.btn-primary")
+									.on(
+											"click",
+											function() {
+												var pointAct = 0;
+												var numP = parseInt(document
+														.getElementById("plusPoint").value) || 0;
+												var numM = parseInt(document
+														.getElementById("minusPoint").value) || 0;
 
- 		    
-		    $.post("controller?cmd=myPointAction", { pointAct: pointAct }, function(responseText) {
-		      var actPoint = parseInt(pointAct);
-		      
-		      
-		      if (actPoint > 0) {
-		        alert('포인트 충전 완료.');
-		        $('#chargeModal').modal('hide');
-		        location.reload();
-		      } else if (actPoint < 0) {
-		        alert('포인트 환전 완료.');
-		        $('#exchangeModal').modal('hide');
-		        location.reload();
-		      } else {
-		        alert('알 수 없는 오류가 발생했습니다.');
-		      }
-		    });
-		  });
-		});
-	
-	
-	
-	
-	
-	
+												var numberStr = document
+														.getElementById("myPoint").textContent;
+												var numMyPoint = parseInt(numberStr
+														.replace(/,/g, ""));
 
-</script>
+												if (numP < 0 || numM < 0) {
+													alert('음수 입력불가.')
+													return;
+												}
+
+												if (numP > 0) {
+													pointAct = pointAct + numP;
+												}
+
+												if (numP == 0 && numM == 0) {
+													alert('포인트를 입력해주세요.')
+													return;
+												}
+
+												console.log(numP);
+												console.log(numM);
+												console.log(numMyPoint);
+												if (numM <= numMyPoint) {
+													pointAct = pointAct - numM;
+												} else {
+													alert('포인트가 부족합니다.')
+													return;
+												}
+
+												$
+														.post(
+																"controller?cmd=myPointAction",
+																{
+																	pointAct : pointAct
+																},
+																function(
+																		responseText) {
+																	var actPoint = parseInt(pointAct);
+
+																	if (actPoint > 0) {
+																		alert('포인트 충전 완료.');
+																		$(
+																				'#chargeModal')
+																				.modal(
+																						'hide');
+																		location
+																				.reload();
+																	} else if (actPoint < 0) {
+																		alert('포인트 환전 완료.');
+																		$(
+																				'#exchangeModal')
+																				.modal(
+																						'hide');
+																		location
+																				.reload();
+																	} else {
+																		alert('알 수 없는 오류가 발생했습니다.');
+																	}
+																});
+											});
+						});
+		
+		
+		
+		function deleteMe(){
+		const checkDelete0 = document.getElementById('flexCheckDefault0');
+		const checkDelete1 = document.getElementById('flexCheckDefault1');
+		const checkDelete2 = document.getElementById('flexCheckDefault2');
+		const checkDelete3 = document.getElementById('flexCheckDefault3');
+		const checkDelete4 = document.getElementById('flexCheckDefault4');
+
+		if(checkDelete0.checked && checkDelete1.checked && checkDelete2.checked && checkDelete3.checked && checkDelete4.checked){
+			alert('회원 탈퇴가 완료됐습니다.')
+			return true;
+		}else{
+			alert('주의사항을 확인해주세요.')
+			return false;
+		}
+		
+		}
+		
+		
+		
+		
+		
+		
+	</script>
 </body>
 </html>
