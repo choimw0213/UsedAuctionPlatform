@@ -16,9 +16,10 @@
     <script>
         var id = '<%= request.getAttribute("id") %>'; 
         alert('아이디: ' + id);
-        location.href = "controller?cmd=loginAction";
+        location.href = "controller?cmd=loginUI";
     </script>
 </body>
 </html>   
+    
     
     

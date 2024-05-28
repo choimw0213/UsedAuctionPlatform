@@ -18,7 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-<title>Insert title here</title>
+<title>호박마켓 : 에러</title>
 </head>
 <body>
 	<div id="project_container" class="d-flex">
