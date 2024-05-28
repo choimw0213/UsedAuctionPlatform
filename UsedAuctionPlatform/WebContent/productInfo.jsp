@@ -57,7 +57,7 @@
 				<span>${productInfo.getBidMax()}P</span> <span>즉시 구매가 ${productInfo.getPrice()}P</span>
 			</div>
 			<div id="product_state">
-				<span>입찰 ${productInfo.getBidCount()}건</span> <span>경매 마감: ${productInfo.getEndDate()}</span>
+				<span>입찰 ${productInfo.getBidCount()}건</span> <span id="end_date">${productInfo.getEndDate()}</span>
 			</div>
 			<hr>
 			<div id="content">
@@ -124,7 +124,7 @@
 	var productSeq = ${productInfo.getProductSeq()};
 	var sellerId = "${productInfo.getId()}";
 	var myId = "${userId}"
-	
+	var endDateStr = $("#end_date").text().split('T');
 	$(document).ready(function() {
 		if(bidMax == 0){
 			$("#price :first-child").text(startPrice.toLocaleString('ko-KR') + "P");
@@ -133,6 +133,7 @@
 			$("#price :first-child").text(bidMax.toLocaleString('ko-KR') + "P");
 		}
 		$("#price :nth-child(2)").text("즉시구매가 " + price.toLocaleString('ko-KR') + "P");
+		$("#end_date").text("경매 마감: " + endDateStr[0] + " " + endDateStr[1]);
 	});
 	$("#chat").click(function(){
 		if(sellerId == myId){
