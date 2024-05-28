@@ -91,7 +91,7 @@
 										<% } %>
 									</div>
 									<p><%= sellList.get(i).getCategory() %></p>
-									<p><%= sellList.get(i).getAddress() %> | 종료일 <%= sellList.get(i).getEndDate() %></p>
+									<p class="end_date"><%= sellList.get(i).getAddress() %> | 종료일 <%= sellList.get(i).getEndDate() %></p>
 									<span class="badge badge-s">입찰가</span> 
 									<% if(sellList.get(i).getBidMax() == 0){ %>
 									<span><%= sellList.get(i).getStartPrice() %>P</span> 
@@ -163,6 +163,10 @@
             });
             
     		$(document).ready(function() {
+    			$(".end_date").each(function(){
+    				var str = $(this).text().split('T');
+    				$(this).text(str[0] + " " + str[1]);
+    			})
     			cardClick();
     		});
     		
