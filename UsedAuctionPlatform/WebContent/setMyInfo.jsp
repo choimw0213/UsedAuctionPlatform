@@ -1,3 +1,4 @@
+<%@page import="com.google.gson.JsonObject" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId eq null}">
@@ -209,6 +210,8 @@ label {
     </div>
     <form action="controller?cmd=setMyInfoAction" method="post" id="setMyInfoForm" onsubmit="hashFormData(event)">
       <div class="container">
+     
+      
         <div class="setMyInfoH1">
           <h1 class="fontJoinH1">회 원 정 보 수 정</h1>
         </div>
@@ -232,19 +235,19 @@ label {
 
           <div class="addNickname mt-0 mb-0" id="nicknameInputSpan">
             ㅤ<label>ㅤ ㅤㅤ닉네임ㅤ </label><input type="text" name="nickname"
-              class="inputTxt mt-0 mb-0" id="nickCheck">
+              class="inputTxt mt-0 mb-0" id="nickCheck" value="<%= request.getAttribute("nickname") %>">
 
           </div>
           <div class="mt-0 mb-0" id="nickCheckFeedBack"></div>
 
           <div class="addPhoneNumber mt-0 mb-0">
             ㅤㅤ<label>전화번호ㅤ</label><input type="text" name="phoneNumber"
-              class="inputTxt"><br>
+              class="inputTxt" value="<%= request.getAttribute("phoneNumber") %>"><br>
           </div>
 
           <div class="addEmail mt-0 mb-0">
             ㅤ<label>이메일ㅤ</label><input type="text" name="email"
-              class="inputTxt mb-4"><br>
+              class="inputTxt mb-4" value="<%= request.getAttribute("email") %>"><br>
           </div>
 
 
@@ -256,14 +259,14 @@ label {
             </div>
             <div class="mt-0 mb-3" id="citySelect">
               <select class="form-select mt-0 mb-4"
-                aria-label="Default select example" id="select-box"
+                aria-label="Default select example" id="cityAddress"
                 name="cityAddress">
-                <option selected class="selectItems">서울특별시</option>
+                <option value="서울특별시" class="selectItems">서울특별시</option>
               </select>
             </div>
             <div class="mt-1" id="districtSelect">
               <select class="form-select mt-4"
-                aria-label="Default select example" id="select-box"
+                aria-label="Default select example" id="districtAddress"
                 name="districtAddress">
                 <option value="강남구" class="selectItems">강남구</option>
                 <option value="강동구" class="selectItems">강동구</option>
@@ -293,7 +296,25 @@ label {
   </div>
 
 </body>
+<script>
+var ac = '<%= request.getAttribute("cityAddress")%>';
+console.log(ac);
+var cityAddressSelect = document.getElementById("cityAddress");
+
+cityAddressSelect.value = ac;
+
+
+var ad = '<%= request.getAttribute("districtAddress")%>';
+console.log(ad);
+var districtAddressSelect = document.getElementById("districtAddress");
+
+districtAddressSelect.value = ad;
+</script>
 <script type="text/javascript">
+
+
+
+
   //닉네임 중복체크
   $(document)
       .ready(

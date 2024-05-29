@@ -12,6 +12,7 @@ import controller.Action;
 import controller.URLModel;
 import service.JoinService;
 import service.SetMyInfoService;
+import service.UserService;
 import vo.UserVO;
 
 public class SetMyInfoAction implements Action {
@@ -24,6 +25,12 @@ public class SetMyInfoAction implements Action {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("userId");
 		
+
+		
+		 
+		
+		
+		
 		String pw = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
 		String phoneNumber = request.getParameter("phoneNumber");
@@ -33,13 +40,19 @@ public class SetMyInfoAction implements Action {
 		System.out.println(pw);
 		pw = SHA256.encrypt(pw);
 		System.out.println(pw);
-
+		
+		
+		
 		
 		if(new SetMyInfoService().setUser(id, pw, nickname, phoneNumber, email, address)){
-			page = "controller?cmd=loginUI";
+
+			session.setAttribute("userId", id);
+			session.setAttribute("nickname", nickname);
+			session.setAttribute("address", request.getParameter("districtAddress"));
+			page = "controller?cmd=mainUI";
 		}		
 		
-		
+		//false냐 true냐
 		return new URLModel(page, true);
 	}
 
