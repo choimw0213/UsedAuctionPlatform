@@ -24,6 +24,7 @@
 <title>메인 : 글 등록</title>
 </head>
 <body>
+
 <div id = "project_container">
 	<div id = top>
 		<img src="./images/icon/arrow.png">
