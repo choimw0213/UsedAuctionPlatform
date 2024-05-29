@@ -1,3 +1,4 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="dto.ProductBoxDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -7,6 +8,7 @@
 </c:if>
 <% ArrayList<ProductBoxDTO> buyList = (ArrayList<ProductBoxDTO>)request.getAttribute("buyList"); %>
 <% String type = (String)request.getAttribute("type"); %>
+<% DateTimeFormatter formmatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); %>
 <hr class="my-1">
 <c:if test="${empty buyList}">
 	<div class="card d-flex align-items-center border-0 mt-5 pt-5">
@@ -38,7 +40,7 @@
 				        <p><%= buyList.get(i).getCategory() %></p>
 				        <p><%= buyList.get(i).getAddress() %>
 				          | 종료일
-				          <%= buyList.get(i).getEndDate() %></p>
+				          <%= buyList.get(i).getEndDate().format(formmatter) %></p>
 				        <span class="badge badge-s">입찰가</span> 
 				        <% if(buyList.get(i).getBidMax() == 0){ %>
 				        <span><%= buyList.get(i).getStartPrice() %>P</span> 
@@ -69,7 +71,7 @@
                 <div id="item-title-group">
                   <h6 class="truncate"><%= buyList.get(i).getTitle() %></h6>
                   <p><%= buyList.get(i).getCategory() %></p>
-                  <p><%= buyList.get(i).getAddress() %> | 종료일 <%= buyList.get(i).getEndDate() %></p>
+                  <p><%= buyList.get(i).getAddress() %> | 종료일 <%= buyList.get(i).getEndDate().format(formmatter) %></p>
                   <span class="badge badge-e">판매가</span> 
                   <span><%= buyList.get(i).getBidMax() %>P</span> 
                   <span>입찰 <%= buyList.get(i).getBidCount() %>건</span>
