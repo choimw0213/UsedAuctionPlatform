@@ -26,8 +26,8 @@
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="uploaded/${productInfo.getImgURL()}" class="d-block w-100" alt="Image 1"
+            <div class="d-flex justify-content-center carousel-item active">
+                <img src="uploaded/${productInfo.getImgURL()}" class="d-block" alt="Image 1"
 				onerror="this.onerror=null; this.src='images/product/uploaded/logo.png'">
             </div>
         </div>
