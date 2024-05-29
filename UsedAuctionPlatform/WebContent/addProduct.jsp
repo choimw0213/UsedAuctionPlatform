@@ -53,7 +53,7 @@
 					<button class="btn btn-sm dropdown-toggle" type="button"
 						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">카테고리</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">카테고리</a>
+						<a class="dropdown-item active" href="#">카테고리</a>
 						<a class="dropdown-item" href="#">디지털 기기</a> 
 						<a class="dropdown-item" href="#">가구/인테리어</a> 
 						<a class="dropdown-item" href="#">유아동</a> 
@@ -71,7 +71,7 @@
 					<button class="btn btn-sm dropdown-toggle" type="button"
 						id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="region">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a>
+						<a class="dropdown-item active" href="#">강남구</a>
 						<a class="dropdown-item" href="#">강동구</a> 
 						<a class="dropdown-item" href="#">강북구</a> 
 						<a class="dropdown-item" href="#">강서구</a> 
@@ -116,10 +116,27 @@
 	<jsp:include page="/navbar_home.jsp"></jsp:include>
 </div>
 <script>
+	var userAddress = "${address}";
 	$(document).ready(function(){
-		console.log($("#category_value").val());
 		$("#regionBtn").text("${address}");
 		$("#region_value").val("${address}");
+		$("#region div > a").removeClass("active");
+		$("#region div > a").css("background-color", "transparend");
+		$("#region div > a").each(function(){
+			if(userAddress === $(this).text()){
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
+			}
+		})
+		$("#categoryBtn").text("카테고리");
+		$("#category div > a").removeClass("active");
+		$("#category div > a").css("background-color", "transparent");
+		$("#category div > a").each(function(){
+			if("카테고리" === $(this).text()){
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
+			}
+		})
 	})
 	$("input[type=file]").on("change", function(){
 		let container = document.getElementById("img_list_container");
@@ -133,28 +150,26 @@
 		}
 	})
 	$("#region div > a").on("click", function() {
-		console.log($(this).text());
 		$("#regionBtn").text($(this).text());
 		$("#region_value").val($(this).text());
-		$("#region div > a").removeClass("active bg-warning rounded-3");
-		$(this).addClass("active bg-warning rounded-3");
 	})
 			
 	$("#category div > a").on("click", function() {
-		console.log($(this).text());
 		$("#categoryBtn").text($(this).text());
 		$("#category_value").val($(this).text());
-		$("#category div > a").removeClass("active bg-warning rounded-3");
-		$(this).addClass("active bg-warning rounded-3");
 	})
 	
 	$("#region div > a").on('mousedown', function(){
-		$("#region div > a").removeClass("active bg-warning rounded-3");
-		$(this).addClass("active bg-warning rounded-3");
+		$("#region div > a").removeClass("active");
+		$("#region div > a").css("background-color", "transparent");
+		$(this).addClass("active");
+		$(this).css("background-color", "#FF922E");
 	})
 	$("#category div > a").on('mousedown', function(){
-		$("#category div > a").removeClass("active bg-warning rounded-3");
-		$(this).addClass("active bg-warning rounded-3");
+		$("#category div > a").removeClass("active");
+		$("#category div > a").css("background-color", "transparent");
+		$(this).addClass("active");
+		$(this).css("background-color", "#FF922E");
 	})
 	
 	$("#top img").on("click", function(){
