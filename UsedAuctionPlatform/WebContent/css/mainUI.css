@@ -100,9 +100,9 @@
 }
 .addProduct{
 	background-color: transparent;
-	position: relative; 
-	bottom: 10px; 
-	left: 130px;
+	position: absolute;
+	margin-left: 245px;
+	margin-top: 405px;
 }
 
 #addProduct{
