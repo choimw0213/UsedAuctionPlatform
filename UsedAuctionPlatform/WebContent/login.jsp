@@ -65,6 +65,14 @@
         </button>
       </div>
     </form>
+    
+    <% String messageContent = (String)session.getAttribute("messageContent"); %>
+    <% if(messageContent != null){ %>
+    <div id="alertMessage">
+        <%= messageContent %>
+    </div>
+    <% session.removeAttribute("messageContent"); } %>
+    
   </div>
 
   <script>
@@ -73,21 +81,37 @@
     var form = document.getElementById("loginForm");
     var formData = new FormData(form);  
     var password = formData.get("userPw");
+    if(password === ''){
+      form.submit();
+    	return;
+    }    
     var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
     document.getElementById("pw").value = hashedPassword;
     form.submit();
   }
-  $("button").on("click", function(){
-	  if($("#inputId").val() == ""){
-		  alert("아이디를 입력해주세요.");
-		  return false;
-	  }
-	  if($("#pw").val() == ""){
-		  alert("비밀번호를 입력해주세요.");
-		  return false;
-	  }
-  })
+//  $("button").on("click", function(){
+//	  if($("#inputId").val() == ""){
+//		  alert("아이디를 입력해주세요.");
+//		  return false;
+//	  }
+//	  if($("#pw").val() == ""){
+//		  alert("비밀번호를 입력해주세요.");
+//		  return false;
+//	  }
+//  })
   </script> 
+  
+	<script>
+	    setTimeout(function() {
+	        var alertElement = document.getElementById('alertMessage');
+	        if (alertElement) {
+	            alertElement.classList.add('fade');
+	            alertElement.addEventListener('transitionend', function() {
+	                alertElement.remove();
+	            });
+	        }
+	    }, 2000);
+	</script>
 
 </body>
 </html>
