@@ -35,7 +35,7 @@
 						id="regionBtn" data-bs-toggle="dropdown" aria-expanded="false">강남구</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
 						id="region">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">강남구</a> <a class="dropdown-item"
+						<a class="dropdown-item active" href="#">강남구</a> <a class="dropdown-item"
 							href="#">강동구</a> <a class="dropdown-item" href="#">강북구</a> <a
 							class="dropdown-item" href="#">강서구</a> <a class="dropdown-item"
 							href="#">관악구</a><a class="dropdown-item"
@@ -63,7 +63,7 @@
 					<button class="btn btn-sm dropdown-toggle" type="button"
 						id="categoryBtn" data-bs-toggle="dropdown" aria-expanded="false">전체</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">전체</a>
+						<a class="dropdown-item active" href="#">전체</a>
 						<a class="dropdown-item" href="#">디지털 기기</a> <a
 							class="dropdown-item" href="#">가구/인테리어</a> <a
 							class="dropdown-item" href="#">유아동</a> <a class="dropdown-item"
@@ -75,14 +75,14 @@
 					<button class="btn btn-sm dropdown-toggle" type="button"
 						id="hopelistBtn" data-bs-toggle="dropdown" aria-expanded="false">등록순</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item active bg-warning rounded-3" href="#">등록순</a>
+						<a class="dropdown-item active" href="#">등록순</a>
 						<a class="dropdown-item" href="#">입찰건순</a> <a
 							class="dropdown-item" href="#">마감임박순</a>
 					</div>
 				</div>
 			</div>
 		</div>	
-		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2"
+		<div class="row d-flex align-content-start justify-content-center overflow-y-auto w-100 h-100 p-2 pt-0"
 				id="scroll">			
 			<c:choose>
 				<c:when test="${empty list}">
@@ -156,14 +156,38 @@
 
 
 	<script>
+	
+		// 색변경
 		var userAddress = "${address}";
 		$("#regionBtn").text(userAddress);
-		$("#region div > a").removeClass("active bg-warning rounded-3");
+		$("#region div > a").removeClass("active");
+		$("#region div > a").css("background-color", "transparent");
 		$("#region div > a").each(function(){
 			if(userAddress === $(this).text()){
-				$(this).addClass("active bg-warning rounded-3");
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
 			}
 		})
+		$("#categoryBtn").text("전체");
+		$("#category div > a").removeClass("active");
+		$("#category div > a").css("background-color", "transparent");
+		$("#category div > a").each(function(){
+			if("전체" === $(this).text()){
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
+			}
+		})
+		
+		$("#hopelistBtn").text("등록순");
+		$("#hopelist div > a").removeClass("active");
+		$("#hopelist div > a").css("background-color", "transparent");
+		$("#hopelist div > a").each(function(){
+			if("등록순" === $(this).text()){
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
+			}
+		})
+
 		
 		// url 이동
 		$("#noti").on('click', function() {
@@ -173,7 +197,7 @@
 			location.href = "controller?cmd=addProductUI";
 		})
 		
-		$(document).ready(function() {	
+		$(document).ready(function() {
 			dropboxList();
 			getNoti();
 			getInfiniteNoti();
@@ -216,16 +240,22 @@
 
 			//마우스 눌렀을 경우 active 변화
 			$("#region div > a").on('mousedown',function() {
-				$("#region div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
+				$("#region div > a").removeClass("active");
+				$("#region div > a").css("background-color", "transparent");
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
 			})
 			$("#category div > a").on('mousedown',function() {
-				$("#category div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3");
+				$("#category div > a").removeClass("active");
+				$("#category div > a").css("background-color", "transparent");
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
 			})
 			$("#hopelist div > a").on('mousedown',function() {
-				$("#hopelist div > a").removeClass("active bg-warning rounded-3");
-				$(this).addClass("active bg-warning rounded-3")
+				$("#hopelist div > a").removeClass("active");
+				$("#hopelist div > a").css("background-color", "transparent");
+				$(this).addClass("active");
+				$(this).css("background-color", "#FF922E");
 			})
 		}
 		
@@ -327,30 +357,36 @@
 		
 		regionInit = function(){
 			$("#regionBtn").text(userAddress);
-			$("#region div > a").removeClass("active bg-warning rounded-3");
+			$("#region div > a").removeClass("active");
+			$("#region div > a").css("background-color", "transparent");
 			$("#region div > a").each(function(){
 				if(userAddress === $(this).text()){
-					$(this).addClass("active bg-warning rounded-3");
+					$(this).addClass("active");
+					$(this).css("background-color", "#FF922E");
 				}
 			})
 		}
 		
 		categoryInit = function(){
 			$("#categoryBtn").text("전체");
-			$("#category div > a").removeClass("active bg-warning rounded-3");
+			$("#category div > a").removeClass("active");
+			$("#category div > a").css("background-color", "transparent");
 			$("#category div > a").each(function(){
 				if("전체" === $(this).text()){
-					$(this).addClass("active bg-warning rounded-3");
+					$(this).addClass("active");
+					$(this).css("background-color", "#FF922E");
 				}
 			})
 		}
 		
 		hopeInit = function(){
 			$("#hopelistBtn").text("등록순");
-			$("#hopelist div > a").removeClass("active bg-warning rounded-3");
+			$("#hopelist div > a").removeClass("active");
+			$("#hopelist div > a").css("background-color", "transparent");
 			$("#hopelist div > a").each(function(){
 				if("등록순" === $(this).text()){
-					$(this).addClass("active bg-warning rounded-3");
+					$(this).addClass("active");
+					$(this).css("background-color", "#FF922E");
 				}
 			})
 		}

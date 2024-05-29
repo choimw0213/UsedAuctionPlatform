@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.dropdown-item:active{
+	background-color: #FF922E;
+}
+
 .thumbnail {
 	width: 80px;
 	height: 80px;
