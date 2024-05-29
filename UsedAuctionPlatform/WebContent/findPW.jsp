@@ -161,22 +161,43 @@ input:focus {
 				</div>
 			</form>
 		</div>
+		
+    <% String messageContent = (String)session.getAttribute("messageContent"); %>
+    <% if(messageContent != null){ %>
+    <div id="alertMessage">
+        <%= messageContent %>
+    </div>
+    <% session.removeAttribute("messageContent"); } %>
+		
 	</div>
 <script type="text/javascript">
 
-function submitInput(){
- var input1 = document.getElementById('id');
- var input2 = document.getElementById('email');
- var input3 = document.getElementById('name');
+//function submitInput(){
+// var input1 = document.getElementById('id');
+// var input2 = document.getElementById('email');
+// var input3 = document.getElementById('name');
  
- if(input1.value == ''|| input2.value == ''|| input3.value == ''){
-	alert('정보를 입력해주세요.') 
-	return false;		 
- } else {
-	true;
- }
+// if(input1.value == ''|| input2.value == ''|| input3.value == ''){
+//	alert('정보를 입력해주세요.') 
+//	return false;		 
+// } else {
+//	true;
+// }
  
- }
+// }
 </script>		
+
+<script>
+    setTimeout(function() {
+        var alertElement = document.getElementById('alertMessage');
+        if (alertElement) {
+            alertElement.classList.add('fade');
+            alertElement.addEventListener('transitionend', function() {
+                alertElement.remove();
+            });
+        }
+    }, 2000);
+</script>
+
 </body>
 </html>

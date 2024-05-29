@@ -122,7 +122,7 @@ input:focus {outline: none;}
 			<div class="setPWH1 mb-4">
 				<p class="fontFindPasswordH1 text-center">비밀번호 찾기</p>
 			</div>
-			<input type="hidden" name="id" value="<%= request.getAttribute("id") %>">
+			<input type="hidden" name="id" value="<%= session.getAttribute("id") %>">
 			<div class="setPW mt-4">
 				<label class="passwordH6 col-form-label">새 비밀번호ㅤ</label><input type="password" name="password" class="inputNewPW" id="password"><br>
 			</div>
@@ -139,44 +139,37 @@ input:focus {outline: none;}
 			</div>
 		</form>	
 		</div>
+		
+    <% String messageContent = (String)session.getAttribute("messageContent"); %>
+    <% if(messageContent != null){ %>
+    <div id="alertMessage">
+        <%= messageContent %>
+    </div>
+    <% session.removeAttribute("messageContent"); } %>
+		
 	</div>
 	<script type="text/javascript">
-	function passwordTest(){
-		 var input1 = document.getElementById('password');
-		 var input2 = document.getElementById('checkPassword');
-		
-		 
-		 if(input1.value == ''|| input2.value == ''){
-			alert('정보를 입력해주세요.') 
-			return false;		 
-		 } else {
-			true;
-		 }
-
-		
-		
-		
-		var p1 = document.getElementById('password').value;
-			var p2 = document.getElementById('checkPassword').value;
-			if (p1 != p2) {
-				alert("비밀번호가 일치 하지 않습니다.");
-				return false;
-			} else {
-				alert("비밀번호 변경 완료")
-				return true;
-			}
-			
-			
-
-			
-		}
-	
-		 
-	
-	
-	
-	
-	
+//	function passwordTest(){
+//		 var input1 = document.getElementById('password');
+//		 var input2 = document.getElementById('checkPassword');
+//		 
+//		 if(input1.value == ''|| input2.value == ''){
+//			alert('정보를 입력해주세요.') 
+//			return false;		 
+//		 } else {
+//			return true;
+//		 }
+//		
+//		var p1 = document.getElementById('password').value;
+//			var p2 = document.getElementById('checkPassword').value;
+//			if (p1 != p2) {
+//				alert("비밀번호가 일치 하지 않습니다.");
+//				return false;
+//			} else {
+//				alert("비밀번호 변경 완료")
+//				return true;
+//			}			
+//		}
 	</script>
 
   <script>
@@ -185,11 +178,27 @@ input:focus {outline: none;}
     var form = document.getElementById("setPWForm");
     var formData = new FormData(form);  
     var password = formData.get("password");
+    if(password === ''){
+        form.submit();
+        return;
+    }    
     var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
     document.getElementById("password").value = hashedPassword;
     form.submit();
   }
-  </script> 
+  </script>
+  
+	<script>
+	    setTimeout(function() {
+	        var alertElement = document.getElementById('alertMessage');
+	        if (alertElement) {
+	            alertElement.classList.add('fade');
+	            alertElement.addEventListener('transitionend', function() {
+	                alertElement.remove();
+	            });
+	        }
+	    }, 2000);
+	</script>  
 	
 </body>
 </html>
