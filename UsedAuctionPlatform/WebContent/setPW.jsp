@@ -178,12 +178,15 @@ input:focus {outline: none;}
     var form = document.getElementById("setPWForm");
     var formData = new FormData(form);  
     var password = formData.get("password");
-    if(password === ''){
+    var checkPassword = formData.get("checkPassword");
+    if(password === '' || checkPassword === ''){
         form.submit();
         return;
     }    
     var hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    var hashedCheckPassword = CryptoJS.SHA256(checkPassword).toString(CryptoJS.enc.Hex);
     document.getElementById("password").value = hashedPassword;
+    document.getElementById("checkPassword").value = hashedCheckPassword;
     form.submit();
   }
   </script>

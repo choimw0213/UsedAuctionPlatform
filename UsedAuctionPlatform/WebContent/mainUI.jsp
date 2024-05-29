@@ -145,6 +145,13 @@
 			</c:choose>		
 		</div>
 
+    <% String messageContent = (String)session.getAttribute("messageContent"); %>
+    <% if(messageContent != null){ %>
+    <div id="alertMessage">
+        <%= messageContent %>
+    </div>
+    <% session.removeAttribute("messageContent"); } %>
+
 		<div class="row d-flex addProduct">
 			<button class="btn btn-primary floating-btn border-0" id="addProduct">
 				<i class="fi fi-br-plus"></i>
@@ -415,6 +422,19 @@
 		}
 		
 	</script>
+	
+  <script>
+      setTimeout(function() {
+          var alertElement = document.getElementById('alertMessage');
+          if (alertElement) {
+              alertElement.classList.add('fade');
+              alertElement.addEventListener('transitionend', function() {
+                  alertElement.remove();
+              });
+          }
+      }, 2000);
+  </script>
+	
 </body>
 </html>
 
