@@ -35,7 +35,7 @@
 			<div class="img_container">
 				<label for="input_file">
 					<img id="camera" src="./images/icon/camera.png">
-					<span id="img-count">0</span><span>/5</span>
+					<span id="img-count">0</span><span>/1</span>
 				</label>
 				<input type="file" id="input_file" name="file" accept="image/*" multiple>
 			</div>
