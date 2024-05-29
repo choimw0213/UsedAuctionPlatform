@@ -329,7 +329,7 @@ districtAddressSelect.value = ad;
                           .remove();
                       $
                           .post(
-                              "controller?cmd=nickCheckAction",
+                              "controller?cmd=sessionNickCheckAction",
                               {
                                 nick : nick
                               },

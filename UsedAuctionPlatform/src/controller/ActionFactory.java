@@ -22,6 +22,7 @@ import controller.action.NickCheckAction;
 import controller.action.ReportAction;
 import controller.action.SearchAction;
 import controller.action.SellListAction;
+import controller.action.SessionNickCheckAction;
 import controller.action.SetMyInfoAction;
 import controller.action.SetPWAction;
 import controller.action.SetRateAction;
@@ -175,6 +176,9 @@ public class ActionFactory {
 				break;
 			case "getNotiListAction" :
 				action = new GetNotiListAction();
+				break;
+			case "sessionNickCheckAction":
+				action = new SessionNickCheckAction();
 				break;
 			default:
 				action = new ErrorUI();
