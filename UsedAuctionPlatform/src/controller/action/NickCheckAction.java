@@ -4,23 +4,40 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import controller.Action;
 import controller.URLModel;
 import service.DuplicationService;
+import service.UserService;
+import vo.UserVO;
 
 public class NickCheckAction implements Action {
 
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("userId");
 		
-		String id = request.getParameter("nick");
-
+		UserVO vo = new UserService().getUsers(id);
+		String nickname = vo.getNickName();
+		
+		
+		String nick = request.getParameter("nick");
+		
 		
 		String result = null;
+		boolean check = false;
 		
-		if(new DuplicationService().nickCheck(id)){
+		
+		check = new DuplicationService().nickCheck(nick);
+		
+		if(nick == nickname){
+			check = false;
+		}
+		
+		if(check){
 			result = "다른 유저가 사용중인 닉네임입니다.";
 		} else {
 			result = "사용할 수 있는 닉네임입니다.";
