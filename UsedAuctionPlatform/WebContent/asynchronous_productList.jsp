@@ -15,7 +15,7 @@
 	</c:when>
 	<c:otherwise>
 		<c:forEach items='${list}' var='p'>
-			<div class="card d-flex align-items-center border-0 p-2"
+			<div class="card d-flex align-items-center border-0 p-2 productlist"
 				data-productseq="${p.getProductSeq()}">
 				<div class="row align-content-center w-100">
 					<div class="d-flex align-items-center justify-content-center p-0">

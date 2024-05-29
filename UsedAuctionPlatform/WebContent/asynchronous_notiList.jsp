@@ -17,7 +17,7 @@
 			id="scroll">
 
 			<c:forEach items='${list}' var='p'>
-				<div class="card d-flex align-items-center border-0 ps-2 pe-2"
+				<div class="card d-flex align-items-center border-0 ps-2 pe-2 productlist"
 					data-productseq="${p.getProductSeq()}">
 					<div class="row align-content-center w-100">
 						<div
