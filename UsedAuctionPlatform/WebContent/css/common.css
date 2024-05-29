@@ -142,3 +142,7 @@ nav{
 	vertical-align: middle;
 	border-radius: 4px;
 }
+
+.dropdown-item:active{
+	background-color: #FF922E;
+}
