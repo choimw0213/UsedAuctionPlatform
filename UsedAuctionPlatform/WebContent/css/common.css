@@ -147,10 +147,6 @@ nav{
 	background-color: #FF922E;
 }
 
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s linear;
-}
 #alertMessage {
     background-color: #FF922E;
     border-color: #FF922E;
