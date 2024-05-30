@@ -16,6 +16,7 @@ public class BidAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		String messageContent = "";
 		
 		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
 		int bidPrice = Integer.parseInt(request.getParameter("bidPrice"));
@@ -24,8 +25,12 @@ public class BidAction implements Action {
 		boolean result = new ProductService().addBid(productSeq, userId, bidPrice);
 		if(new NotiService().addNoti(productSeq)){}
 		
-		String page = "productInfoUI&productSeq=" + productSeq;
+		if(result == true){
+			if(request.getParameter("state").equals("0")) messageContent = "입찰완료!";
+			else if(request.getParameter("state").equals("1")) messageContent = "구매완료!";
+			session.setAttribute("messageContent", messageContent);
+		}
 		
-		return new URLModel("controller?cmd=" + page, true);
+		return new URLModel("controller?cmd=productInfoUI&productSeq=" + productSeq, true);
 	}
 }

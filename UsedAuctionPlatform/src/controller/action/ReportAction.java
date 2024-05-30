@@ -15,13 +15,21 @@ public class ReportAction implements Action {
 	@Override
 	public URLModel execute(HttpServletRequest request) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		String messageContent = "";
+		
 		String userId = (String) session.getAttribute("userId");
 		int productSeq = Integer.parseInt(request.getParameter("productSeq"));
 		String reportContent = request.getParameter("reportContent");
 		
 		boolean result = new ReportService().addReport(userId, productSeq, reportContent);
 		
-		String page = "productInfoUI&productSeq=" + productSeq;
-		return new URLModel("controller?cmd=" + page, true);
+		if(result == true){
+			messageContent = "신고가 접수되었습니다!";
+			session.setAttribute("messageContent", messageContent);
+		}else {
+			
+		}
+		
+		return new URLModel("controller?cmd=productInfoUI&productSeq="+productSeq, true);
 	}
 }
