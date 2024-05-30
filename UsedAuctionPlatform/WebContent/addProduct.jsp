@@ -1,25 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:if test="${userId eq null}">
 	<c:redirect url = "controller?cmd=loginUI"/>
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous" 
-/>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/addProduct.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8">
 <title>메인 : 글 등록</title>
 </head>
@@ -114,6 +105,7 @@
 		<input type="submit" value="등록">
 	</form>
 	</div>
+	<div id="alertMessage" style="display: none;"></div>
 	<jsp:include page="/navbar_home.jsp"></jsp:include>
 </div>
 <script>
@@ -177,27 +169,72 @@
 		history.back();
 	})
 	
-	$("input[name=start_price]").on("change", function(){
-		var price = Number($("input[name=price]").val());
-		var bid_price = Number($(this).val());
-		if(bid_price >= price){
-			alert("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
-			this.value = null;
-		}
-	})
+//	$("input[name=start_price]").on("change", function(){
+//		var price = Number($("input[name=price]").val());
+//		var bid_price = Number($(this).val());
+//		if(bid_price >= price){
+//			alert("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
+//			this.value = null;
+//		}
+//	})
 	
-	function addSubmit(){
-		if($("#input_file").val() == ""){
-			alert("상품 이미지를 등록해주세요!");
-			return false;
-		}
-		if($("#category_value").val() == "카테고리"){
-			alert("카테고리를 선택해주세요!");
-			return false;
-		}
-		return true;
-	}
+//	function addSubmit(){
+//		if($("#input_file").val() == ""){
+//			alert("상품 이미지를 등록해주세요!");
+//			return false;
+//		}
+//		if($("#category_value").val() == "카테고리"){
+//			alert("카테고리를 선택해주세요!");
+//			return false;
+//		}
+//		return true;
+//	}
 </script>
+
+<script>
+    function showMessage(message) {
+        var messageDiv = document.getElementById('alertMessage');
+        messageDiv.innerHTML = message; 
+        messageDiv.style.display = 'block'; 
+        fadeOutMessage(messageDiv);
+    }
+
+    function fadeOutMessage(alertElement) {
+        setTimeout(function() {
+            if (alertElement) {
+                alertElement.classList.add('fade');
+                alertElement.addEventListener('transitionend', function() {
+                    alertElement.innerHTML = '';
+                    alertElement.style.display = 'none';
+                    alertElement.classList.remove('fade');
+                });
+            }
+        }, 2000);
+    }
+
+    $("input[name=start_price]").on("change", function(){
+        var price = Number($("input[name=price]").val());
+        var bid_price = Number($(this).val());
+        if(bid_price >= price){
+            showMessage("경매시작금액은 즉시구매금액 보다 적어야 합니다!");
+            this.value = null;
+        }
+    });
+
+    function addSubmit(){
+        if($("#input_file").val() == ""){
+            showMessage("상품 이미지를 등록해주세요!");
+            return false;
+        }
+        if($("#category_value").val() == "카테고리"){
+            showMessage("카테고리를 선택해주세요!");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
 </body>
 </html>
 
