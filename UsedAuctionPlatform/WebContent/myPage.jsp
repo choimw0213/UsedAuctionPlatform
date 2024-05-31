@@ -425,9 +425,10 @@
 
           if (actPoint !== 0) {
             var message = (actPoint > 0) ? "포인트 충전 완료." : "포인트 환전 완료.";
-            showMessage(message);
+            //showMessage(message);
             $('#chargeModal, #exchangeModal').modal('hide');
             location.reload();
+            //showMessage(message);
           } else {
             showMessage('알 수 없는 오류가 발생했습니다.');
           }

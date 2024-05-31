@@ -177,12 +177,12 @@ sendBtn.addEventListener('click', function() {
         	chatContent: chatContent 
        	},
         success: function(response) {
-            alert("채팅 메시지가 전송에 성공했습니다.");
+            //alert("채팅 메시지가 전송에 성공했습니다.");
             document.querySelector('#chatContent').value = "";
             //location.reload();
         },
         error: function(xhr, status, error) {
-            alert("채팅 메시지 전송에 실패했습니다.");
+            //alert("채팅 메시지 전송에 실패했습니다.");
             document.querySelector('#chatContent').value = "";
         }
     });
